@@ -204,12 +204,12 @@ the method. TTLM-name mapping so spec and code don't drift: **G** = HuggingFace/
 
 | Axis · value | ✅ Have (infra + tested) | ➕ Add |
 | :---- | :---- | :---- |
-| Access · closed API (black-box) | LiteLLM backend; GPT-4o(-mini) tested | Anthropic (Claude), Gemini via LiteLLM — verify text-only BB |
-| Access · open (WB reference + proxy) | HuggingFace backend; Llama-3-8B tested | Llama-4, Qwen3, Mistral |
+| Access · closed API (black-box) | LiteLLM backend; GPT-4o(-mini) tested; **Anthropic (Claude) + Gemini now in the registry** (`hc_benchmark/generators.py`), text-only BB check via `scripts/verify_provider.py` | — |
+| Access · open (WB reference + proxy) | HuggingFace backend; Llama-3.1-8B, Llama-3.3-70B, Qwen3-8B, Mistral-7B in the registry | Llama-4 when hosted |
 | Type · LLM | ✅ (both backends) | — |
-| Type · **LRM (reasoning)** | ❌ | closed (o-series, Claude/Gemini thinking) + open (DeepSeek-R1, Qwen thinking); **reasoning-trace handling** |
-| Role · target | ✅ | configure the full closed + open target set |
-| Role · **proxy (small open)** | ❌ | **small Llama / Qwen / Mistral as proxy substrate (for M-family P)** |
+| Type · **LRM (reasoning)** | **registry flags Claude/Gemini thinking + open DeepSeek-R1 / Qwen3; `reasoning_trace` policy per model** | o-series; wire the HF generation path for open LRMs |
+| Role · target | ✅ full closed (OpenAI/Anthropic/Gemini) + open target set in the registry | — |
+| Role · **proxy (small open)** | **Llama-3.2-1B / 3B, Mistral-7B, Qwen3-8B tagged `PROXY`** (P-family substrate; DisAAD's own proxy scale) | — |
 
 *G summary: both backends already exist, so G is mostly configuration, not code — except two real
 builds: **reasoning-trace handling** for LRMs (does the method see the trace or only the answer?) and

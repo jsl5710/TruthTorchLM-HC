@@ -21,5 +21,14 @@ truncation rather than N separate runs.
 
 from .config import BenchmarkConfig, load_config
 from .cache import GenerationCache
+from .generators import GENERATORS, GeneratorSpec, get_generator, generators_for
 
-__all__ = ["BenchmarkConfig", "load_config", "GenerationCache"]
+__all__ = [
+    "BenchmarkConfig",
+    "load_config",
+    "GenerationCache",
+    "GENERATORS",
+    "GeneratorSpec",
+    "get_generator",
+    "generators_for",
+]

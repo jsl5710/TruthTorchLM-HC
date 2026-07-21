@@ -54,7 +54,8 @@ def generate_stage_a(
         print(f"[Stage A] cache hit: {cache.path.name} ({len(cache)} items) -- skipping.")
         return cache
 
-    if config.generator_backend == "litellm":
+    backend = config.resolved_backend()
+    if backend == "litellm":
         generate_fn = _generate_fn or _default_api_generate
         sample_fn = _sample_fn or _default_api_sample
     else:
@@ -64,6 +65,10 @@ def generate_stage_a(
             "litellm backend for API targets."
         )
 
+    # Resolve the friendly generator name (e.g. 'claude-opus-4-8') to the provider-qualified
+    # model string LiteLLM expects (e.g. 'anthropic/claude-opus-4-8'). See generators.py.
+    model = config.model_string()
+
     dataset = get_dataset(config.dataset, size_of_data=config.size_of_data, seed=seed)
     dec = config.decoding
 
@@ -72,12 +77,12 @@ def generate_stage_a(
         messages = _build_messages(data, user_prompt, system_prompt)
 
         primary = generate_fn(
-            model=config.generator, messages=messages,
+            model=model, messages=messages,
             temperature=dec.temperature, top_p=dec.top_p, max_tokens=dec.max_tokens,
             seed=seed,
         )
         samples = sample_fn(
-            model=config.generator, messages=messages, number_of_generations=config.n_max,
+            model=model, messages=messages, number_of_generations=config.n_max,
             temperature=dec.sample_temperature, top_p=dec.sample_top_p,
             max_tokens=dec.max_tokens, generation_seed=seed,
         )

@@ -70,6 +70,33 @@ class BenchmarkConfig:
     api_endpoint: str = "unspecified"
     notes: str = ""
 
+    def model_string(self) -> str:
+        """The actual model string to pass to the backend.
+
+        If ``generator`` is a registry key (e.g. ``claude-opus-4-8``), returns the
+        provider-qualified id LiteLLM/HF expects (``anthropic/claude-opus-4-8``);
+        otherwise returns ``generator`` verbatim, so an ad-hoc id still works.
+        """
+        spec = self.resolve_generator()
+        return spec.model_id if spec is not None else self.generator
+
+    def resolved_backend(self) -> str:
+        """Backend for this generator, taken from the registry when available."""
+        spec = self.resolve_generator()
+        return spec.backend if spec is not None else self.generator_backend
+
+    def resolve_generator(self):
+        """The :class:`GeneratorSpec` for this config's generator, if it's in the registry.
+
+        Lets a config name a target by friendly key (``claude-opus-4-8``) and have the
+        backend, LiteLLM/HF model id, access level, and reasoning-trace policy filled in
+        from one place. Returns None for an ad-hoc model id not in the registry, in which
+        case ``generator``/``generator_backend`` are used verbatim.
+        """
+        from .generators import GENERATORS
+
+        return GENERATORS.get(self.generator)
+
     def __post_init__(self):
         bad = [n for n in self.n_sweep if n > self.n_max]
         if bad:

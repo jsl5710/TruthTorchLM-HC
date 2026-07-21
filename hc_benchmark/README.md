@@ -39,6 +39,33 @@ python -m hc_benchmark.run --config hc_benchmark/configs/smoke.yaml
 `smoke.yaml` is the round-one acceptance test (≈50 items, one API generator, two
 black-box methods, N∈{1,5}). `health_primary.yaml` is a representative research config.
 
+### Targets (the G axis)
+
+Generators live in one registry, [`generators.py`](generators.py), so a config names a
+target by a **friendly key** and the harness fills in the provider-qualified model string,
+backend, access level, and reasoning-trace policy. Adding a target is a config edit, not
+code.
+
+| Provider | Key example | Resolves to | Key env var |
+|---|---|---|---|
+| OpenAI | `gpt-4o-mini` | `gpt-4o-mini` | `OPENAI_API_KEY` |
+| Anthropic | `claude-opus-4-8` | `anthropic/claude-opus-4-8` | `ANTHROPIC_API_KEY` |
+| Gemini | `gemini-2.5-pro` | `gemini/gemini-2.5-pro` | `GEMINI_API_KEY` |
+| Open (HF) | `llama-3.1-8b` | `meta-llama/Llama-3.1-8B-Instruct` | — (hosted) |
+
+Ready-to-run configs: `configs/anthropic_claude.yaml`, `configs/gemini.yaml`,
+`configs/open_llama.yaml`. Closed APIs are black-box targets; open models are white-box
+(the reference line + the small-proxy substrate the P family needs). The registry also
+flags reasoning models (Claude/Gemini thinking, DeepSeek-R1, Qwen3) and records whether a
+UQ method sees the trace or only the answer.
+
+**Before a real Claude/Gemini run**, confirm the API is genuinely text-only black-box:
+
+```bash
+export ANTHROPIC_API_KEY=...  GEMINI_API_KEY=...
+python scripts/verify_provider.py anthropic gemini
+```
+
 ## What is deliberately left to the launch script
 
 - **Method construction** (`run.build_methods`) is code, not config: a `TruthMethod` may

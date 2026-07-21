@@ -32,6 +32,10 @@ _STANDALONE_MODULES = {
     "TruthTorchLM.utils.access_level": SRC / "TruthTorchLM/utils/access_level.py",
     "TruthTorchLM.instrumentation.timing": SRC / "TruthTorchLM/instrumentation/timing.py",
     "TruthTorchLM.instrumentation.stats": SRC / "TruthTorchLM/instrumentation/stats.py",
+    "TruthTorchLM.evaluators.correctness_evaluator": SRC
+    / "TruthTorchLM/evaluators/correctness_evaluator.py",
+    "TruthTorchLM.evaluators.mcq_match": SRC / "TruthTorchLM/evaluators/mcq_match.py",
+    "TruthTorchLM.utils.hc_datasets": SRC / "TruthTorchLM/utils/hc_datasets.py",
 }
 
 
@@ -41,6 +45,7 @@ def _install_stub_package() -> None:
         ("TruthTorchLM", SRC / "TruthTorchLM"),
         ("TruthTorchLM.utils", SRC / "TruthTorchLM/utils"),
         ("TruthTorchLM.instrumentation", SRC / "TruthTorchLM/instrumentation"),
+        ("TruthTorchLM.evaluators", SRC / "TruthTorchLM/evaluators"),
     ):
         if name not in sys.modules:
             pkg = types.ModuleType(name)
@@ -48,6 +53,7 @@ def _install_stub_package() -> None:
             sys.modules[name] = pkg
     sys.modules["TruthTorchLM"].utils = sys.modules["TruthTorchLM.utils"]
     sys.modules["TruthTorchLM"].instrumentation = sys.modules["TruthTorchLM.instrumentation"]
+    sys.modules["TruthTorchLM"].evaluators = sys.modules["TruthTorchLM.evaluators"]
 
     for dotted, path in _STANDALONE_MODULES.items():
         if dotted in sys.modules:

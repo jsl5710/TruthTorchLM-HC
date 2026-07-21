@@ -15,6 +15,9 @@ from sklearn.metrics import (
 import pandas as pd
 import numpy as np
 import warnings
+from contextlib import nullcontext
+
+from TruthTorchLM.instrumentation.timing import capture
 
 from TruthTorchLM.utils.calibration_metrics import (
     CALIBRATION_METRIC_NAMES,
@@ -444,9 +447,23 @@ def run_truth_methods_over_dataset( output_dict: dict,
     truth_methods: list = [],
     batch_generation=True,
     seed: int = 0,
-    return_method_details: bool = False):
+    return_method_details: bool = False,
+    collect_timing: bool = False,
+    concurrent_sampling: bool = False,
+    max_workers: int = None):
+    """Score every cached generation with every truth method (benchmark Stage C).
 
-    output_dict["truth_methods"] = [] 
+    ``collect_timing`` records one :class:`TimingRecord` per item under
+    ``output_dict["timing_records"]``. Sampling is shared across the method list
+    (protocol §6), so the per-method auxiliary-compute spans inside each record are
+    labelled with the method's class name and split out by Stage D -- a single wall clock
+    around the loop would credit one method's draws to all of them.
+
+    ``concurrent_sampling`` selects the parallel arm of the §5 serial-vs-concurrent
+    comparison for API targets. It changes latency only, not which samples are drawn.
+    """
+
+    output_dict["truth_methods"] = []
     for i in range(len(truth_methods)):
         output_dict["truth_methods"].append(
             f"{truth_methods[i].__class__.__name__}")
@@ -457,47 +474,60 @@ def run_truth_methods_over_dataset( output_dict: dict,
         if return_method_details:
             output_dict[f"truth_method_{i}"]["method_specific_details"] = []
 
+    if collect_timing:
+        output_dict["timing_records"] = []
+
     generation_dicts = output_dict['generation_dicts']
     #go over output_dict and generation_dicts
     for i in tqdm(range(len(generation_dicts))):
+        timing_ctx = (
+            capture(item_index=i, concurrent_sampling=concurrent_sampling)
+            if collect_timing
+            else nullcontext(None)
+        )
         question = output_dict["question_text"][i]
         context = output_dict["contexts"][i]
         messages = generation_dicts[i]["messages"]
         kwargs = generation_dicts[i]['kwargs']
-        if type(model) == str:
-            response = generation_dicts[i]['response']
-            generated_text= generation_dicts[i]['generated_text']
-            logprobs = generation_dicts[i]['logprobs']
-            generated_tokens = generation_dicts[i]['generated_tokens']
-            
-            
-            truth_dict = run_truth_methods(model = model,
-                                            messages = messages,
-                                            generated_text = generated_text,
-                                            question=question,
-                                            truth_methods = truth_methods,
-                                            generation_seed = seed,
-                                            context = context,
-                                            logprobs=logprobs,
-                                            generated_tokens=generated_tokens,
-                                            **kwargs)
-        else:
-            model_output = generation_dicts[i]['model_output']
-            generated_text= generation_dicts[i]['generated_text']
-            text = generation_dicts[i]['text']
-            truth_dict = run_truth_methods(model = model,
-                                   messages = messages,
-                                   question=question,
-                                   truth_methods = truth_methods,
-                                   tokenizer = tokenizer,
-                                   generation_seed = seed,   
-                                   context = context,
-                                   text = text,
-                                   generated_text = generated_text,
-                                   model_output = model_output,
-                                   batch_generation = batch_generation,
-                                   **kwargs)
-            
+        with timing_ctx as timing_record:
+            if type(model) == str:
+                response = generation_dicts[i]['response']
+                generated_text= generation_dicts[i]['generated_text']
+                logprobs = generation_dicts[i]['logprobs']
+                generated_tokens = generation_dicts[i]['generated_tokens']
+
+                truth_dict = run_truth_methods(model = model,
+                                                messages = messages,
+                                                generated_text = generated_text,
+                                                question=question,
+                                                truth_methods = truth_methods,
+                                                generation_seed = seed,
+                                                context = context,
+                                                logprobs=logprobs,
+                                                generated_tokens=generated_tokens,
+                                                concurrent_sampling=concurrent_sampling,
+                                                max_workers=max_workers,
+                                                **kwargs)
+            else:
+                model_output = generation_dicts[i]['model_output']
+                generated_text= generation_dicts[i]['generated_text']
+                text = generation_dicts[i]['text']
+                truth_dict = run_truth_methods(model = model,
+                                       messages = messages,
+                                       question=question,
+                                       truth_methods = truth_methods,
+                                       tokenizer = tokenizer,
+                                       generation_seed = seed,
+                                       context = context,
+                                       text = text,
+                                       generated_text = generated_text,
+                                       model_output = model_output,
+                                       batch_generation = batch_generation,
+                                       **kwargs)
+
+        if collect_timing and timing_record is not None:
+            output_dict["timing_records"].append(timing_record.as_dict())
+
         for j in range(len(truth_methods)):
             output_dict[f"truth_method_{j}"]["truth_values"].append(
                 truth_dict["unnormalized_truth_values"][j]

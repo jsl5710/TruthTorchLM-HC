@@ -30,18 +30,24 @@ _STANDALONE_MODULES = {
     "TruthTorchLM.utils.calibration_metrics": SRC / "TruthTorchLM/utils/calibration_metrics.py",
     "TruthTorchLM.utils.safety_metrics": SRC / "TruthTorchLM/utils/safety_metrics.py",
     "TruthTorchLM.utils.access_level": SRC / "TruthTorchLM/utils/access_level.py",
+    "TruthTorchLM.instrumentation.timing": SRC / "TruthTorchLM/instrumentation/timing.py",
+    "TruthTorchLM.instrumentation.stats": SRC / "TruthTorchLM/instrumentation/stats.py",
 }
 
 
 def _install_stub_package() -> None:
     """Register TruthTorchLM / TruthTorchLM.utils as namespace shells, then load leaves."""
-    for name, path in (("TruthTorchLM", SRC / "TruthTorchLM"),
-                       ("TruthTorchLM.utils", SRC / "TruthTorchLM/utils")):
+    for name, path in (
+        ("TruthTorchLM", SRC / "TruthTorchLM"),
+        ("TruthTorchLM.utils", SRC / "TruthTorchLM/utils"),
+        ("TruthTorchLM.instrumentation", SRC / "TruthTorchLM/instrumentation"),
+    ):
         if name not in sys.modules:
             pkg = types.ModuleType(name)
             pkg.__path__ = [str(path)]
             sys.modules[name] = pkg
     sys.modules["TruthTorchLM"].utils = sys.modules["TruthTorchLM.utils"]
+    sys.modules["TruthTorchLM"].instrumentation = sys.modules["TruthTorchLM.instrumentation"]
 
     for dotted, path in _STANDALONE_MODULES.items():
         if dotted in sys.modules:
@@ -50,7 +56,8 @@ def _install_stub_package() -> None:
         module = importlib.util.module_from_spec(spec)
         sys.modules[dotted] = module
         spec.loader.exec_module(module)
-        setattr(sys.modules["TruthTorchLM.utils"], dotted.rsplit(".", 1)[1], module)
+        parent, leaf = dotted.rsplit(".", 1)
+        setattr(sys.modules[parent], leaf, module)
 
 
 try:  # pragma: no cover - depends on the local environment

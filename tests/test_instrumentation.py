@@ -116,16 +116,17 @@ class TestStageAttribution:
         cheap scorer inherits an expensive one's sampling bill."""
         with capture() as rec:
             with stage(Stage.EXTRA_GENERATION, "shared_samples", n=10):
-                time.sleep(0.06)
+                time.sleep(0.20)
             with stage(Stage.AUXILIARY_COMPUTE, "VerbalizedConfidence"):
-                time.sleep(0.005)
+                pass  # a genuinely cheap scorer does almost no auxiliary work
             with stage(Stage.AUXILIARY_COMPUTE, "DiscreteSemanticEntropy"):
-                time.sleep(0.04)
+                time.sleep(0.15)
 
         cheap = rec.label_ms("VerbalizedConfidence")
         expensive = rec.label_ms("DiscreteSemanticEntropy")
         assert cheap < expensive
-        assert cheap < 30  # nowhere near the 60ms of shared sampling
+        assert cheap < 50  # nowhere near the 200ms of shared sampling
+        assert expensive == pytest.approx(150, abs=80)
 
     def test_span_is_recorded_even_when_the_body_raises(self):
         """A method that dies after 40 seconds is a latency fact, not a lost measurement."""

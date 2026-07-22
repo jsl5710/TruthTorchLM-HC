@@ -12,7 +12,8 @@ answer" can be resolved several ways — an `abstain` primary fans out into a **
 Primary actions:
 
     APPROVE   deliver the response to the user as-is
-    CLARIFY   rewrite the message / ask the user to resolve an ambiguity (a loop, not a ship)
+    CLARIFY   respond directly asking the user to resolve an ambiguity, then answer (a normal
+              conversational turn, not a safety stop)
     ABSTAIN   do not ship this answer; then pick a handoff ↓
 
 Abstain handoffs (how the abstention is resolved):
@@ -93,9 +94,11 @@ _DECISIONS = [
         typical_trigger="high UQ confidence + no risk flag + grounded + in-domain (OOD gate pass).",
     ),
     RoutingDecision(
-        PrimaryAction.CLARIFY, None, cost_tier=1, ships_answer=False, is_safe_stop=True,
-        description="Rewrite the message or ask the user a clarifying question, then re-gate.",
-        typical_trigger="ambiguous / underspecified query — uncertainty is about intent, not knowledge.",
+        PrimaryAction.CLARIFY, None, cost_tier=1, ships_answer=True, is_safe_stop=False,
+        description="Respond directly to the user asking for clarification, then answer once "
+                    "the ambiguity is resolved. A normal conversational turn, not a safety stop.",
+        typical_trigger="the model needs clarification before it can answer — ambiguous / "
+                        "underspecified query (uncertainty is about intent, not knowledge).",
     ),
     RoutingDecision(
         PrimaryAction.ABSTAIN, None, cost_tier=1, ships_answer=False, is_safe_stop=True,

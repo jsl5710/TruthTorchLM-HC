@@ -93,13 +93,21 @@ class TestCostOrdering:
 
 
 class TestSafetyInvariants:
-    def test_approve_is_the_only_ship_as_is(self):
+    def test_approve_delivers_the_candidate_unchanged(self):
         approve = next(d for d in r.decision_space() if d.primary is PrimaryAction.APPROVE)
         assert approve.ships_answer and not approve.is_safe_stop
+        assert "unchanged" in approve.description
 
-    def test_clarify_plain_abstain_and_human_are_safe_stops(self):
+    def test_clarify_is_a_direct_response_not_a_safe_stop(self):
+        """clarify is a normal conversational turn: the model responds directly asking for
+        clarification, then answers -- it is NOT a safety mechanism."""
+        clarify = next(d for d in r.decision_space() if d.primary is PrimaryAction.CLARIFY)
+        assert clarify.ships_answer is True
+        assert clarify.is_safe_stop is False
+
+    def test_only_plain_abstain_and_human_are_safe_stops(self):
         safe = {d.label for d in r.decision_space() if d.is_safe_stop}
-        assert safe == {"clarify", "abstain", "abstain→escalate_human"}
+        assert safe == {"abstain", "abstain→escalate_human"}
 
     def test_the_regeneration_handoffs_ship_a_re_gated_answer(self):
         for label in ("abstain→rag", "abstain→escalate_larger_llm"):

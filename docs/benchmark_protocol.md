@@ -89,7 +89,7 @@ primary actions** — `approve`, `clarify`, `abstain` — where `abstain` fans o
 | Decision | Ships answer? | Safe stop? | When |
 | :--- | :---: | :---: | :--- |
 | **approve** | ✓ | — | confident + safe + grounded + in-domain → deliver as-is |
-| **clarify** | — | ✓ | ambiguous / underspecified query → rewrite the message or ask the user |
+| **clarify** | ✓ | — | model needs clarification before it can answer → respond directly asking the user, then answer |
 | **abstain** (plain) | — | ✓ | out-of-domain or a safety boundary, no useful handoff → safe refusal |
 | abstain → **rag** | ✓ | — | unsupported / hallucinated claim while a KB exists → retrieve grounding + regenerate |
 | abstain → **escalate_larger_llm** | ✓ | — | hard-reasoning failure the base model can't self-correct |

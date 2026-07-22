@@ -113,6 +113,23 @@ class TestDisAADScorerConfig:
         with pytest.raises(RuntimeError, match="trained proxy"):
             method._score_with_proxy("prompt", "response")
 
+    def test_requires_training_flag_and_is_ready(self):
+        """DisAAD advertises that it needs a prep step, and is_ready reflects it."""
+        assert dis.DisAAD.REQUIRES_TRAINING is True
+        method = dis.DisAAD(mode="au")           # nothing loaded, no path
+        assert method.is_ready() is False
+
+    def test_is_ready_true_when_proxy_path_has_a_manifest(self, tmp_path):
+        from hc_benchmark.disaad_train import DisAADTrainingConfig, write_training_manifest
+
+        write_training_manifest(
+            DisAADTrainingConfig(teacher_model="gpt-4o-mini", proxy_output_path=str(tmp_path)),
+            str(tmp_path),
+        )
+        method = dis.DisAAD(mode="au", proxy_path=str(tmp_path))
+        assert method.is_ready() is True
+        assert dis.DisAAD.is_trained(str(tmp_path)) is True
+
 
 class TestTeacherStudentWiring:
     def test_api_teacher_maps_to_the_api_data_path(self):

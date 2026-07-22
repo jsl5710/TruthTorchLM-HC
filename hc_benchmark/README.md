@@ -66,6 +66,37 @@ export ANTHROPIC_API_KEY=...  GEMINI_API_KEY=...
 python scripts/verify_provider.py anthropic gemini
 ```
 
+## Which methods need a prep step first?
+
+Most methods are inference-only — construct and run. **Two** need a preparation step, and
+the readiness report tells you which, and whether the prep is done:
+
+| Component | Needs | Ready when |
+| :--- | :--- | :--- |
+| **DisAAD** | a distilled proxy (offline teacher→student training) | a training manifest (`disaad_ready.json`) sits next to the proxy — written automatically when `train_proxy()` finishes |
+| **OOD-PCA gate** | a one-time `PCAGate(...).fit(kb_documents)` | the gate has been fitted (`gate.is_ready()`) |
+
+Check status at a glance — before a run, and to confirm a cluster training job finished:
+
+```bash
+python -m hc_benchmark.readiness --proxy-path hc_benchmark/disaad/proxy
+```
+
+```
+Method readiness — 8/10 ready to run
+READY NOW:
+  ✓ DiscreteSemanticEntropy   inference-only — ready to run
+  ✓ SPUQ / IUQ / NCB / ...     inference-only — ready to run
+NEEDS A PREP STEP FIRST:
+  ✗ DisAAD                     no trained proxy — cannot score yet
+      → Train a proxy on the GPU server via hc_benchmark/disaad_train.train_proxy(...) ...
+```
+
+The DisAAD row flips to `✓ proxy ready … (teacher=…, student=…, trained_at=…)` the moment
+the training job writes its manifest — so a user who didn't run the training still knows,
+instantly, that a proxy is present and usable. `DisAAD.from_pretrained(path)` also refuses a
+directory without that manifest, so you never silently score against a half-trained proxy.
+
 ## What is deliberately left to the launch script
 
 - **Method construction** (`run.build_methods`) is code, not config: a `TruthMethod` may

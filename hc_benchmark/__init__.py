@@ -19,10 +19,13 @@ isolates generation latency out of the method comparison and makes the N-sweep a
 truncation rather than N separate runs.
 """
 
+# Lightweight, dependency-free surfaces load eagerly. The Stage-A generators pull in the
+# full TruthTorchLM/ML stack, so they load lazily via __getattr__ below -- that keeps
+# `import hc_benchmark` (and the readiness report, config, generator registry) usable
+# without torch installed, e.g. to check what needs preparing before a cluster run.
 from .config import BenchmarkConfig, load_config
 from .cache import GenerationCache
 from .generators import GENERATORS, GeneratorSpec, get_generator, generators_for
-from .stage_a_generate import generate_stage_a, generate_stage_a_local
 
 __all__ = [
     "BenchmarkConfig",
@@ -35,3 +38,17 @@ __all__ = [
     "get_generator",
     "generators_for",
 ]
+
+_LAZY = {
+    "generate_stage_a": ".stage_a_generate",
+    "generate_stage_a_local": ".stage_a_generate",
+}
+
+
+def __getattr__(name):
+    if name in _LAZY:
+        import importlib
+
+        module = importlib.import_module(_LAZY[name], __name__)
+        return getattr(module, name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

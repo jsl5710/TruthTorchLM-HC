@@ -18,15 +18,62 @@ Two stages, two official scripts:
   2. ``train_disaad.py``  — distribution-aligned adversarial distillation of the proxy.
 """
 
+import json
 import subprocess
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 
 __all__ = ["DisAADTrainingConfig", "build_data_builder_command", "build_train_command",
-           "collect_distillation_data", "train_proxy"]
+           "collect_distillation_data", "train_proxy",
+           "TRAINING_MANIFEST_NAME", "write_training_manifest", "read_training_manifest",
+           "is_proxy_trained"]
 
 # The official scripts live in the pinned submodule; we invoke, never import/copy them.
 _DISAAD_SCRIPTS = Path("third_party/DisAAD/scripts")
+
+# A completion marker written next to a trained proxy. Its presence is the signal that
+# "training finished, this proxy is ready to use" -- so DisAAD scoring and the readiness
+# report can tell a ready proxy from an empty/half-written output directory.
+TRAINING_MANIFEST_NAME = "disaad_ready.json"
+
+
+def write_training_manifest(config: "DisAADTrainingConfig", proxy_path: str = None) -> Path:
+    """Stamp a proxy directory as trained-and-ready. Called on successful training."""
+    proxy_path = Path(proxy_path or config.proxy_output_path)
+    proxy_path.mkdir(parents=True, exist_ok=True)
+    manifest = {
+        "ready": True,
+        "method": "DisAAD",
+        "teacher_model": config.teacher_model,
+        "student_model": config.student_model,
+        "teacher_is_api": config.teacher_is_api,
+        "dataset": config.dataset,
+        "train_num_samples": config.train_num_samples,
+        "epochs": config.epochs,
+        "seed": config.seed,
+        "trained_at": datetime.now(timezone.utc).isoformat(),
+    }
+    path = proxy_path / TRAINING_MANIFEST_NAME
+    path.write_text(json.dumps(manifest, indent=2))
+    return path
+
+
+def read_training_manifest(proxy_path: str) -> dict:
+    """Return the training manifest for a proxy dir, or None if it isn't trained/ready."""
+    path = Path(proxy_path) / TRAINING_MANIFEST_NAME
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text())
+    except (json.JSONDecodeError, OSError):
+        return None
+    return data if data.get("ready") else None
+
+
+def is_proxy_trained(proxy_path: str) -> bool:
+    """True if ``proxy_path`` holds a completed DisAAD proxy (has a ready manifest)."""
+    return read_training_manifest(proxy_path) is not None
 
 
 @dataclass
@@ -143,5 +190,8 @@ def train_proxy(config: DisAADTrainingConfig, dry_run: bool = False):
     subprocess.run(data_cmd, check=True)
     print("[DisAAD] Stage 1-2: adversarially distilling the proxy ...")
     subprocess.run(train_cmd, check=True)
-    print(f"[DisAAD] proxy written to {config.proxy_output_path}")
+    # Mark the proxy ready so DisAAD scoring / the readiness report know it can be used.
+    write_training_manifest(config)
+    print(f"[DisAAD] proxy written to {config.proxy_output_path} "
+          f"(marked ready: {TRAINING_MANIFEST_NAME})")
     return config.proxy_output_path

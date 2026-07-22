@@ -88,6 +88,11 @@ class PCAGate:
     IN_DOMAIN = 1
     OUT_OF_DOMAIN = 0
 
+    # Not a trained model, but it does need a one-time per-KB fit before use. Surfaced so
+    # the readiness report treats an unfitted gate the same way it treats an untrained
+    # proxy: "prepare this before you run".
+    REQUIRES_FIT = True
+
     def __init__(
         self,
         embed_fn: Callable,
@@ -154,3 +159,7 @@ class PCAGate:
     def is_in_domain(self, query: str) -> bool:
         """True if a single query falls inside the KB's domain."""
         return bool(self.predict([query])[0] == self.IN_DOMAIN)
+
+    def is_ready(self) -> bool:
+        """True once :meth:`fit` has been run on a KB — checked before gating queries."""
+        return self._clf is not None

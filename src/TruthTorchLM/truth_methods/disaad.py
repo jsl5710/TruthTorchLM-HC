@@ -102,6 +102,18 @@ class DisAAD(TruthMethod):
     REQUIRES_SAMPLED_TEXT = False
     NUM_TARGET_CALLS = 1  # only the user's answer; the proxy pass is auxiliary compute
 
+    # Readiness signalling: DisAAD is the one method that needs an offline training step
+    # (a distilled proxy) before it can score. The benchmark's readiness report and the
+    # error messages below use this so users learn a proxy is needed *before* a run, and
+    # can tell when one is trained and ready.
+    REQUIRES_TRAINING = True
+    TRAINING_HINT = (
+        "Train a proxy on the GPU server: "
+        "`from hc_benchmark.disaad_train import DisAADTrainingConfig, train_proxy; "
+        "train_proxy(DisAADTrainingConfig(teacher_model=..., student_model=...))`, "
+        "then load it with `DisAAD.from_pretrained(proxy_path)`."
+    )
+
     def __init__(
         self,
         proxy_model: PreTrainedModel = None,
@@ -109,6 +121,7 @@ class DisAAD(TruthMethod):
         mode: str = "au",
         top_k: int = 10,
         device: str = "cuda",
+        proxy_path: str = None,
     ):
         super().__init__()
         if mode not in ("au", "eu", "msp", "entropy"):
@@ -118,17 +131,48 @@ class DisAAD(TruthMethod):
         self.mode = mode
         self.top_k = top_k
         self.device = device
+        self.proxy_path = proxy_path
+
+    def is_ready(self) -> bool:
+        """True if a trained proxy is loaded (or a ready proxy is on disk at ``proxy_path``).
+
+        Lets callers check readiness *before* a run instead of hitting an error mid-scoring.
+        """
+        if self.proxy_model is not None and self.proxy_tokenizer is not None:
+            return True
+        if self.proxy_path is not None:
+            return self.is_trained(self.proxy_path)
+        return False
+
+    @staticmethod
+    def is_trained(proxy_path: str) -> bool:
+        """True if ``proxy_path`` holds a completed proxy (has the training-ready manifest)."""
+        from hc_benchmark.disaad_train import is_proxy_trained
+
+        return is_proxy_trained(proxy_path)
 
     @classmethod
     def from_pretrained(cls, proxy_path: str, mode: str = "au", top_k: int = 10,
-                        device: str = "cuda", **kwargs):
-        """Load a trained proxy checkpoint into a scorer (run on the cluster)."""
+                        device: str = "cuda", allow_unverified: bool = False, **kwargs):
+        """Load a trained proxy checkpoint into a scorer (run on the cluster).
+
+        Refuses a proxy directory that lacks the training-ready manifest — that usually
+        means training didn't finish, or the path is wrong. Pass ``allow_unverified=True``
+        to load a proxy trained outside this harness (no manifest).
+        """
+        if not allow_unverified and not cls.is_trained(proxy_path):
+            raise RuntimeError(
+                f"No DisAAD training manifest at '{proxy_path}' — the proxy is not marked "
+                f"trained/ready. If training is still running or didn't finish, wait for it "
+                f"to complete. {cls.TRAINING_HINT} "
+                f"To load a proxy trained outside this harness, pass allow_unverified=True."
+            )
         from transformers import AutoModelForCausalLM, AutoTokenizer
 
         model = AutoModelForCausalLM.from_pretrained(proxy_path, **kwargs).to(device)
         tokenizer = AutoTokenizer.from_pretrained(proxy_path)
         return cls(proxy_model=model, proxy_tokenizer=tokenizer, mode=mode, top_k=top_k,
-                   device=device)
+                   device=device, proxy_path=proxy_path)
 
     def _token_uncertainty(self, logits_vector: np.ndarray) -> float:
         if self.mode == "au":

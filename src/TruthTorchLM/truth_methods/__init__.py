@@ -10,6 +10,7 @@ from .num_semantic_set_uncertainty import NumSemanticSetUncertainty
 from .discrete_semantic_entropy import DiscreteSemanticEntropy
 from .lexical_similarity import LexicalSimilarity
 from .eigv import EigV
+from .spuq import SPUQ
 from .sum_eigen_uncertainty import SumEigenUncertainty
 from .self_detection import SelfDetection
 from .inside import Inside
@@ -45,6 +46,7 @@ __all__ = [
     "DiscreteSemanticEntropy",
     "LexicalSimilarity",
     "EigV",
+    "SPUQ",
     "SumEigenUncertainty",
     "SelfDetection",
     "TokenSAR",

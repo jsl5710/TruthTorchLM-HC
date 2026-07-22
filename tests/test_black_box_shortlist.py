@@ -42,3 +42,12 @@ def test_verbalized_confidence_is_black_box():
 def test_num_semantic_set_is_black_box():
     """The cluster-count consistency method needs sampled text only."""
     assert access_level(NumSemanticSetUncertainty) is AccessLevel.BLACK_BOX
+
+
+def test_spuq_is_black_box_but_not_a_shared_cache_method():
+    """SPUQ perturbs the prompt, so it makes its own target calls rather than reading the
+    shared sample cache -- but it is still text-only, so black-box (Gao et al. EACL 2024)."""
+    from TruthTorchLM.truth_methods import SPUQ
+
+    assert access_level(SPUQ) is AccessLevel.BLACK_BOX
+    assert SPUQ.REQUIRES_SAMPLED_TEXT is False

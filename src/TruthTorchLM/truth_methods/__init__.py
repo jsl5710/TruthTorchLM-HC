@@ -11,6 +11,7 @@ from .discrete_semantic_entropy import DiscreteSemanticEntropy
 from .lexical_similarity import LexicalSimilarity
 from .eigv import EigV
 from .spuq import SPUQ
+from .disaad import DisAAD, evidential_aleatoric, evidential_epistemic, max_softmax_probability, softmax_entropy
 from .neighbor_consistency_belief import neighbor_consistency_belief, aggregate_neighbor_probs, dominant_answer_probability, neighbor_accuracy
 from .sum_eigen_uncertainty import SumEigenUncertainty
 from .self_detection import SelfDetection
@@ -48,6 +49,7 @@ __all__ = [
     "LexicalSimilarity",
     "EigV",
     "SPUQ",
+    "DisAAD",
     "neighbor_consistency_belief",
     "aggregate_neighbor_probs",
     "dominant_answer_probability",

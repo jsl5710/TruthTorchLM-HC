@@ -82,13 +82,27 @@ components. This question is what justifies a multi-component architecture over 
 
 **Q6 — A learned routing engine (MoE) over intervention actions.** Can we learn a policy mapping the
 combined signals — UQ score, risk flags, grounding result, and the OOD/competence gate — to the next
-action: approve→user, rewrite-loop, escalate to a larger LLM, or human-in-the-loop? The
-MoE/learned-gating question is whether that formulation is justified over the rule-based MVP policy,
-given the router must jointly optimize safety-recall, over-refusal, and the latency/cost of escalation
-(escalating to a larger model or a human is expensive — the router solves an accuracy–safety–cost
-trade, not just a classification). Open sub-question: the training signal — offline logs, simulated
-outcomes, or RL on a composite reward. This is the Intervention & Routing Engine, and its escalation
-actions make it a consumer of the UQ signal validated in Q5.
+action? The **action space** (defined in `hc_benchmark/routing_actions.py`), cheapest → most
+expensive:
+
+| Action | Ships answer? | Safe stop? | When |
+| :--- | :---: | :---: | :--- |
+| **approve** | ✓ | — | confident + safe + grounded + in-domain → deliver as-is |
+| **rewrite** | ✓ | — | fixable in place → self-correction loop on the same model, then re-gate |
+| **clarify** | — | ✓ | ambiguous / underspecified query → ask the user a clarifying question |
+| **abstain** | — | ✓ | out-of-domain or a safety boundary, no useful escalation → safe refusal |
+| **escalate → RAG** | ✓ | — | unsupported / hallucinated claim while a KB exists → retrieve + regenerate |
+| **escalate → larger LLM** | ✓ | — | hard-reasoning failure the base model can't self-correct |
+| **escalate → human** | — | ✓ | safety-critical (crisis, prescriptive advice) → human-in-the-loop (highest cost) |
+
+Each action carries a **cost tier**, because the router solves an accuracy–safety–cost trade, not a
+plain classification: escalating to a larger model or a human is expensive, so the objective is the
+*cheapest adequate* action — approve when safe, reach for an expensive escalation only when the signals
+demand it. The MoE/learned-gating question is whether that formulation is justified over the rule-based
+MVP policy, given the router must jointly optimize safety-recall, over-refusal, and escalation cost.
+Open sub-question: the training signal — offline logs, simulated outcomes, or RL on a composite reward.
+This is the Intervention & Routing Engine, and its escalation actions make it a consumer of the UQ
+signal validated in Q5.
 
 *This protocol operationalizes Q1 and Q2 directly; Q3–Q6 depend on components tracked in the research
 plan's answerability map (chain-of-interaction construct, multi-outcome labels, routing engine).*

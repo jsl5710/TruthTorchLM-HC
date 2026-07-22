@@ -40,11 +40,11 @@ class TestTaxonomy:
     def test_three_primary_actions(self):
         assert {a.value for a in PrimaryAction} == {"approve", "clarify", "abstain"}
 
-    def test_abstain_handoffs_are_rag_tool_and_the_three_escalations(self):
+    def test_abstain_handoffs_are_rag_and_the_two_escalations(self):
         assert {h.value for h in AbstainHandoff} == {
-            "rag_tool", "escalate_rag", "escalate_larger_llm", "escalate_human",
+            "rag", "escalate_larger_llm", "escalate_human",
         }
-        assert r.ABSTAIN_HANDOFFS[0] is AbstainHandoff.RAG_TOOL  # cheapest handoff first
+        assert r.ABSTAIN_HANDOFFS[0] is AbstainHandoff.RAG  # cheapest handoff first
 
     def test_only_abstain_carries_a_handoff(self):
         for d in r.decision_space():
@@ -53,7 +53,7 @@ class TestTaxonomy:
 
     def test_a_handoff_under_a_non_abstain_primary_is_rejected(self):
         with pytest.raises(ValueError, match="ABSTAIN"):
-            r.RoutingDecision(PrimaryAction.APPROVE, AbstainHandoff.RAG_TOOL,
+            r.RoutingDecision(PrimaryAction.APPROVE, AbstainHandoff.RAG,
                               cost_tier=0, ships_answer=True, is_safe_stop=False,
                               description="x", typical_trigger="x")
 
@@ -68,7 +68,7 @@ class TestTaxonomy:
     def test_labels(self):
         labels = {d.label for d in r.decision_space()}
         assert "approve" in labels and "clarify" in labels and "abstain" in labels
-        assert "abstain→escalate_human" in labels and "abstain→rag_tool" in labels
+        assert "abstain→escalate_human" in labels and "abstain→rag" in labels
 
 
 class TestCostOrdering:
@@ -89,7 +89,7 @@ class TestCostOrdering:
     def test_human_costs_more_than_larger_llm_costs_more_than_rag(self):
         by = {d.handoff: d.cost_tier for d in r.decision_space() if d.handoff}
         assert by[AbstainHandoff.ESCALATE_HUMAN] > by[AbstainHandoff.ESCALATE_LARGER_LLM]
-        assert by[AbstainHandoff.ESCALATE_LARGER_LLM] >= by[AbstainHandoff.RAG_TOOL]
+        assert by[AbstainHandoff.ESCALATE_LARGER_LLM] >= by[AbstainHandoff.RAG]
 
 
 class TestSafetyInvariants:
@@ -102,7 +102,7 @@ class TestSafetyInvariants:
         assert safe == {"clarify", "abstain", "abstain→escalate_human"}
 
     def test_the_regeneration_handoffs_ship_a_re_gated_answer(self):
-        for label in ("abstain→rag_tool", "abstain→escalate_rag", "abstain→escalate_larger_llm"):
+        for label in ("abstain→rag", "abstain→escalate_larger_llm"):
             d = next(x for x in r.decision_space() if x.label == label)
             assert d.ships_answer and not d.is_safe_stop  # answer produced, then re-gated
 

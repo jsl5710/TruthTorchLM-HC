@@ -17,8 +17,7 @@ Primary actions:
 
 Abstain handoffs (how the abstention is resolved):
 
-    RAG_TOOL             retrieve context inline and retry with the same model (a tool call)
-    ESCALATE_RAG         hand off to a RAG system (retrieve + regenerate elsewhere)
+    RAG                  retrieve grounding context and regenerate, then re-gate
     ESCALATE_LARGER_LLM  hand off to a larger / reasoning model
     ESCALATE_HUMAN       human-in-the-loop review (highest cost)
     (none)               plain safe refusal — decline with no downstream
@@ -50,16 +49,14 @@ class PrimaryAction(str, Enum):
 class AbstainHandoff(str, Enum):
     """How an ABSTAIN is resolved. Only valid when the primary action is ABSTAIN."""
 
-    RAG_TOOL = "rag_tool"                    # inline retrieval + retry (same model)
-    ESCALATE_RAG = "escalate_rag"            # hand off to a RAG system
+    RAG = "rag"                              # retrieve grounding context and regenerate
     ESCALATE_LARGER_LLM = "escalate_larger_llm"
     ESCALATE_HUMAN = "escalate_human"
 
 
 #: The handoff options offered under ABSTAIN, cheapest → most expensive.
 ABSTAIN_HANDOFFS = [
-    AbstainHandoff.RAG_TOOL,
-    AbstainHandoff.ESCALATE_RAG,
+    AbstainHandoff.RAG,
     AbstainHandoff.ESCALATE_LARGER_LLM,
     AbstainHandoff.ESCALATE_HUMAN,
 ]
@@ -106,15 +103,9 @@ _DECISIONS = [
         typical_trigger="out-of-domain (OOD gate fail) or a safety boundary with no useful handoff.",
     ),
     RoutingDecision(
-        PrimaryAction.ABSTAIN, AbstainHandoff.RAG_TOOL, cost_tier=2, ships_answer=True,
+        PrimaryAction.ABSTAIN, AbstainHandoff.RAG, cost_tier=2, ships_answer=True,
         is_safe_stop=False,
-        description="Retrieve context inline (RAG tool) and retry with the same model, then re-gate.",
-        typical_trigger="minor grounding gap a bit of retrieved context can close, without a full handoff.",
-    ),
-    RoutingDecision(
-        PrimaryAction.ABSTAIN, AbstainHandoff.ESCALATE_RAG, cost_tier=2, ships_answer=True,
-        is_safe_stop=False,
-        description="Hand off to a RAG system: retrieve grounding evidence and regenerate, then re-gate.",
+        description="Retrieve grounding context (RAG) and regenerate, then re-gate.",
         typical_trigger="unsupported / possibly-hallucinated factual claim while a relevant KB exists.",
     ),
     RoutingDecision(

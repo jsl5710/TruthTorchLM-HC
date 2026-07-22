@@ -91,8 +91,7 @@ primary actions** — `approve`, `clarify`, `abstain` — where `abstain` fans o
 | **approve** | ✓ | — | confident + safe + grounded + in-domain → deliver as-is |
 | **clarify** | — | ✓ | ambiguous / underspecified query → rewrite the message or ask the user |
 | **abstain** (plain) | — | ✓ | out-of-domain or a safety boundary, no useful handoff → safe refusal |
-| abstain → **rag_tool** | ✓ | — | minor grounding gap → retrieve context inline and retry (same model) |
-| abstain → **escalate_rag** | ✓ | — | unsupported / hallucinated claim while a KB exists → RAG system regenerates |
+| abstain → **rag** | ✓ | — | unsupported / hallucinated claim while a KB exists → retrieve grounding + regenerate |
 | abstain → **escalate_larger_llm** | ✓ | — | hard-reasoning failure the base model can't self-correct |
 | abstain → **escalate_human** | — | ✓ | safety-critical (crisis, prescriptive advice) → human-in-the-loop (highest cost) |
 

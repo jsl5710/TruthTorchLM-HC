@@ -7,6 +7,7 @@ from .p_true import PTrue
 from .eccentricity_uncertainty import EccentricityUncertainty
 from .matrix_degree_uncertainty import MatrixDegreeUncertainty
 from .num_semantic_set_uncertainty import NumSemanticSetUncertainty
+from .discrete_semantic_entropy import DiscreteSemanticEntropy
 from .sum_eigen_uncertainty import SumEigenUncertainty
 from .self_detection import SelfDetection
 from .inside import Inside
@@ -39,6 +40,7 @@ __all__ = [
     "EccentricityUncertainty",
     "MatrixDegreeUncertainty",
     "NumSemanticSetUncertainty",
+    "DiscreteSemanticEntropy",
     "SumEigenUncertainty",
     "SelfDetection",
     "TokenSAR",

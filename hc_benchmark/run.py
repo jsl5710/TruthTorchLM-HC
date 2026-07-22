@@ -23,16 +23,30 @@ from .stage_c_score import score_stage_c
 from .stage_d_evaluate import aggregate_seeds, evaluate_method
 
 
-def build_methods():
+def build_methods(entailment_device: str = "cuda"):
     """The UQ methods to score. Black-box only for round one (see the §1 filter).
 
-    NumSemanticSetUncertainty is the discrete/cluster-count consistency method -- the
-    text-only workhorse that stands in for SemanticEntropy, which is grey-box here.
+    - VerbalizedConfidence: the cheap single-pass VB floor.
+    - DiscreteSemanticEntropy: the text-only SC workhorse (Farquhar et al. Nature 2024) --
+      the authentic replacement for grey-box SemanticEntropy in this regime.
+    - NumSemanticSetUncertainty: cluster *count*, kept as a cheaper SC reference point
+      (DSE is the cluster-assignment *entropy* over the same clustering).
+
+    ``entailment_device`` is where the NLI clustering model loads; pass "cpu" for a
+    CPU-only smoke run.
     """
-    from TruthTorchLM.truth_methods import NumSemanticSetUncertainty, VerbalizedConfidence
+    from TruthTorchLM.truth_methods import (
+        DiscreteSemanticEntropy,
+        NumSemanticSetUncertainty,
+        VerbalizedConfidence,
+    )
     from TruthTorchLM.utils.access_level import is_black_box
 
-    methods = [VerbalizedConfidence(), NumSemanticSetUncertainty(number_of_generations=5)]
+    methods = [
+        VerbalizedConfidence(),
+        DiscreteSemanticEntropy(number_of_generations=5, entailment_model_device=entailment_device),
+        NumSemanticSetUncertainty(number_of_generations=5, entailment_model_device=entailment_device),
+    ]
 
     non_bb = [type(m).__name__ for m in methods if not is_black_box(m)]
     if non_bb:

@@ -14,6 +14,7 @@ pytest.importorskip(
 )
 
 from TruthTorchLM.truth_methods import (  # noqa: E402
+    DiscreteSemanticEntropy,
     NumSemanticSetUncertainty,
     SemanticEntropy,
     VerbalizedConfidence,
@@ -25,6 +26,13 @@ def test_semantic_entropy_is_grey_box_not_black_box():
     """The finding that reshapes the shortlist -- see protocol §1."""
     assert SemanticEntropy.REQUIRES_SAMPLED_LOGPROBS is True
     assert access_level(SemanticEntropy) is AccessLevel.GREY_BOX
+
+
+def test_discrete_semantic_entropy_is_black_box():
+    """DSE is the text-only SC workhorse that replaces grey-box SemanticEntropy in this
+    regime (Farquhar et al. Nature 2024; jlko/semantic_uncertainty)."""
+    assert DiscreteSemanticEntropy.REQUIRES_SAMPLED_LOGPROBS is False
+    assert access_level(DiscreteSemanticEntropy) is AccessLevel.BLACK_BOX
 
 
 def test_verbalized_confidence_is_black_box():

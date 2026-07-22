@@ -37,14 +37,18 @@ def build_methods(entailment_device: str = "cuda"):
     """
     from TruthTorchLM.truth_methods import (
         DiscreteSemanticEntropy,
+        EigV,
+        LexicalSimilarity,
         NumSemanticSetUncertainty,
         VerbalizedConfidence,
     )
     from TruthTorchLM.utils.access_level import is_black_box
 
     methods = [
-        VerbalizedConfidence(),
+        VerbalizedConfidence(),                                     # VB single-pass floor
+        LexicalSimilarity(number_of_generations=5),                # SC, similarity-only (no NLI)
         DiscreteSemanticEntropy(number_of_generations=5, entailment_model_device=entailment_device),
+        EigV(number_of_generations=5, entailment_model_device=entailment_device),      # SC, graph-spectral
         NumSemanticSetUncertainty(number_of_generations=5, entailment_model_device=entailment_device),
     ]
 

@@ -1,8 +1,9 @@
-"""Routing action space (protocol Q6).
+"""Routing action space (protocol Q6) — the two-level decision taxonomy.
 
-Pins the taxonomy the routing engine selects over: the seven actions, their cost ordering
-(cheapest-adequate objective), and the safety invariants (which actions never ship an
-unreviewed answer). Pure enum/dataclass — loads standalone.
+Pins the structure the routing engine selects over: three primary actions (approve /
+clarify / abstain), abstain's fan-out into handoffs, the cost ordering (cheapest-adequate
+objective), and the safety invariants (which decisions never ship an unreviewed answer).
+Pure enum/dataclass — loads standalone.
 """
 
 import importlib.util
@@ -31,73 +32,88 @@ def _load():
 
 
 r = _load()
-RoutingAction = r.RoutingAction
-EscalationTarget = r.EscalationTarget
+PrimaryAction = r.PrimaryAction
+AbstainHandoff = r.AbstainHandoff
 
 
 class TestTaxonomy:
-    def test_the_seven_actions_exist(self):
-        assert {a.value for a in RoutingAction} == {
-            "approve", "rewrite", "clarify", "abstain",
-            "escalate_rag", "escalate_larger_llm", "escalate_human",
+    def test_three_primary_actions(self):
+        assert {a.value for a in PrimaryAction} == {"approve", "clarify", "abstain"}
+
+    def test_abstain_handoffs_are_rag_tool_and_the_three_escalations(self):
+        assert {h.value for h in AbstainHandoff} == {
+            "rag_tool", "escalate_rag", "escalate_larger_llm", "escalate_human",
         }
+        assert r.ABSTAIN_HANDOFFS[0] is AbstainHandoff.RAG_TOOL  # cheapest handoff first
 
-    def test_every_action_has_a_spec(self):
-        assert set(r.ACTIONS) == set(RoutingAction)
+    def test_only_abstain_carries_a_handoff(self):
+        for d in r.decision_space():
+            if d.handoff is not None:
+                assert d.primary is PrimaryAction.ABSTAIN
 
-    def test_escalation_targets_cover_rag_llm_human(self):
-        targets = {s.escalates_to for s in r.ACTIONS.values() if s.escalates_to}
-        assert targets == {EscalationTarget.RAG, EscalationTarget.LARGER_LLM,
-                           EscalationTarget.HUMAN}
+    def test_a_handoff_under_a_non_abstain_primary_is_rejected(self):
+        with pytest.raises(ValueError, match="ABSTAIN"):
+            r.RoutingDecision(PrimaryAction.APPROVE, AbstainHandoff.RAG_TOOL,
+                              cost_tier=0, ships_answer=True, is_safe_stop=False,
+                              description="x", typical_trigger="x")
+
+    def test_every_primary_is_represented_and_abstain_has_plain_plus_handoffs(self):
+        primaries = [d.primary for d in r.decision_space()]
+        assert PrimaryAction.APPROVE in primaries and PrimaryAction.CLARIFY in primaries
+        abstains = [d for d in r.decision_space() if d.primary is PrimaryAction.ABSTAIN]
+        # plain abstain (handoff None) + one per handoff
+        assert sum(1 for d in abstains if d.handoff is None) == 1
+        assert {d.handoff for d in abstains if d.handoff} == set(AbstainHandoff)
+
+    def test_labels(self):
+        labels = {d.label for d in r.decision_space()}
+        assert "approve" in labels and "clarify" in labels and "abstain" in labels
+        assert "abstain→escalate_human" in labels and "abstain→rag_tool" in labels
 
 
 class TestCostOrdering:
-    def test_approve_is_cheapest_and_human_is_most_expensive(self):
-        ordered = r.actions_by_cost()
-        assert ordered[0].action is RoutingAction.APPROVE
-        assert ordered[-1].action is RoutingAction.ESCALATE_HUMAN
+    def test_approve_cheapest_human_most_expensive(self):
+        ordered = r.decisions_by_cost()
+        assert ordered[0].primary is PrimaryAction.APPROVE
+        assert ordered[-1].handoff is AbstainHandoff.ESCALATE_HUMAN
 
-    def test_cost_is_monotonic_non_decreasing(self):
-        tiers = [s.cost_tier for s in r.actions_by_cost()]
+    def test_cost_monotonic_non_decreasing(self):
+        tiers = [d.cost_tier for d in r.decisions_by_cost()]
         assert tiers == sorted(tiers)
 
-    def test_escalations_cost_more_than_in_place_actions(self):
-        in_place = max(r.ACTIONS[a].cost_tier for a in
-                       [RoutingAction.APPROVE, RoutingAction.REWRITE,
-                        RoutingAction.CLARIFY, RoutingAction.ABSTAIN])
-        escalations = min(r.ACTIONS[a].cost_tier for a in
-                          [RoutingAction.ESCALATE_RAG, RoutingAction.ESCALATE_LARGER_LLM,
-                           RoutingAction.ESCALATE_HUMAN])
-        assert escalations > in_place
+    def test_handoffs_cost_more_than_in_place_primaries(self):
+        in_place = max(d.cost_tier for d in r.decision_space() if d.handoff is None)
+        handoffs = min(d.cost_tier for d in r.decision_space() if d.handoff is not None)
+        assert handoffs > in_place
+
+    def test_human_costs_more_than_larger_llm_costs_more_than_rag(self):
+        by = {d.handoff: d.cost_tier for d in r.decision_space() if d.handoff}
+        assert by[AbstainHandoff.ESCALATE_HUMAN] > by[AbstainHandoff.ESCALATE_LARGER_LLM]
+        assert by[AbstainHandoff.ESCALATE_LARGER_LLM] >= by[AbstainHandoff.RAG_TOOL]
 
 
 class TestSafetyInvariants:
-    def test_only_approve_and_rewrite_and_escalate_answers_ship_a_model_answer(self):
-        ships = {a for a, s in r.ACTIONS.items() if s.ships_answer}
-        assert ships == {RoutingAction.APPROVE, RoutingAction.REWRITE,
-                         RoutingAction.ESCALATE_RAG, RoutingAction.ESCALATE_LARGER_LLM}
+    def test_approve_is_the_only_ship_as_is(self):
+        approve = next(d for d in r.decision_space() if d.primary is PrimaryAction.APPROVE)
+        assert approve.ships_answer and not approve.is_safe_stop
 
-    def test_abstain_clarify_and_human_are_safe_stops(self):
-        """The actions that guarantee no unreviewed answer reaches the user."""
-        safe = {a for a, s in r.ACTIONS.items() if s.is_safe_stop}
-        assert safe == {RoutingAction.ABSTAIN, RoutingAction.CLARIFY,
-                        RoutingAction.ESCALATE_HUMAN}
+    def test_clarify_plain_abstain_and_human_are_safe_stops(self):
+        safe = {d.label for d in r.decision_space() if d.is_safe_stop}
+        assert safe == {"clarify", "abstain", "abstain→escalate_human"}
 
-    def test_approve_is_the_only_ship_as_is_without_a_safe_stop_and_no_escalation(self):
-        spec = r.ACTIONS[RoutingAction.APPROVE]
-        assert spec.ships_answer and not spec.is_safe_stop and spec.escalates_to is None
+    def test_the_regeneration_handoffs_ship_a_re_gated_answer(self):
+        for label in ("abstain→rag_tool", "abstain→escalate_rag", "abstain→escalate_larger_llm"):
+            d = next(x for x in r.decision_space() if x.label == label)
+            assert d.ships_answer and not d.is_safe_stop  # answer produced, then re-gated
 
 
 class TestSerialization:
-    def test_describe_action_space_is_serializable_and_ordered(self):
+    def test_describe_is_ordered_and_carries_policy_fields(self):
         rows = r.describe_action_space()
-        assert rows[0]["action"] == "approve"
-        assert rows[-1]["action"] == "escalate_human"
-        # every row carries the fields a policy config needs
+        assert rows[0]["label"] == "approve"
+        assert rows[-1]["label"] == "abstain→escalate_human"
         for row in rows:
-            assert {"action", "cost_tier", "ships_answer", "is_safe_stop",
-                    "escalates_to", "typical_trigger"} <= set(row)
-
-    def test_action_spec_lookup_accepts_enum_or_value(self):
-        assert r.action_spec(RoutingAction.APPROVE).cost_tier == 0
-        assert r.action_spec("escalate_human").escalates_to is EscalationTarget.HUMAN
+            assert {"label", "primary", "handoff", "cost_tier",
+                    "ships_answer", "is_safe_stop", "typical_trigger"} <= set(row)
+        # plain primaries carry a null handoff
+        assert next(r_ for r_ in rows if r_["label"] == "approve")["handoff"] is None

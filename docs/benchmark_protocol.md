@@ -82,22 +82,23 @@ components. This question is what justifies a multi-component architecture over 
 
 **Q6 — A learned routing engine (MoE) over intervention actions.** Can we learn a policy mapping the
 combined signals — UQ score, risk flags, grounding result, and the OOD/competence gate — to the next
-action? The **action space** (defined in `hc_benchmark/routing_actions.py`), cheapest → most
-expensive:
+action? The **action space** (defined in `hc_benchmark/routing_actions.py`) is two-level: **three
+primary actions** — `approve`, `clarify`, `abstain` — where `abstain` fans out into a **handoff**
+(how the abstention is resolved). Cheapest → most expensive:
 
-| Action | Ships answer? | Safe stop? | When |
+| Decision | Ships answer? | Safe stop? | When |
 | :--- | :---: | :---: | :--- |
 | **approve** | ✓ | — | confident + safe + grounded + in-domain → deliver as-is |
-| **rewrite** | ✓ | — | fixable in place → self-correction loop on the same model, then re-gate |
-| **clarify** | — | ✓ | ambiguous / underspecified query → ask the user a clarifying question |
-| **abstain** | — | ✓ | out-of-domain or a safety boundary, no useful escalation → safe refusal |
-| **escalate → RAG** | ✓ | — | unsupported / hallucinated claim while a KB exists → retrieve + regenerate |
-| **escalate → larger LLM** | ✓ | — | hard-reasoning failure the base model can't self-correct |
-| **escalate → human** | — | ✓ | safety-critical (crisis, prescriptive advice) → human-in-the-loop (highest cost) |
+| **clarify** | — | ✓ | ambiguous / underspecified query → rewrite the message or ask the user |
+| **abstain** (plain) | — | ✓ | out-of-domain or a safety boundary, no useful handoff → safe refusal |
+| abstain → **rag_tool** | ✓ | — | minor grounding gap → retrieve context inline and retry (same model) |
+| abstain → **escalate_rag** | ✓ | — | unsupported / hallucinated claim while a KB exists → RAG system regenerates |
+| abstain → **escalate_larger_llm** | ✓ | — | hard-reasoning failure the base model can't self-correct |
+| abstain → **escalate_human** | — | ✓ | safety-critical (crisis, prescriptive advice) → human-in-the-loop (highest cost) |
 
-Each action carries a **cost tier**, because the router solves an accuracy–safety–cost trade, not a
+Each decision carries a **cost tier**, because the router solves an accuracy–safety–cost trade, not a
 plain classification: escalating to a larger model or a human is expensive, so the objective is the
-*cheapest adequate* action — approve when safe, reach for an expensive escalation only when the signals
+*cheapest adequate* decision — approve when safe, reach for an expensive handoff only when the signals
 demand it. The MoE/learned-gating question is whether that formulation is justified over the rule-based
 MVP policy, given the router must jointly optimize safety-recall, over-refusal, and escalation cost.
 Open sub-question: the training signal — offline logs, simulated outcomes, or RL on a composite reward.

@@ -11,6 +11,7 @@ from .discrete_semantic_entropy import DiscreteSemanticEntropy
 from .lexical_similarity import LexicalSimilarity
 from .eigv import EigV
 from .spuq import SPUQ
+from .neighbor_consistency_belief import neighbor_consistency_belief, aggregate_neighbor_probs, dominant_answer_probability, neighbor_accuracy
 from .sum_eigen_uncertainty import SumEigenUncertainty
 from .self_detection import SelfDetection
 from .inside import Inside
@@ -47,6 +48,10 @@ __all__ = [
     "LexicalSimilarity",
     "EigV",
     "SPUQ",
+    "neighbor_consistency_belief",
+    "aggregate_neighbor_probs",
+    "dominant_answer_probability",
+    "neighbor_accuracy",
     "SumEigenUncertainty",
     "SelfDetection",
     "TokenSAR",

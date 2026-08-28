@@ -1,0 +1,134 @@
+{
+  "variant": "rq5_DiscreteSemanticEntropy_head_lam5",
+  "mode": "head",
+  "generator_key": "qwen3-8b",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "natural_qa",
+      "n_items": 150,
+      "n_positive": 76,
+      "rows": {
+        "rq5_DiscreteSemanticEntropy_head_lam5_N1": {
+          "auroc": 0.7251,
+          "aupr": 0.7016,
+          "ece": 0.1039,
+          "p50_ms": 29.076,
+          "p95_ms": 30.034
+        }
+      }
+    },
+    {
+      "dataset": "pop_qa",
+      "n_items": 150,
+      "n_positive": 57,
+      "rows": {
+        "rq5_DiscreteSemanticEntropy_head_lam5_N1": {
+          "auroc": 0.5531,
+          "aupr": 0.6355,
+          "ece": 0.0777,
+          "p50_ms": 29.061,
+          "p95_ms": 29.838
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 149,
+      "n_positive": 65,
+      "rows": {
+        "rq5_DiscreteSemanticEntropy_head_lam5_N1": {
+          "auroc": 0.7037,
+          "aupr": 0.6972,
+          "ece": 0.1106,
+          "p50_ms": 29.001,
+          "p95_ms": 29.548
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 150,
+      "n_positive": 79,
+      "rows": {
+        "rq5_DiscreteSemanticEntropy_head_lam5_N1": {
+          "auroc": 0.6306,
+          "aupr": 0.5634,
+          "ece": 0.0863,
+          "p50_ms": 28.925,
+          "p95_ms": 29.388
+        }
+      }
+    },
+    {
+      "dataset": "bioasq",
+      "n_items": 150,
+      "n_positive": 149,
+      "rows": {
+        "rq5_DiscreteSemanticEntropy_head_lam5_N1": {
+          "auroc": 0.4631,
+          "aupr": 0.0123,
+          "ece": 0.0,
+          "p50_ms": 28.713,
+          "p95_ms": 29.271
+        }
+      }
+    },
+    {
+      "dataset": "kqa",
+      "n_items": 145,
+      "n_positive": 112,
+      "rows": {
+        "rq5_DiscreteSemanticEntropy_head_lam5_N1": {
+          "auroc": 0.6301,
+          "aupr": 0.3671,
+          "ece": 0.0432,
+          "p50_ms": 28.741,
+          "p95_ms": 29.656
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 133,
+      "rows": {
+        "rq5_DiscreteSemanticEntropy_head_lam5_N1": {
+          "auroc": 0.6126,
+          "aupr": 0.1472,
+          "ece": 0.0464,
+          "p50_ms": 28.785,
+          "p95_ms": 29.503
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 101,
+      "rows": {
+        "rq5_DiscreteSemanticEntropy_head_lam5_N1": {
+          "auroc": 0.4554,
+          "aupr": 0.3183,
+          "ece": 0.039,
+          "p50_ms": 29.288,
+          "p95_ms": 30.021
+        }
+      }
+    },
+    {
+      "dataset": "mmlu_med",
+      "n_items": 150,
+      "n_positive": 106,
+      "rows": {
+        "rq5_DiscreteSemanticEntropy_head_lam5_N1": {
+          "auroc": 0.3969,
+          "aupr": 0.2732,
+          "ece": 0.0755,
+          "p50_ms": 28.753,
+          "p95_ms": 29.401
+        }
+      }
+    }
+  ]
+}

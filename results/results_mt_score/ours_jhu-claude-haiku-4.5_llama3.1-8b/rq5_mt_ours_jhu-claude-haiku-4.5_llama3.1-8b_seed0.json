@@ -1,0 +1,176 @@
+{
+  "variant": "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b",
+  "mode": "edl",
+  "generator_key": "jhu-claude-haiku-4.5",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 146,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.7243,
+          "aupr": 0.0736,
+          "ece": 0.0126,
+          "p50_ms": 32.722,
+          "p95_ms": 36.571
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 142,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.6479,
+          "aupr": 0.0855,
+          "ece": 0.0199,
+          "p50_ms": 36.42,
+          "p95_ms": 37.024
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 131,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.5952,
+          "aupr": 0.1711,
+          "ece": 0.0294,
+          "p50_ms": 54.106,
+          "p95_ms": 65.886
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 142,
+      "n_positive": 110,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.6287,
+          "aupr": 0.3428,
+          "ece": 0.0825,
+          "p50_ms": 27.28,
+          "p95_ms": 31.152
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 148,
+      "n_positive": 121,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.429,
+          "aupr": 0.1567,
+          "ece": 0.0283,
+          "p50_ms": 31.056,
+          "p95_ms": 36.218
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 79,
+      "n_positive": 23,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.309,
+          "aupr": 0.6067,
+          "ece": 0.0225,
+          "p50_ms": 31.02,
+          "p95_ms": 36.976
+        }
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 146,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.7243,
+          "aupr": 0.0736,
+          "ece": 0.0126,
+          "p50_ms": 32.665,
+          "p95_ms": 36.479
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 142,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.6479,
+          "aupr": 0.0855,
+          "ece": 0.0199,
+          "p50_ms": 36.367,
+          "p95_ms": 36.967
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 131,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.5952,
+          "aupr": 0.1711,
+          "ece": 0.0294,
+          "p50_ms": 54.156,
+          "p95_ms": 65.764
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 142,
+      "n_positive": 110,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.6287,
+          "aupr": 0.3428,
+          "ece": 0.0825,
+          "p50_ms": 27.198,
+          "p95_ms": 31.214
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 148,
+      "n_positive": 121,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.429,
+          "aupr": 0.1567,
+          "ece": 0.0283,
+          "p50_ms": 31.008,
+          "p95_ms": 36.189
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 79,
+      "n_positive": 23,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.1-8b_N1": {
+          "auroc": 0.309,
+          "aupr": 0.6067,
+          "ece": 0.0225,
+          "p50_ms": 30.979,
+          "p95_ms": 37.221
+        }
+      }
+    }
+  ]
+}

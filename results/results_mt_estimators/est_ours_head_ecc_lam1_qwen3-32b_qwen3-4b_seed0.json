@@ -1,0 +1,104 @@
+{
+  "proxy": "ours_head_ecc_lam1_qwen3-32b_qwen3-4b",
+  "base": "Qwen/Qwen3-4B-Instruct-2507",
+  "teacher_key": "qwen3-32b",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 118,
+      "rows": {
+        "EDL-AU": 0.6748,
+        "EDL-EU": 0.6369,
+        "MSP": 0.8411,
+        "Entropy": 0.8475,
+        "Energy": 0.785,
+        "LogTokU": 0.6181,
+        "Perplexity": 0.773,
+        "MaxNLL": 0.4823,
+        "LogitMargin": 0.7858
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 139,
+      "rows": {
+        "EDL-AU": 0.5062,
+        "EDL-EU": 0.4938,
+        "MSP": 0.4644,
+        "Entropy": 0.4814,
+        "Energy": 0.4428,
+        "LogTokU": 0.4591,
+        "Perplexity": 0.5265,
+        "MaxNLL": 0.5088,
+        "LogitMargin": 0.4212
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 120,
+      "rows": {
+        "EDL-AU": 0.5947,
+        "EDL-EU": 0.4525,
+        "MSP": 0.6272,
+        "Entropy": 0.5967,
+        "Energy": 0.4911,
+        "LogTokU": 0.4825,
+        "Perplexity": 0.7125,
+        "MaxNLL": 0.6792,
+        "LogitMargin": 0.5249
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 88,
+      "rows": {
+        "EDL-AU": 0.5192,
+        "EDL-EU": 0.5359,
+        "MSP": 0.5856,
+        "Entropy": 0.6065,
+        "Energy": 0.5425,
+        "LogTokU": 0.5053,
+        "Perplexity": 0.6226,
+        "MaxNLL": 0.6607,
+        "LogitMargin": 0.5444
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 147,
+      "n_positive": 92,
+      "rows": {
+        "EDL-AU": 0.4061,
+        "EDL-EU": 0.6419,
+        "MSP": 0.4925,
+        "Entropy": 0.5208,
+        "Energy": 0.5901,
+        "LogTokU": 0.6038,
+        "Perplexity": 0.4767,
+        "MaxNLL": 0.5008,
+        "LogitMargin": 0.4802
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 149,
+      "n_positive": 122,
+      "rows": {
+        "EDL-AU": 0.6551,
+        "EDL-EU": 0.4359,
+        "MSP": 0.5829,
+        "Entropy": 0.5686,
+        "Energy": 0.541,
+        "LogTokU": 0.4347,
+        "Perplexity": 0.585,
+        "MaxNLL": 0.5343,
+        "LogitMargin": 0.6272
+      }
+    }
+  ]
+}

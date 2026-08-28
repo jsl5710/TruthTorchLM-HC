@@ -1,0 +1,204 @@
+{
+  "variant": "mt_ours_jhu-gpt-4o_qwen3-1.7b",
+  "mode": "edl",
+  "generator_key": "jhu-gpt-4o",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "bioasq",
+      "n_items": 149,
+      "n_positive": 111,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.0236,
+          "aupr": 0.252,
+          "ece": 0.0,
+          "p50_ms": 29.145,
+          "p95_ms": 31.604
+        }
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 144,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.4219,
+          "aupr": 0.0377,
+          "ece": 0.0002,
+          "p50_ms": 29.646,
+          "p95_ms": 30.891
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 143,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.53,
+          "aupr": 0.0579,
+          "ece": 0.001,
+          "p50_ms": 29.291,
+          "p95_ms": 30.015
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 134,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.2973,
+          "aupr": 0.0781,
+          "ece": 0.0137,
+          "p50_ms": 29.574,
+          "p95_ms": 30.554
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 149,
+      "n_positive": 125,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.4015,
+          "aupr": 0.1368,
+          "ece": 0.0122,
+          "p50_ms": 29.257,
+          "p95_ms": 30.087
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 148,
+      "n_positive": 108,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.6363,
+          "aupr": 0.4101,
+          "ece": 0.0532,
+          "p50_ms": 29.206,
+          "p95_ms": 30.126
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 146,
+      "n_positive": 63,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.529,
+          "aupr": 0.6342,
+          "ece": 0.0437,
+          "p50_ms": 29.118,
+          "p95_ms": 29.998
+        }
+      }
+    },
+    {
+      "dataset": "bioasq",
+      "n_items": 149,
+      "n_positive": 111,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.0236,
+          "aupr": 0.252,
+          "ece": 0.0,
+          "p50_ms": 29.177,
+          "p95_ms": 29.986
+        }
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 144,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.4219,
+          "aupr": 0.0377,
+          "ece": 0.0002,
+          "p50_ms": 29.935,
+          "p95_ms": 31.057
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 143,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.53,
+          "aupr": 0.0579,
+          "ece": 0.001,
+          "p50_ms": 29.516,
+          "p95_ms": 30.249
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 134,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.2973,
+          "aupr": 0.0781,
+          "ece": 0.0137,
+          "p50_ms": 29.656,
+          "p95_ms": 30.316
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 149,
+      "n_positive": 125,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.4015,
+          "aupr": 0.1368,
+          "ece": 0.0122,
+          "p50_ms": 29.254,
+          "p95_ms": 29.822
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 148,
+      "n_positive": 108,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.6363,
+          "aupr": 0.4101,
+          "ece": 0.0532,
+          "p50_ms": 29.362,
+          "p95_ms": 30.142
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 146,
+      "n_positive": 63,
+      "rows": {
+        "mt_ours_jhu-gpt-4o_qwen3-1.7b_N1": {
+          "auroc": 0.529,
+          "aupr": 0.6342,
+          "ece": 0.0437,
+          "p50_ms": 29.185,
+          "p95_ms": 30.084
+        }
+      }
+    }
+  ]
+}

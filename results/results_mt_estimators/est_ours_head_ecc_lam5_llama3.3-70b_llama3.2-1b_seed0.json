@@ -1,0 +1,99 @@
+{
+  "proxy": "ours_head_ecc_lam5_llama3.3-70b_llama3.2-1b",
+  "base": "meta-llama/Llama-3.2-1B-Instruct",
+  "teacher_key": "llama3.3-70b",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "bioasq",
+      "n_items": 150,
+      "n_positive": 149,
+      "rows": {
+        "EDL-AU": 0.8725,
+        "EDL-EU": 0.0738,
+        "MSP": 0.9597,
+        "Entropy": 0.8188,
+        "Energy": 0.4094,
+        "LogTokU": 0.349
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 128,
+      "rows": {
+        "EDL-AU": 0.6516,
+        "EDL-EU": 0.5621,
+        "MSP": 0.7088,
+        "Entropy": 0.7422,
+        "Energy": 0.6847,
+        "LogTokU": 0.5589
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 132,
+      "rows": {
+        "EDL-AU": 0.4609,
+        "EDL-EU": 0.4983,
+        "MSP": 0.4945,
+        "Entropy": 0.4882,
+        "Energy": 0.4331,
+        "LogTokU": 0.452
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 116,
+      "rows": {
+        "EDL-AU": 0.5822,
+        "EDL-EU": 0.3173,
+        "MSP": 0.4011,
+        "Entropy": 0.3717,
+        "Energy": 0.3205,
+        "LogTokU": 0.3466
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 119,
+      "rows": {
+        "EDL-AU": 0.7536,
+        "EDL-EU": 0.3307,
+        "MSP": 0.62,
+        "Entropy": 0.5969,
+        "Energy": 0.4535,
+        "LogTokU": 0.3416
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 149,
+      "n_positive": 84,
+      "rows": {
+        "EDL-AU": 0.5148,
+        "EDL-EU": 0.5553,
+        "MSP": 0.5722,
+        "Entropy": 0.6053,
+        "Energy": 0.5945,
+        "LogTokU": 0.4515
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 150,
+      "n_positive": 123,
+      "rows": {
+        "EDL-AU": 0.4839,
+        "EDL-EU": 0.5279,
+        "MSP": 0.4463,
+        "Entropy": 0.4336,
+        "Energy": 0.5245,
+        "LogTokU": 0.5658
+      }
+    }
+  ]
+}

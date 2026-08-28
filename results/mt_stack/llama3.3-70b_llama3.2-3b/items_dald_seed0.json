@@ -1,0 +1,7345 @@
+[
+ {
+  "dataset": "trivia_qa",
+  "item_id": 0,
+  "correct": 0,
+  "dald_au": -2.258588897191857,
+  "dald_eu": -0.0615410677741094
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 1,
+  "correct": 0,
+  "dald_au": -2.2608260409142877,
+  "dald_eu": -0.059244711457172056
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 2,
+  "correct": 1,
+  "dald_au": -2.2561528926975236,
+  "dald_eu": -0.061038218518762025
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 3,
+  "correct": 0,
+  "dald_au": -2.259180272414063,
+  "dald_eu": -0.0617839894322912
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 4,
+  "correct": 1,
+  "dald_au": -2.2581240073734614,
+  "dald_eu": -0.058961338905814634
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 5,
+  "correct": 0,
+  "dald_au": -2.2608070668837796,
+  "dald_eu": -0.060312943371136345
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 6,
+  "correct": 0,
+  "dald_au": -2.2607736929275366,
+  "dald_eu": -0.058091512673654526
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 7,
+  "correct": 0,
+  "dald_au": -2.2592501283395157,
+  "dald_eu": -0.06383226303496888
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 8,
+  "correct": 1,
+  "dald_au": -2.2507450782565463,
+  "dald_eu": -0.06667674995277752
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 9,
+  "correct": 1,
+  "dald_au": -2.2638310825355896,
+  "dald_eu": -0.05823785586480941
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 10,
+  "correct": 0,
+  "dald_au": -2.258275775885382,
+  "dald_eu": -0.05684471763954926
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 11,
+  "correct": 0,
+  "dald_au": -2.2640191131105465,
+  "dald_eu": -0.0564731478572639
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 12,
+  "correct": 1,
+  "dald_au": -2.2589302865667484,
+  "dald_eu": -0.059728967568239894
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 13,
+  "correct": 1,
+  "dald_au": -2.265119149750576,
+  "dald_eu": -0.05944187954234118
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 14,
+  "correct": 1,
+  "dald_au": -2.25117116941352,
+  "dald_eu": -0.06340729432191851
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 15,
+  "correct": 0,
+  "dald_au": -2.2569413273745114,
+  "dald_eu": -0.06262472189333787
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 16,
+  "correct": 0,
+  "dald_au": -2.2569061256877117,
+  "dald_eu": -0.06149700980759438
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 17,
+  "correct": 1,
+  "dald_au": -2.2568911785122303,
+  "dald_eu": -0.06320133328404468
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 18,
+  "correct": 1,
+  "dald_au": -2.2573519000325972,
+  "dald_eu": -0.06125886890319259
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 19,
+  "correct": 1,
+  "dald_au": -2.260000558642358,
+  "dald_eu": -0.05841616182585084
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 20,
+  "correct": 1,
+  "dald_au": -2.2575941690753476,
+  "dald_eu": -0.06192060864077957
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 21,
+  "correct": 1,
+  "dald_au": -2.2535710489923515,
+  "dald_eu": -0.06394258100008346
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 22,
+  "correct": 0,
+  "dald_au": -2.266242207008989,
+  "dald_eu": -0.06042263991343613
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 23,
+  "correct": 1,
+  "dald_au": -2.2583824118265015,
+  "dald_eu": -0.06290567744470758
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 24,
+  "correct": 1,
+  "dald_au": -2.250753328782322,
+  "dald_eu": -0.06303458322052617
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 25,
+  "correct": 1,
+  "dald_au": -2.2495587180410497,
+  "dald_eu": -0.06633397293276239
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 26,
+  "correct": 1,
+  "dald_au": -2.2565882777281727,
+  "dald_eu": -0.062102404916946075
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 27,
+  "correct": 1,
+  "dald_au": -2.2552574444655247,
+  "dald_eu": -0.061358816801041424
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 28,
+  "correct": 1,
+  "dald_au": -2.2627099878789645,
+  "dald_eu": -0.057783549340899715
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 29,
+  "correct": 1,
+  "dald_au": -2.254318138888944,
+  "dald_eu": -0.06375118984161686
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 30,
+  "correct": 1,
+  "dald_au": -2.2562900813012496,
+  "dald_eu": -0.06245968224430165
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 31,
+  "correct": 1,
+  "dald_au": -2.2605283666423155,
+  "dald_eu": -0.05512787734049842
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 32,
+  "correct": 1,
+  "dald_au": -2.259618069432857,
+  "dald_eu": -0.05950709967917402
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 33,
+  "correct": 1,
+  "dald_au": -2.25900224329273,
+  "dald_eu": -0.059679727509140496
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 34,
+  "correct": 1,
+  "dald_au": -2.2515208838915695,
+  "dald_eu": -0.06337545496794056
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 35,
+  "correct": 1,
+  "dald_au": -2.2570100892480536,
+  "dald_eu": -0.061406037314348086
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 36,
+  "correct": 1,
+  "dald_au": -2.260197759487712,
+  "dald_eu": -0.056796219392442185
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 37,
+  "correct": 1,
+  "dald_au": -2.2565758203664212,
+  "dald_eu": -0.06405883408283278
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 38,
+  "correct": 1,
+  "dald_au": -2.2571116843760533,
+  "dald_eu": -0.06054588714385807
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 39,
+  "correct": 0,
+  "dald_au": -2.256960283514124,
+  "dald_eu": -0.06150290844560821
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 40,
+  "correct": 1,
+  "dald_au": -2.259366659772533,
+  "dald_eu": -0.06101326583046336
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 41,
+  "correct": 1,
+  "dald_au": -2.2565232803658777,
+  "dald_eu": -0.061934676409189884
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 42,
+  "correct": 1,
+  "dald_au": -2.2593383313906337,
+  "dald_eu": -0.05824848928309244
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 43,
+  "correct": 1,
+  "dald_au": -2.255952414827879,
+  "dald_eu": -0.064382923726073
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 44,
+  "correct": 0,
+  "dald_au": -2.2488135579147253,
+  "dald_eu": -0.0672591460598751
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 45,
+  "correct": 1,
+  "dald_au": -2.2539824149573984,
+  "dald_eu": -0.05840997621277602
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 46,
+  "correct": 1,
+  "dald_au": -2.2469135915729215,
+  "dald_eu": -0.05987283260386011
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 47,
+  "correct": 0,
+  "dald_au": -2.260816955811337,
+  "dald_eu": -0.06131118014024021
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 48,
+  "correct": 1,
+  "dald_au": -2.2553416963315525,
+  "dald_eu": -0.06308112116908592
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 49,
+  "correct": 1,
+  "dald_au": -2.2547408337509594,
+  "dald_eu": -0.05995734526370355
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 50,
+  "correct": 1,
+  "dald_au": -2.2554695230017803,
+  "dald_eu": -0.06179640030645571
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 51,
+  "correct": 1,
+  "dald_au": -2.2575836246923195,
+  "dald_eu": -0.06286237970255738
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 52,
+  "correct": 1,
+  "dald_au": -2.2540768220037632,
+  "dald_eu": -0.06505355641211978
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 53,
+  "correct": 1,
+  "dald_au": -2.2550902789815535,
+  "dald_eu": -0.06162899940378432
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 54,
+  "correct": 1,
+  "dald_au": -2.262661387428426,
+  "dald_eu": -0.05805915054753202
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 55,
+  "correct": 1,
+  "dald_au": -2.255631291140877,
+  "dald_eu": -0.06472220102590909
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 56,
+  "correct": 1,
+  "dald_au": -2.2618568948601054,
+  "dald_eu": -0.06144346350720389
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 57,
+  "correct": 1,
+  "dald_au": -2.255615100671408,
+  "dald_eu": -0.06432958419555823
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 58,
+  "correct": 1,
+  "dald_au": -2.255456306798763,
+  "dald_eu": -0.06388219370516801
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 59,
+  "correct": 1,
+  "dald_au": -2.259243631022472,
+  "dald_eu": -0.06466470393770614
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 60,
+  "correct": 1,
+  "dald_au": -2.261049362625087,
+  "dald_eu": -0.06020884467630095
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 61,
+  "correct": 1,
+  "dald_au": -2.2585733289385383,
+  "dald_eu": -0.0632140439373404
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 62,
+  "correct": 1,
+  "dald_au": -2.2643224711221905,
+  "dald_eu": -0.0581888358503265
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 63,
+  "correct": 0,
+  "dald_au": -2.2546312100333776,
+  "dald_eu": -0.06160193428056328
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 64,
+  "correct": 0,
+  "dald_au": -2.264511214914334,
+  "dald_eu": -0.05996902631967278
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 65,
+  "correct": 1,
+  "dald_au": -2.263551585572634,
+  "dald_eu": -0.0574774550622039
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 66,
+  "correct": 1,
+  "dald_au": -2.255575471279866,
+  "dald_eu": -0.06434320611969412
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 67,
+  "correct": 0,
+  "dald_au": -2.261955532226237,
+  "dald_eu": -0.05960297360716201
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 68,
+  "correct": 1,
+  "dald_au": -2.2536324763420996,
+  "dald_eu": -0.06436413223379361
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 69,
+  "correct": 1,
+  "dald_au": -2.257720043225104,
+  "dald_eu": -0.062308704016272774
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 70,
+  "correct": 1,
+  "dald_au": -2.259397602452303,
+  "dald_eu": -0.059431160392741975
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 71,
+  "correct": 1,
+  "dald_au": -2.2605197457756394,
+  "dald_eu": -0.06025446789621211
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 72,
+  "correct": 1,
+  "dald_au": -2.258722993366997,
+  "dald_eu": -0.05971551578351955
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 73,
+  "correct": 0,
+  "dald_au": -2.26348602919051,
+  "dald_eu": -0.05780606904482228
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 74,
+  "correct": 1,
+  "dald_au": -2.2600524833377436,
+  "dald_eu": -0.06215738908964621
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 75,
+  "correct": 1,
+  "dald_au": -2.2564775919496465,
+  "dald_eu": -0.06240311071705173
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 76,
+  "correct": 1,
+  "dald_au": -2.257267485280879,
+  "dald_eu": -0.05796347337361007
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 77,
+  "correct": 1,
+  "dald_au": -2.248561733234543,
+  "dald_eu": -0.06407136598889683
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 78,
+  "correct": 1,
+  "dald_au": -2.2593319424086697,
+  "dald_eu": -0.05757867395097294
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 79,
+  "correct": 1,
+  "dald_au": -2.26048525538171,
+  "dald_eu": -0.06012176796601791
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 80,
+  "correct": 1,
+  "dald_au": -2.2530594241041464,
+  "dald_eu": -0.057463952409601594
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 81,
+  "correct": 0,
+  "dald_au": -2.2613091912015273,
+  "dald_eu": -0.05840856333915856
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 82,
+  "correct": 1,
+  "dald_au": -2.26056077040717,
+  "dald_eu": -0.062476425627087565
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 83,
+  "correct": 1,
+  "dald_au": -2.2532278349949983,
+  "dald_eu": -0.06323525587577161
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 84,
+  "correct": 1,
+  "dald_au": -2.2557219627179,
+  "dald_eu": -0.06612778883304614
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 85,
+  "correct": 1,
+  "dald_au": -2.2598351369509437,
+  "dald_eu": -0.06439241603718278
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 86,
+  "correct": 1,
+  "dald_au": -2.2579638735105463,
+  "dald_eu": -0.06344692531235789
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 87,
+  "correct": 1,
+  "dald_au": -2.257465922107192,
+  "dald_eu": -0.06062738624265662
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 88,
+  "correct": 1,
+  "dald_au": -2.251828809957565,
+  "dald_eu": -0.06075886502139209
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 89,
+  "correct": 1,
+  "dald_au": -2.256973855456895,
+  "dald_eu": -0.06339314501731959
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 90,
+  "correct": 0,
+  "dald_au": -2.2569352069110975,
+  "dald_eu": -0.06290134032678964
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 91,
+  "correct": 1,
+  "dald_au": -2.2545548339373145,
+  "dald_eu": -0.06102867020894706
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 92,
+  "correct": 1,
+  "dald_au": -2.2600640853266447,
+  "dald_eu": -0.06128149619981541
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 93,
+  "correct": 1,
+  "dald_au": -2.2561238187906953,
+  "dald_eu": -0.06485434161507381
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 94,
+  "correct": 1,
+  "dald_au": -2.2564442033946994,
+  "dald_eu": -0.06284911631754404
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 95,
+  "correct": 1,
+  "dald_au": -2.258583481223377,
+  "dald_eu": -0.059711526246001304
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 96,
+  "correct": 1,
+  "dald_au": -2.2525633230976583,
+  "dald_eu": -0.06831365071829007
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 97,
+  "correct": 1,
+  "dald_au": -2.2561679239530052,
+  "dald_eu": -0.0609506512263451
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 98,
+  "correct": 1,
+  "dald_au": -2.2548850754467717,
+  "dald_eu": -0.06395481477313812
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 99,
+  "correct": 1,
+  "dald_au": -2.253427412286398,
+  "dald_eu": -0.06386728384868348
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 100,
+  "correct": 1,
+  "dald_au": -2.2578601136536487,
+  "dald_eu": -0.0628929449954803
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 101,
+  "correct": 0,
+  "dald_au": -2.258297451457402,
+  "dald_eu": -0.06056503202068043
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 102,
+  "correct": 1,
+  "dald_au": -2.2584811771346534,
+  "dald_eu": -0.06361975896411386
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 103,
+  "correct": 1,
+  "dald_au": -2.2571571428340444,
+  "dald_eu": -0.06110518291822503
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 104,
+  "correct": 1,
+  "dald_au": -2.2503851110927595,
+  "dald_eu": -0.06631387477048829
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 105,
+  "correct": 1,
+  "dald_au": -2.254000194049469,
+  "dald_eu": -0.06245377841693562
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 106,
+  "correct": 1,
+  "dald_au": -2.259592028904394,
+  "dald_eu": -0.06245115524937936
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 107,
+  "correct": 1,
+  "dald_au": -2.256060653335061,
+  "dald_eu": -0.06232042035808074
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 108,
+  "correct": 1,
+  "dald_au": -2.2527256175245856,
+  "dald_eu": -0.06099508085201109
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 109,
+  "correct": 1,
+  "dald_au": -2.2531731031903925,
+  "dald_eu": -0.06465435887519407
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 110,
+  "correct": 0,
+  "dald_au": -2.2580287282991875,
+  "dald_eu": -0.059408591228602745
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 111,
+  "correct": 0,
+  "dald_au": -2.2631731401015918,
+  "dald_eu": -0.0602971047134508
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 112,
+  "correct": 1,
+  "dald_au": -2.261554969969829,
+  "dald_eu": -0.05795659178725842
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 113,
+  "correct": 0,
+  "dald_au": -2.257414973981599,
+  "dald_eu": -0.05612598837684373
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 114,
+  "correct": 1,
+  "dald_au": -2.255049774175738,
+  "dald_eu": -0.060782672080839116
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 115,
+  "correct": 1,
+  "dald_au": -2.258690882406154,
+  "dald_eu": -0.06083184695477926
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 116,
+  "correct": 1,
+  "dald_au": -2.2559976868294087,
+  "dald_eu": -0.06105695271856923
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 117,
+  "correct": 1,
+  "dald_au": -2.255508416565852,
+  "dald_eu": -0.06055229746138014
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 118,
+  "correct": 1,
+  "dald_au": -2.256546288258298,
+  "dald_eu": -0.06242550360425542
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 119,
+  "correct": 1,
+  "dald_au": -2.2588517164144406,
+  "dald_eu": -0.05899263309256518
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 120,
+  "correct": 1,
+  "dald_au": -2.2547829987101977,
+  "dald_eu": -0.06437830873338074
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 121,
+  "correct": 1,
+  "dald_au": -2.261536104938086,
+  "dald_eu": -0.06158620118485957
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 122,
+  "correct": 1,
+  "dald_au": -2.259956767942349,
+  "dald_eu": -0.06040368138137429
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 123,
+  "correct": 1,
+  "dald_au": -2.253309038020159,
+  "dald_eu": -0.061811918325849334
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 124,
+  "correct": 1,
+  "dald_au": -2.2579474982027006,
+  "dald_eu": -0.061387389593287954
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 125,
+  "correct": 1,
+  "dald_au": -2.2570402649032664,
+  "dald_eu": -0.05835864783316501
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 126,
+  "correct": 0,
+  "dald_au": -2.2588632052289808,
+  "dald_eu": -0.062431606245097186
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 127,
+  "correct": 1,
+  "dald_au": -2.2566958956705103,
+  "dald_eu": -0.06313405646831288
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 128,
+  "correct": 1,
+  "dald_au": -2.259800834474813,
+  "dald_eu": -0.06072122553426476
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 129,
+  "correct": 1,
+  "dald_au": -2.2578335490231742,
+  "dald_eu": -0.05787492414673707
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 130,
+  "correct": 0,
+  "dald_au": -2.266342510721185,
+  "dald_eu": -0.06073370327466676
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 131,
+  "correct": 1,
+  "dald_au": -2.257823804771202,
+  "dald_eu": -0.06000618101246021
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 132,
+  "correct": 1,
+  "dald_au": -2.254716350208384,
+  "dald_eu": -0.06082239239033525
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 133,
+  "correct": 0,
+  "dald_au": -2.2596716473036165,
+  "dald_eu": -0.06101008681688194
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 134,
+  "correct": 1,
+  "dald_au": -2.2601355404954786,
+  "dald_eu": -0.06311634323243978
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 135,
+  "correct": 0,
+  "dald_au": -2.2608511917661724,
+  "dald_eu": -0.06205011785282515
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 136,
+  "correct": 0,
+  "dald_au": -2.262404940004303,
+  "dald_eu": -0.06051347743230658
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 137,
+  "correct": 1,
+  "dald_au": -2.2610019537721953,
+  "dald_eu": -0.06189695297993263
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 138,
+  "correct": 0,
+  "dald_au": -2.2621210233072584,
+  "dald_eu": -0.06241026351960226
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 139,
+  "correct": 1,
+  "dald_au": -2.252503782268822,
+  "dald_eu": -0.06135814123578703
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 140,
+  "correct": 1,
+  "dald_au": -2.257806751012713,
+  "dald_eu": -0.0646107676331211
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 141,
+  "correct": 1,
+  "dald_au": -2.2613864531476477,
+  "dald_eu": -0.060284922813254066
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 142,
+  "correct": 1,
+  "dald_au": -2.2610956016411703,
+  "dald_eu": -0.05799222425151908
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 143,
+  "correct": 1,
+  "dald_au": -2.2601628609717173,
+  "dald_eu": -0.06339603011556724
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 144,
+  "correct": 1,
+  "dald_au": -2.25484021628664,
+  "dald_eu": -0.06113547036736146
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 145,
+  "correct": 0,
+  "dald_au": -2.2536524386551835,
+  "dald_eu": -0.061042907554475334
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 146,
+  "correct": 1,
+  "dald_au": -2.2598356179170245,
+  "dald_eu": -0.05617040688395412
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 147,
+  "correct": 1,
+  "dald_au": -2.2600889058545635,
+  "dald_eu": -0.05936941828023354
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 148,
+  "correct": 1,
+  "dald_au": -2.257235875759535,
+  "dald_eu": -0.058528018400527855
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 149,
+  "correct": 1,
+  "dald_au": -2.253788659670767,
+  "dald_eu": -0.05833989935741988
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 0,
+  "correct": 1,
+  "dald_au": -2.257712595096969,
+  "dald_eu": -0.06448760932956268
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 1,
+  "correct": 1,
+  "dald_au": -2.257712595096969,
+  "dald_eu": -0.06448760932956268
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 2,
+  "correct": 1,
+  "dald_au": -2.257712595096969,
+  "dald_eu": -0.06448760932956268
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 3,
+  "correct": 1,
+  "dald_au": -2.257712595096969,
+  "dald_eu": -0.06448760932956268
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 4,
+  "correct": 1,
+  "dald_au": -2.257712595096969,
+  "dald_eu": -0.06448760932956268
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 5,
+  "correct": 1,
+  "dald_au": -2.257712595096969,
+  "dald_eu": -0.06448760932956268
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 6,
+  "correct": 1,
+  "dald_au": -2.257712595096969,
+  "dald_eu": -0.06448760932956268
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 7,
+  "correct": 1,
+  "dald_au": -2.257712595096969,
+  "dald_eu": -0.06448760932956268
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 8,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 9,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 10,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 11,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 12,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 13,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 14,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 15,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 16,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 17,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 18,
+  "correct": 1,
+  "dald_au": -2.2524174945968087,
+  "dald_eu": -0.06749900424410722
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 19,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 20,
+  "correct": 1,
+  "dald_au": -2.2524174945968087,
+  "dald_eu": -0.06749900424410722
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 21,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 22,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 23,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 24,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 25,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 26,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 27,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 28,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 29,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 30,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 31,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 32,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 33,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 34,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 35,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 36,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 37,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 38,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 39,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 40,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 41,
+  "correct": 1,
+  "dald_au": -2.254424375418773,
+  "dald_eu": -0.062456716692717656
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 42,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 43,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 44,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 45,
+  "correct": 1,
+  "dald_au": -2.2544263893866936,
+  "dald_eu": -0.06261508614626204
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 46,
+  "correct": 1,
+  "dald_au": -2.2545171019210013,
+  "dald_eu": -0.06152137596850484
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 47,
+  "correct": 1,
+  "dald_au": -2.252378355541924,
+  "dald_eu": -0.06133357895549547
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 48,
+  "correct": 1,
+  "dald_au": -2.254695673442634,
+  "dald_eu": -0.06070337235797455
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 49,
+  "correct": 1,
+  "dald_au": -2.2569478132325944,
+  "dald_eu": -0.06181007167280662
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 50,
+  "correct": 1,
+  "dald_au": -2.25104183890253,
+  "dald_eu": -0.061710502228232274
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 51,
+  "correct": 1,
+  "dald_au": -2.2592015125308564,
+  "dald_eu": -0.060726064077902014
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 52,
+  "correct": 1,
+  "dald_au": -2.252378355541924,
+  "dald_eu": -0.06133357895549547
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 53,
+  "correct": 1,
+  "dald_au": -2.2539228661415174,
+  "dald_eu": -0.06078959541343274
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 54,
+  "correct": 1,
+  "dald_au": -2.2511741424678697,
+  "dald_eu": -0.06159413515319372
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 55,
+  "correct": 1,
+  "dald_au": -2.2511741424678697,
+  "dald_eu": -0.06159413515319372
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 56,
+  "correct": 1,
+  "dald_au": -2.2511741424678697,
+  "dald_eu": -0.06159413515319372
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 57,
+  "correct": 1,
+  "dald_au": -2.254695673442634,
+  "dald_eu": -0.06070337235797455
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 58,
+  "correct": 1,
+  "dald_au": -2.254695673442634,
+  "dald_eu": -0.06070337235797455
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 59,
+  "correct": 1,
+  "dald_au": -2.2511741424678697,
+  "dald_eu": -0.06159413515319372
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 60,
+  "correct": 0,
+  "dald_au": -2.2570438931537242,
+  "dald_eu": -0.06431684328117113
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 61,
+  "correct": 1,
+  "dald_au": -2.2538863724548786,
+  "dald_eu": -0.05917397116868361
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 62,
+  "correct": 1,
+  "dald_au": -2.254179886982375,
+  "dald_eu": -0.05838226346774998
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 63,
+  "correct": 1,
+  "dald_au": -2.2522960506901204,
+  "dald_eu": -0.0588910869450557
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 64,
+  "correct": 1,
+  "dald_au": -2.2522960506901204,
+  "dald_eu": -0.0588910869450557
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 65,
+  "correct": 1,
+  "dald_au": -2.253418381993045,
+  "dald_eu": -0.05879986301330004
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 66,
+  "correct": 1,
+  "dald_au": -2.257484297291751,
+  "dald_eu": -0.060101736038338155
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 67,
+  "correct": 1,
+  "dald_au": -2.2622533354486642,
+  "dald_eu": -0.06358881876352489
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 68,
+  "correct": 1,
+  "dald_au": -2.256007594509216,
+  "dald_eu": -0.06398080093043809
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 69,
+  "correct": 1,
+  "dald_au": -2.256007594509216,
+  "dald_eu": -0.06398080093043809
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 70,
+  "correct": 1,
+  "dald_au": -2.2557125159210267,
+  "dald_eu": -0.06261566894455316
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 71,
+  "correct": 1,
+  "dald_au": -2.2567887526421138,
+  "dald_eu": -0.062202112890780016
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 72,
+  "correct": 1,
+  "dald_au": -2.2567887526421138,
+  "dald_eu": -0.062202112890780016
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 73,
+  "correct": 1,
+  "dald_au": -2.2555078437028917,
+  "dald_eu": -0.06373952775279297
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 74,
+  "correct": 1,
+  "dald_au": -2.2555078437028917,
+  "dald_eu": -0.06373952775279297
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 75,
+  "correct": 1,
+  "dald_au": -2.2567887526421138,
+  "dald_eu": -0.062202112890780016
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 76,
+  "correct": 1,
+  "dald_au": -2.2549676115285786,
+  "dald_eu": -0.06466682398510092
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 77,
+  "correct": 1,
+  "dald_au": -2.25733764635502,
+  "dald_eu": -0.06229678925758345
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 78,
+  "correct": 1,
+  "dald_au": -2.25733764635502,
+  "dald_eu": -0.06229678925758345
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 79,
+  "correct": 1,
+  "dald_au": -2.2568955079636175,
+  "dald_eu": -0.06224603280694631
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 80,
+  "correct": 1,
+  "dald_au": -2.2571645171855392,
+  "dald_eu": -0.062365137967177395
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 81,
+  "correct": 1,
+  "dald_au": -2.25733764635502,
+  "dald_eu": -0.06229678925758345
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 82,
+  "correct": 1,
+  "dald_au": -2.2584760987753696,
+  "dald_eu": -0.06145115869091485
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 83,
+  "correct": 1,
+  "dald_au": -2.2567887526421138,
+  "dald_eu": -0.062202112890780016
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 84,
+  "correct": 1,
+  "dald_au": -2.25733764635502,
+  "dald_eu": -0.06229678925758345
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 85,
+  "correct": 1,
+  "dald_au": -2.25733764635502,
+  "dald_eu": -0.06229678925758345
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 86,
+  "correct": 1,
+  "dald_au": -2.2593886316439744,
+  "dald_eu": -0.06330885260187223
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 87,
+  "correct": 1,
+  "dald_au": -2.2593886316439744,
+  "dald_eu": -0.06330885260187223
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 88,
+  "correct": 1,
+  "dald_au": -2.2584760987753696,
+  "dald_eu": -0.06145115869091485
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 89,
+  "correct": 1,
+  "dald_au": -2.2593886316439744,
+  "dald_eu": -0.06330885260187223
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 90,
+  "correct": 1,
+  "dald_au": -2.2593886316439744,
+  "dald_eu": -0.06330885260187223
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 91,
+  "correct": 1,
+  "dald_au": -2.2560788824969444,
+  "dald_eu": -0.06435678955172176
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 92,
+  "correct": 1,
+  "dald_au": -2.2546431770227944,
+  "dald_eu": -0.06353818918380888
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 93,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 94,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 95,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 96,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 97,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 98,
+  "correct": 1,
+  "dald_au": -2.2546431770227944,
+  "dald_eu": -0.06353818918380888
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 99,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 100,
+  "correct": 1,
+  "dald_au": -2.2546431770227944,
+  "dald_eu": -0.06353818918380888
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 101,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 102,
+  "correct": 1,
+  "dald_au": -2.2546431770227944,
+  "dald_eu": -0.06353818918380888
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 103,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 104,
+  "correct": 1,
+  "dald_au": -2.2546431770227944,
+  "dald_eu": -0.06353818918380888
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 105,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 106,
+  "correct": 1,
+  "dald_au": -2.2546431770227944,
+  "dald_eu": -0.06353818918380888
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 107,
+  "correct": 1,
+  "dald_au": -2.2560788824969444,
+  "dald_eu": -0.06435678955172176
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 108,
+  "correct": 1,
+  "dald_au": -2.2546431770227944,
+  "dald_eu": -0.06353818918380888
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 109,
+  "correct": 1,
+  "dald_au": -2.2520391551038186,
+  "dald_eu": -0.06307480712888433
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 110,
+  "correct": 1,
+  "dald_au": -2.2546431770227944,
+  "dald_eu": -0.06353818918380888
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 111,
+  "correct": 1,
+  "dald_au": -2.2591416603290013,
+  "dald_eu": -0.062358555504988554
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 112,
+  "correct": 1,
+  "dald_au": -2.2591416603290013,
+  "dald_eu": -0.062358555504988554
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 113,
+  "correct": 1,
+  "dald_au": -2.2591416603290013,
+  "dald_eu": -0.062358555504988554
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 114,
+  "correct": 1,
+  "dald_au": -2.2591416603290013,
+  "dald_eu": -0.062358555504988554
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 115,
+  "correct": 1,
+  "dald_au": -2.258258407967358,
+  "dald_eu": -0.06232872739412926
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 116,
+  "correct": 1,
+  "dald_au": -2.2591416603290013,
+  "dald_eu": -0.062358555504988554
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 117,
+  "correct": 1,
+  "dald_au": -2.2591416603290013,
+  "dald_eu": -0.062358555504988554
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 118,
+  "correct": 1,
+  "dald_au": -2.2591416603290013,
+  "dald_eu": -0.062358555504988554
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 119,
+  "correct": 1,
+  "dald_au": -2.2591416603290013,
+  "dald_eu": -0.062358555504988554
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 120,
+  "correct": 1,
+  "dald_au": -2.2591416603290013,
+  "dald_eu": -0.062358555504988554
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 121,
+  "correct": 1,
+  "dald_au": -2.2512768128842673,
+  "dald_eu": -0.06602876918805975
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 122,
+  "correct": 1,
+  "dald_au": -2.2512768128842673,
+  "dald_eu": -0.06602876918805975
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 123,
+  "correct": 1,
+  "dald_au": -2.25028014620209,
+  "dald_eu": -0.06539119562980213
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 124,
+  "correct": 1,
+  "dald_au": -2.25028014620209,
+  "dald_eu": -0.06539119562980213
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 125,
+  "correct": 1,
+  "dald_au": -2.25028014620209,
+  "dald_eu": -0.06539119562980213
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 126,
+  "correct": 1,
+  "dald_au": -2.25028014620209,
+  "dald_eu": -0.06539119562980213
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 127,
+  "correct": 1,
+  "dald_au": -2.2512108159787743,
+  "dald_eu": -0.06523354821974756
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 128,
+  "correct": 1,
+  "dald_au": -2.2512108159787743,
+  "dald_eu": -0.06523354821974756
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 129,
+  "correct": 1,
+  "dald_au": -2.25028014620209,
+  "dald_eu": -0.06539119562980213
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 130,
+  "correct": 1,
+  "dald_au": -2.25028014620209,
+  "dald_eu": -0.06539119562980213
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 131,
+  "correct": 1,
+  "dald_au": -2.25028014620209,
+  "dald_eu": -0.06539119562980213
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 132,
+  "correct": 1,
+  "dald_au": -2.2512768128842673,
+  "dald_eu": -0.06602876918805975
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 133,
+  "correct": 1,
+  "dald_au": -2.2512768128842673,
+  "dald_eu": -0.06602876918805975
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 134,
+  "correct": 1,
+  "dald_au": -2.2536479072932933,
+  "dald_eu": -0.06397832905571414
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 135,
+  "correct": 1,
+  "dald_au": -2.2527791586306423,
+  "dald_eu": -0.061083236958352424
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 136,
+  "correct": 1,
+  "dald_au": -2.253874827272758,
+  "dald_eu": -0.06442505097728769
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 137,
+  "correct": 1,
+  "dald_au": -2.256395638583079,
+  "dald_eu": -0.06506466165827744
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 138,
+  "correct": 1,
+  "dald_au": -2.254137481690262,
+  "dald_eu": -0.06683368458023493
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 139,
+  "correct": 1,
+  "dald_au": -2.2548126147855387,
+  "dald_eu": -0.06424338881052916
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 140,
+  "correct": 1,
+  "dald_au": -2.2540047155788323,
+  "dald_eu": -0.06454797263526707
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 141,
+  "correct": 1,
+  "dald_au": -2.256701621317993,
+  "dald_eu": -0.06332285541081999
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 142,
+  "correct": 1,
+  "dald_au": -2.2548126147855387,
+  "dald_eu": -0.06424338881052916
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 143,
+  "correct": 1,
+  "dald_au": -2.256701621317993,
+  "dald_eu": -0.06332285541081999
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 144,
+  "correct": 1,
+  "dald_au": -2.2548126147855387,
+  "dald_eu": -0.06424338881052916
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 145,
+  "correct": 1,
+  "dald_au": -2.254872342413186,
+  "dald_eu": -0.06456456327127091
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 146,
+  "correct": 1,
+  "dald_au": -2.253874827272758,
+  "dald_eu": -0.06442505097728769
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 147,
+  "correct": 1,
+  "dald_au": -2.256701621317993,
+  "dald_eu": -0.06332285541081999
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 148,
+  "correct": 1,
+  "dald_au": -2.254244320055668,
+  "dald_eu": -0.06574298238657905
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 149,
+  "correct": 1,
+  "dald_au": -2.256701621317993,
+  "dald_eu": -0.06332285541081999
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 0,
+  "correct": 0,
+  "dald_au": -2.258434495409128,
+  "dald_eu": -0.07487131492746842
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 1,
+  "correct": 1,
+  "dald_au": -2.2610791556189467,
+  "dald_eu": -0.05695413867479815
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 2,
+  "correct": 1,
+  "dald_au": -2.2586847129017036,
+  "dald_eu": -0.07793472966390648
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 3,
+  "correct": 0,
+  "dald_au": -2.2658751179636965,
+  "dald_eu": -0.056852818550162255
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 4,
+  "correct": 1,
+  "dald_au": -2.2606457071244135,
+  "dald_eu": -0.07655502392344497
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 5,
+  "correct": 0,
+  "dald_au": -2.2619381683860125,
+  "dald_eu": -0.07568590350047304
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 6,
+  "correct": 0,
+  "dald_au": -2.2565228709434555,
+  "dald_eu": -0.07319304666056725
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 7,
+  "correct": 1,
+  "dald_au": -2.2562377010651717,
+  "dald_eu": -0.07252946509519492
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 8,
+  "correct": 1,
+  "dald_au": -2.2628371894069894,
+  "dald_eu": -0.07421150278293136
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 9,
+  "correct": 0,
+  "dald_au": -2.2656625877442176,
+  "dald_eu": -0.05643815268340213
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 10,
+  "correct": 1,
+  "dald_au": -2.2670096311841084,
+  "dald_eu": -0.05424681347941629
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 11,
+  "correct": 1,
+  "dald_au": -2.2547477610123474,
+  "dald_eu": -0.0594820016250856
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 12,
+  "correct": 1,
+  "dald_au": -2.2614344115025986,
+  "dald_eu": -0.07383479464697738
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 13,
+  "correct": 1,
+  "dald_au": -2.266982793626652,
+  "dald_eu": -0.056434612626620896
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 14,
+  "correct": 1,
+  "dald_au": -2.2555994546356457,
+  "dald_eu": -0.07673860911270983
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 15,
+  "correct": 1,
+  "dald_au": -2.2524203067791637,
+  "dald_eu": -0.06213555172580646
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 16,
+  "correct": 1,
+  "dald_au": -2.2694214245841247,
+  "dald_eu": -0.054669953725005785
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 17,
+  "correct": 1,
+  "dald_au": -2.2669893682652313,
+  "dald_eu": -0.054213107595082397
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 18,
+  "correct": 0,
+  "dald_au": -2.2570273506496723,
+  "dald_eu": -0.060234515694454926
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 19,
+  "correct": 1,
+  "dald_au": -2.2558490012996093,
+  "dald_eu": -0.08142493638676845
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 20,
+  "correct": 1,
+  "dald_au": -2.261642523728134,
+  "dald_eu": -0.07501172058134084
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 21,
+  "correct": 1,
+  "dald_au": -2.2553076214528636,
+  "dald_eu": -0.06005266792580451
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 22,
+  "correct": 0,
+  "dald_au": -2.25914422948504,
+  "dald_eu": -0.05701649764221736
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 23,
+  "correct": 0,
+  "dald_au": -2.2586597912818984,
+  "dald_eu": -0.05583242348731855
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 24,
+  "correct": 1,
+  "dald_au": -2.25493055092027,
+  "dald_eu": -0.07677543186180422
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 25,
+  "correct": 1,
+  "dald_au": -2.2581285052515887,
+  "dald_eu": -0.07655502392344497
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 26,
+  "correct": 1,
+  "dald_au": -2.2593228065098376,
+  "dald_eu": -0.07469654528478058
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 27,
+  "correct": 1,
+  "dald_au": -2.255841788714,
+  "dald_eu": -0.07483629560336763
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 28,
+  "correct": 1,
+  "dald_au": -2.2585512493271986,
+  "dald_eu": -0.0774818401937046
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 29,
+  "correct": 1,
+  "dald_au": -2.2590087829553136,
+  "dald_eu": -0.0751526538280883
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 30,
+  "correct": 0,
+  "dald_au": -2.2590232831562753,
+  "dald_eu": -0.05917594607132887
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 31,
+  "correct": 0,
+  "dald_au": -2.262938302719816,
+  "dald_eu": -0.05768740227302647
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 32,
+  "correct": 1,
+  "dald_au": -2.259804222552915,
+  "dald_eu": -0.0589395039098609
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 33,
+  "correct": 0,
+  "dald_au": -2.256717091573299,
+  "dald_eu": -0.07586533902323377
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 34,
+  "correct": 0,
+  "dald_au": -2.265569947777054,
+  "dald_eu": -0.051646666952818554
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 35,
+  "correct": 1,
+  "dald_au": -2.25875539753307,
+  "dald_eu": -0.07194244604316546
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 36,
+  "correct": 0,
+  "dald_au": -2.2594625126005683,
+  "dald_eu": -0.07403979639055992
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 37,
+  "correct": 1,
+  "dald_au": -2.255001663204129,
+  "dald_eu": -0.07793472966390648
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 38,
+  "correct": 1,
+  "dald_au": -2.2672394238097273,
+  "dald_eu": -0.054728578586597534
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 39,
+  "correct": 1,
+  "dald_au": -2.2593067429790583,
+  "dald_eu": -0.059534565459485676
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 40,
+  "correct": 1,
+  "dald_au": -2.2565591858977516,
+  "dald_eu": -0.07586533902323377
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 41,
+  "correct": 1,
+  "dald_au": -2.2603431241875342,
+  "dald_eu": -0.075046904315197
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 42,
+  "correct": 0,
+  "dald_au": -2.256730745836981,
+  "dald_eu": -0.05992146885481806
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 43,
+  "correct": 1,
+  "dald_au": -2.2626359588145313,
+  "dald_eu": -0.053199816112497356
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 44,
+  "correct": 0,
+  "dald_au": -2.2673846212393576,
+  "dald_eu": -0.05482564857002239
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 45,
+  "correct": 0,
+  "dald_au": -2.267525643577495,
+  "dald_eu": -0.05655934946441608
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 46,
+  "correct": 0,
+  "dald_au": -2.2496822054322063,
+  "dald_eu": -0.055482222772352145
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 47,
+  "correct": 0,
+  "dald_au": -2.2586585786120277,
+  "dald_eu": -0.07751937984496124
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 48,
+  "correct": 1,
+  "dald_au": -2.2602799026098337,
+  "dald_eu": -0.07655502392344497
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 49,
+  "correct": 0,
+  "dald_au": -2.2588275258018835,
+  "dald_eu": -0.07688611244593946
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 50,
+  "correct": 1,
+  "dald_au": -2.258151769996157,
+  "dald_eu": -0.07590132827324478
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 51,
+  "correct": 1,
+  "dald_au": -2.259430946256351,
+  "dald_eu": -0.055979477976012014
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 52,
+  "correct": 1,
+  "dald_au": -2.2570115645846047,
+  "dald_eu": -0.07866273352999016
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 53,
+  "correct": 1,
+  "dald_au": -2.257062494627673,
+  "dald_eu": -0.07751937984496124
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 54,
+  "correct": 1,
+  "dald_au": -2.260944550999934,
+  "dald_eu": -0.070298769771529
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 55,
+  "correct": 1,
+  "dald_au": -2.2516280912114,
+  "dald_eu": -0.07920792079207921
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 56,
+  "correct": 1,
+  "dald_au": -2.26430187699709,
+  "dald_eu": -0.056390968427417164
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 57,
+  "correct": 1,
+  "dald_au": -2.2560990432580725,
+  "dald_eu": -0.05961045809150215
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 58,
+  "correct": 1,
+  "dald_au": -2.2572998101884965,
+  "dald_eu": -0.07611798287345385
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 59,
+  "correct": 0,
+  "dald_au": -2.2613276128400717,
+  "dald_eu": -0.07315957933241884
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 60,
+  "correct": 1,
+  "dald_au": -2.2529255003445727,
+  "dald_eu": -0.06501516589788274
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 61,
+  "correct": 1,
+  "dald_au": -2.2600901341717097,
+  "dald_eu": -0.07168458781362007
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 62,
+  "correct": 0,
+  "dald_au": -2.2576786567724314,
+  "dald_eu": -0.07322654462242563
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 63,
+  "correct": 0,
+  "dald_au": -2.2599561332423193,
+  "dald_eu": -0.07397133610725844
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 64,
+  "correct": 0,
+  "dald_au": -2.2608100535165305,
+  "dald_eu": -0.05876520376405772
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 65,
+  "correct": 1,
+  "dald_au": -2.264131184496082,
+  "dald_eu": -0.069960647135986
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 66,
+  "correct": 1,
+  "dald_au": -2.2548196288690385,
+  "dald_eu": -0.078125
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 67,
+  "correct": 1,
+  "dald_au": -2.260488447288788,
+  "dald_eu": -0.07662835249042145
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 68,
+  "correct": 1,
+  "dald_au": -2.26088139225569,
+  "dald_eu": -0.05800271159302526
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 69,
+  "correct": 0,
+  "dald_au": -2.2591805379012757,
+  "dald_eu": -0.07866273352999016
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 70,
+  "correct": 1,
+  "dald_au": -2.2582405085791852,
+  "dald_eu": -0.057141133341108506
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 71,
+  "correct": 1,
+  "dald_au": -2.2631653562476264,
+  "dald_eu": -0.06688963210702341
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 72,
+  "correct": 1,
+  "dald_au": -2.264311780268215,
+  "dald_eu": -0.05769745583979921
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 73,
+  "correct": 1,
+  "dald_au": -2.25915625125503,
+  "dald_eu": -0.074487895716946
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 74,
+  "correct": 1,
+  "dald_au": -2.2607332878995545,
+  "dald_eu": -0.0579512808151666
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 75,
+  "correct": 0,
+  "dald_au": -2.269197159570788,
+  "dald_eu": -0.05420375901772336
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 76,
+  "correct": 1,
+  "dald_au": -2.259913354564796,
+  "dald_eu": -0.07162041181736795
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 77,
+  "correct": 1,
+  "dald_au": -2.2605296904860803,
+  "dald_eu": -0.07487131492746842
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 78,
+  "correct": 1,
+  "dald_au": -2.2600457521360777,
+  "dald_eu": -0.07445323406235459
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 79,
+  "correct": 1,
+  "dald_au": -2.258728655419019,
+  "dald_eu": -0.07230004518752824
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 80,
+  "correct": 1,
+  "dald_au": -2.2618908937183475,
+  "dald_eu": -0.07452258965999069
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 81,
+  "correct": 0,
+  "dald_au": -2.2597471615304987,
+  "dald_eu": -0.05960668130555808
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 82,
+  "correct": 1,
+  "dald_au": -2.260391096323352,
+  "dald_eu": -0.07020623080298377
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 83,
+  "correct": 1,
+  "dald_au": -2.2577822274587303,
+  "dald_eu": -0.056444970135302565
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 84,
+  "correct": 1,
+  "dald_au": -2.256301022439676,
+  "dald_eu": -0.07590132827324478
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 85,
+  "correct": 1,
+  "dald_au": -2.261870268450449,
+  "dald_eu": -0.0560728005468737
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 86,
+  "correct": 1,
+  "dald_au": -2.258853575195463,
+  "dald_eu": -0.07452258965999069
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 87,
+  "correct": 1,
+  "dald_au": -2.2682910772954936,
+  "dald_eu": -0.05409917030986664
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 88,
+  "correct": 0,
+  "dald_au": -2.2583908719271206,
+  "dald_eu": -0.0572466120636401
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 89,
+  "correct": 1,
+  "dald_au": -2.2608173983765742,
+  "dald_eu": -0.07410838351088467
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 90,
+  "correct": 1,
+  "dald_au": -2.2591570405661243,
+  "dald_eu": -0.07400555041628122
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 91,
+  "correct": 1,
+  "dald_au": -2.26078618318393,
+  "dald_eu": -0.07666506947771921
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 92,
+  "correct": 1,
+  "dald_au": -2.2597986195365545,
+  "dald_eu": -0.07332722273143905
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 93,
+  "correct": 1,
+  "dald_au": -2.263325562402243,
+  "dald_eu": -0.05681300827018255
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 94,
+  "correct": 1,
+  "dald_au": -2.2620926323002264,
+  "dald_eu": -0.07529411764705882
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 95,
+  "correct": 1,
+  "dald_au": -2.25702190457185,
+  "dald_eu": -0.07751937984496124
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 96,
+  "correct": 1,
+  "dald_au": -2.2601500452381105,
+  "dald_eu": -0.057742709016571754
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 97,
+  "correct": 1,
+  "dald_au": -2.262090018694623,
+  "dald_eu": -0.07216959855660803
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 98,
+  "correct": 1,
+  "dald_au": -2.262924656676324,
+  "dald_eu": -0.07155635062611806
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 99,
+  "correct": 1,
+  "dald_au": -2.2627640059411,
+  "dald_eu": -0.05591135031861978
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 100,
+  "correct": 1,
+  "dald_au": -2.262655587105417,
+  "dald_eu": -0.057421315061772435
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 101,
+  "correct": 1,
+  "dald_au": -2.261126720318242,
+  "dald_eu": -0.06881720430107527
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 102,
+  "correct": 1,
+  "dald_au": -2.2600115961077023,
+  "dald_eu": -0.07487131492746842
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 103,
+  "correct": 1,
+  "dald_au": -2.262058358791709,
+  "dald_eu": -0.07036059806508356
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 104,
+  "correct": 1,
+  "dald_au": -2.2624815911970106,
+  "dald_eu": -0.0730593607305936
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 105,
+  "correct": 1,
+  "dald_au": -2.2608102701435957,
+  "dald_eu": -0.07431490942870414
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 106,
+  "correct": 0,
+  "dald_au": -2.2674106025317973,
+  "dald_eu": -0.055362396441256324
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 107,
+  "correct": 1,
+  "dald_au": -2.261200721135017,
+  "dald_eu": -0.057940615279185585
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 108,
+  "correct": 1,
+  "dald_au": -2.2595445651286967,
+  "dald_eu": -0.07431490942870414
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 109,
+  "correct": 0,
+  "dald_au": -2.2592087904306477,
+  "dald_eu": -0.05690935779405573
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 110,
+  "correct": 1,
+  "dald_au": -2.2597510324000303,
+  "dald_eu": -0.07684918347742556
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 111,
+  "correct": 1,
+  "dald_au": -2.2601319448414525,
+  "dald_eu": -0.07473143390938813
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 112,
+  "correct": 0,
+  "dald_au": -2.258059318025431,
+  "dald_eu": -0.07266121707538602
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 113,
+  "correct": 1,
+  "dald_au": -2.2667604853398315,
+  "dald_eu": -0.05603835334258382
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 114,
+  "correct": 0,
+  "dald_au": -2.2609434402333983,
+  "dald_eu": -0.05729007436359892
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 115,
+  "correct": 1,
+  "dald_au": -2.263989555561705,
+  "dald_eu": -0.05282271587106049
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 116,
+  "correct": 1,
+  "dald_au": -2.2596123760560496,
+  "dald_eu": -0.0600933945583992
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 117,
+  "correct": 1,
+  "dald_au": -2.2597320287013436,
+  "dald_eu": -0.057317033515567925
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 118,
+  "correct": 1,
+  "dald_au": -2.2595268598553777,
+  "dald_eu": -0.07554296506137866
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 119,
+  "correct": 1,
+  "dald_au": -2.2621055189475774,
+  "dald_eu": -0.07092198581560284
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 120,
+  "correct": 1,
+  "dald_au": -2.266563324553754,
+  "dald_eu": -0.05503527278870471
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 121,
+  "correct": 1,
+  "dald_au": -2.257233286580915,
+  "dald_eu": -0.07421150278293136
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 122,
+  "correct": 1,
+  "dald_au": -2.2584088262987763,
+  "dald_eu": -0.07710843373493977
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 123,
+  "correct": 1,
+  "dald_au": -2.2613407875234284,
+  "dald_eu": -0.05853412306490543
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 124,
+  "correct": 1,
+  "dald_au": -2.26114575965718,
+  "dald_eu": -0.0735632183908046
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 125,
+  "correct": 1,
+  "dald_au": -2.2513102651585517,
+  "dald_eu": -0.0774818401937046
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 126,
+  "correct": 1,
+  "dald_au": -2.258750172105495,
+  "dald_eu": -0.059452692086899815
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 127,
+  "correct": 1,
+  "dald_au": -2.256862997829184,
+  "dald_eu": -0.0642674666915211
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 128,
+  "correct": 0,
+  "dald_au": -2.2608168077052535,
+  "dald_eu": -0.07565011820330969
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 129,
+  "correct": 1,
+  "dald_au": -2.2617033594960643,
+  "dald_eu": -0.05935702224025745
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 130,
+  "correct": 1,
+  "dald_au": -2.2631700465053086,
+  "dald_eu": -0.07210455159981974
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 131,
+  "correct": 1,
+  "dald_au": -2.266146127780973,
+  "dald_eu": -0.05617132528281964
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 132,
+  "correct": 1,
+  "dald_au": -2.2543039264767173,
+  "dald_eu": -0.07469654528478058
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 133,
+  "correct": 1,
+  "dald_au": -2.261351919417037,
+  "dald_eu": -0.07184553210597217
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 134,
+  "correct": 1,
+  "dald_au": -2.2559209234238944,
+  "dald_eu": -0.07011393514460999
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 135,
+  "correct": 1,
+  "dald_au": -2.2606888397449643,
+  "dald_eu": -0.07220216606498195
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 136,
+  "correct": 1,
+  "dald_au": -2.2610165333788688,
+  "dald_eu": -0.07359705611775529
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 137,
+  "correct": 1,
+  "dald_au": -2.2557244986638514,
+  "dald_eu": -0.07808687164470474
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 138,
+  "correct": 1,
+  "dald_au": -2.2593689725174277,
+  "dald_eu": -0.07445323406235459
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 139,
+  "correct": 0,
+  "dald_au": -2.2647095425247,
+  "dald_eu": -0.05732024966895699
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 140,
+  "correct": 1,
+  "dald_au": -2.2563525582366313,
+  "dald_eu": -0.07763221737020863
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 141,
+  "correct": 0,
+  "dald_au": -2.260096495180835,
+  "dald_eu": -0.05859767205206953
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 142,
+  "correct": 1,
+  "dald_au": -2.25928344616635,
+  "dald_eu": -0.07319304666056725
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 143,
+  "correct": 1,
+  "dald_au": -2.2565596792952562,
+  "dald_eu": -0.05972704350473426
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 144,
+  "correct": 1,
+  "dald_au": -2.257229138783596,
+  "dald_eu": -0.07622677465459743
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 145,
+  "correct": 1,
+  "dald_au": -2.259772762773829,
+  "dald_eu": -0.05849480257942752
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 146,
+  "correct": 1,
+  "dald_au": -2.2587351219351555,
+  "dald_eu": -0.07421150278293136
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 147,
+  "correct": 1,
+  "dald_au": -2.2565203134871585,
+  "dald_eu": -0.07561436672967864
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 148,
+  "correct": 1,
+  "dald_au": -2.263148678051546,
+  "dald_eu": -0.07191011235955057
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 149,
+  "correct": 1,
+  "dald_au": -2.2550974210600123,
+  "dald_eu": -0.05474727312551377
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 0,
+  "correct": 1,
+  "dald_au": -2.2658718408877787,
+  "dald_eu": -0.054263307560514874
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 1,
+  "correct": 1,
+  "dald_au": -2.261683477772945,
+  "dald_eu": -0.05664831421427924
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 2,
+  "correct": 1,
+  "dald_au": -2.26694141141629,
+  "dald_eu": -0.05630696641044097
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 3,
+  "correct": 1,
+  "dald_au": -2.254656230360627,
+  "dald_eu": -0.057187791477278635
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 4,
+  "correct": 1,
+  "dald_au": -2.261474672873933,
+  "dald_eu": -0.05599624881612591
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 5,
+  "correct": 1,
+  "dald_au": -2.256802638743495,
+  "dald_eu": -0.05769579787140145
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 6,
+  "correct": 1,
+  "dald_au": -2.2662467742891854,
+  "dald_eu": -0.05383508068383563
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 7,
+  "correct": 1,
+  "dald_au": -2.264568499079494,
+  "dald_eu": -0.05537104090771441
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 8,
+  "correct": 1,
+  "dald_au": -2.262342871844655,
+  "dald_eu": -0.055366974019348786
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 9,
+  "correct": 1,
+  "dald_au": -2.2579595649850965,
+  "dald_eu": -0.05841159046155728
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 10,
+  "correct": 1,
+  "dald_au": -2.2611246305857935,
+  "dald_eu": -0.058621209836665356
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 11,
+  "correct": 1,
+  "dald_au": -2.256553141696094,
+  "dald_eu": -0.06069857455403896
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 12,
+  "correct": 1,
+  "dald_au": -2.2628397501330424,
+  "dald_eu": -0.05727563438161179
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 13,
+  "correct": 1,
+  "dald_au": -2.255043586153715,
+  "dald_eu": -0.05976321516832139
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 14,
+  "correct": 0,
+  "dald_au": -2.2626633072938653,
+  "dald_eu": -0.05556535432835457
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 15,
+  "correct": 1,
+  "dald_au": -2.261536967486168,
+  "dald_eu": -0.05874068474845308
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 16,
+  "correct": 0,
+  "dald_au": -2.2590136516822583,
+  "dald_eu": -0.05990601409611414
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 17,
+  "correct": 1,
+  "dald_au": -2.2620618804544375,
+  "dald_eu": -0.05833061397393113
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 18,
+  "correct": 1,
+  "dald_au": -2.2546596271749193,
+  "dald_eu": -0.06374816127338914
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 19,
+  "correct": 1,
+  "dald_au": -2.2619500767550575,
+  "dald_eu": -0.05609931328635852
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 20,
+  "correct": 1,
+  "dald_au": -2.264150615635501,
+  "dald_eu": -0.05731937662942839
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 21,
+  "correct": 0,
+  "dald_au": -2.2625363141298056,
+  "dald_eu": -0.058587751754595276
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 22,
+  "correct": 0,
+  "dald_au": -2.2636661617889655,
+  "dald_eu": -0.05555179076588755
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 23,
+  "correct": 1,
+  "dald_au": -2.258290877358722,
+  "dald_eu": -0.06013757354896339
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 24,
+  "correct": 0,
+  "dald_au": -2.259404681777199,
+  "dald_eu": -0.05873608595115454
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 25,
+  "correct": 1,
+  "dald_au": -2.258038216300882,
+  "dald_eu": -0.0611098238661509
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 26,
+  "correct": 1,
+  "dald_au": -2.2642069450055406,
+  "dald_eu": -0.05535282505683337
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 27,
+  "correct": 1,
+  "dald_au": -2.2594451612884554,
+  "dald_eu": -0.05642411888717792
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 28,
+  "correct": 1,
+  "dald_au": -2.260690200335792,
+  "dald_eu": -0.05641898655772813
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 29,
+  "correct": 1,
+  "dald_au": -2.267556830820303,
+  "dald_eu": -0.053396354909888526
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 30,
+  "correct": 1,
+  "dald_au": -2.261668108916704,
+  "dald_eu": -0.056603299062642984
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 31,
+  "correct": 0,
+  "dald_au": -2.2567819006371517,
+  "dald_eu": -0.056878922675949135
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 32,
+  "correct": 1,
+  "dald_au": -2.2590950058256882,
+  "dald_eu": -0.05657177731175052
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 33,
+  "correct": 1,
+  "dald_au": -2.2630351617865867,
+  "dald_eu": -0.05369981580245922
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 34,
+  "correct": 0,
+  "dald_au": -2.2642645442150955,
+  "dald_eu": -0.055679175416328525
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 35,
+  "correct": 1,
+  "dald_au": -2.2634334489446677,
+  "dald_eu": -0.055709973564381655
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 36,
+  "correct": 0,
+  "dald_au": -2.263708422399532,
+  "dald_eu": -0.05537752420432936
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 37,
+  "correct": 1,
+  "dald_au": -2.2648067343273133,
+  "dald_eu": -0.055219379702661206
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 38,
+  "correct": 1,
+  "dald_au": -2.260454190234076,
+  "dald_eu": -0.056159554361440774
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 39,
+  "correct": 1,
+  "dald_au": -2.2632592079922933,
+  "dald_eu": -0.058569508632802934
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 40,
+  "correct": 0,
+  "dald_au": -2.2608862567162635,
+  "dald_eu": -0.05983243155292604
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 41,
+  "correct": 1,
+  "dald_au": -2.2571609656920426,
+  "dald_eu": -0.058613461192644926
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 42,
+  "correct": 1,
+  "dald_au": -2.261175313755293,
+  "dald_eu": -0.05939656562269703
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 43,
+  "correct": 1,
+  "dald_au": -2.2663146757537063,
+  "dald_eu": -0.05536328163959551
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 44,
+  "correct": 1,
+  "dald_au": -2.263253284669033,
+  "dald_eu": -0.05450957534431844
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 45,
+  "correct": 0,
+  "dald_au": -2.2585879034836074,
+  "dald_eu": -0.059585152183221024
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 46,
+  "correct": 1,
+  "dald_au": -2.2664139023977503,
+  "dald_eu": -0.05767896739685903
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 47,
+  "correct": 1,
+  "dald_au": -2.262319875767174,
+  "dald_eu": -0.056493412998139245
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 48,
+  "correct": 1,
+  "dald_au": -2.261834961107162,
+  "dald_eu": -0.05817370496762542
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 49,
+  "correct": 1,
+  "dald_au": -2.262671402246807,
+  "dald_eu": -0.057238109409541514
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 50,
+  "correct": 1,
+  "dald_au": -2.263428958057255,
+  "dald_eu": -0.05522215574222167
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 51,
+  "correct": 0,
+  "dald_au": -2.259410686712189,
+  "dald_eu": -0.05740448858330025
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 52,
+  "correct": 1,
+  "dald_au": -2.2662337991543016,
+  "dald_eu": -0.056343106548754816
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 53,
+  "correct": 1,
+  "dald_au": -2.2641455146459855,
+  "dald_eu": -0.057147102126058356
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 54,
+  "correct": 1,
+  "dald_au": -2.2647517319658297,
+  "dald_eu": -0.05581163973575376
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 55,
+  "correct": 1,
+  "dald_au": -2.2630460494432696,
+  "dald_eu": -0.057691623905480514
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 56,
+  "correct": 1,
+  "dald_au": -2.2628985127814762,
+  "dald_eu": -0.05433791159519857
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 57,
+  "correct": 1,
+  "dald_au": -2.2612262022172986,
+  "dald_eu": -0.0561907628022794
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 58,
+  "correct": 1,
+  "dald_au": -2.2619100392437783,
+  "dald_eu": -0.056490528299478066
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 59,
+  "correct": 1,
+  "dald_au": -2.2623813709200196,
+  "dald_eu": -0.05348478125821105
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 60,
+  "correct": 1,
+  "dald_au": -2.2617836454234044,
+  "dald_eu": -0.056696388520185735
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 61,
+  "correct": 1,
+  "dald_au": -2.259471739333769,
+  "dald_eu": -0.05545172799456783
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 62,
+  "correct": 1,
+  "dald_au": -2.2643833242587776,
+  "dald_eu": -0.0562879977487869
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 63,
+  "correct": 1,
+  "dald_au": -2.259055550027713,
+  "dald_eu": -0.059084719143717775
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 64,
+  "correct": 1,
+  "dald_au": -2.259055550027713,
+  "dald_eu": -0.059084719143717775
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 65,
+  "correct": 1,
+  "dald_au": -2.258776381156197,
+  "dald_eu": -0.05641223198312187
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 66,
+  "correct": 1,
+  "dald_au": -2.258776381156197,
+  "dald_eu": -0.05641223198312187
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 67,
+  "correct": 1,
+  "dald_au": -2.2630351976257375,
+  "dald_eu": -0.0562151736489698
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 68,
+  "correct": 1,
+  "dald_au": -2.263339616144601,
+  "dald_eu": -0.057155667383878034
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 69,
+  "correct": 1,
+  "dald_au": -2.262591361112445,
+  "dald_eu": -0.05711637698075465
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 70,
+  "correct": 1,
+  "dald_au": -2.2629331040842144,
+  "dald_eu": -0.05886471769519491
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 71,
+  "correct": 1,
+  "dald_au": -2.2661139884373442,
+  "dald_eu": -0.056395734989930425
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 72,
+  "correct": 1,
+  "dald_au": -2.2623174217843767,
+  "dald_eu": -0.05815045468124324
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 73,
+  "correct": 1,
+  "dald_au": -2.266405418712387,
+  "dald_eu": -0.05402181428778201
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 74,
+  "correct": 1,
+  "dald_au": -2.2618948764669753,
+  "dald_eu": -0.05798078714932429
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 75,
+  "correct": 1,
+  "dald_au": -2.2612053272378065,
+  "dald_eu": -0.05893282531670983
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 76,
+  "correct": 1,
+  "dald_au": -2.262468004556857,
+  "dald_eu": -0.05597555514435258
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 77,
+  "correct": 1,
+  "dald_au": -2.2606085000069465,
+  "dald_eu": -0.058007723345411905
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 78,
+  "correct": 1,
+  "dald_au": -2.26080891082084,
+  "dald_eu": -0.05825549941487113
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 79,
+  "correct": 1,
+  "dald_au": -2.26512772624156,
+  "dald_eu": -0.05642503600342159
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 80,
+  "correct": 1,
+  "dald_au": -2.2627443631352517,
+  "dald_eu": -0.05737636449345601
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 81,
+  "correct": 1,
+  "dald_au": -2.256003555428734,
+  "dald_eu": -0.0587928497564483
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 82,
+  "correct": 1,
+  "dald_au": -2.2591638519077475,
+  "dald_eu": -0.05644444703019137
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 83,
+  "correct": 1,
+  "dald_au": -2.2635007673119962,
+  "dald_eu": -0.05847732200059041
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 84,
+  "correct": 1,
+  "dald_au": -2.263016444810684,
+  "dald_eu": -0.057958603906247755
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 85,
+  "correct": 1,
+  "dald_au": -2.2621877951692086,
+  "dald_eu": -0.05734808552059867
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 86,
+  "correct": 1,
+  "dald_au": -2.2669554988438607,
+  "dald_eu": -0.055445889153671525
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 87,
+  "correct": 1,
+  "dald_au": -2.264910585669393,
+  "dald_eu": -0.05691556682498321
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 88,
+  "correct": 1,
+  "dald_au": -2.26252662187967,
+  "dald_eu": -0.05661613228304845
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 89,
+  "correct": 1,
+  "dald_au": -2.25752958084032,
+  "dald_eu": -0.05939934874340696
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 90,
+  "correct": 1,
+  "dald_au": -2.258755244310074,
+  "dald_eu": -0.05673809429553287
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 91,
+  "correct": 1,
+  "dald_au": -2.2632062657643837,
+  "dald_eu": -0.057476392848707515
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 92,
+  "correct": 0,
+  "dald_au": -2.263932973865611,
+  "dald_eu": -0.05808230848975214
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 93,
+  "correct": 1,
+  "dald_au": -2.254707810036117,
+  "dald_eu": -0.058873397298273095
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 94,
+  "correct": 1,
+  "dald_au": -2.266835760704252,
+  "dald_eu": -0.055663492222052115
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 95,
+  "correct": 1,
+  "dald_au": -2.2629580415214585,
+  "dald_eu": -0.05819932606926816
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 96,
+  "correct": 1,
+  "dald_au": -2.2637536280774917,
+  "dald_eu": -0.055573789531103125
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 97,
+  "correct": 1,
+  "dald_au": -2.2650250442274906,
+  "dald_eu": -0.0572465585280303
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 98,
+  "correct": 0,
+  "dald_au": -2.2622189702639983,
+  "dald_eu": -0.05695246849766541
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 99,
+  "correct": 1,
+  "dald_au": -2.261553017017602,
+  "dald_eu": -0.05658795697922713
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 100,
+  "correct": 1,
+  "dald_au": -2.2634831601865053,
+  "dald_eu": -0.05723726842851621
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 101,
+  "correct": 1,
+  "dald_au": -2.2622642448388985,
+  "dald_eu": -0.05792867404395835
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 102,
+  "correct": 1,
+  "dald_au": -2.2618314760242892,
+  "dald_eu": -0.05770434861963844
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 103,
+  "correct": 1,
+  "dald_au": -2.2617236169848747,
+  "dald_eu": -0.056684433621892676
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 104,
+  "correct": 1,
+  "dald_au": -2.2662881604547933,
+  "dald_eu": -0.0558397428785574
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 105,
+  "correct": 1,
+  "dald_au": -2.262115829865271,
+  "dald_eu": -0.055272669968132
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 106,
+  "correct": 1,
+  "dald_au": -2.2566190938815742,
+  "dald_eu": -0.05723737559952086
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 107,
+  "correct": 1,
+  "dald_au": -2.2616262521273134,
+  "dald_eu": -0.05579402047913715
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 108,
+  "correct": 1,
+  "dald_au": -2.26480230761611,
+  "dald_eu": -0.05564578445113691
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 109,
+  "correct": 1,
+  "dald_au": -2.2643316172442285,
+  "dald_eu": -0.055231146220682106
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 110,
+  "correct": 1,
+  "dald_au": -2.2617844419199784,
+  "dald_eu": -0.05784524068754272
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 111,
+  "correct": 1,
+  "dald_au": -2.2592092829663524,
+  "dald_eu": -0.05649378687762108
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 112,
+  "correct": 1,
+  "dald_au": -2.2661389202652176,
+  "dald_eu": -0.055593260927737975
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 113,
+  "correct": 0,
+  "dald_au": -2.2630870066282354,
+  "dald_eu": -0.05619541836015218
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 114,
+  "correct": 1,
+  "dald_au": -2.2655367653576004,
+  "dald_eu": -0.05702363462778233
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 115,
+  "correct": 0,
+  "dald_au": -2.2619855504373483,
+  "dald_eu": -0.055368651934107914
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 116,
+  "correct": 1,
+  "dald_au": -2.2618140031245844,
+  "dald_eu": -0.05837148485199846
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 117,
+  "correct": 1,
+  "dald_au": -2.2603715240662363,
+  "dald_eu": -0.05547861518285761
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 118,
+  "correct": 1,
+  "dald_au": -2.2588856446932657,
+  "dald_eu": -0.05934612389265924
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 119,
+  "correct": 1,
+  "dald_au": -2.262053540406756,
+  "dald_eu": -0.05471779223615387
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 120,
+  "correct": 1,
+  "dald_au": -2.265457408781172,
+  "dald_eu": -0.055021590580814905
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 121,
+  "correct": 1,
+  "dald_au": -2.261239471871047,
+  "dald_eu": -0.05694624983936322
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 122,
+  "correct": 1,
+  "dald_au": -2.2582540774464386,
+  "dald_eu": -0.05684530399726215
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 123,
+  "correct": 1,
+  "dald_au": -2.262088652933219,
+  "dald_eu": -0.05621822225463382
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 124,
+  "correct": 1,
+  "dald_au": -2.26316365683031,
+  "dald_eu": -0.054661833511324046
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 125,
+  "correct": 1,
+  "dald_au": -2.26569379310736,
+  "dald_eu": -0.05493607965962997
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 126,
+  "correct": 1,
+  "dald_au": -2.2582985072999238,
+  "dald_eu": -0.05932425795258173
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 127,
+  "correct": 1,
+  "dald_au": -2.2607362361716703,
+  "dald_eu": -0.05799556868975128
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 128,
+  "correct": 0,
+  "dald_au": -2.2564218229391013,
+  "dald_eu": -0.05781505499313195
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 129,
+  "correct": 1,
+  "dald_au": -2.2598542643808543,
+  "dald_eu": -0.05872932931910119
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 130,
+  "correct": 1,
+  "dald_au": -2.2630599233848723,
+  "dald_eu": -0.055083669689113705
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 131,
+  "correct": 1,
+  "dald_au": -2.264284208142185,
+  "dald_eu": -0.05436283947686527
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 132,
+  "correct": 1,
+  "dald_au": -2.263681135890847,
+  "dald_eu": -0.05904870097548204
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 133,
+  "correct": 1,
+  "dald_au": -2.265966901655627,
+  "dald_eu": -0.05309247099371616
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 134,
+  "correct": 1,
+  "dald_au": -2.2660468571233587,
+  "dald_eu": -0.05657368436047851
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 135,
+  "correct": 0,
+  "dald_au": -2.264503767212564,
+  "dald_eu": -0.05517792452909614
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 136,
+  "correct": 0,
+  "dald_au": -2.262357472239248,
+  "dald_eu": -0.057205865453827776
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 137,
+  "correct": 1,
+  "dald_au": -2.2612069942683792,
+  "dald_eu": -0.05779602836247125
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 138,
+  "correct": 1,
+  "dald_au": -2.2656947953827364,
+  "dald_eu": -0.05814045688064116
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 139,
+  "correct": 1,
+  "dald_au": -2.2631856986177383,
+  "dald_eu": -0.05709237561130094
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 140,
+  "correct": 1,
+  "dald_au": -2.2640586634887856,
+  "dald_eu": -0.05425058966246697
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 141,
+  "correct": 1,
+  "dald_au": -2.2616972718149375,
+  "dald_eu": -0.05788221789155859
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 142,
+  "correct": 1,
+  "dald_au": -2.2591095131250656,
+  "dald_eu": -0.05600022698183449
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 143,
+  "correct": 1,
+  "dald_au": -2.2612464720428505,
+  "dald_eu": -0.05603874083507122
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 144,
+  "correct": 1,
+  "dald_au": -2.256217864136195,
+  "dald_eu": -0.058713539089746095
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 145,
+  "correct": 1,
+  "dald_au": -2.2654922643921824,
+  "dald_eu": -0.05435786746949008
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 146,
+  "correct": 1,
+  "dald_au": -2.2583911489600905,
+  "dald_eu": -0.05702997314672038
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 147,
+  "correct": 1,
+  "dald_au": -2.2632144623540627,
+  "dald_eu": -0.05558597899190475
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 148,
+  "correct": 1,
+  "dald_au": -2.2650278088834166,
+  "dald_eu": -0.05544253031207344
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 149,
+  "correct": 1,
+  "dald_au": -2.2639551354916723,
+  "dald_eu": -0.058569074723725606
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 0,
+  "correct": 1,
+  "dald_au": -2.268301374157106,
+  "dald_eu": -0.05470562756508884
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 1,
+  "correct": 1,
+  "dald_au": -2.2686955922401375,
+  "dald_eu": -0.053229478858086744
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 2,
+  "correct": 1,
+  "dald_au": -2.2625862826548517,
+  "dald_eu": -0.05550084618257969
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 3,
+  "correct": 1,
+  "dald_au": -2.2637506317866323,
+  "dald_eu": -0.055646896756088825
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 4,
+  "correct": 1,
+  "dald_au": -2.2662438889903376,
+  "dald_eu": -0.05206913379096296
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 5,
+  "correct": 1,
+  "dald_au": -2.2656366156594037,
+  "dald_eu": -0.05284495488111291
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 6,
+  "correct": 1,
+  "dald_au": -2.26058957700864,
+  "dald_eu": -0.05428116729912793
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 7,
+  "correct": 1,
+  "dald_au": -2.2649303510697254,
+  "dald_eu": -0.05464165017862418
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 8,
+  "correct": 1,
+  "dald_au": -2.265766609140955,
+  "dald_eu": -0.052673384122705814
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 9,
+  "correct": 0,
+  "dald_au": -2.266936296456479,
+  "dald_eu": -0.05336623487307328
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 10,
+  "correct": 1,
+  "dald_au": -2.2634642011044055,
+  "dald_eu": -0.05452519665597482
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 11,
+  "correct": 1,
+  "dald_au": -2.2593246496887422,
+  "dald_eu": -0.05588565784779282
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 12,
+  "correct": 1,
+  "dald_au": -2.268294027126554,
+  "dald_eu": -0.05392278655615835
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 13,
+  "correct": 1,
+  "dald_au": -2.267639752749115,
+  "dald_eu": -0.05440504278279631
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 14,
+  "correct": 1,
+  "dald_au": -2.2644140054517554,
+  "dald_eu": -0.05981287168955151
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 15,
+  "correct": 1,
+  "dald_au": -2.267330312196347,
+  "dald_eu": -0.05324895153822263
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 16,
+  "correct": 1,
+  "dald_au": -2.268155311282205,
+  "dald_eu": -0.05452142783513641
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 17,
+  "correct": 1,
+  "dald_au": -2.259192151002789,
+  "dald_eu": -0.05855391160714705
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 18,
+  "correct": 1,
+  "dald_au": -2.263347041656323,
+  "dald_eu": -0.05421835527582512
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 19,
+  "correct": 0,
+  "dald_au": -2.2648099863560254,
+  "dald_eu": -0.05334816677372567
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 20,
+  "correct": 1,
+  "dald_au": -2.266680310106833,
+  "dald_eu": -0.0516978952581222
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 21,
+  "correct": 1,
+  "dald_au": -2.2667752617270733,
+  "dald_eu": -0.052022534362931555
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 22,
+  "correct": 0,
+  "dald_au": -2.2663558159727692,
+  "dald_eu": -0.05458062026022647
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 23,
+  "correct": 1,
+  "dald_au": -2.2643535726320008,
+  "dald_eu": -0.05405782051822987
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 24,
+  "correct": 1,
+  "dald_au": -2.2636434190670576,
+  "dald_eu": -0.056506151842299734
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 25,
+  "correct": 0,
+  "dald_au": -2.2688765688591888,
+  "dald_eu": -0.051981185943967896
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 26,
+  "correct": 1,
+  "dald_au": -2.2604675971320614,
+  "dald_eu": -0.05734270889595652
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 27,
+  "correct": 1,
+  "dald_au": -2.264962091960105,
+  "dald_eu": -0.05583380227289818
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 28,
+  "correct": 1,
+  "dald_au": -2.2660423473707225,
+  "dald_eu": -0.05323222515697856
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 29,
+  "correct": 1,
+  "dald_au": -2.2686911626787154,
+  "dald_eu": -0.051497068436823806
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 30,
+  "correct": 1,
+  "dald_au": -2.2617811532741365,
+  "dald_eu": -0.05469070424783131
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 31,
+  "correct": 1,
+  "dald_au": -2.2630632826345605,
+  "dald_eu": -0.05365697125060178
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 32,
+  "correct": 1,
+  "dald_au": -2.262185850105277,
+  "dald_eu": -0.05618914344435723
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 33,
+  "correct": 1,
+  "dald_au": -2.261204312307428,
+  "dald_eu": -0.05405435122173965
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 34,
+  "correct": 1,
+  "dald_au": -2.265099150014278,
+  "dald_eu": -0.05321331455354152
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 35,
+  "correct": 1,
+  "dald_au": -2.2638931884463207,
+  "dald_eu": -0.05441900038821106
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 36,
+  "correct": 1,
+  "dald_au": -2.2649464947770093,
+  "dald_eu": -0.05501215443553005
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 37,
+  "correct": 0,
+  "dald_au": -2.2665287509096386,
+  "dald_eu": -0.0544398144610005
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 38,
+  "correct": 1,
+  "dald_au": -2.264234139937915,
+  "dald_eu": -0.051776351484202135
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 39,
+  "correct": 1,
+  "dald_au": -2.263932531029179,
+  "dald_eu": -0.05408084370817191
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 40,
+  "correct": 1,
+  "dald_au": -2.2639345935223725,
+  "dald_eu": -0.05405115605131374
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 41,
+  "correct": 1,
+  "dald_au": -2.263381460404743,
+  "dald_eu": -0.056271875555003785
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 42,
+  "correct": 0,
+  "dald_au": -2.266488828825872,
+  "dald_eu": -0.05522729077927515
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 43,
+  "correct": 0,
+  "dald_au": -2.26623142261936,
+  "dald_eu": -0.0540542418561567
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 44,
+  "correct": 1,
+  "dald_au": -2.2657587505990207,
+  "dald_eu": -0.053353074263324723
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 45,
+  "correct": 1,
+  "dald_au": -2.264821692403,
+  "dald_eu": -0.05459767101652622
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 46,
+  "correct": 1,
+  "dald_au": -2.264988690473928,
+  "dald_eu": -0.05630148854909995
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 47,
+  "correct": 1,
+  "dald_au": -2.2669705414284076,
+  "dald_eu": -0.055321758637912145
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 48,
+  "correct": 1,
+  "dald_au": -2.2656883611652625,
+  "dald_eu": -0.055377694940877194
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 49,
+  "correct": 1,
+  "dald_au": -2.262115556503695,
+  "dald_eu": -0.05575795587410625
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 50,
+  "correct": 1,
+  "dald_au": -2.264979912477325,
+  "dald_eu": -0.05696332882897324
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 51,
+  "correct": 1,
+  "dald_au": -2.266056245546305,
+  "dald_eu": -0.05200875440909184
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 52,
+  "correct": 1,
+  "dald_au": -2.263598522603176,
+  "dald_eu": -0.055263428621092514
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 53,
+  "correct": 1,
+  "dald_au": -2.269186026788977,
+  "dald_eu": -0.05451632090299967
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 54,
+  "correct": 1,
+  "dald_au": -2.262699365294063,
+  "dald_eu": -0.05579521826973293
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 55,
+  "correct": 1,
+  "dald_au": -2.264661190501556,
+  "dald_eu": -0.0538556658597283
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 56,
+  "correct": 1,
+  "dald_au": -2.2677244399527825,
+  "dald_eu": -0.05390459230505041
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 57,
+  "correct": 1,
+  "dald_au": -2.2581450179647025,
+  "dald_eu": -0.05590410822932359
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 58,
+  "correct": 1,
+  "dald_au": -2.2608596701336996,
+  "dald_eu": -0.055371862137132494
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 59,
+  "correct": 0,
+  "dald_au": -2.2623240519959125,
+  "dald_eu": -0.057152247341254056
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 60,
+  "correct": 1,
+  "dald_au": -2.266211247627368,
+  "dald_eu": -0.052649365265294915
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 61,
+  "correct": 1,
+  "dald_au": -2.2642129519091507,
+  "dald_eu": -0.05604338748746107
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 62,
+  "correct": 1,
+  "dald_au": -2.265131284435526,
+  "dald_eu": -0.0550716937741941
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 63,
+  "correct": 1,
+  "dald_au": -2.263514280341953,
+  "dald_eu": -0.05640861898547908
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 64,
+  "correct": 1,
+  "dald_au": -2.2659679043418075,
+  "dald_eu": -0.05232652006920215
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 65,
+  "correct": 1,
+  "dald_au": -2.2667157638907662,
+  "dald_eu": -0.05365155945677412
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 66,
+  "correct": 1,
+  "dald_au": -2.265527882448593,
+  "dald_eu": -0.052461559912105805
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 67,
+  "correct": 1,
+  "dald_au": -2.262218183820258,
+  "dald_eu": -0.05815544072821305
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 68,
+  "correct": 1,
+  "dald_au": -2.2665715601272196,
+  "dald_eu": -0.05332534951596918
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 69,
+  "correct": 1,
+  "dald_au": -2.263862178618384,
+  "dald_eu": -0.05748592967188276
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 70,
+  "correct": 0,
+  "dald_au": -2.2652618894989023,
+  "dald_eu": -0.05741951286720248
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 71,
+  "correct": 1,
+  "dald_au": -2.262940423761288,
+  "dald_eu": -0.055859526227835694
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 72,
+  "correct": 1,
+  "dald_au": -2.2584171747964037,
+  "dald_eu": -0.058574530474241084
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 73,
+  "correct": 0,
+  "dald_au": -2.267453892622443,
+  "dald_eu": -0.052973921404680185
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 74,
+  "correct": 1,
+  "dald_au": -2.2623825209148305,
+  "dald_eu": -0.05802545800407233
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 75,
+  "correct": 1,
+  "dald_au": -2.263068934912628,
+  "dald_eu": -0.053724836519538396
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 76,
+  "correct": 0,
+  "dald_au": -2.2681614109962127,
+  "dald_eu": -0.05511506660866055
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 77,
+  "correct": 1,
+  "dald_au": -2.2633573340702005,
+  "dald_eu": -0.05458540203471579
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 78,
+  "correct": 1,
+  "dald_au": -2.2627442352412457,
+  "dald_eu": -0.05654247119225546
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 79,
+  "correct": 1,
+  "dald_au": -2.2674443685343775,
+  "dald_eu": -0.055029340032089834
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 80,
+  "correct": 1,
+  "dald_au": -2.2657683736800363,
+  "dald_eu": -0.05353880446334286
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 81,
+  "correct": 1,
+  "dald_au": -2.268679396267309,
+  "dald_eu": -0.05652596698003841
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 82,
+  "correct": 1,
+  "dald_au": -2.2651052839645534,
+  "dald_eu": -0.05340735818408403
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 83,
+  "correct": 1,
+  "dald_au": -2.2624277659190977,
+  "dald_eu": -0.055170232359516375
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 84,
+  "correct": 1,
+  "dald_au": -2.2655055622241695,
+  "dald_eu": -0.05169357553493443
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 85,
+  "correct": 1,
+  "dald_au": -2.266172789328539,
+  "dald_eu": -0.05553332397259262
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 86,
+  "correct": 1,
+  "dald_au": -2.263316809667068,
+  "dald_eu": -0.05504838815567128
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 87,
+  "correct": 1,
+  "dald_au": -2.265994461554563,
+  "dald_eu": -0.05543194320326114
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 88,
+  "correct": 1,
+  "dald_au": -2.2611755156333384,
+  "dald_eu": -0.055506380072377556
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 89,
+  "correct": 1,
+  "dald_au": -2.2657449830694087,
+  "dald_eu": -0.05559620353097977
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 90,
+  "correct": 1,
+  "dald_au": -2.2669312751681128,
+  "dald_eu": -0.05302365050574726
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 91,
+  "correct": 1,
+  "dald_au": -2.2614628899576132,
+  "dald_eu": -0.05436053006733191
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 92,
+  "correct": 1,
+  "dald_au": -2.264268849817001,
+  "dald_eu": -0.053243330014573126
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 93,
+  "correct": 0,
+  "dald_au": -2.2653893289011267,
+  "dald_eu": -0.056722801562140476
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 94,
+  "correct": 1,
+  "dald_au": -2.26753060618763,
+  "dald_eu": -0.05421229002343827
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 95,
+  "correct": 0,
+  "dald_au": -2.265142317493668,
+  "dald_eu": -0.05380100984110505
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 96,
+  "correct": 1,
+  "dald_au": -2.2673912907918905,
+  "dald_eu": -0.05269565584936835
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 97,
+  "correct": 1,
+  "dald_au": -2.2696564181020475,
+  "dald_eu": -0.05356814723568657
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 98,
+  "correct": 1,
+  "dald_au": -2.263674531506128,
+  "dald_eu": -0.05765695441118773
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 99,
+  "correct": 1,
+  "dald_au": -2.2643054173832047,
+  "dald_eu": -0.055497765923725025
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 100,
+  "correct": 1,
+  "dald_au": -2.266058310551886,
+  "dald_eu": -0.05495152723631278
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 101,
+  "correct": 1,
+  "dald_au": -2.268005792461521,
+  "dald_eu": -0.05548670516171882
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 102,
+  "correct": 1,
+  "dald_au": -2.2666858792669022,
+  "dald_eu": -0.05312117724564747
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 103,
+  "correct": 1,
+  "dald_au": -2.2666776319988697,
+  "dald_eu": -0.054891790087826964
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 104,
+  "correct": 1,
+  "dald_au": -2.2656886334242765,
+  "dald_eu": -0.054338015285101494
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 105,
+  "correct": 1,
+  "dald_au": -2.2631773056914533,
+  "dald_eu": -0.056096644733912855
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 106,
+  "correct": 1,
+  "dald_au": -2.2586701230308277,
+  "dald_eu": -0.05353111652791074
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 107,
+  "correct": 0,
+  "dald_au": -2.266752576511901,
+  "dald_eu": -0.05405099437201802
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 108,
+  "correct": 1,
+  "dald_au": -2.270952074993878,
+  "dald_eu": -0.05166454337386185
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 109,
+  "correct": 1,
+  "dald_au": -2.267958265198315,
+  "dald_eu": -0.05372444549422607
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 110,
+  "correct": 1,
+  "dald_au": -2.2629349243928845,
+  "dald_eu": -0.05579848220780136
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 111,
+  "correct": 1,
+  "dald_au": -2.265011675466474,
+  "dald_eu": -0.05314077204525962
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 112,
+  "correct": 1,
+  "dald_au": -2.268634983523776,
+  "dald_eu": -0.05108486337929822
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 113,
+  "correct": 1,
+  "dald_au": -2.268524845388416,
+  "dald_eu": -0.05371658803194773
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 114,
+  "correct": 1,
+  "dald_au": -2.262309690616897,
+  "dald_eu": -0.055543263914543735
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 115,
+  "correct": 0,
+  "dald_au": -2.2690458977780668,
+  "dald_eu": -0.05347769163810821
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 116,
+  "correct": 0,
+  "dald_au": -2.265238007943556,
+  "dald_eu": -0.055785438200447596
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 117,
+  "correct": 1,
+  "dald_au": -2.264542279948005,
+  "dald_eu": -0.055262227014001145
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 118,
+  "correct": 1,
+  "dald_au": -2.26424911795707,
+  "dald_eu": -0.0550538641763217
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 119,
+  "correct": 0,
+  "dald_au": -2.2612180248426745,
+  "dald_eu": -0.0558244029325367
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 120,
+  "correct": 1,
+  "dald_au": -2.2646144255484937,
+  "dald_eu": -0.053315566040936686
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 121,
+  "correct": 1,
+  "dald_au": -2.263974456056845,
+  "dald_eu": -0.05572961457168622
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 122,
+  "correct": 1,
+  "dald_au": -2.260822755828233,
+  "dald_eu": -0.05439010907699806
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 123,
+  "correct": 1,
+  "dald_au": -2.264172512852055,
+  "dald_eu": -0.05329571813924964
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 124,
+  "correct": 0,
+  "dald_au": -2.27213161999869,
+  "dald_eu": -0.05248383519618385
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 125,
+  "correct": 1,
+  "dald_au": -2.267370111484534,
+  "dald_eu": -0.05291568715758624
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 126,
+  "correct": 1,
+  "dald_au": -2.256072798347072,
+  "dald_eu": -0.057274392249195075
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 127,
+  "correct": 1,
+  "dald_au": -2.265995198518525,
+  "dald_eu": -0.05347534697971269
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 128,
+  "correct": 1,
+  "dald_au": -2.2641566253587753,
+  "dald_eu": -0.05369036973657526
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 129,
+  "correct": 1,
+  "dald_au": -2.2673316547979456,
+  "dald_eu": -0.05331803524966031
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 130,
+  "correct": 1,
+  "dald_au": -2.2620703256794292,
+  "dald_eu": -0.0577978434054042
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 131,
+  "correct": 1,
+  "dald_au": -2.262451694783131,
+  "dald_eu": -0.05606670659275265
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 132,
+  "correct": 1,
+  "dald_au": -2.2659070878423577,
+  "dald_eu": -0.05413311595484061
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 133,
+  "correct": 1,
+  "dald_au": -2.264736896492012,
+  "dald_eu": -0.05418901630138984
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 134,
+  "correct": 1,
+  "dald_au": -2.2634420435128444,
+  "dald_eu": -0.05593332508513146
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 135,
+  "correct": 0,
+  "dald_au": -2.2664967609522435,
+  "dald_eu": -0.05410207474841031
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 136,
+  "correct": 1,
+  "dald_au": -2.267272449274778,
+  "dald_eu": -0.053381541121092516
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 137,
+  "correct": 1,
+  "dald_au": -2.2616763002148934,
+  "dald_eu": -0.05557624810263761
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 138,
+  "correct": 0,
+  "dald_au": -2.2659921353377497,
+  "dald_eu": -0.05390995525162961
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 139,
+  "correct": 1,
+  "dald_au": -2.2636718004641057,
+  "dald_eu": -0.05526790550999982
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 140,
+  "correct": 1,
+  "dald_au": -2.2648340527131223,
+  "dald_eu": -0.05300640259601581
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 141,
+  "correct": 1,
+  "dald_au": -2.260119119211815,
+  "dald_eu": -0.05378470881920659
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 142,
+  "correct": 1,
+  "dald_au": -2.26629410961991,
+  "dald_eu": -0.05307923248560552
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 143,
+  "correct": 1,
+  "dald_au": -2.2617057569373133,
+  "dald_eu": -0.05617281664803698
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 144,
+  "correct": 0,
+  "dald_au": -2.266521903472019,
+  "dald_eu": -0.053370542953898474
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 145,
+  "correct": 1,
+  "dald_au": -2.2611586650238458,
+  "dald_eu": -0.056481987427616204
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 146,
+  "correct": 1,
+  "dald_au": -2.2609075350824197,
+  "dald_eu": -0.055595750403621684
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 147,
+  "correct": 1,
+  "dald_au": -2.270617840656508,
+  "dald_eu": -0.051339106924120984
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 148,
+  "correct": 0,
+  "dald_au": -2.262320664803935,
+  "dald_eu": -0.057888948875967225
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 149,
+  "correct": 1,
+  "dald_au": -2.2613786291204017,
+  "dald_eu": -0.05366903858452274
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 0,
+  "correct": 1,
+  "dald_au": -2.2644374752365852,
+  "dald_eu": -0.054743963218937076
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 1,
+  "correct": 0,
+  "dald_au": -2.264099402417638,
+  "dald_eu": -0.05542167241651009
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 2,
+  "correct": 1,
+  "dald_au": -2.2674718998648045,
+  "dald_eu": -0.05651607700202728
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 3,
+  "correct": 1,
+  "dald_au": -2.257929375224822,
+  "dald_eu": -0.058523884268868336
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 4,
+  "correct": 1,
+  "dald_au": -2.2679840971816536,
+  "dald_eu": -0.05320328496599729
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 5,
+  "correct": 1,
+  "dald_au": -2.265812406665635,
+  "dald_eu": -0.056200186450444924
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 6,
+  "correct": 1,
+  "dald_au": -2.2652901604096756,
+  "dald_eu": -0.054753732298806895
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 7,
+  "correct": 1,
+  "dald_au": -2.270907700430212,
+  "dald_eu": -0.05349344264250475
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 8,
+  "correct": 1,
+  "dald_au": -2.2625452809681015,
+  "dald_eu": -0.05395976757974243
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 9,
+  "correct": 1,
+  "dald_au": -2.2639320197525192,
+  "dald_eu": -0.055600576229056974
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 10,
+  "correct": 1,
+  "dald_au": -2.2514583657923124,
+  "dald_eu": -0.06151943744111438
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 11,
+  "correct": 1,
+  "dald_au": -2.267450119322248,
+  "dald_eu": -0.05448072281712307
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 12,
+  "correct": 0,
+  "dald_au": -2.2613703902126114,
+  "dald_eu": -0.05858671365574293
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 13,
+  "correct": 1,
+  "dald_au": -2.2666446743415833,
+  "dald_eu": -0.057167224222874506
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 14,
+  "correct": 1,
+  "dald_au": -2.260538451795036,
+  "dald_eu": -0.055236089505013575
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 15,
+  "correct": 1,
+  "dald_au": -2.2627395979101004,
+  "dald_eu": -0.056983410250577515
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 16,
+  "correct": 1,
+  "dald_au": -2.2630336898606167,
+  "dald_eu": -0.05642699804904746
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 17,
+  "correct": 0,
+  "dald_au": -2.262550156990564,
+  "dald_eu": -0.05232666813422871
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 18,
+  "correct": 1,
+  "dald_au": -2.2625535808697546,
+  "dald_eu": -0.057292654344608215
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 19,
+  "correct": 1,
+  "dald_au": -2.2558340063807,
+  "dald_eu": -0.054653171702805946
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 20,
+  "correct": 1,
+  "dald_au": -2.2655094598707404,
+  "dald_eu": -0.05656689866488305
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 21,
+  "correct": 1,
+  "dald_au": -2.2554082028626525,
+  "dald_eu": -0.058950487186533486
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 22,
+  "correct": 1,
+  "dald_au": -2.25879888961666,
+  "dald_eu": -0.059252904604743875
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 23,
+  "correct": 0,
+  "dald_au": -2.2604245731520423,
+  "dald_eu": -0.057689903088029945
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 24,
+  "correct": 1,
+  "dald_au": -2.259466758333004,
+  "dald_eu": -0.061344952244638276
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 25,
+  "correct": 1,
+  "dald_au": -2.259790543290664,
+  "dald_eu": -0.058365146897089465
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 26,
+  "correct": 0,
+  "dald_au": -2.264049775625101,
+  "dald_eu": -0.062036456957990975
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 27,
+  "correct": 1,
+  "dald_au": -2.2559025186605863,
+  "dald_eu": -0.05764195283697322
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 28,
+  "correct": 1,
+  "dald_au": -2.2567812062332178,
+  "dald_eu": -0.05993724702328414
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 29,
+  "correct": 0,
+  "dald_au": -2.252099476637817,
+  "dald_eu": -0.060891950145673376
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 30,
+  "correct": 0,
+  "dald_au": -2.265857520604385,
+  "dald_eu": -0.05803909221447189
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 31,
+  "correct": 1,
+  "dald_au": -2.253707929567411,
+  "dald_eu": -0.058217331745855395
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 32,
+  "correct": 0,
+  "dald_au": -2.2630600478485894,
+  "dald_eu": -0.062259822614757994
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 33,
+  "correct": 1,
+  "dald_au": -2.2588584724781997,
+  "dald_eu": -0.0618150966489008
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 34,
+  "correct": 0,
+  "dald_au": -2.264047326933965,
+  "dald_eu": -0.05904609858140197
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 35,
+  "correct": 1,
+  "dald_au": -2.256033080669346,
+  "dald_eu": -0.060719509570687336
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 36,
+  "correct": 1,
+  "dald_au": -2.252884948502664,
+  "dald_eu": -0.06030664182193597
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 37,
+  "correct": 1,
+  "dald_au": -2.2543935255726275,
+  "dald_eu": -0.06492751714081076
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 38,
+  "correct": 1,
+  "dald_au": -2.2509412360116183,
+  "dald_eu": -0.06010675469988528
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 39,
+  "correct": 0,
+  "dald_au": -2.2583393898102253,
+  "dald_eu": -0.05958624585180949
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 40,
+  "correct": 1,
+  "dald_au": -2.2576190018238673,
+  "dald_eu": -0.058317940250402274
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 41,
+  "correct": 0,
+  "dald_au": -2.259867969897633,
+  "dald_eu": -0.0577186579579663
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 42,
+  "correct": 0,
+  "dald_au": -2.2631169443496546,
+  "dald_eu": -0.05650142910230729
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 43,
+  "correct": 0,
+  "dald_au": -2.263688428594787,
+  "dald_eu": -0.05708025758777341
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 44,
+  "correct": 0,
+  "dald_au": -2.262704313519404,
+  "dald_eu": -0.054132470148568576
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 45,
+  "correct": 1,
+  "dald_au": -2.266764404515155,
+  "dald_eu": -0.056919364462481116
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 46,
+  "correct": 0,
+  "dald_au": -2.2601667341546503,
+  "dald_eu": -0.05895083337022935
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 47,
+  "correct": 0,
+  "dald_au": -2.267984233335264,
+  "dald_eu": -0.05653543560808188
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 48,
+  "correct": 0,
+  "dald_au": -2.2584635545612146,
+  "dald_eu": -0.05539303149956848
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 49,
+  "correct": 0,
+  "dald_au": -2.2644562161057475,
+  "dald_eu": -0.05538813026554672
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 50,
+  "correct": 0,
+  "dald_au": -2.262254982369963,
+  "dald_eu": -0.05988567250197488
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 51,
+  "correct": 1,
+  "dald_au": -2.2648003870203577,
+  "dald_eu": -0.0546118841515705
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 52,
+  "correct": 1,
+  "dald_au": -2.262143882152741,
+  "dald_eu": -0.05847470154083128
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 53,
+  "correct": 0,
+  "dald_au": -2.2638971859189536,
+  "dald_eu": -0.05549758444857365
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 54,
+  "correct": 1,
+  "dald_au": -2.2605461799397566,
+  "dald_eu": -0.060410694298936966
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 55,
+  "correct": 0,
+  "dald_au": -2.2625817081328194,
+  "dald_eu": -0.05742180385795492
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 56,
+  "correct": 0,
+  "dald_au": -2.2564500447874187,
+  "dald_eu": -0.06169958021021533
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 57,
+  "correct": 1,
+  "dald_au": -2.2638589097188637,
+  "dald_eu": -0.05179020188452859
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 58,
+  "correct": 1,
+  "dald_au": -2.260362960320316,
+  "dald_eu": -0.06064275557585839
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 59,
+  "correct": 1,
+  "dald_au": -2.2654236248784274,
+  "dald_eu": -0.057984079147591634
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 60,
+  "correct": 1,
+  "dald_au": -2.264766865192749,
+  "dald_eu": -0.05522275858093122
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 61,
+  "correct": 0,
+  "dald_au": -2.262088453297412,
+  "dald_eu": -0.05971200208891827
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 62,
+  "correct": 0,
+  "dald_au": -2.2634255818829736,
+  "dald_eu": -0.059673891996991205
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 63,
+  "correct": 1,
+  "dald_au": -2.263810345447922,
+  "dald_eu": -0.059120149590281605
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 64,
+  "correct": 1,
+  "dald_au": -2.265437278165798,
+  "dald_eu": -0.05390317831625495
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 65,
+  "correct": 0,
+  "dald_au": -2.2621748220800533,
+  "dald_eu": -0.0574165736838116
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 66,
+  "correct": 0,
+  "dald_au": -2.2662831219466177,
+  "dald_eu": -0.05667491870308467
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 67,
+  "correct": 1,
+  "dald_au": -2.2633730643706045,
+  "dald_eu": -0.05374749277335949
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 68,
+  "correct": 1,
+  "dald_au": -2.2630075365479607,
+  "dald_eu": -0.05406565731549742
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 69,
+  "correct": 1,
+  "dald_au": -2.2610042407126545,
+  "dald_eu": -0.053894287217164945
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 70,
+  "correct": 0,
+  "dald_au": -2.250584047787336,
+  "dald_eu": -0.06419570521690057
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 71,
+  "correct": 0,
+  "dald_au": -2.264148784857777,
+  "dald_eu": -0.059019328395598876
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 72,
+  "correct": 1,
+  "dald_au": -2.261130292468471,
+  "dald_eu": -0.059561906122014896
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 73,
+  "correct": 1,
+  "dald_au": -2.2587123787152423,
+  "dald_eu": -0.05515071288705911
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 74,
+  "correct": 1,
+  "dald_au": -2.2637695042571986,
+  "dald_eu": -0.05885636871833487
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 75,
+  "correct": 0,
+  "dald_au": -2.264747600636088,
+  "dald_eu": -0.057102655694299204
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 76,
+  "correct": 1,
+  "dald_au": -2.256969864978963,
+  "dald_eu": -0.055342928651843315
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 77,
+  "correct": 1,
+  "dald_au": -2.2701112381447572,
+  "dald_eu": -0.05115929707667452
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 78,
+  "correct": 1,
+  "dald_au": -2.266288664638472,
+  "dald_eu": -0.05547361239251955
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 79,
+  "correct": 1,
+  "dald_au": -2.2669168848989316,
+  "dald_eu": -0.05621887901619942
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 80,
+  "correct": 0,
+  "dald_au": -2.2678208669219093,
+  "dald_eu": -0.05958181654628108
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 81,
+  "correct": 1,
+  "dald_au": -2.2679976402951736,
+  "dald_eu": -0.05460459452404366
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 82,
+  "correct": 0,
+  "dald_au": -2.2597206892785335,
+  "dald_eu": -0.059631607591885835
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 83,
+  "correct": 1,
+  "dald_au": -2.2679978627245756,
+  "dald_eu": -0.05659155732894006
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 84,
+  "correct": 0,
+  "dald_au": -2.2660372174081296,
+  "dald_eu": -0.05645144381614384
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 85,
+  "correct": 1,
+  "dald_au": -2.261902750889998,
+  "dald_eu": -0.058385905810413925
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 86,
+  "correct": 0,
+  "dald_au": -2.263807402149725,
+  "dald_eu": -0.060076662503460096
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 87,
+  "correct": 0,
+  "dald_au": -2.258593432495399,
+  "dald_eu": -0.06140208919657268
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 88,
+  "correct": 1,
+  "dald_au": -2.2660657788878074,
+  "dald_eu": -0.052727021774876114
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 89,
+  "correct": 1,
+  "dald_au": -2.2624414307951617,
+  "dald_eu": -0.052586598615742594
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 90,
+  "correct": 1,
+  "dald_au": -2.268394129130362,
+  "dald_eu": -0.054453116369226034
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 91,
+  "correct": 0,
+  "dald_au": -2.2590110049793353,
+  "dald_eu": -0.061997920441592934
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 92,
+  "correct": 0,
+  "dald_au": -2.265436805815818,
+  "dald_eu": -0.05638636243186838
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 93,
+  "correct": 0,
+  "dald_au": -2.2600854722980417,
+  "dald_eu": -0.061396074281006574
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 94,
+  "correct": 0,
+  "dald_au": -2.26688041312772,
+  "dald_eu": -0.05461950270369679
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 95,
+  "correct": 0,
+  "dald_au": -2.2579361991536406,
+  "dald_eu": -0.06155182406855176
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 96,
+  "correct": 1,
+  "dald_au": -2.265086346034028,
+  "dald_eu": -0.05315995754882773
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 97,
+  "correct": 0,
+  "dald_au": -2.2620370855096534,
+  "dald_eu": -0.05882045697801439
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 98,
+  "correct": 1,
+  "dald_au": -2.263755658202627,
+  "dald_eu": -0.056774119550426605
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 99,
+  "correct": 1,
+  "dald_au": -2.265030901249263,
+  "dald_eu": -0.05743446502633454
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 100,
+  "correct": 1,
+  "dald_au": -2.2628084886861357,
+  "dald_eu": -0.05684385635087895
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 101,
+  "correct": 1,
+  "dald_au": -2.257190384530792,
+  "dald_eu": -0.05891164425971733
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 102,
+  "correct": 1,
+  "dald_au": -2.2671187111609865,
+  "dald_eu": -0.053649635610464534
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 103,
+  "correct": 1,
+  "dald_au": -2.2677064415047883,
+  "dald_eu": -0.05212799867955536
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 104,
+  "correct": 1,
+  "dald_au": -2.2581057603878087,
+  "dald_eu": -0.05630099806968106
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 105,
+  "correct": 1,
+  "dald_au": -2.2541509886967255,
+  "dald_eu": -0.05535422395589208
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 106,
+  "correct": 1,
+  "dald_au": -2.2658674183521885,
+  "dald_eu": -0.05367159288844416
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 107,
+  "correct": 1,
+  "dald_au": -2.2612474393105404,
+  "dald_eu": -0.05859433880990919
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 108,
+  "correct": 1,
+  "dald_au": -2.261405646739948,
+  "dald_eu": -0.056726775589454465
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 109,
+  "correct": 0,
+  "dald_au": -2.2708367597462495,
+  "dald_eu": -0.05313545593754435
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 110,
+  "correct": 0,
+  "dald_au": -2.2691452631447646,
+  "dald_eu": -0.05558004190870388
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 111,
+  "correct": 1,
+  "dald_au": -2.2484132581786733,
+  "dald_eu": -0.06175013789723913
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 113,
+  "correct": 0,
+  "dald_au": -2.261533540887289,
+  "dald_eu": -0.05930712779407787
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 114,
+  "correct": 1,
+  "dald_au": -2.248583413373884,
+  "dald_eu": -0.05881663559662753
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 115,
+  "correct": 1,
+  "dald_au": -2.2629437698188677,
+  "dald_eu": -0.05452876483753455
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 116,
+  "correct": 0,
+  "dald_au": -2.2585760549019196,
+  "dald_eu": -0.05580890422151723
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 117,
+  "correct": 0,
+  "dald_au": -2.254278846563867,
+  "dald_eu": -0.05850333085221645
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 118,
+  "correct": 1,
+  "dald_au": -2.2628753995001456,
+  "dald_eu": -0.05610632777790243
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 119,
+  "correct": 1,
+  "dald_au": -2.2625672679147173,
+  "dald_eu": -0.055386394980554664
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 120,
+  "correct": 0,
+  "dald_au": -2.2588333305799675,
+  "dald_eu": -0.05730342968466214
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 121,
+  "correct": 0,
+  "dald_au": -2.2624691049501795,
+  "dald_eu": -0.05964530635947149
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 122,
+  "correct": 0,
+  "dald_au": -2.2625305775599034,
+  "dald_eu": -0.056087387169759875
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 123,
+  "correct": 0,
+  "dald_au": -2.2651679321788194,
+  "dald_eu": -0.05298271641362769
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 124,
+  "correct": 1,
+  "dald_au": -2.265579161532314,
+  "dald_eu": -0.05291097961319916
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 125,
+  "correct": 0,
+  "dald_au": -2.2651011713732463,
+  "dald_eu": -0.053943989015430974
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 126,
+  "correct": 0,
+  "dald_au": -2.2612478094731547,
+  "dald_eu": -0.056068887349504035
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 127,
+  "correct": 0,
+  "dald_au": -2.258944205135587,
+  "dald_eu": -0.05821531266642775
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 128,
+  "correct": 0,
+  "dald_au": -2.2592747833745968,
+  "dald_eu": -0.056390942473901674
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 129,
+  "correct": 1,
+  "dald_au": -2.2616600937571376,
+  "dald_eu": -0.05535138219278786
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 130,
+  "correct": 1,
+  "dald_au": -2.2590984723917096,
+  "dald_eu": -0.05854863465191526
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 131,
+  "correct": 0,
+  "dald_au": -2.264130836022916,
+  "dald_eu": -0.055770046556218304
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 132,
+  "correct": 1,
+  "dald_au": -2.2554676015996575,
+  "dald_eu": -0.058768624687603965
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 133,
+  "correct": 0,
+  "dald_au": -2.2665839667818215,
+  "dald_eu": -0.05624884982225671
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 134,
+  "correct": 1,
+  "dald_au": -2.2616045786586256,
+  "dald_eu": -0.05473487570911589
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 135,
+  "correct": 0,
+  "dald_au": -2.257148812885288,
+  "dald_eu": -0.056486255191348124
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 136,
+  "correct": 1,
+  "dald_au": -2.264975305393023,
+  "dald_eu": -0.053113156904523076
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 137,
+  "correct": 1,
+  "dald_au": -2.2557056116996965,
+  "dald_eu": -0.06203957421978806
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 138,
+  "correct": 1,
+  "dald_au": -2.2640795624537837,
+  "dald_eu": -0.05276839422132644
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 139,
+  "correct": 1,
+  "dald_au": -2.2653677490292092,
+  "dald_eu": -0.05086957708317303
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 140,
+  "correct": 0,
+  "dald_au": -2.2649056767605154,
+  "dald_eu": -0.05360241880510005
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 141,
+  "correct": 1,
+  "dald_au": -2.262480545872018,
+  "dald_eu": -0.056116243953588094
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 142,
+  "correct": 0,
+  "dald_au": -2.25356797089818,
+  "dald_eu": -0.06054512129823297
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 143,
+  "correct": 0,
+  "dald_au": -2.2613146779994757,
+  "dald_eu": -0.0564103526077539
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 144,
+  "correct": 0,
+  "dald_au": -2.259375956751076,
+  "dald_eu": -0.05676556949129327
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 145,
+  "correct": 0,
+  "dald_au": -2.2607090980118527,
+  "dald_eu": -0.05927230572306837
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 146,
+  "correct": 0,
+  "dald_au": -2.2628139719352287,
+  "dald_eu": -0.05731612170732675
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 147,
+  "correct": 0,
+  "dald_au": -2.2663975238268836,
+  "dald_eu": -0.057131477149906296
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 148,
+  "correct": 0,
+  "dald_au": -2.25917534567429,
+  "dald_eu": -0.05856287053659718
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 149,
+  "correct": 0,
+  "dald_au": -2.2580927233243298,
+  "dald_eu": -0.06091373978915291
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 0,
+  "correct": 0,
+  "dald_au": -2.2596702459175386,
+  "dald_eu": -0.05856860844475643
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 1,
+  "correct": 0,
+  "dald_au": -2.262928123145385,
+  "dald_eu": -0.06224538325386668
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 2,
+  "correct": 1,
+  "dald_au": -2.2522303726396755,
+  "dald_eu": -0.0627769134365501
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 3,
+  "correct": 1,
+  "dald_au": -2.2629951404566735,
+  "dald_eu": -0.06011375439432245
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 4,
+  "correct": 0,
+  "dald_au": -2.2622767569860707,
+  "dald_eu": -0.05873511804785944
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 5,
+  "correct": 0,
+  "dald_au": -2.2638376856881104,
+  "dald_eu": -0.058425497957942725
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 6,
+  "correct": 1,
+  "dald_au": -2.253876957605072,
+  "dald_eu": -0.06544164646712256
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 7,
+  "correct": 1,
+  "dald_au": -2.263432258998857,
+  "dald_eu": -0.06337143769964851
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 8,
+  "correct": 1,
+  "dald_au": -2.255724243553873,
+  "dald_eu": -0.059303214181826304
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 9,
+  "correct": 1,
+  "dald_au": -2.2546143499303444,
+  "dald_eu": -0.06314911243517139
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 10,
+  "correct": 1,
+  "dald_au": -2.2628562608054548,
+  "dald_eu": -0.05923339529379441
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 11,
+  "correct": 1,
+  "dald_au": -2.259865173500414,
+  "dald_eu": -0.05797839188027109
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 12,
+  "correct": 0,
+  "dald_au": -2.264246803780706,
+  "dald_eu": -0.06260578565637269
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 13,
+  "correct": 1,
+  "dald_au": -2.2634859872421176,
+  "dald_eu": -0.05627999777023908
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 14,
+  "correct": 0,
+  "dald_au": -2.2628264241569567,
+  "dald_eu": -0.06400477586366952
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 15,
+  "correct": 1,
+  "dald_au": -2.260714039084905,
+  "dald_eu": -0.059567071444827896
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 16,
+  "correct": 0,
+  "dald_au": -2.2594198870369686,
+  "dald_eu": -0.06083041915160545
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 17,
+  "correct": 1,
+  "dald_au": -2.258296240622207,
+  "dald_eu": -0.06833878027271881
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 18,
+  "correct": 1,
+  "dald_au": -2.258913803332532,
+  "dald_eu": -0.07021134109397273
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 19,
+  "correct": 1,
+  "dald_au": -2.260888511796329,
+  "dald_eu": -0.06555122579553935
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 20,
+  "correct": 1,
+  "dald_au": -2.2609177149531994,
+  "dald_eu": -0.060482031265017465
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 21,
+  "correct": 1,
+  "dald_au": -2.256655086176203,
+  "dald_eu": -0.06502160717462967
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 22,
+  "correct": 1,
+  "dald_au": -2.257283264937393,
+  "dald_eu": -0.0672837873478443
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 23,
+  "correct": 1,
+  "dald_au": -2.25245829680329,
+  "dald_eu": -0.06959758950600374
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 24,
+  "correct": 0,
+  "dald_au": -2.258061624966809,
+  "dald_eu": -0.06543127370210526
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 25,
+  "correct": 1,
+  "dald_au": -2.2606715529204737,
+  "dald_eu": -0.060794951714191255
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 26,
+  "correct": 1,
+  "dald_au": -2.2635635725403613,
+  "dald_eu": -0.062171716949189104
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 27,
+  "correct": 1,
+  "dald_au": -2.2596612547018045,
+  "dald_eu": -0.05783416540442445
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 28,
+  "correct": 0,
+  "dald_au": -2.262140232829866,
+  "dald_eu": -0.058496946982095906
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 29,
+  "correct": 1,
+  "dald_au": -2.2566462794658864,
+  "dald_eu": -0.06488094463466684
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 30,
+  "correct": 1,
+  "dald_au": -2.258702571577556,
+  "dald_eu": -0.0694297493566557
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 31,
+  "correct": 1,
+  "dald_au": -2.263509093617765,
+  "dald_eu": -0.05792119691883036
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 32,
+  "correct": 1,
+  "dald_au": -2.2663566590839315,
+  "dald_eu": -0.05672697577889855
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 33,
+  "correct": 1,
+  "dald_au": -2.258319131532706,
+  "dald_eu": -0.06901571265449505
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 34,
+  "correct": 1,
+  "dald_au": -2.260729228933515,
+  "dald_eu": -0.06568567042012166
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 35,
+  "correct": 1,
+  "dald_au": -2.2621445438127945,
+  "dald_eu": -0.0594601025034895
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 36,
+  "correct": 1,
+  "dald_au": -2.2620530156779073,
+  "dald_eu": -0.06468573847203014
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 37,
+  "correct": 1,
+  "dald_au": -2.2570843521105775,
+  "dald_eu": -0.06724497113713927
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 38,
+  "correct": 1,
+  "dald_au": -2.26280073280363,
+  "dald_eu": -0.06268261641578794
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 39,
+  "correct": 1,
+  "dald_au": -2.2587726351657356,
+  "dald_eu": -0.0642604388504074
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 40,
+  "correct": 1,
+  "dald_au": -2.2594539544681576,
+  "dald_eu": -0.06180976163665022
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 41,
+  "correct": 1,
+  "dald_au": -2.256065801701553,
+  "dald_eu": -0.0629532367937743
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 42,
+  "correct": 0,
+  "dald_au": -2.2649679268032257,
+  "dald_eu": -0.05482385057085626
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 43,
+  "correct": 1,
+  "dald_au": -2.2636651209949195,
+  "dald_eu": -0.05746527115529456
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 44,
+  "correct": 1,
+  "dald_au": -2.2673594454639865,
+  "dald_eu": -0.05806338821255261
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 45,
+  "correct": 1,
+  "dald_au": -2.2603535843296063,
+  "dald_eu": -0.058827848439006895
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 46,
+  "correct": 1,
+  "dald_au": -2.2667489478841136,
+  "dald_eu": -0.057552197120171046
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 47,
+  "correct": 0,
+  "dald_au": -2.261648815583898,
+  "dald_eu": -0.0564861296647922
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 48,
+  "correct": 1,
+  "dald_au": -2.2628396122551924,
+  "dald_eu": -0.06570556154857626
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 49,
+  "correct": 0,
+  "dald_au": -2.2665792128002002,
+  "dald_eu": -0.057274399966673474
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 50,
+  "correct": 1,
+  "dald_au": -2.256585249724171,
+  "dald_eu": -0.06850711455141135
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 51,
+  "correct": 1,
+  "dald_au": -2.2658681456306287,
+  "dald_eu": -0.06099989669246753
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 52,
+  "correct": 0,
+  "dald_au": -2.2604444871539067,
+  "dald_eu": -0.0664324930691372
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 53,
+  "correct": 1,
+  "dald_au": -2.2652705247056995,
+  "dald_eu": -0.06278516849607932
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 54,
+  "correct": 1,
+  "dald_au": -2.2600140377363824,
+  "dald_eu": -0.0611921060127524
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 55,
+  "correct": 1,
+  "dald_au": -2.2625497051692633,
+  "dald_eu": -0.06546887829194555
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 56,
+  "correct": 1,
+  "dald_au": -2.25944094361599,
+  "dald_eu": -0.06338449342373641
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 57,
+  "correct": 1,
+  "dald_au": -2.2597298926423095,
+  "dald_eu": -0.06391236597387952
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 58,
+  "correct": 1,
+  "dald_au": -2.2601611002362194,
+  "dald_eu": -0.06527147526859088
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 59,
+  "correct": 1,
+  "dald_au": -2.26477348587002,
+  "dald_eu": -0.06296033993581654
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 60,
+  "correct": 1,
+  "dald_au": -2.2589710424543337,
+  "dald_eu": -0.06557581590813866
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 61,
+  "correct": 1,
+  "dald_au": -2.2583479955609773,
+  "dald_eu": -0.06148638175995437
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 62,
+  "correct": 1,
+  "dald_au": -2.2592647207071,
+  "dald_eu": -0.06317012213457804
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 63,
+  "correct": 1,
+  "dald_au": -2.2595849733267084,
+  "dald_eu": -0.0672881204782823
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 64,
+  "correct": 1,
+  "dald_au": -2.2608959646447464,
+  "dald_eu": -0.06746502752629789
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 65,
+  "correct": 1,
+  "dald_au": -2.263727473341651,
+  "dald_eu": -0.05551531167170464
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 66,
+  "correct": 1,
+  "dald_au": -2.259772183984022,
+  "dald_eu": -0.06493438740074257
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 67,
+  "correct": 0,
+  "dald_au": -2.2589796680780694,
+  "dald_eu": -0.060880044746332594
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 68,
+  "correct": 1,
+  "dald_au": -2.2666219049666707,
+  "dald_eu": -0.058710439418561786
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 69,
+  "correct": 1,
+  "dald_au": -2.2605549285521778,
+  "dald_eu": -0.060750767614334046
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 70,
+  "correct": 1,
+  "dald_au": -2.25699029022299,
+  "dald_eu": -0.06222058293677388
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 71,
+  "correct": 1,
+  "dald_au": -2.2595163582495337,
+  "dald_eu": -0.06391106977718662
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 72,
+  "correct": 1,
+  "dald_au": -2.257883688155334,
+  "dald_eu": -0.06584173705380521
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 73,
+  "correct": 1,
+  "dald_au": -2.2628610102656292,
+  "dald_eu": -0.05857384908258857
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 74,
+  "correct": 1,
+  "dald_au": -2.2574052661453377,
+  "dald_eu": -0.05987902231444355
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 75,
+  "correct": 0,
+  "dald_au": -2.254290995636529,
+  "dald_eu": -0.05939087697586315
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 76,
+  "correct": 0,
+  "dald_au": -2.266648016436502,
+  "dald_eu": -0.056135683259870166
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 77,
+  "correct": 1,
+  "dald_au": -2.2566614084748955,
+  "dald_eu": -0.06126061472124187
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 78,
+  "correct": 1,
+  "dald_au": -2.2614088009064064,
+  "dald_eu": -0.05768055800457683
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 79,
+  "correct": 1,
+  "dald_au": -2.259772141422977,
+  "dald_eu": -0.059239571740374114
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 80,
+  "correct": 1,
+  "dald_au": -2.2596945241077018,
+  "dald_eu": -0.06296918965548055
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 81,
+  "correct": 1,
+  "dald_au": -2.2521725717711827,
+  "dald_eu": -0.07004531791696587
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 82,
+  "correct": 1,
+  "dald_au": -2.2545677612748274,
+  "dald_eu": -0.06548881467415987
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 83,
+  "correct": 1,
+  "dald_au": -2.2530622710031145,
+  "dald_eu": -0.061237457329408024
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 84,
+  "correct": 1,
+  "dald_au": -2.2664817823430927,
+  "dald_eu": -0.056385152935596664
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 85,
+  "correct": 1,
+  "dald_au": -2.2661283982239193,
+  "dald_eu": -0.055120643705889524
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 86,
+  "correct": 0,
+  "dald_au": -2.267873504207797,
+  "dald_eu": -0.05773460989235027
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 87,
+  "correct": 1,
+  "dald_au": -2.2595623288991846,
+  "dald_eu": -0.0621186874390472
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 88,
+  "correct": 1,
+  "dald_au": -2.268366261081414,
+  "dald_eu": -0.054239014781466505
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 89,
+  "correct": 0,
+  "dald_au": -2.2675439720775925,
+  "dald_eu": -0.05814798502367024
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 90,
+  "correct": 0,
+  "dald_au": -2.259805995834592,
+  "dald_eu": -0.06895787033663539
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 91,
+  "correct": 0,
+  "dald_au": -2.2591944624876854,
+  "dald_eu": -0.05773326334029811
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 92,
+  "correct": 1,
+  "dald_au": -2.2621814697521394,
+  "dald_eu": -0.06277528581533826
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 93,
+  "correct": 1,
+  "dald_au": -2.2613939444674007,
+  "dald_eu": -0.06652967558119595
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 94,
+  "correct": 1,
+  "dald_au": -2.257068662724705,
+  "dald_eu": -0.05803577356255376
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 95,
+  "correct": 0,
+  "dald_au": -2.259387507840548,
+  "dald_eu": -0.060365378419148
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 96,
+  "correct": 1,
+  "dald_au": -2.257800296502294,
+  "dald_eu": -0.06501372000759825
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 97,
+  "correct": 1,
+  "dald_au": -2.2639029154934662,
+  "dald_eu": -0.061764632736788734
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 98,
+  "correct": 0,
+  "dald_au": -2.2605648429675367,
+  "dald_eu": -0.062354943000105606
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 99,
+  "correct": 1,
+  "dald_au": -2.2597560074612035,
+  "dald_eu": -0.06344101317102908
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 100,
+  "correct": 1,
+  "dald_au": -2.2585219618963235,
+  "dald_eu": -0.062369461301217545
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 101,
+  "correct": 1,
+  "dald_au": -2.257847072729696,
+  "dald_eu": -0.06619753470208584
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 102,
+  "correct": 1,
+  "dald_au": -2.2597661187360663,
+  "dald_eu": -0.05686091544650591
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 103,
+  "correct": 1,
+  "dald_au": -2.25780751093862,
+  "dald_eu": -0.06416881377470757
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 104,
+  "correct": 1,
+  "dald_au": -2.264019673539851,
+  "dald_eu": -0.0593850320357852
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 105,
+  "correct": 1,
+  "dald_au": -2.256262604713809,
+  "dald_eu": -0.06261774182299588
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 106,
+  "correct": 1,
+  "dald_au": -2.2626083874689353,
+  "dald_eu": -0.06265035513041722
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 107,
+  "correct": 1,
+  "dald_au": -2.260896122980701,
+  "dald_eu": -0.06413847492290788
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 108,
+  "correct": 1,
+  "dald_au": -2.259857118213623,
+  "dald_eu": -0.06215172374671233
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 109,
+  "correct": 1,
+  "dald_au": -2.263312030880242,
+  "dald_eu": -0.06537776429249628
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 110,
+  "correct": 1,
+  "dald_au": -2.2666805424745595,
+  "dald_eu": -0.06074355680930893
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 111,
+  "correct": 1,
+  "dald_au": -2.2623685225827392,
+  "dald_eu": -0.05951052339173647
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 112,
+  "correct": 1,
+  "dald_au": -2.2641757992203853,
+  "dald_eu": -0.06256464722952375
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 113,
+  "correct": 1,
+  "dald_au": -2.260648799668077,
+  "dald_eu": -0.05649051477781735
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 114,
+  "correct": 1,
+  "dald_au": -2.254095980686814,
+  "dald_eu": -0.06403187972322844
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 115,
+  "correct": 1,
+  "dald_au": -2.258443774936753,
+  "dald_eu": -0.06689231468123269
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 116,
+  "correct": 0,
+  "dald_au": -2.2652175121245923,
+  "dald_eu": -0.056275102560177495
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 117,
+  "correct": 1,
+  "dald_au": -2.2619327100363136,
+  "dald_eu": -0.06383848614486716
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 118,
+  "correct": 1,
+  "dald_au": -2.261857703470327,
+  "dald_eu": -0.06423434083835938
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 119,
+  "correct": 1,
+  "dald_au": -2.264468064931809,
+  "dald_eu": -0.057433121069738344
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 120,
+  "correct": 1,
+  "dald_au": -2.2549696561491275,
+  "dald_eu": -0.061082037746465555
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 121,
+  "correct": 1,
+  "dald_au": -2.259315608027355,
+  "dald_eu": -0.05864294169032866
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 122,
+  "correct": 1,
+  "dald_au": -2.2602900791626723,
+  "dald_eu": -0.06306551555916194
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 123,
+  "correct": 1,
+  "dald_au": -2.2611864349641175,
+  "dald_eu": -0.05932379080876143
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 124,
+  "correct": 1,
+  "dald_au": -2.262023756566684,
+  "dald_eu": -0.059471952388911925
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 125,
+  "correct": 1,
+  "dald_au": -2.261225055642333,
+  "dald_eu": -0.0679791167934134
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 126,
+  "correct": 0,
+  "dald_au": -2.2610879663397467,
+  "dald_eu": -0.06562953780565148
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 127,
+  "correct": 1,
+  "dald_au": -2.2631520565679986,
+  "dald_eu": -0.058655646709441095
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 128,
+  "correct": 1,
+  "dald_au": -2.2568798627736473,
+  "dald_eu": -0.0638230379846471
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 129,
+  "correct": 1,
+  "dald_au": -2.2631740603771955,
+  "dald_eu": -0.06375223291359236
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 130,
+  "correct": 1,
+  "dald_au": -2.2611341039267403,
+  "dald_eu": -0.06033870923638193
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 131,
+  "correct": 1,
+  "dald_au": -2.2667607936303993,
+  "dald_eu": -0.0575329942099605
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 132,
+  "correct": 1,
+  "dald_au": -2.2604968025265593,
+  "dald_eu": -0.05952815736353501
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 133,
+  "correct": 1,
+  "dald_au": -2.2625681768375348,
+  "dald_eu": -0.059952990471242036
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 134,
+  "correct": 1,
+  "dald_au": -2.264072771246927,
+  "dald_eu": -0.058074463603564684
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 135,
+  "correct": 1,
+  "dald_au": -2.2596452561498284,
+  "dald_eu": -0.06419539811914104
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 136,
+  "correct": 1,
+  "dald_au": -2.2582698022381864,
+  "dald_eu": -0.06247178074713191
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 137,
+  "correct": 1,
+  "dald_au": -2.259285432398132,
+  "dald_eu": -0.06528578525179761
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 138,
+  "correct": 1,
+  "dald_au": -2.260086459133143,
+  "dald_eu": -0.06439621867766614
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 139,
+  "correct": 1,
+  "dald_au": -2.2547891092531094,
+  "dald_eu": -0.06414039875736875
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 140,
+  "correct": 1,
+  "dald_au": -2.258756005163877,
+  "dald_eu": -0.059336782899229105
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 141,
+  "correct": 1,
+  "dald_au": -2.258577855430814,
+  "dald_eu": -0.06442739860102456
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 142,
+  "correct": 1,
+  "dald_au": -2.259439272029534,
+  "dald_eu": -0.0587216381242988
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 143,
+  "correct": 1,
+  "dald_au": -2.2652770678561995,
+  "dald_eu": -0.05923788799085385
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 144,
+  "correct": 1,
+  "dald_au": -2.2580138830438967,
+  "dald_eu": -0.06511181733761907
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 145,
+  "correct": 0,
+  "dald_au": -2.258158600960736,
+  "dald_eu": -0.06300414643107616
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 146,
+  "correct": 1,
+  "dald_au": -2.2634853903949295,
+  "dald_eu": -0.05882553253444869
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 147,
+  "correct": 0,
+  "dald_au": -2.2610426874186675,
+  "dald_eu": -0.06579601725068701
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 148,
+  "correct": 0,
+  "dald_au": -2.258777522976192,
+  "dald_eu": -0.06257457678270996
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 149,
+  "correct": 1,
+  "dald_au": -2.258970292809581,
+  "dald_eu": -0.06605445196295164
+ }
+]

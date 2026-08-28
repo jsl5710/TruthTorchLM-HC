@@ -1,0 +1,176 @@
+{
+  "variant": "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b",
+  "mode": "edl",
+  "generator_key": "jhu-claude-haiku-4.5",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 146,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.5608,
+          "aupr": 0.0554,
+          "ece": 0.0147,
+          "p50_ms": 14.412,
+          "p95_ms": 14.8
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 142,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.4806,
+          "aupr": 0.0689,
+          "ece": 0.0148,
+          "p50_ms": 14.807,
+          "p95_ms": 15.106
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 131,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.5205,
+          "aupr": 0.1426,
+          "ece": 0.034,
+          "p50_ms": 15.706,
+          "p95_ms": 16.055
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 142,
+      "n_positive": 110,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.3892,
+          "aupr": 0.1817,
+          "ece": 0.0189,
+          "p50_ms": 14.199,
+          "p95_ms": 14.608
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 148,
+      "n_positive": 121,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.4226,
+          "aupr": 0.1611,
+          "ece": 0.0121,
+          "p50_ms": 14.522,
+          "p95_ms": 14.878
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 79,
+      "n_positive": 23,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.2465,
+          "aupr": 0.581,
+          "ece": 0.0298,
+          "p50_ms": 14.48,
+          "p95_ms": 14.98
+        }
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 146,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.5608,
+          "aupr": 0.0554,
+          "ece": 0.0147,
+          "p50_ms": 14.509,
+          "p95_ms": 14.832
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 142,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.4806,
+          "aupr": 0.0689,
+          "ece": 0.0148,
+          "p50_ms": 14.889,
+          "p95_ms": 15.06
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 131,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.5205,
+          "aupr": 0.1426,
+          "ece": 0.034,
+          "p50_ms": 15.716,
+          "p95_ms": 16.151
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 142,
+      "n_positive": 110,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.3892,
+          "aupr": 0.1817,
+          "ece": 0.0189,
+          "p50_ms": 14.195,
+          "p95_ms": 14.6
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 148,
+      "n_positive": 121,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.4226,
+          "aupr": 0.1611,
+          "ece": 0.0121,
+          "p50_ms": 14.511,
+          "p95_ms": 14.947
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 79,
+      "n_positive": 23,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_llama3.2-1b_N1": {
+          "auroc": 0.2465,
+          "aupr": 0.581,
+          "ece": 0.0298,
+          "p50_ms": 14.544,
+          "p95_ms": 15.237
+        }
+      }
+    }
+  ]
+}

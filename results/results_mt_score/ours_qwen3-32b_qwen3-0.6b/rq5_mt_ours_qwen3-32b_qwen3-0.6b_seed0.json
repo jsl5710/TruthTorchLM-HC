@@ -1,0 +1,176 @@
+{
+  "variant": "mt_ours_qwen3-32b_qwen3-0.6b",
+  "mode": "edl",
+  "generator_key": "qwen3-32b",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 118,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.4224,
+          "aupr": 0.191,
+          "ece": 0.0507,
+          "p50_ms": 28.959,
+          "p95_ms": 29.931
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 139,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.5157,
+          "aupr": 0.0993,
+          "ece": 0.0013,
+          "p50_ms": 28.868,
+          "p95_ms": 29.566
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 120,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.3554,
+          "aupr": 0.1718,
+          "ece": 0.0227,
+          "p50_ms": 29.282,
+          "p95_ms": 30.414
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 88,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.584,
+          "aupr": 0.4858,
+          "ece": 0.078,
+          "p50_ms": 28.987,
+          "p95_ms": 29.838
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 147,
+      "n_positive": 92,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.6691,
+          "aupr": 0.5604,
+          "ece": 0.0867,
+          "p50_ms": 29.018,
+          "p95_ms": 29.53
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 149,
+      "n_positive": 122,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.4792,
+          "aupr": 0.1979,
+          "ece": 0.033,
+          "p50_ms": 28.85,
+          "p95_ms": 29.598
+        }
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 118,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.4224,
+          "aupr": 0.191,
+          "ece": 0.0507,
+          "p50_ms": 29.117,
+          "p95_ms": 29.883
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 139,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.5157,
+          "aupr": 0.0993,
+          "ece": 0.0013,
+          "p50_ms": 28.873,
+          "p95_ms": 29.446
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 120,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.3554,
+          "aupr": 0.1718,
+          "ece": 0.0227,
+          "p50_ms": 29.555,
+          "p95_ms": 30.33
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 88,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.584,
+          "aupr": 0.4858,
+          "ece": 0.078,
+          "p50_ms": 29.129,
+          "p95_ms": 29.751
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 147,
+      "n_positive": 92,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.6691,
+          "aupr": 0.5604,
+          "ece": 0.0867,
+          "p50_ms": 29.104,
+          "p95_ms": 29.937
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 149,
+      "n_positive": 122,
+      "rows": {
+        "mt_ours_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.4792,
+          "aupr": 0.1979,
+          "ece": 0.033,
+          "p50_ms": 28.781,
+          "p95_ms": 29.896
+        }
+      }
+    }
+  ]
+}

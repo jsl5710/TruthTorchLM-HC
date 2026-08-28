@@ -1,0 +1,86 @@
+{
+  "proxy": "ours_ecc_lam2_qwen3-32b_qwen3-1.7b",
+  "base": "Qwen/Qwen3-1.7B",
+  "teacher_key": "qwen3-32b",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 118,
+      "rows": {
+        "EDL-AU": 0.754,
+        "EDL-EU": 0.2505,
+        "MSP": 0.773,
+        "Entropy": 0.7775,
+        "Energy": 0.6425,
+        "LogTokU": 0.3861
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 139,
+      "rows": {
+        "EDL-AU": 0.4912,
+        "EDL-EU": 0.5043,
+        "MSP": 0.5095,
+        "Entropy": 0.5141,
+        "Energy": 0.4755,
+        "LogTokU": 0.4872
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 120,
+      "rows": {
+        "EDL-AU": 0.5892,
+        "EDL-EU": 0.3294,
+        "MSP": 0.6481,
+        "Entropy": 0.6431,
+        "Energy": 0.4439,
+        "LogTokU": 0.4953
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 88,
+      "rows": {
+        "EDL-AU": 0.4892,
+        "EDL-EU": 0.5779,
+        "MSP": 0.5282,
+        "Entropy": 0.5654,
+        "Energy": 0.555,
+        "LogTokU": 0.5326
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 147,
+      "n_positive": 92,
+      "rows": {
+        "EDL-AU": 0.365,
+        "EDL-EU": 0.6547,
+        "MSP": 0.4816,
+        "Entropy": 0.5194,
+        "Energy": 0.5692,
+        "LogTokU": 0.5992
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 149,
+      "n_positive": 122,
+      "rows": {
+        "EDL-AU": 0.6114,
+        "EDL-EU": 0.4408,
+        "MSP": 0.5926,
+        "Entropy": 0.5801,
+        "Energy": 0.5334,
+        "LogTokU": 0.4226
+      }
+    }
+  ]
+}

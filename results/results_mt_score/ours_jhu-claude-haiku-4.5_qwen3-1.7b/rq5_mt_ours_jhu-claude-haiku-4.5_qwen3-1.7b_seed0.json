@@ -1,0 +1,176 @@
+{
+  "variant": "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b",
+  "mode": "edl",
+  "generator_key": "jhu-claude-haiku-4.5",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 146,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.226,
+          "aupr": 0.0217,
+          "ece": 0.0004,
+          "p50_ms": 30.218,
+          "p95_ms": 30.893
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 142,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.4881,
+          "aupr": 0.0674,
+          "ece": 0.0148,
+          "p50_ms": 30.652,
+          "p95_ms": 31.239
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 131,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.3769,
+          "aupr": 0.1026,
+          "ece": 0.0,
+          "p50_ms": 31.506,
+          "p95_ms": 32.264
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 142,
+      "n_positive": 110,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.3717,
+          "aupr": 0.1931,
+          "ece": 0.0269,
+          "p50_ms": 29.576,
+          "p95_ms": 30.178
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 148,
+      "n_positive": 121,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.4789,
+          "aupr": 0.2017,
+          "ece": 0.0317,
+          "p50_ms": 30.122,
+          "p95_ms": 31.858
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 79,
+      "n_positive": 23,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.2865,
+          "aupr": 0.6014,
+          "ece": 0.0309,
+          "p50_ms": 30.18,
+          "p95_ms": 30.979
+        }
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 146,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.226,
+          "aupr": 0.0217,
+          "ece": 0.0004,
+          "p50_ms": 30.129,
+          "p95_ms": 30.751
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 142,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.4881,
+          "aupr": 0.0674,
+          "ece": 0.0148,
+          "p50_ms": 30.588,
+          "p95_ms": 31.137
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 131,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.3769,
+          "aupr": 0.1026,
+          "ece": 0.0,
+          "p50_ms": 31.347,
+          "p95_ms": 31.955
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 142,
+      "n_positive": 110,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.3717,
+          "aupr": 0.1931,
+          "ece": 0.0269,
+          "p50_ms": 29.58,
+          "p95_ms": 30.288
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 148,
+      "n_positive": 121,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.4789,
+          "aupr": 0.2017,
+          "ece": 0.0317,
+          "p50_ms": 30.069,
+          "p95_ms": 30.736
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 79,
+      "n_positive": 23,
+      "rows": {
+        "mt_ours_jhu-claude-haiku-4.5_qwen3-1.7b_N1": {
+          "auroc": 0.2865,
+          "aupr": 0.6014,
+          "ece": 0.0309,
+          "p50_ms": 30.097,
+          "p95_ms": 31.294
+        }
+      }
+    }
+  ]
+}

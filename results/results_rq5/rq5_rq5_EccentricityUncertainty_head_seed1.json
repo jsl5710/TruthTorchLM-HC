@@ -1,0 +1,134 @@
+{
+  "variant": "rq5_EccentricityUncertainty_head",
+  "mode": "head",
+  "generator_key": "qwen3-8b",
+  "seed": 1,
+  "cells": [
+    {
+      "dataset": "natural_qa",
+      "n_items": 150,
+      "n_positive": 76,
+      "rows": {
+        "rq5_EccentricityUncertainty_head_N1": {
+          "auroc": 0.7091,
+          "aupr": 0.6926,
+          "ece": 0.0743,
+          "p50_ms": 30.083,
+          "p95_ms": 30.421
+        }
+      }
+    },
+    {
+      "dataset": "pop_qa",
+      "n_items": 150,
+      "n_positive": 57,
+      "rows": {
+        "rq5_EccentricityUncertainty_head_N1": {
+          "auroc": 0.5448,
+          "aupr": 0.6356,
+          "ece": 0.0804,
+          "p50_ms": 29.894,
+          "p95_ms": 30.714
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 149,
+      "n_positive": 65,
+      "rows": {
+        "rq5_EccentricityUncertainty_head_N1": {
+          "auroc": 0.7108,
+          "aupr": 0.7264,
+          "ece": 0.0803,
+          "p50_ms": 30.394,
+          "p95_ms": 31.144
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 150,
+      "n_positive": 79,
+      "rows": {
+        "rq5_EccentricityUncertainty_head_N1": {
+          "auroc": 0.581,
+          "aupr": 0.5245,
+          "ece": 0.1345,
+          "p50_ms": 30.292,
+          "p95_ms": 31.297
+        }
+      }
+    },
+    {
+      "dataset": "bioasq",
+      "n_items": 150,
+      "n_positive": 149,
+      "rows": {
+        "rq5_EccentricityUncertainty_head_N1": {
+          "auroc": 0.8523,
+          "aupr": 0.0435,
+          "ece": 0.0,
+          "p50_ms": 30.197,
+          "p95_ms": 30.945
+        }
+      }
+    },
+    {
+      "dataset": "kqa",
+      "n_items": 145,
+      "n_positive": 112,
+      "rows": {
+        "rq5_EccentricityUncertainty_head_N1": {
+          "auroc": 0.661,
+          "aupr": 0.4266,
+          "ece": 0.0751,
+          "p50_ms": 29.943,
+          "p95_ms": 30.612
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 133,
+      "rows": {
+        "rq5_EccentricityUncertainty_head_N1": {
+          "auroc": 0.5816,
+          "aupr": 0.1364,
+          "ece": 0.0367,
+          "p50_ms": 29.82,
+          "p95_ms": 30.373
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 101,
+      "rows": {
+        "rq5_EccentricityUncertainty_head_N1": {
+          "auroc": 0.4371,
+          "aupr": 0.3041,
+          "ece": 0.0647,
+          "p50_ms": 30.244,
+          "p95_ms": 30.636
+        }
+      }
+    },
+    {
+      "dataset": "mmlu_med",
+      "n_items": 150,
+      "n_positive": 106,
+      "rows": {
+        "rq5_EccentricityUncertainty_head_N1": {
+          "auroc": 0.3703,
+          "aupr": 0.2613,
+          "ece": 0.0442,
+          "p50_ms": 29.875,
+          "p95_ms": 30.81
+        }
+      }
+    }
+  ]
+}

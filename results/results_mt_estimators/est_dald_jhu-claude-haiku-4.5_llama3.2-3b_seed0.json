@@ -1,0 +1,548 @@
+{
+  "proxy": "dald_jhu-claude-haiku-4.5_llama3.2-3b",
+  "base": "meta-llama/Llama-3.2-3B-Instruct",
+  "teacher_key": "jhu-claude-haiku-4.5",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 146,
+      "rows": {
+        "EDL-AU": 0.7705,
+        "EDL-EU": 0.3801,
+        "MSP": 0.7757,
+        "Entropy": 0.7825,
+        "Energy": 0.7688,
+        "LogTokU": 0.3151,
+        "Perplexity": 0.8596,
+        "MaxNLL": 0.5599,
+        "LogitMargin": 0.7603
+      },
+      "metrics": {
+        "EDL-AU": {
+          "auroc": 0.7705,
+          "auprc": 0.1374,
+          "ece": 0.0217,
+          "mce": 1.0,
+          "brier": 0.0397,
+          "calibrated": true
+        },
+        "EDL-EU": {
+          "auroc": 0.3801,
+          "auprc": 0.0324,
+          "ece": 0.0006,
+          "mce": 0.0006,
+          "brier": 0.0268,
+          "calibrated": true
+        },
+        "MSP": {
+          "auroc": 0.7757,
+          "auprc": 0.3322,
+          "ece": 0.0105,
+          "mce": 0.3503,
+          "brier": 0.0258,
+          "calibrated": true
+        },
+        "Entropy": {
+          "auroc": 0.7825,
+          "auprc": 0.3213,
+          "ece": 0.0099,
+          "mce": 0.531,
+          "brier": 0.0277,
+          "calibrated": true
+        },
+        "Energy": {
+          "auroc": 0.7688,
+          "auprc": 0.0735,
+          "ece": 0.0118,
+          "mce": 0.1215,
+          "brier": 0.0264,
+          "calibrated": true
+        },
+        "LogTokU": {
+          "auroc": 0.3151,
+          "auprc": 0.0231,
+          "ece": 0.0006,
+          "mce": 0.0006,
+          "brier": 0.0264,
+          "calibrated": true
+        },
+        "Perplexity": {
+          "auroc": 0.8596,
+          "auprc": 0.1373,
+          "ece": 0.0304,
+          "mce": 0.3824,
+          "brier": 0.0285,
+          "calibrated": true
+        },
+        "MaxNLL": {
+          "auroc": 0.5599,
+          "auprc": 0.0429,
+          "ece": 0.0005,
+          "mce": 0.0005,
+          "brier": 0.0267,
+          "calibrated": true
+        },
+        "LogitMargin": {
+          "auroc": 0.7603,
+          "auprc": 0.119,
+          "ece": 0.0247,
+          "mce": 0.5,
+          "brier": 0.0304,
+          "calibrated": true
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 142,
+      "rows": {
+        "EDL-AU": 0.4225,
+        "EDL-EU": 0.4798,
+        "MSP": 0.4516,
+        "Entropy": 0.4331,
+        "Energy": 0.4595,
+        "LogTokU": 0.6329,
+        "Perplexity": 0.5088,
+        "MaxNLL": 0.7271,
+        "LogitMargin": 0.4692
+      },
+      "metrics": {
+        "EDL-AU": {
+          "auroc": 0.4225,
+          "auprc": 0.0489,
+          "ece": 0.0003,
+          "mce": 0.0003,
+          "brier": 0.0511,
+          "calibrated": true
+        },
+        "EDL-EU": {
+          "auroc": 0.4798,
+          "auprc": 0.1144,
+          "ece": 0.0072,
+          "mce": 0.1777,
+          "brier": 0.0511,
+          "calibrated": true
+        },
+        "MSP": {
+          "auroc": 0.4516,
+          "auprc": 0.0514,
+          "ece": 0.0004,
+          "mce": 0.0004,
+          "brier": 0.0514,
+          "calibrated": true
+        },
+        "Entropy": {
+          "auroc": 0.4331,
+          "auprc": 0.0496,
+          "ece": 0.0015,
+          "mce": 0.0015,
+          "brier": 0.0507,
+          "calibrated": true
+        },
+        "Energy": {
+          "auroc": 0.4595,
+          "auprc": 0.0614,
+          "ece": 0.0091,
+          "mce": 0.1548,
+          "brier": 0.0516,
+          "calibrated": true
+        },
+        "LogTokU": {
+          "auroc": 0.6329,
+          "auprc": 0.0877,
+          "ece": 0.0161,
+          "mce": 0.0398,
+          "brier": 0.0521,
+          "calibrated": true
+        },
+        "Perplexity": {
+          "auroc": 0.5088,
+          "auprc": 0.078,
+          "ece": 0.0167,
+          "mce": 0.5,
+          "brier": 0.0568,
+          "calibrated": true
+        },
+        "MaxNLL": {
+          "auroc": 0.7271,
+          "auprc": 0.1396,
+          "ece": 0.0262,
+          "mce": 0.5,
+          "brier": 0.0561,
+          "calibrated": true
+        },
+        "LogitMargin": {
+          "auroc": 0.4692,
+          "auprc": 0.0547,
+          "ece": 0.0011,
+          "mce": 0.0011,
+          "brier": 0.0521,
+          "calibrated": true
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 131,
+      "rows": {
+        "EDL-AU": 0.5946,
+        "EDL-EU": 0.5785,
+        "MSP": 0.6573,
+        "Entropy": 0.6408,
+        "Energy": 0.6119,
+        "LogTokU": 0.5223,
+        "Perplexity": 0.681,
+        "MaxNLL": 0.5066,
+        "LogitMargin": 0.6071
+      },
+      "metrics": {
+        "EDL-AU": {
+          "auroc": 0.5946,
+          "auprc": 0.1931,
+          "ece": 0.035,
+          "mce": 0.6667,
+          "brier": 0.1154,
+          "calibrated": true
+        },
+        "EDL-EU": {
+          "auroc": 0.5785,
+          "auprc": 0.1723,
+          "ece": 0.0401,
+          "mce": 0.4,
+          "brier": 0.114,
+          "calibrated": true
+        },
+        "MSP": {
+          "auroc": 0.6573,
+          "auprc": 0.2836,
+          "ece": 0.0615,
+          "mce": 0.7143,
+          "brier": 0.1088,
+          "calibrated": true
+        },
+        "Entropy": {
+          "auroc": 0.6408,
+          "auprc": 0.2569,
+          "ece": 0.0506,
+          "mce": 0.4318,
+          "brier": 0.1088,
+          "calibrated": true
+        },
+        "Energy": {
+          "auroc": 0.6119,
+          "auprc": 0.229,
+          "ece": 0.0789,
+          "mce": 0.4667,
+          "brier": 0.1158,
+          "calibrated": true
+        },
+        "LogTokU": {
+          "auroc": 0.5223,
+          "auprc": 0.1456,
+          "ece": 0.0409,
+          "mce": 0.3333,
+          "brier": 0.1173,
+          "calibrated": true
+        },
+        "Perplexity": {
+          "auroc": 0.681,
+          "auprc": 0.2612,
+          "ece": 0.0318,
+          "mce": 0.5656,
+          "brier": 0.1115,
+          "calibrated": true
+        },
+        "MaxNLL": {
+          "auroc": 0.5066,
+          "auprc": 0.1317,
+          "ece": 0.032,
+          "mce": 0.2083,
+          "brier": 0.1163,
+          "calibrated": true
+        },
+        "LogitMargin": {
+          "auroc": 0.6071,
+          "auprc": 0.2123,
+          "ece": 0.0785,
+          "mce": 0.4,
+          "brier": 0.116,
+          "calibrated": true
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 142,
+      "n_positive": 110,
+      "rows": {
+        "EDL-AU": 0.6384,
+        "EDL-EU": 0.3881,
+        "MSP": 0.6355,
+        "Entropy": 0.6577,
+        "Energy": 0.6114,
+        "LogTokU": 0.3608,
+        "Perplexity": 0.6239,
+        "MaxNLL": 0.5406,
+        "LogitMargin": 0.6469
+      },
+      "metrics": {
+        "EDL-AU": {
+          "auroc": 0.6384,
+          "auprc": 0.4342,
+          "ece": 0.0887,
+          "mce": 0.3364,
+          "brier": 0.1675,
+          "calibrated": true
+        },
+        "EDL-EU": {
+          "auroc": 0.3881,
+          "auprc": 0.1989,
+          "ece": 0.023,
+          "mce": 0.32,
+          "brier": 0.1774,
+          "calibrated": true
+        },
+        "MSP": {
+          "auroc": 0.6355,
+          "auprc": 0.3778,
+          "ece": 0.0628,
+          "mce": 0.7192,
+          "brier": 0.1711,
+          "calibrated": true
+        },
+        "Entropy": {
+          "auroc": 0.6577,
+          "auprc": 0.3663,
+          "ece": 0.0453,
+          "mce": 0.7742,
+          "brier": 0.1674,
+          "calibrated": true
+        },
+        "Energy": {
+          "auroc": 0.6114,
+          "auprc": 0.2821,
+          "ece": 0.06,
+          "mce": 0.106,
+          "brier": 0.1715,
+          "calibrated": true
+        },
+        "LogTokU": {
+          "auroc": 0.3608,
+          "auprc": 0.1854,
+          "ece": 0.008,
+          "mce": 0.3333,
+          "brier": 0.1766,
+          "calibrated": true
+        },
+        "Perplexity": {
+          "auroc": 0.6239,
+          "auprc": 0.3032,
+          "ece": 0.0493,
+          "mce": 0.47,
+          "brier": 0.1656,
+          "calibrated": true
+        },
+        "MaxNLL": {
+          "auroc": 0.5406,
+          "auprc": 0.2348,
+          "ece": 0.0486,
+          "mce": 0.1398,
+          "brier": 0.1731,
+          "calibrated": true
+        },
+        "LogitMargin": {
+          "auroc": 0.6469,
+          "auprc": 0.4049,
+          "ece": 0.0586,
+          "mce": 0.6,
+          "brier": 0.183,
+          "calibrated": true
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 148,
+      "n_positive": 121,
+      "rows": {
+        "EDL-AU": 0.5225,
+        "EDL-EU": 0.3747,
+        "MSP": 0.5023,
+        "Entropy": 0.4861,
+        "Energy": 0.4512,
+        "LogTokU": 0.4873,
+        "Perplexity": 0.4255,
+        "MaxNLL": 0.5197,
+        "LogitMargin": 0.4864
+      },
+      "metrics": {
+        "EDL-AU": {
+          "auroc": 0.5225,
+          "auprc": 0.2185,
+          "ece": 0.0612,
+          "mce": 1.0,
+          "brier": 0.1545,
+          "calibrated": true
+        },
+        "EDL-EU": {
+          "auroc": 0.3747,
+          "auprc": 0.1483,
+          "ece": 0.0266,
+          "mce": 0.2308,
+          "brier": 0.1509,
+          "calibrated": true
+        },
+        "MSP": {
+          "auroc": 0.5023,
+          "auprc": 0.2107,
+          "ece": 0.0449,
+          "mce": 1.0,
+          "brier": 0.1647,
+          "calibrated": true
+        },
+        "Entropy": {
+          "auroc": 0.4861,
+          "auprc": 0.1812,
+          "ece": 0.0819,
+          "mce": 0.3587,
+          "brier": 0.1567,
+          "calibrated": true
+        },
+        "Energy": {
+          "auroc": 0.4512,
+          "auprc": 0.1656,
+          "ece": 0.0644,
+          "mce": 0.4589,
+          "brier": 0.1562,
+          "calibrated": true
+        },
+        "LogTokU": {
+          "auroc": 0.4873,
+          "auprc": 0.2293,
+          "ece": 0.0474,
+          "mce": 1.0,
+          "brier": 0.1561,
+          "calibrated": true
+        },
+        "Perplexity": {
+          "auroc": 0.4255,
+          "auprc": 0.1614,
+          "ece": 0.02,
+          "mce": 0.2738,
+          "brier": 0.1531,
+          "calibrated": true
+        },
+        "MaxNLL": {
+          "auroc": 0.5197,
+          "auprc": 0.2248,
+          "ece": 0.0502,
+          "mce": 0.5,
+          "brier": 0.1541,
+          "calibrated": true
+        },
+        "LogitMargin": {
+          "auroc": 0.4864,
+          "auprc": 0.2263,
+          "ece": 0.0281,
+          "mce": 0.6931,
+          "brier": 0.1552,
+          "calibrated": true
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 79,
+      "n_positive": 23,
+      "rows": {
+        "EDL-AU": 0.5241,
+        "EDL-EU": 0.1972,
+        "MSP": 0.4084,
+        "Entropy": 0.3657,
+        "Energy": 0.2873,
+        "LogTokU": 0.3486,
+        "Perplexity": 0.434,
+        "MaxNLL": 0.5769,
+        "LogitMargin": 0.4332
+      },
+      "metrics": {
+        "EDL-AU": {
+          "auroc": 0.5241,
+          "auprc": 0.7368,
+          "ece": 0.0563,
+          "mce": 1.0,
+          "brier": 0.2187,
+          "calibrated": true
+        },
+        "EDL-EU": {
+          "auroc": 0.1972,
+          "auprc": 0.5661,
+          "ece": 0.021,
+          "mce": 0.0516,
+          "brier": 0.2068,
+          "calibrated": true
+        },
+        "MSP": {
+          "auroc": 0.4084,
+          "auprc": 0.6476,
+          "ece": 0.0431,
+          "mce": 0.8333,
+          "brier": 0.2106,
+          "calibrated": true
+        },
+        "Entropy": {
+          "auroc": 0.3657,
+          "auprc": 0.6203,
+          "ece": 0.0328,
+          "mce": 1.0,
+          "brier": 0.2157,
+          "calibrated": true
+        },
+        "Energy": {
+          "auroc": 0.2873,
+          "auprc": 0.593,
+          "ece": 0.1001,
+          "mce": 0.9953,
+          "brier": 0.2208,
+          "calibrated": true
+        },
+        "LogTokU": {
+          "auroc": 0.3486,
+          "auprc": 0.6182,
+          "ece": 0.0164,
+          "mce": 0.3333,
+          "brier": 0.2076,
+          "calibrated": true
+        },
+        "Perplexity": {
+          "auroc": 0.434,
+          "auprc": 0.6467,
+          "ece": 0.0387,
+          "mce": 1.0,
+          "brier": 0.2177,
+          "calibrated": true
+        },
+        "MaxNLL": {
+          "auroc": 0.5769,
+          "auprc": 0.7624,
+          "ece": 0.0765,
+          "mce": 0.6667,
+          "brier": 0.2225,
+          "calibrated": true
+        },
+        "LogitMargin": {
+          "auroc": 0.4332,
+          "auprc": 0.6821,
+          "ece": 0.1308,
+          "mce": 0.4167,
+          "brier": 0.2186,
+          "calibrated": true
+        }
+      }
+    }
+  ]
+}

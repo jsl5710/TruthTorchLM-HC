@@ -1,0 +1,204 @@
+{
+  "variant": "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b",
+  "mode": "edl",
+  "generator_key": "llama3.3-70b",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "bioasq",
+      "n_items": 150,
+      "n_positive": 149,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.9262,
+          "aupr": 0.0625,
+          "ece": 0.0,
+          "p50_ms": 23.13,
+          "p95_ms": 23.684
+        }
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 128,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.4886,
+          "aupr": 0.178,
+          "ece": 0.0374,
+          "p50_ms": 23.398,
+          "p95_ms": 23.994
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 132,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.5854,
+          "aupr": 0.1672,
+          "ece": 0.0361,
+          "p50_ms": 23.137,
+          "p95_ms": 23.527
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 116,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.5593,
+          "aupr": 0.3468,
+          "ece": 0.0441,
+          "p50_ms": 23.841,
+          "p95_ms": 26.703
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 119,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.5741,
+          "aupr": 0.3071,
+          "ece": 0.037,
+          "p50_ms": 23.148,
+          "p95_ms": 23.648
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 149,
+      "n_positive": 84,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.6585,
+          "aupr": 0.5509,
+          "ece": 0.1343,
+          "p50_ms": 23.115,
+          "p95_ms": 23.596
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 150,
+      "n_positive": 123,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.3634,
+          "aupr": 0.1962,
+          "ece": 0.0047,
+          "p50_ms": 23.199,
+          "p95_ms": 23.499
+        }
+      }
+    },
+    {
+      "dataset": "bioasq",
+      "n_items": 150,
+      "n_positive": 149,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.9262,
+          "aupr": 0.0625,
+          "ece": 0.0,
+          "p50_ms": 23.14,
+          "p95_ms": 23.535
+        }
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 128,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.4886,
+          "aupr": 0.178,
+          "ece": 0.0374,
+          "p50_ms": 23.397,
+          "p95_ms": 23.766
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 132,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.5854,
+          "aupr": 0.1672,
+          "ece": 0.0361,
+          "p50_ms": 23.173,
+          "p95_ms": 23.465
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 116,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.5593,
+          "aupr": 0.3468,
+          "ece": 0.0441,
+          "p50_ms": 23.682,
+          "p95_ms": 26.694
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 119,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.5741,
+          "aupr": 0.3071,
+          "ece": 0.037,
+          "p50_ms": 23.126,
+          "p95_ms": 23.636
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 149,
+      "n_positive": 84,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.6585,
+          "aupr": 0.5509,
+          "ece": 0.1343,
+          "p50_ms": 23.141,
+          "p95_ms": 23.575
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 150,
+      "n_positive": 123,
+      "rows": {
+        "mt_ours_dse_lam5_llama3.3-70b_llama3.2-3b_N1": {
+          "auroc": 0.3634,
+          "aupr": 0.1962,
+          "ece": 0.0047,
+          "p50_ms": 23.122,
+          "p95_ms": 23.422
+        }
+      }
+    }
+  ]
+}

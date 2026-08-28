@@ -1,0 +1,7345 @@
+[
+ {
+  "dataset": "trivia_qa",
+  "item_id": 0,
+  "correct": 0,
+  "disaad_au": -2.2571967709312797,
+  "disaad_eu": -0.06294144086915325
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 1,
+  "correct": 0,
+  "disaad_au": -2.2606979350164433,
+  "disaad_eu": -0.05994574660991194
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 2,
+  "correct": 1,
+  "disaad_au": -2.254514110271667,
+  "disaad_eu": -0.06329792369791525
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 3,
+  "correct": 0,
+  "disaad_au": -2.259415181088526,
+  "disaad_eu": -0.06284046834933134
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 4,
+  "correct": 1,
+  "disaad_au": -2.257237049072373,
+  "disaad_eu": -0.06060994339001169
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 5,
+  "correct": 0,
+  "disaad_au": -2.260061658129125,
+  "disaad_eu": -0.060860609122047625
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 6,
+  "correct": 0,
+  "disaad_au": -2.260752381245441,
+  "disaad_eu": -0.05873973377252011
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 7,
+  "correct": 0,
+  "disaad_au": -2.258383798247766,
+  "disaad_eu": -0.06543306147923929
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 8,
+  "correct": 1,
+  "disaad_au": -2.2505956905679385,
+  "disaad_eu": -0.06758441014736793
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 9,
+  "correct": 1,
+  "disaad_au": -2.263567597063831,
+  "disaad_eu": -0.05848170113234445
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 10,
+  "correct": 0,
+  "disaad_au": -2.2600122254688606,
+  "disaad_eu": -0.057960251428535114
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 11,
+  "correct": 0,
+  "disaad_au": -2.2648855923125106,
+  "disaad_eu": -0.057023748684920654
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 12,
+  "correct": 1,
+  "disaad_au": -2.2588125124894813,
+  "disaad_eu": -0.060597393922651586
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 13,
+  "correct": 1,
+  "disaad_au": -2.2660420706550735,
+  "disaad_eu": -0.059618119583248384
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 14,
+  "correct": 1,
+  "disaad_au": -2.25016663383746,
+  "disaad_eu": -0.06335748461514033
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 15,
+  "correct": 0,
+  "disaad_au": -2.256536728427513,
+  "disaad_eu": -0.06430630131504238
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 16,
+  "correct": 0,
+  "disaad_au": -2.257158105289984,
+  "disaad_eu": -0.062013524039171694
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 17,
+  "correct": 1,
+  "disaad_au": -2.25598856051203,
+  "disaad_eu": -0.06420537855747774
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 18,
+  "correct": 1,
+  "disaad_au": -2.2567283628184485,
+  "disaad_eu": -0.06266401311185547
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 19,
+  "correct": 1,
+  "disaad_au": -2.259371437804042,
+  "disaad_eu": -0.05949599503976694
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 20,
+  "correct": 1,
+  "disaad_au": -2.256980203737091,
+  "disaad_eu": -0.06314700262805745
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 21,
+  "correct": 1,
+  "disaad_au": -2.253009024809086,
+  "disaad_eu": -0.06499197822030037
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 22,
+  "correct": 0,
+  "disaad_au": -2.265937488497605,
+  "disaad_eu": -0.06112126404518387
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 23,
+  "correct": 1,
+  "disaad_au": -2.257901541495644,
+  "disaad_eu": -0.0633303464499855
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 24,
+  "correct": 1,
+  "disaad_au": -2.251827414474498,
+  "disaad_eu": -0.0631630592451599
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 25,
+  "correct": 1,
+  "disaad_au": -2.250011973675281,
+  "disaad_eu": -0.06748453786074203
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 26,
+  "correct": 1,
+  "disaad_au": -2.2582426312856163,
+  "disaad_eu": -0.061793818408943206
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 27,
+  "correct": 1,
+  "disaad_au": -2.254601195675311,
+  "disaad_eu": -0.0627212295237963
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 28,
+  "correct": 1,
+  "disaad_au": -2.262912105857315,
+  "disaad_eu": -0.058539175851264676
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 29,
+  "correct": 1,
+  "disaad_au": -2.2535832869056858,
+  "disaad_eu": -0.06447543184067693
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 30,
+  "correct": 1,
+  "disaad_au": -2.2560028074923855,
+  "disaad_eu": -0.06506474143248783
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 31,
+  "correct": 1,
+  "disaad_au": -2.261244708146065,
+  "disaad_eu": -0.05677512620835007
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 32,
+  "correct": 1,
+  "disaad_au": -2.2594770375784767,
+  "disaad_eu": -0.06039690266227533
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 33,
+  "correct": 1,
+  "disaad_au": -2.257858883795509,
+  "disaad_eu": -0.06033905233170476
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 34,
+  "correct": 1,
+  "disaad_au": -2.2523287827602827,
+  "disaad_eu": -0.06398111585263874
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 35,
+  "correct": 1,
+  "disaad_au": -2.2551621483740054,
+  "disaad_eu": -0.06256673281130326
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 36,
+  "correct": 1,
+  "disaad_au": -2.2616758140263267,
+  "disaad_eu": -0.057569515721380124
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 37,
+  "correct": 1,
+  "disaad_au": -2.2555679797868504,
+  "disaad_eu": -0.06501902198553655
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 38,
+  "correct": 1,
+  "disaad_au": -2.2565467822805356,
+  "disaad_eu": -0.0619348349892488
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 39,
+  "correct": 0,
+  "disaad_au": -2.2558385631185573,
+  "disaad_eu": -0.06239692320123533
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 40,
+  "correct": 1,
+  "disaad_au": -2.259176978543753,
+  "disaad_eu": -0.06220347640453734
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 41,
+  "correct": 1,
+  "disaad_au": -2.256444101919071,
+  "disaad_eu": -0.06336657328965999
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 42,
+  "correct": 1,
+  "disaad_au": -2.258606556323378,
+  "disaad_eu": -0.05915057234839011
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 43,
+  "correct": 1,
+  "disaad_au": -2.2554571584245795,
+  "disaad_eu": -0.06625422642773135
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 44,
+  "correct": 0,
+  "disaad_au": -2.2483608924753913,
+  "disaad_eu": -0.06801834747253374
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 45,
+  "correct": 1,
+  "disaad_au": -2.2549276841442376,
+  "disaad_eu": -0.059171476553957186
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 46,
+  "correct": 1,
+  "disaad_au": -2.245719145779813,
+  "disaad_eu": -0.06093712818687279
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 47,
+  "correct": 0,
+  "disaad_au": -2.2599899895195716,
+  "disaad_eu": -0.06310918180917957
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 48,
+  "correct": 1,
+  "disaad_au": -2.2553457364424627,
+  "disaad_eu": -0.06489679606664385
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 49,
+  "correct": 1,
+  "disaad_au": -2.254382403378341,
+  "disaad_eu": -0.06051885997897685
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 50,
+  "correct": 1,
+  "disaad_au": -2.256370303836905,
+  "disaad_eu": -0.0627355058922757
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 51,
+  "correct": 1,
+  "disaad_au": -2.2579706304712635,
+  "disaad_eu": -0.06370895235724999
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 52,
+  "correct": 1,
+  "disaad_au": -2.254430273716547,
+  "disaad_eu": -0.06579199811110165
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 53,
+  "correct": 1,
+  "disaad_au": -2.2552220043745215,
+  "disaad_eu": -0.06235312062864564
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 54,
+  "correct": 1,
+  "disaad_au": -2.2626780015596197,
+  "disaad_eu": -0.0594730683876696
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 55,
+  "correct": 1,
+  "disaad_au": -2.257132691915223,
+  "disaad_eu": -0.0651603947362444
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 56,
+  "correct": 1,
+  "disaad_au": -2.2606103799570687,
+  "disaad_eu": -0.06318993837607971
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 57,
+  "correct": 1,
+  "disaad_au": -2.2550365134420174,
+  "disaad_eu": -0.06758295404517564
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 58,
+  "correct": 1,
+  "disaad_au": -2.2577256411194897,
+  "disaad_eu": -0.06492544881329697
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 59,
+  "correct": 1,
+  "disaad_au": -2.2583532901634746,
+  "disaad_eu": -0.06697093417438935
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 60,
+  "correct": 1,
+  "disaad_au": -2.260721942729935,
+  "disaad_eu": -0.060825529251198884
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 61,
+  "correct": 1,
+  "disaad_au": -2.2585287123679043,
+  "disaad_eu": -0.06356719910268456
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 62,
+  "correct": 1,
+  "disaad_au": -2.264389954559068,
+  "disaad_eu": -0.059624016864530324
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 63,
+  "correct": 0,
+  "disaad_au": -2.2537459148480905,
+  "disaad_eu": -0.06313094897117255
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 64,
+  "correct": 0,
+  "disaad_au": -2.264343222929284,
+  "disaad_eu": -0.06097104165278448
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 65,
+  "correct": 1,
+  "disaad_au": -2.2628785119801846,
+  "disaad_eu": -0.05928280272600156
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 66,
+  "correct": 1,
+  "disaad_au": -2.2552509574640562,
+  "disaad_eu": -0.06529822860382913
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 67,
+  "correct": 0,
+  "disaad_au": -2.261562812956476,
+  "disaad_eu": -0.060834079318168977
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 68,
+  "correct": 1,
+  "disaad_au": -2.2545444693021994,
+  "disaad_eu": -0.06445168933942402
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 69,
+  "correct": 1,
+  "disaad_au": -2.2579469309786813,
+  "disaad_eu": -0.06316679999004231
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 70,
+  "correct": 1,
+  "disaad_au": -2.2595025620530005,
+  "disaad_eu": -0.06020292069613804
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 71,
+  "correct": 1,
+  "disaad_au": -2.2610275521199004,
+  "disaad_eu": -0.06236871133388297
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 72,
+  "correct": 1,
+  "disaad_au": -2.2575923284074753,
+  "disaad_eu": -0.06083905650176576
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 73,
+  "correct": 0,
+  "disaad_au": -2.262863724786658,
+  "disaad_eu": -0.05924466689898394
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 74,
+  "correct": 1,
+  "disaad_au": -2.2600123924479534,
+  "disaad_eu": -0.06352976297188968
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 75,
+  "correct": 1,
+  "disaad_au": -2.2565776973936793,
+  "disaad_eu": -0.06304216487410529
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 76,
+  "correct": 1,
+  "disaad_au": -2.255745357587486,
+  "disaad_eu": -0.06007704173106796
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 77,
+  "correct": 1,
+  "disaad_au": -2.2474611664321733,
+  "disaad_eu": -0.06526178459157707
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 78,
+  "correct": 1,
+  "disaad_au": -2.2599030118567263,
+  "disaad_eu": -0.05862659029354143
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 79,
+  "correct": 1,
+  "disaad_au": -2.260191293590112,
+  "disaad_eu": -0.06219656844553066
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 80,
+  "correct": 1,
+  "disaad_au": -2.2507904874708684,
+  "disaad_eu": -0.059307833085168314
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 81,
+  "correct": 0,
+  "disaad_au": -2.2613222615669026,
+  "disaad_eu": -0.06037754895715839
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 82,
+  "correct": 1,
+  "disaad_au": -2.260010622847578,
+  "disaad_eu": -0.0641271926532503
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 83,
+  "correct": 1,
+  "disaad_au": -2.254269026764713,
+  "disaad_eu": -0.06361438337088943
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 84,
+  "correct": 1,
+  "disaad_au": -2.2561965189719992,
+  "disaad_eu": -0.06710414578644197
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 85,
+  "correct": 1,
+  "disaad_au": -2.2595530262810075,
+  "disaad_eu": -0.06630244019062076
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 86,
+  "correct": 1,
+  "disaad_au": -2.257836391944704,
+  "disaad_eu": -0.0648526719585682
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 87,
+  "correct": 1,
+  "disaad_au": -2.2575166292858913,
+  "disaad_eu": -0.06228904330682083
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 88,
+  "correct": 1,
+  "disaad_au": -2.2521333164868254,
+  "disaad_eu": -0.061856626434045624
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 89,
+  "correct": 1,
+  "disaad_au": -2.256266900682226,
+  "disaad_eu": -0.0645360159258464
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 90,
+  "correct": 0,
+  "disaad_au": -2.2577229163283663,
+  "disaad_eu": -0.06267217634867024
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 91,
+  "correct": 1,
+  "disaad_au": -2.2545700217625617,
+  "disaad_eu": -0.06202767657280699
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 92,
+  "correct": 1,
+  "disaad_au": -2.259123737507505,
+  "disaad_eu": -0.06258894431364136
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 93,
+  "correct": 1,
+  "disaad_au": -2.255290404122159,
+  "disaad_eu": -0.06655120250785194
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 94,
+  "correct": 1,
+  "disaad_au": -2.2576570190621026,
+  "disaad_eu": -0.0637086977897014
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 95,
+  "correct": 1,
+  "disaad_au": -2.2579335288057942,
+  "disaad_eu": -0.060233150847269906
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 96,
+  "correct": 1,
+  "disaad_au": -2.2527364695582737,
+  "disaad_eu": -0.07038916347624574
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 97,
+  "correct": 1,
+  "disaad_au": -2.2554480620011472,
+  "disaad_eu": -0.061064294583614516
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 98,
+  "correct": 1,
+  "disaad_au": -2.2551738177378438,
+  "disaad_eu": -0.06515491591346478
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 99,
+  "correct": 1,
+  "disaad_au": -2.2506742986027812,
+  "disaad_eu": -0.06634093317634362
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 100,
+  "correct": 1,
+  "disaad_au": -2.2586566144219793,
+  "disaad_eu": -0.06329328005599213
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 101,
+  "correct": 0,
+  "disaad_au": -2.258580280656339,
+  "disaad_eu": -0.0619188538416132
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 102,
+  "correct": 1,
+  "disaad_au": -2.257566552792274,
+  "disaad_eu": -0.06594782582877827
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 103,
+  "correct": 1,
+  "disaad_au": -2.256738966380411,
+  "disaad_eu": -0.06258271608065567
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 104,
+  "correct": 1,
+  "disaad_au": -2.2492957424098896,
+  "disaad_eu": -0.06675361194592919
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 105,
+  "correct": 1,
+  "disaad_au": -2.2541638833110853,
+  "disaad_eu": -0.06394511644321473
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 106,
+  "correct": 1,
+  "disaad_au": -2.2588780251527734,
+  "disaad_eu": -0.06415121214008625
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 107,
+  "correct": 1,
+  "disaad_au": -2.2561314685005565,
+  "disaad_eu": -0.06354813609417713
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 108,
+  "correct": 1,
+  "disaad_au": -2.251710991094636,
+  "disaad_eu": -0.06208824716366346
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 109,
+  "correct": 1,
+  "disaad_au": -2.250263860827638,
+  "disaad_eu": -0.06597168774983687
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 110,
+  "correct": 0,
+  "disaad_au": -2.258103860388775,
+  "disaad_eu": -0.06059830678438505
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 111,
+  "correct": 0,
+  "disaad_au": -2.2635036121907555,
+  "disaad_eu": -0.061001212194302885
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 112,
+  "correct": 1,
+  "disaad_au": -2.2614006092740744,
+  "disaad_eu": -0.059044080673815835
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 113,
+  "correct": 0,
+  "disaad_au": -2.2572712525399874,
+  "disaad_eu": -0.05732890761244306
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 114,
+  "correct": 1,
+  "disaad_au": -2.2545452716618533,
+  "disaad_eu": -0.06117095009568109
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 115,
+  "correct": 1,
+  "disaad_au": -2.259099537724434,
+  "disaad_eu": -0.06276277257760915
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 116,
+  "correct": 1,
+  "disaad_au": -2.2549148492005746,
+  "disaad_eu": -0.06245748958272899
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 117,
+  "correct": 1,
+  "disaad_au": -2.254719961306081,
+  "disaad_eu": -0.06120727816265093
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 118,
+  "correct": 1,
+  "disaad_au": -2.2554536898095434,
+  "disaad_eu": -0.06400949176543834
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 119,
+  "correct": 1,
+  "disaad_au": -2.2587089018881583,
+  "disaad_eu": -0.059838967276269625
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 120,
+  "correct": 1,
+  "disaad_au": -2.2556982584364773,
+  "disaad_eu": -0.06501084976654534
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 121,
+  "correct": 1,
+  "disaad_au": -2.2608149677282166,
+  "disaad_eu": -0.06314565199249772
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 122,
+  "correct": 1,
+  "disaad_au": -2.2594936244824084,
+  "disaad_eu": -0.062394277343117976
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 123,
+  "correct": 1,
+  "disaad_au": -2.2532760015950406,
+  "disaad_eu": -0.06275511540987672
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 124,
+  "correct": 1,
+  "disaad_au": -2.2583310884060013,
+  "disaad_eu": -0.06204291295293958
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 125,
+  "correct": 1,
+  "disaad_au": -2.2565786163184494,
+  "disaad_eu": -0.059730236100359976
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 126,
+  "correct": 0,
+  "disaad_au": -2.259310094975633,
+  "disaad_eu": -0.06270900964922131
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 127,
+  "correct": 1,
+  "disaad_au": -2.2571106532898173,
+  "disaad_eu": -0.06351772204002312
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 128,
+  "correct": 1,
+  "disaad_au": -2.257752712344197,
+  "disaad_eu": -0.06249707923362979
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 129,
+  "correct": 1,
+  "disaad_au": -2.2581798334799723,
+  "disaad_eu": -0.0589598672026042
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 130,
+  "correct": 0,
+  "disaad_au": -2.265915823130134,
+  "disaad_eu": -0.06161103581362757
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 131,
+  "correct": 1,
+  "disaad_au": -2.2565906156282303,
+  "disaad_eu": -0.06047078843591768
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 132,
+  "correct": 1,
+  "disaad_au": -2.2542514268439846,
+  "disaad_eu": -0.06184615288377808
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 133,
+  "correct": 0,
+  "disaad_au": -2.2594708570562427,
+  "disaad_eu": -0.06252231705714113
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 134,
+  "correct": 1,
+  "disaad_au": -2.261144023615182,
+  "disaad_eu": -0.06362299758178229
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 135,
+  "correct": 0,
+  "disaad_au": -2.260163884045621,
+  "disaad_eu": -0.06311634362861553
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 136,
+  "correct": 0,
+  "disaad_au": -2.2627271271278495,
+  "disaad_eu": -0.060626512225457875
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 137,
+  "correct": 1,
+  "disaad_au": -2.260191440802184,
+  "disaad_eu": -0.06281901319143629
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 138,
+  "correct": 0,
+  "disaad_au": -2.2618610032595887,
+  "disaad_eu": -0.06351855836493005
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 139,
+  "correct": 1,
+  "disaad_au": -2.251198029249064,
+  "disaad_eu": -0.06281290558149537
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 140,
+  "correct": 1,
+  "disaad_au": -2.2593247352173096,
+  "disaad_eu": -0.0650483085227915
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 141,
+  "correct": 1,
+  "disaad_au": -2.2599572510287387,
+  "disaad_eu": -0.062476998534583064
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 142,
+  "correct": 1,
+  "disaad_au": -2.2606468321532347,
+  "disaad_eu": -0.05983772034600259
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 143,
+  "correct": 1,
+  "disaad_au": -2.2609780295529283,
+  "disaad_eu": -0.06480323142469388
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 144,
+  "correct": 1,
+  "disaad_au": -2.2557603080023965,
+  "disaad_eu": -0.061564704825952075
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 145,
+  "correct": 0,
+  "disaad_au": -2.2521913901372748,
+  "disaad_eu": -0.0628135499927618
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 146,
+  "correct": 1,
+  "disaad_au": -2.259168170751807,
+  "disaad_eu": -0.058214906355682126
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 147,
+  "correct": 1,
+  "disaad_au": -2.259078708969828,
+  "disaad_eu": -0.06067598475956388
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 148,
+  "correct": 1,
+  "disaad_au": -2.2574337339048474,
+  "disaad_eu": -0.05953469163756906
+ },
+ {
+  "dataset": "trivia_qa",
+  "item_id": 149,
+  "correct": 1,
+  "disaad_au": -2.2542011390471064,
+  "disaad_eu": -0.05990851130995588
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 0,
+  "correct": 1,
+  "disaad_au": -2.2562882796448465,
+  "disaad_eu": -0.06639561932155735
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 1,
+  "correct": 1,
+  "disaad_au": -2.2562882796448465,
+  "disaad_eu": -0.06639561932155735
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 2,
+  "correct": 1,
+  "disaad_au": -2.2562882796448465,
+  "disaad_eu": -0.06639561932155735
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 3,
+  "correct": 1,
+  "disaad_au": -2.2562882796448465,
+  "disaad_eu": -0.06639561932155735
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 4,
+  "correct": 1,
+  "disaad_au": -2.2562882796448465,
+  "disaad_eu": -0.06639561932155735
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 5,
+  "correct": 1,
+  "disaad_au": -2.2562882796448465,
+  "disaad_eu": -0.06639561932155735
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 6,
+  "correct": 1,
+  "disaad_au": -2.2562882796448465,
+  "disaad_eu": -0.06639561932155735
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 7,
+  "correct": 1,
+  "disaad_au": -2.2562882796448465,
+  "disaad_eu": -0.06639561932155735
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 8,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 9,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 10,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 11,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 12,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 13,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 14,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 15,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 16,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 17,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 18,
+  "correct": 1,
+  "disaad_au": -2.25191987557592,
+  "disaad_eu": -0.06803864865429947
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 19,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 20,
+  "correct": 1,
+  "disaad_au": -2.25191987557592,
+  "disaad_eu": -0.06803864865429947
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 21,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 22,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 23,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 24,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 25,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 26,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 27,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 28,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 29,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 30,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 31,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 32,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 33,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 34,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 35,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 36,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 37,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 38,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 39,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 40,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 41,
+  "correct": 1,
+  "disaad_au": -2.2547384398298567,
+  "disaad_eu": -0.0632989239161687
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 42,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 43,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 44,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 45,
+  "correct": 1,
+  "disaad_au": -2.254157790239562,
+  "disaad_eu": -0.06357248017859321
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 46,
+  "correct": 1,
+  "disaad_au": -2.25460615233874,
+  "disaad_eu": -0.06291829244222324
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 47,
+  "correct": 1,
+  "disaad_au": -2.2513249307382845,
+  "disaad_eu": -0.06188386031622813
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 48,
+  "correct": 1,
+  "disaad_au": -2.2549018865976547,
+  "disaad_eu": -0.06166818506158243
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 49,
+  "correct": 1,
+  "disaad_au": -2.2557350205836544,
+  "disaad_eu": -0.06261542810658162
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 50,
+  "correct": 1,
+  "disaad_au": -2.2500705267863887,
+  "disaad_eu": -0.06244701146720334
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 51,
+  "correct": 1,
+  "disaad_au": -2.258079713014783,
+  "disaad_eu": -0.06200098779623904
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 52,
+  "correct": 1,
+  "disaad_au": -2.2513249307382845,
+  "disaad_eu": -0.06188386031622813
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 53,
+  "correct": 1,
+  "disaad_au": -2.2524292334831175,
+  "disaad_eu": -0.06153882149380242
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 54,
+  "correct": 1,
+  "disaad_au": -2.2502023073993382,
+  "disaad_eu": -0.06231765786379078
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 55,
+  "correct": 1,
+  "disaad_au": -2.2502023073993382,
+  "disaad_eu": -0.06231765786379078
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 56,
+  "correct": 1,
+  "disaad_au": -2.2502023073993382,
+  "disaad_eu": -0.06231765786379078
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 57,
+  "correct": 1,
+  "disaad_au": -2.2549018865976547,
+  "disaad_eu": -0.06166818506158243
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 58,
+  "correct": 1,
+  "disaad_au": -2.2549018865976547,
+  "disaad_eu": -0.06166818506158243
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 59,
+  "correct": 1,
+  "disaad_au": -2.2502023073993382,
+  "disaad_eu": -0.06231765786379078
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 60,
+  "correct": 0,
+  "disaad_au": -2.255975669966446,
+  "disaad_eu": -0.0655926700742498
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 61,
+  "correct": 1,
+  "disaad_au": -2.253326967468014,
+  "disaad_eu": -0.059914179928269355
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 62,
+  "correct": 1,
+  "disaad_au": -2.254548498656404,
+  "disaad_eu": -0.059227448797858226
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 63,
+  "correct": 1,
+  "disaad_au": -2.2515644652389692,
+  "disaad_eu": -0.05970908406454516
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 64,
+  "correct": 1,
+  "disaad_au": -2.2515644652389692,
+  "disaad_eu": -0.05970908406454516
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 65,
+  "correct": 1,
+  "disaad_au": -2.2531365010419857,
+  "disaad_eu": -0.059638120543970455
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 66,
+  "correct": 1,
+  "disaad_au": -2.256535271638424,
+  "disaad_eu": -0.06098754010485192
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 67,
+  "correct": 1,
+  "disaad_au": -2.2624363829272376,
+  "disaad_eu": -0.06484154639619744
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 68,
+  "correct": 1,
+  "disaad_au": -2.2568571240878357,
+  "disaad_eu": -0.06538993151843477
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 69,
+  "correct": 1,
+  "disaad_au": -2.2568571240878357,
+  "disaad_eu": -0.06538993151843477
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 70,
+  "correct": 1,
+  "disaad_au": -2.2567907340032343,
+  "disaad_eu": -0.06401191331904452
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 71,
+  "correct": 1,
+  "disaad_au": -2.2576761507051692,
+  "disaad_eu": -0.06362499726007505
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 72,
+  "correct": 1,
+  "disaad_au": -2.2576761507051692,
+  "disaad_eu": -0.06362499726007505
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 73,
+  "correct": 1,
+  "disaad_au": -2.2568310482938423,
+  "disaad_eu": -0.0648084975332437
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 74,
+  "correct": 1,
+  "disaad_au": -2.2568310482938423,
+  "disaad_eu": -0.0648084975332437
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 75,
+  "correct": 1,
+  "disaad_au": -2.2576761507051692,
+  "disaad_eu": -0.06362499726007505
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 76,
+  "correct": 1,
+  "disaad_au": -2.255569121622231,
+  "disaad_eu": -0.06594076805743548
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 77,
+  "correct": 1,
+  "disaad_au": -2.2581694920697295,
+  "disaad_eu": -0.06373423823065982
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 78,
+  "correct": 1,
+  "disaad_au": -2.2581694920697295,
+  "disaad_eu": -0.06373423823065982
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 79,
+  "correct": 1,
+  "disaad_au": -2.257807943990387,
+  "disaad_eu": -0.06361126871329323
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 80,
+  "correct": 1,
+  "disaad_au": -2.2571666985695833,
+  "disaad_eu": -0.06327382002371489
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 81,
+  "correct": 1,
+  "disaad_au": -2.2581694920697295,
+  "disaad_eu": -0.06373423823065982
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 82,
+  "correct": 1,
+  "disaad_au": -2.259218435282356,
+  "disaad_eu": -0.06290355471618833
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 83,
+  "correct": 1,
+  "disaad_au": -2.2576761507051692,
+  "disaad_eu": -0.06362499726007505
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 84,
+  "correct": 1,
+  "disaad_au": -2.2581694920697295,
+  "disaad_eu": -0.06373423823065982
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 85,
+  "correct": 1,
+  "disaad_au": -2.2581694920697295,
+  "disaad_eu": -0.06373423823065982
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 86,
+  "correct": 1,
+  "disaad_au": -2.2596228903974667,
+  "disaad_eu": -0.0648701302199444
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 87,
+  "correct": 1,
+  "disaad_au": -2.2596228903974667,
+  "disaad_eu": -0.0648701302199444
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 88,
+  "correct": 1,
+  "disaad_au": -2.259218435282356,
+  "disaad_eu": -0.06290355471618833
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 89,
+  "correct": 1,
+  "disaad_au": -2.2596228903974667,
+  "disaad_eu": -0.0648701302199444
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 90,
+  "correct": 1,
+  "disaad_au": -2.2596228903974667,
+  "disaad_eu": -0.0648701302199444
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 91,
+  "correct": 1,
+  "disaad_au": -2.2563490124626835,
+  "disaad_eu": -0.06600208177098474
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 92,
+  "correct": 1,
+  "disaad_au": -2.25617181499364,
+  "disaad_eu": -0.0639640679219116
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 93,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 94,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 95,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 96,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 97,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 98,
+  "correct": 1,
+  "disaad_au": -2.25617181499364,
+  "disaad_eu": -0.0639640679219116
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 99,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 100,
+  "correct": 1,
+  "disaad_au": -2.25617181499364,
+  "disaad_eu": -0.0639640679219116
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 101,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 102,
+  "correct": 1,
+  "disaad_au": -2.25617181499364,
+  "disaad_eu": -0.0639640679219116
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 103,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 104,
+  "correct": 1,
+  "disaad_au": -2.25617181499364,
+  "disaad_eu": -0.0639640679219116
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 105,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 106,
+  "correct": 1,
+  "disaad_au": -2.25617181499364,
+  "disaad_eu": -0.0639640679219116
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 107,
+  "correct": 1,
+  "disaad_au": -2.2563490124626835,
+  "disaad_eu": -0.06600208177098474
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 108,
+  "correct": 1,
+  "disaad_au": -2.25617181499364,
+  "disaad_eu": -0.0639640679219116
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 109,
+  "correct": 1,
+  "disaad_au": -2.253748630971498,
+  "disaad_eu": -0.06379081033207992
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 110,
+  "correct": 1,
+  "disaad_au": -2.25617181499364,
+  "disaad_eu": -0.0639640679219116
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 111,
+  "correct": 1,
+  "disaad_au": -2.2574137897000632,
+  "disaad_eu": -0.06418467218833969
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 112,
+  "correct": 1,
+  "disaad_au": -2.2574137897000632,
+  "disaad_eu": -0.06418467218833969
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 113,
+  "correct": 1,
+  "disaad_au": -2.2574137897000632,
+  "disaad_eu": -0.06418467218833969
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 114,
+  "correct": 1,
+  "disaad_au": -2.2574137897000632,
+  "disaad_eu": -0.06418467218833969
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 115,
+  "correct": 1,
+  "disaad_au": -2.2565198358439766,
+  "disaad_eu": -0.06412859730230575
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 116,
+  "correct": 1,
+  "disaad_au": -2.2574137897000632,
+  "disaad_eu": -0.06418467218833969
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 117,
+  "correct": 1,
+  "disaad_au": -2.2574137897000632,
+  "disaad_eu": -0.06418467218833969
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 118,
+  "correct": 1,
+  "disaad_au": -2.2574137897000632,
+  "disaad_eu": -0.06418467218833969
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 119,
+  "correct": 1,
+  "disaad_au": -2.2574137897000632,
+  "disaad_eu": -0.06418467218833969
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 120,
+  "correct": 1,
+  "disaad_au": -2.2574137897000632,
+  "disaad_eu": -0.06418467218833969
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 121,
+  "correct": 1,
+  "disaad_au": -2.2493393644808264,
+  "disaad_eu": -0.06797472219939407
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 122,
+  "correct": 1,
+  "disaad_au": -2.2493393644808264,
+  "disaad_eu": -0.06797472219939407
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 123,
+  "correct": 1,
+  "disaad_au": -2.2480804668568055,
+  "disaad_eu": -0.06768673430594024
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 124,
+  "correct": 1,
+  "disaad_au": -2.2480804668568055,
+  "disaad_eu": -0.06768673430594024
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 125,
+  "correct": 1,
+  "disaad_au": -2.2480804668568055,
+  "disaad_eu": -0.06768673430594024
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 126,
+  "correct": 1,
+  "disaad_au": -2.2480804668568055,
+  "disaad_eu": -0.06768673430594024
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 127,
+  "correct": 1,
+  "disaad_au": -2.24947466974566,
+  "disaad_eu": -0.06700337077756514
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 128,
+  "correct": 1,
+  "disaad_au": -2.24947466974566,
+  "disaad_eu": -0.06700337077756514
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 129,
+  "correct": 1,
+  "disaad_au": -2.2480804668568055,
+  "disaad_eu": -0.06768673430594024
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 130,
+  "correct": 1,
+  "disaad_au": -2.2480804668568055,
+  "disaad_eu": -0.06768673430594024
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 131,
+  "correct": 1,
+  "disaad_au": -2.2480804668568055,
+  "disaad_eu": -0.06768673430594024
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 132,
+  "correct": 1,
+  "disaad_au": -2.2493393644808264,
+  "disaad_eu": -0.06797472219939407
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 133,
+  "correct": 1,
+  "disaad_au": -2.2493393644808264,
+  "disaad_eu": -0.06797472219939407
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 134,
+  "correct": 1,
+  "disaad_au": -2.2536229707170605,
+  "disaad_eu": -0.06499912429773855
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 135,
+  "correct": 1,
+  "disaad_au": -2.252712754227477,
+  "disaad_eu": -0.06211066996160704
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 136,
+  "correct": 1,
+  "disaad_au": -2.253612558572882,
+  "disaad_eu": -0.06567200063711214
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 137,
+  "correct": 1,
+  "disaad_au": -2.2560172305232413,
+  "disaad_eu": -0.06612512749531367
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 138,
+  "correct": 1,
+  "disaad_au": -2.253496963065631,
+  "disaad_eu": -0.06740719761053049
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 139,
+  "correct": 1,
+  "disaad_au": -2.2543663182596814,
+  "disaad_eu": -0.06517403369620088
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 140,
+  "correct": 1,
+  "disaad_au": -2.2539827795671283,
+  "disaad_eu": -0.06570220179729826
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 141,
+  "correct": 1,
+  "disaad_au": -2.2563353866848566,
+  "disaad_eu": -0.06411290309811027
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 142,
+  "correct": 1,
+  "disaad_au": -2.2543663182596814,
+  "disaad_eu": -0.06517403369620088
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 143,
+  "correct": 1,
+  "disaad_au": -2.2563353866848566,
+  "disaad_eu": -0.06411290309811027
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 144,
+  "correct": 1,
+  "disaad_au": -2.2543663182596814,
+  "disaad_eu": -0.06517403369620088
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 145,
+  "correct": 1,
+  "disaad_au": -2.2545585856809685,
+  "disaad_eu": -0.06545327127078619
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 146,
+  "correct": 1,
+  "disaad_au": -2.253612558572882,
+  "disaad_eu": -0.06567200063711214
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 147,
+  "correct": 1,
+  "disaad_au": -2.2563353866848566,
+  "disaad_eu": -0.06411290309811027
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 148,
+  "correct": 1,
+  "disaad_au": -2.253852321820386,
+  "disaad_eu": -0.06676565430726648
+ },
+ {
+  "dataset": "bioasq",
+  "item_id": 149,
+  "correct": 1,
+  "disaad_au": -2.2563353866848566,
+  "disaad_eu": -0.06411290309811027
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 0,
+  "correct": 0,
+  "disaad_au": -2.25038870541493,
+  "disaad_eu": -0.0808489135927236
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 1,
+  "correct": 1,
+  "disaad_au": -2.260054197101734,
+  "disaad_eu": -0.05789010862570703
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 2,
+  "correct": 1,
+  "disaad_au": -2.2593434567807162,
+  "disaad_eu": -0.08008008008008008
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 3,
+  "correct": 0,
+  "disaad_au": -2.263873089841625,
+  "disaad_eu": -0.05765864986436975
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 4,
+  "correct": 1,
+  "disaad_au": -2.2563088832145586,
+  "disaad_eu": -0.07936507936507936
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 5,
+  "correct": 0,
+  "disaad_au": -2.2566415929336796,
+  "disaad_eu": -0.08048289738430583
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 6,
+  "correct": 0,
+  "disaad_au": -2.254565465459635,
+  "disaad_eu": -0.07508212106992022
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 7,
+  "correct": 1,
+  "disaad_au": -2.2576881813764493,
+  "disaad_eu": -0.07511737089201878
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 8,
+  "correct": 1,
+  "disaad_au": -2.2577047753575674,
+  "disaad_eu": -0.08040201005025126
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 9,
+  "correct": 0,
+  "disaad_au": -2.2627992116556506,
+  "disaad_eu": -0.05750681166293679
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 10,
+  "correct": 1,
+  "disaad_au": -2.2636577110233658,
+  "disaad_eu": -0.05540661662121173
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 11,
+  "correct": 1,
+  "disaad_au": -2.2548158259111957,
+  "disaad_eu": -0.05966426583455193
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 12,
+  "correct": 1,
+  "disaad_au": -2.259041657619977,
+  "disaad_eu": -0.07699711260827719
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 13,
+  "correct": 1,
+  "disaad_au": -2.263234585410446,
+  "disaad_eu": -0.056935101464023585
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 14,
+  "correct": 1,
+  "disaad_au": -2.255568700627619,
+  "disaad_eu": -0.07793472966390648
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 15,
+  "correct": 1,
+  "disaad_au": -2.250686505938278,
+  "disaad_eu": -0.06481855711173
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 16,
+  "correct": 1,
+  "disaad_au": -2.265453792410285,
+  "disaad_eu": -0.05658140086427621
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 17,
+  "correct": 1,
+  "disaad_au": -2.264003133596136,
+  "disaad_eu": -0.05531277329191988
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 18,
+  "correct": 0,
+  "disaad_au": -2.257026439070617,
+  "disaad_eu": -0.06057835503808494
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 19,
+  "correct": 1,
+  "disaad_au": -2.258020918187092,
+  "disaad_eu": -0.07928642220019821
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 20,
+  "correct": 1,
+  "disaad_au": -2.2602517057762537,
+  "disaad_eu": -0.07703418391911411
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 21,
+  "correct": 1,
+  "disaad_au": -2.2554327190912185,
+  "disaad_eu": -0.06051962857670009
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 22,
+  "correct": 0,
+  "disaad_au": -2.257927701572129,
+  "disaad_eu": -0.057720588904771455
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 23,
+  "correct": 0,
+  "disaad_au": -2.2587642923338223,
+  "disaad_eu": -0.056168575388243394
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 24,
+  "correct": 1,
+  "disaad_au": -2.256489435828798,
+  "disaad_eu": -0.07839294463498285
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 25,
+  "correct": 1,
+  "disaad_au": -2.2588760199547853,
+  "disaad_eu": -0.07850834151128558
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 26,
+  "correct": 1,
+  "disaad_au": -2.258690715079651,
+  "disaad_eu": -0.07797270955165692
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 27,
+  "correct": 1,
+  "disaad_au": -2.2549221437698543,
+  "disaad_eu": -0.08105369807497467
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 28,
+  "correct": 1,
+  "disaad_au": -2.254828470333059,
+  "disaad_eu": -0.0805234021137393
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 29,
+  "correct": 1,
+  "disaad_au": -2.2560340158333894,
+  "disaad_eu": -0.07778317938745746
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 30,
+  "correct": 0,
+  "disaad_au": -2.258613538678028,
+  "disaad_eu": -0.059668414652602274
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 31,
+  "correct": 0,
+  "disaad_au": -2.262602720865623,
+  "disaad_eu": -0.057880487144828185
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 32,
+  "correct": 1,
+  "disaad_au": -2.2592938939963716,
+  "disaad_eu": -0.05929265159377601
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 33,
+  "correct": 0,
+  "disaad_au": -2.2565228032206575,
+  "disaad_eu": -0.07952286282306163
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 34,
+  "correct": 0,
+  "disaad_au": -2.263946984718914,
+  "disaad_eu": -0.05276006717534753
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 35,
+  "correct": 1,
+  "disaad_au": -2.2589173327097356,
+  "disaad_eu": -0.07543611504007544
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 36,
+  "correct": 0,
+  "disaad_au": -2.258803731079223,
+  "disaad_eu": -0.07640878701050621
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 37,
+  "correct": 1,
+  "disaad_au": -2.255621063319942,
+  "disaad_eu": -0.08163265306122448
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 38,
+  "correct": 1,
+  "disaad_au": -2.2666238963868444,
+  "disaad_eu": -0.055735180514855764
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 39,
+  "correct": 1,
+  "disaad_au": -2.2579641590541013,
+  "disaad_eu": -0.059719659543286244
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 40,
+  "correct": 1,
+  "disaad_au": -2.2567222596456715,
+  "disaad_eu": -0.07670182166826463
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 41,
+  "correct": 1,
+  "disaad_au": -2.2587517588399084,
+  "disaad_eu": -0.07575757575757576
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 42,
+  "correct": 0,
+  "disaad_au": -2.256952307113536,
+  "disaad_eu": -0.06004891952687204
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 43,
+  "correct": 1,
+  "disaad_au": -2.262277106566008,
+  "disaad_eu": -0.05448313212364257
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 44,
+  "correct": 0,
+  "disaad_au": -2.263138864492016,
+  "disaad_eu": -0.05549156376638427
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 45,
+  "correct": 0,
+  "disaad_au": -2.266897388885947,
+  "disaad_eu": -0.057274694496169065
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 46,
+  "correct": 0,
+  "disaad_au": -2.251037279013578,
+  "disaad_eu": -0.05622942339727064
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 47,
+  "correct": 0,
+  "disaad_au": -2.2592327571323416,
+  "disaad_eu": -0.07901234567901234
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 48,
+  "correct": 1,
+  "disaad_au": -2.2561795221498357,
+  "disaad_eu": -0.07909045971329709
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 49,
+  "correct": 0,
+  "disaad_au": -2.2597539909143274,
+  "disaad_eu": -0.07932573128408528
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 50,
+  "correct": 1,
+  "disaad_au": -2.260457020236637,
+  "disaad_eu": -0.07766990291262135
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 51,
+  "correct": 1,
+  "disaad_au": -2.2595031162914005,
+  "disaad_eu": -0.056746975571757965
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 52,
+  "correct": 1,
+  "disaad_au": -2.2584735366144555,
+  "disaad_eu": -0.0808489135927236
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 53,
+  "correct": 1,
+  "disaad_au": -2.259986957663113,
+  "disaad_eu": -0.07736943907156674
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 54,
+  "correct": 1,
+  "disaad_au": -2.2592117615649694,
+  "disaad_eu": -0.07823960880195599
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 55,
+  "correct": 1,
+  "disaad_au": -2.2523575768579893,
+  "disaad_eu": -0.08447729672650475
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 56,
+  "correct": 1,
+  "disaad_au": -2.2586993033871083,
+  "disaad_eu": -0.05839671843383387
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 57,
+  "correct": 1,
+  "disaad_au": -2.2544012725245874,
+  "disaad_eu": -0.06057875978238731
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 58,
+  "correct": 1,
+  "disaad_au": -2.261413144047621,
+  "disaad_eu": -0.07670182166826463
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 59,
+  "correct": 0,
+  "disaad_au": -2.2592229220499265,
+  "disaad_eu": -0.07582938388625593
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 60,
+  "correct": 1,
+  "disaad_au": -2.251256789972926,
+  "disaad_eu": -0.06632600139375548
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 61,
+  "correct": 1,
+  "disaad_au": -2.260174494865489,
+  "disaad_eu": -0.07666506947771921
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 62,
+  "correct": 0,
+  "disaad_au": -2.2582650286278207,
+  "disaad_eu": -0.07874015748031496
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 63,
+  "correct": 0,
+  "disaad_au": -2.259681716386099,
+  "disaad_eu": -0.07770762506070908
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 64,
+  "correct": 0,
+  "disaad_au": -2.260559909199753,
+  "disaad_eu": -0.05907480061815585
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 65,
+  "correct": 1,
+  "disaad_au": -2.2576288726998013,
+  "disaad_eu": -0.0749063670411985
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 66,
+  "correct": 1,
+  "disaad_au": -2.2550787289110823,
+  "disaad_eu": -0.07820136852394917
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 67,
+  "correct": 1,
+  "disaad_au": -2.2577402082536766,
+  "disaad_eu": -0.080040020010005
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 68,
+  "correct": 1,
+  "disaad_au": -2.2598479047110693,
+  "disaad_eu": -0.058502594294072084
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 69,
+  "correct": 0,
+  "disaad_au": -2.255492938006395,
+  "disaad_eu": -0.08060453400503778
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 70,
+  "correct": 1,
+  "disaad_au": -2.258016223661329,
+  "disaad_eu": -0.05777796049586748
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 71,
+  "correct": 1,
+  "disaad_au": -2.258142496532912,
+  "disaad_eu": -0.0751526538280883
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 72,
+  "correct": 1,
+  "disaad_au": -2.264159843539616,
+  "disaad_eu": -0.05776195229414573
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 73,
+  "correct": 1,
+  "disaad_au": -2.2589496339131396,
+  "disaad_eu": -0.07582938388625593
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 74,
+  "correct": 1,
+  "disaad_au": -2.2614785942495588,
+  "disaad_eu": -0.05783136097558637
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 75,
+  "correct": 0,
+  "disaad_au": -2.264864011508813,
+  "disaad_eu": -0.05557203598488332
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 76,
+  "correct": 1,
+  "disaad_au": -2.2533459833029634,
+  "disaad_eu": -0.07659167065581618
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 77,
+  "correct": 1,
+  "disaad_au": -2.257718381639626,
+  "disaad_eu": -0.07909045971329709
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 78,
+  "correct": 1,
+  "disaad_au": -2.2577900962595727,
+  "disaad_eu": -0.07751937984496124
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 79,
+  "correct": 1,
+  "disaad_au": -2.2584667064152524,
+  "disaad_eu": -0.07455731593662628
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 80,
+  "correct": 1,
+  "disaad_au": -2.2592176660727845,
+  "disaad_eu": -0.07889546351084813
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 81,
+  "correct": 0,
+  "disaad_au": -2.2600495630482476,
+  "disaad_eu": -0.06008427951408937
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 82,
+  "correct": 1,
+  "disaad_au": -2.261032489563898,
+  "disaad_eu": -0.07586533902323377
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 83,
+  "correct": 1,
+  "disaad_au": -2.2575266258290925,
+  "disaad_eu": -0.05723984575524577
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 84,
+  "correct": 1,
+  "disaad_au": -2.259439470662365,
+  "disaad_eu": -0.07532956685499058
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 85,
+  "correct": 1,
+  "disaad_au": -2.2613351946100266,
+  "disaad_eu": -0.05695254224748571
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 86,
+  "correct": 1,
+  "disaad_au": -2.2586841197066154,
+  "disaad_eu": -0.07755695588948133
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 87,
+  "correct": 1,
+  "disaad_au": -2.2656368995867897,
+  "disaad_eu": -0.05529743253653998
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 88,
+  "correct": 0,
+  "disaad_au": -2.25640305537512,
+  "disaad_eu": -0.05807328877129031
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 89,
+  "correct": 1,
+  "disaad_au": -2.2609813250911563,
+  "disaad_eu": -0.07600950118764846
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 90,
+  "correct": 1,
+  "disaad_au": -2.2583496410476855,
+  "disaad_eu": -0.07759456838021339
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 91,
+  "correct": 1,
+  "disaad_au": -2.2574625559190364,
+  "disaad_eu": -0.0815078960774325
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 92,
+  "correct": 1,
+  "disaad_au": -2.258459309225465,
+  "disaad_eu": -0.07648183556405354
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 93,
+  "correct": 1,
+  "disaad_au": -2.2624654377991353,
+  "disaad_eu": -0.05730075963047497
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 94,
+  "correct": 1,
+  "disaad_au": -2.264254474467414,
+  "disaad_eu": -0.07326007326007326
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 95,
+  "correct": 1,
+  "disaad_au": -2.2538115588428855,
+  "disaad_eu": -0.08200922603792926
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 96,
+  "correct": 1,
+  "disaad_au": -2.260240309079747,
+  "disaad_eu": -0.0585937689551483
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 97,
+  "correct": 1,
+  "disaad_au": -2.264373627238411,
+  "disaad_eu": -0.0711743772241993
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 98,
+  "correct": 1,
+  "disaad_au": -2.2564856828581337,
+  "disaad_eu": -0.07932573128408528
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 99,
+  "correct": 1,
+  "disaad_au": -2.2618234028674356,
+  "disaad_eu": -0.056266780812118077
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 100,
+  "correct": 1,
+  "disaad_au": -2.262314064327658,
+  "disaad_eu": -0.05769079752581678
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 101,
+  "correct": 1,
+  "disaad_au": -2.2596312760843205,
+  "disaad_eu": -0.07239819004524888
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 102,
+  "correct": 1,
+  "disaad_au": -2.2568133739583884,
+  "disaad_eu": -0.07909045971329709
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 103,
+  "correct": 1,
+  "disaad_au": -2.2593523920861105,
+  "disaad_eu": -0.07714561234329798
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 104,
+  "correct": 1,
+  "disaad_au": -2.262658029895249,
+  "disaad_eu": -0.07501172058134084
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 105,
+  "correct": 1,
+  "disaad_au": -2.2600058546916246,
+  "disaad_eu": -0.07622677465459743
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 106,
+  "correct": 0,
+  "disaad_au": -2.2676447355927634,
+  "disaad_eu": -0.0552589959738743
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 107,
+  "correct": 1,
+  "disaad_au": -2.2611662564395334,
+  "disaad_eu": -0.058651471022756474
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 108,
+  "correct": 1,
+  "disaad_au": -2.256330300590593,
+  "disaad_eu": -0.07854688267059401
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 109,
+  "correct": 0,
+  "disaad_au": -2.2594177600262713,
+  "disaad_eu": -0.05681063264217475
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 110,
+  "correct": 1,
+  "disaad_au": -2.260338007380978,
+  "disaad_eu": -0.07960199004975124
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 111,
+  "correct": 1,
+  "disaad_au": -2.25743744748121,
+  "disaad_eu": -0.07744433688286544
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 112,
+  "correct": 0,
+  "disaad_au": -2.2587915453148892,
+  "disaad_eu": -0.07877892663712457
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 113,
+  "correct": 1,
+  "disaad_au": -2.2626284012815,
+  "disaad_eu": -0.05723279767341718
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 114,
+  "correct": 0,
+  "disaad_au": -2.260034641030964,
+  "disaad_eu": -0.058245376039805445
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 115,
+  "correct": 1,
+  "disaad_au": -2.263036652384182,
+  "disaad_eu": -0.05366893411007247
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 116,
+  "correct": 1,
+  "disaad_au": -2.2591563645628447,
+  "disaad_eu": -0.06064414549294196
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 117,
+  "correct": 1,
+  "disaad_au": -2.2592276831404825,
+  "disaad_eu": -0.0579766024336998
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 118,
+  "correct": 1,
+  "disaad_au": -2.2571061608977643,
+  "disaad_eu": -0.0823045267489712
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 119,
+  "correct": 1,
+  "disaad_au": -2.261563597170646,
+  "disaad_eu": -0.07414272474513438
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 120,
+  "correct": 1,
+  "disaad_au": -2.2663090559146886,
+  "disaad_eu": -0.05553314441410952
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 121,
+  "correct": 1,
+  "disaad_au": -2.257666694372956,
+  "disaad_eu": -0.07928642220019821
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 122,
+  "correct": 1,
+  "disaad_au": -2.2574395668433005,
+  "disaad_eu": -0.07916872835230084
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 123,
+  "correct": 1,
+  "disaad_au": -2.2609680050091487,
+  "disaad_eu": -0.05910091358549544
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 124,
+  "correct": 1,
+  "disaad_au": -2.260189177190429,
+  "disaad_eu": -0.07793472966390648
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 125,
+  "correct": 1,
+  "disaad_au": -2.2542204671113155,
+  "disaad_eu": -0.08130081300813008
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 126,
+  "correct": 1,
+  "disaad_au": -2.2581399406171516,
+  "disaad_eu": -0.060084887222079476
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 127,
+  "correct": 1,
+  "disaad_au": -2.2549181261549265,
+  "disaad_eu": -0.06592008496937672
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 128,
+  "correct": 0,
+  "disaad_au": -2.2579217711704502,
+  "disaad_eu": -0.07901234567901234
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 129,
+  "correct": 1,
+  "disaad_au": -2.261694432841857,
+  "disaad_eu": -0.059689839279280954
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 130,
+  "correct": 1,
+  "disaad_au": -2.2594455817223733,
+  "disaad_eu": -0.07763221737020863
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 131,
+  "correct": 1,
+  "disaad_au": -2.2617841603974886,
+  "disaad_eu": -0.057284590329053156
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 132,
+  "correct": 1,
+  "disaad_au": -2.254481829416362,
+  "disaad_eu": -0.07972097658196313
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 133,
+  "correct": 1,
+  "disaad_au": -2.258256646273173,
+  "disaad_eu": -0.07575757575757576
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 134,
+  "correct": 1,
+  "disaad_au": -2.260204607025008,
+  "disaad_eu": -0.07462686567164178
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 135,
+  "correct": 1,
+  "disaad_au": -2.260365905050121,
+  "disaad_eu": -0.07393715341959335
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 136,
+  "correct": 1,
+  "disaad_au": -2.260908184064012,
+  "disaad_eu": -0.07722007722007722
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 137,
+  "correct": 1,
+  "disaad_au": -2.2577748253127594,
+  "disaad_eu": -0.07839294463498285
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 138,
+  "correct": 1,
+  "disaad_au": -2.2546749674949402,
+  "disaad_eu": -0.07593735168485999
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 139,
+  "correct": 0,
+  "disaad_au": -2.2623962081485534,
+  "disaad_eu": -0.05702618744193577
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 140,
+  "correct": 1,
+  "disaad_au": -2.2555999529550697,
+  "disaad_eu": -0.07944389275074479
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 141,
+  "correct": 0,
+  "disaad_au": -2.2599333961541515,
+  "disaad_eu": -0.05924394322579125
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 142,
+  "correct": 1,
+  "disaad_au": -2.258352833302426,
+  "disaad_eu": -0.07659167065581618
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 143,
+  "correct": 1,
+  "disaad_au": -2.255970331356967,
+  "disaad_eu": -0.06010842133175672
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 144,
+  "correct": 1,
+  "disaad_au": -2.259952381693959,
+  "disaad_eu": -0.07421150278293136
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 145,
+  "correct": 1,
+  "disaad_au": -2.2593829278627857,
+  "disaad_eu": -0.05872827734757127
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 146,
+  "correct": 1,
+  "disaad_au": -2.2574994522056726,
+  "disaad_eu": -0.07692307692307693
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 147,
+  "correct": 1,
+  "disaad_au": -2.2527859219366473,
+  "disaad_eu": -0.08060453400503778
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 148,
+  "correct": 1,
+  "disaad_au": -2.2576138357188853,
+  "disaad_eu": -0.0772573635924674
+ },
+ {
+  "dataset": "medqa",
+  "item_id": 149,
+  "correct": 1,
+  "disaad_au": -2.2546933878453728,
+  "disaad_eu": -0.055358578948958286
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 0,
+  "correct": 1,
+  "disaad_au": -2.2649946276483783,
+  "disaad_eu": -0.05610944757192082
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 1,
+  "correct": 1,
+  "disaad_au": -2.2614825808103434,
+  "disaad_eu": -0.05766295849870375
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 2,
+  "correct": 1,
+  "disaad_au": -2.2670203456667677,
+  "disaad_eu": -0.057547715807643444
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 3,
+  "correct": 1,
+  "disaad_au": -2.2549237000523243,
+  "disaad_eu": -0.058792560098532794
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 4,
+  "correct": 1,
+  "disaad_au": -2.260794359022068,
+  "disaad_eu": -0.05727380561307634
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 5,
+  "correct": 1,
+  "disaad_au": -2.257421863544655,
+  "disaad_eu": -0.05817997528980484
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 6,
+  "correct": 1,
+  "disaad_au": -2.2655876306183074,
+  "disaad_eu": -0.054840408845049794
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 7,
+  "correct": 1,
+  "disaad_au": -2.263958018779072,
+  "disaad_eu": -0.057140810792194
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 8,
+  "correct": 1,
+  "disaad_au": -2.262226460862826,
+  "disaad_eu": -0.05639985098903044
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 9,
+  "correct": 1,
+  "disaad_au": -2.2567850874113957,
+  "disaad_eu": -0.05849545592075755
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 10,
+  "correct": 1,
+  "disaad_au": -2.260948060369858,
+  "disaad_eu": -0.05920175273780365
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 11,
+  "correct": 1,
+  "disaad_au": -2.2571054890310225,
+  "disaad_eu": -0.06125265901582104
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 12,
+  "correct": 1,
+  "disaad_au": -2.262955702281229,
+  "disaad_eu": -0.05739962730779864
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 13,
+  "correct": 1,
+  "disaad_au": -2.2547198672726827,
+  "disaad_eu": -0.05930300858414936
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 14,
+  "correct": 0,
+  "disaad_au": -2.2632775810261543,
+  "disaad_eu": -0.05516382008508099
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 15,
+  "correct": 1,
+  "disaad_au": -2.2616008327965487,
+  "disaad_eu": -0.0595001488058297
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 16,
+  "correct": 0,
+  "disaad_au": -2.2590279079273468,
+  "disaad_eu": -0.059913045937238424
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 17,
+  "correct": 1,
+  "disaad_au": -2.2623058957311972,
+  "disaad_eu": -0.058435332073032746
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 18,
+  "correct": 1,
+  "disaad_au": -2.252325817251782,
+  "disaad_eu": -0.06591180644653155
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 19,
+  "correct": 1,
+  "disaad_au": -2.262724249435854,
+  "disaad_eu": -0.05538476270182573
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 20,
+  "correct": 1,
+  "disaad_au": -2.263852848354402,
+  "disaad_eu": -0.057477932813774765
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 21,
+  "correct": 0,
+  "disaad_au": -2.2621754339192615,
+  "disaad_eu": -0.05881412577604919
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 22,
+  "correct": 0,
+  "disaad_au": -2.263055479519736,
+  "disaad_eu": -0.05575353489007739
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 23,
+  "correct": 1,
+  "disaad_au": -2.256887374439137,
+  "disaad_eu": -0.06045999676669247
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 24,
+  "correct": 0,
+  "disaad_au": -2.2596479537472973,
+  "disaad_eu": -0.05869080524910901
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 25,
+  "correct": 1,
+  "disaad_au": -2.2583280643976185,
+  "disaad_eu": -0.05998052999336614
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 26,
+  "correct": 1,
+  "disaad_au": -2.263892078688264,
+  "disaad_eu": -0.055860990294877344
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 27,
+  "correct": 1,
+  "disaad_au": -2.2571418176726263,
+  "disaad_eu": -0.05687977864802602
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 28,
+  "correct": 1,
+  "disaad_au": -2.2587519536379648,
+  "disaad_eu": -0.05725216324400733
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 29,
+  "correct": 1,
+  "disaad_au": -2.2670588309315893,
+  "disaad_eu": -0.05366825462711637
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 30,
+  "correct": 1,
+  "disaad_au": -2.260168024699831,
+  "disaad_eu": -0.056932246697300015
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 31,
+  "correct": 0,
+  "disaad_au": -2.2547830764674304,
+  "disaad_eu": -0.056844250680191326
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 32,
+  "correct": 1,
+  "disaad_au": -2.2599165445523157,
+  "disaad_eu": -0.05617738112851658
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 33,
+  "correct": 1,
+  "disaad_au": -2.2625268442460342,
+  "disaad_eu": -0.053284363240977003
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 34,
+  "correct": 0,
+  "disaad_au": -2.264215265617467,
+  "disaad_eu": -0.055638154463361816
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 35,
+  "correct": 1,
+  "disaad_au": -2.2638379411225587,
+  "disaad_eu": -0.05583034966047004
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 36,
+  "correct": 0,
+  "disaad_au": -2.263568056575372,
+  "disaad_eu": -0.05537808817694233
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 37,
+  "correct": 1,
+  "disaad_au": -2.2643500423059413,
+  "disaad_eu": -0.05513597224063481
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 38,
+  "correct": 1,
+  "disaad_au": -2.2592355393835475,
+  "disaad_eu": -0.05578446917457698
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 39,
+  "correct": 1,
+  "disaad_au": -2.2628929042618946,
+  "disaad_eu": -0.059303315021062626
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 40,
+  "correct": 0,
+  "disaad_au": -2.261392734291142,
+  "disaad_eu": -0.05938465892034806
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 41,
+  "correct": 1,
+  "disaad_au": -2.2575104209077526,
+  "disaad_eu": -0.05804394499281549
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 42,
+  "correct": 1,
+  "disaad_au": -2.2607276937128917,
+  "disaad_eu": -0.06034282030232764
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 43,
+  "correct": 1,
+  "disaad_au": -2.2660168866490404,
+  "disaad_eu": -0.05609592321856877
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 44,
+  "correct": 1,
+  "disaad_au": -2.2631221966325437,
+  "disaad_eu": -0.05555552647545323
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 45,
+  "correct": 0,
+  "disaad_au": -2.2584246708348488,
+  "disaad_eu": -0.06038541946512266
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 46,
+  "correct": 1,
+  "disaad_au": -2.26581815077983,
+  "disaad_eu": -0.057517248867907954
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 47,
+  "correct": 1,
+  "disaad_au": -2.2634990975112985,
+  "disaad_eu": -0.05608496356380361
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 48,
+  "correct": 1,
+  "disaad_au": -2.2612569288385194,
+  "disaad_eu": -0.05978645643728158
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 49,
+  "correct": 1,
+  "disaad_au": -2.262210592728338,
+  "disaad_eu": -0.05770410745788487
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 50,
+  "correct": 1,
+  "disaad_au": -2.2623612846416417,
+  "disaad_eu": -0.056523472276647335
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 51,
+  "correct": 0,
+  "disaad_au": -2.2587818029890876,
+  "disaad_eu": -0.05780369324259986
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 52,
+  "correct": 1,
+  "disaad_au": -2.266375686944983,
+  "disaad_eu": -0.056882640212019914
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 53,
+  "correct": 1,
+  "disaad_au": -2.2637919173295633,
+  "disaad_eu": -0.058802301668060095
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 54,
+  "correct": 1,
+  "disaad_au": -2.2646488870281067,
+  "disaad_eu": -0.05637743852737181
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 55,
+  "correct": 1,
+  "disaad_au": -2.2620229578498137,
+  "disaad_eu": -0.058643174176920436
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 56,
+  "correct": 1,
+  "disaad_au": -2.263069954962746,
+  "disaad_eu": -0.05415770048371276
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 57,
+  "correct": 1,
+  "disaad_au": -2.2614945008100213,
+  "disaad_eu": -0.05745525095814676
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 58,
+  "correct": 1,
+  "disaad_au": -2.2609891062973344,
+  "disaad_eu": -0.05811280318814475
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 59,
+  "correct": 1,
+  "disaad_au": -2.2617686350470634,
+  "disaad_eu": -0.05541210700579695
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 60,
+  "correct": 1,
+  "disaad_au": -2.2615595403763136,
+  "disaad_eu": -0.0568472586239165
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 61,
+  "correct": 1,
+  "disaad_au": -2.2593481367274566,
+  "disaad_eu": -0.055523084572414144
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 62,
+  "correct": 1,
+  "disaad_au": -2.2646169220965975,
+  "disaad_eu": -0.05631388069531003
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 63,
+  "correct": 1,
+  "disaad_au": -2.2588296769638188,
+  "disaad_eu": -0.06061535462921143
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 64,
+  "correct": 1,
+  "disaad_au": -2.2588296769638188,
+  "disaad_eu": -0.06061535462921143
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 65,
+  "correct": 1,
+  "disaad_au": -2.259199368736905,
+  "disaad_eu": -0.05801846962188352
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 66,
+  "correct": 1,
+  "disaad_au": -2.259199368736905,
+  "disaad_eu": -0.05801846962188352
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 67,
+  "correct": 1,
+  "disaad_au": -2.263245304705889,
+  "disaad_eu": -0.056175857110211995
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 68,
+  "correct": 1,
+  "disaad_au": -2.2628360430948584,
+  "disaad_eu": -0.05897842043778526
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 69,
+  "correct": 1,
+  "disaad_au": -2.2624169194288606,
+  "disaad_eu": -0.057119651271636984
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 70,
+  "correct": 1,
+  "disaad_au": -2.26167757806268,
+  "disaad_eu": -0.0591205069802673
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 71,
+  "correct": 1,
+  "disaad_au": -2.2648998058951952,
+  "disaad_eu": -0.057713840066407805
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 72,
+  "correct": 1,
+  "disaad_au": -2.26246820758221,
+  "disaad_eu": -0.058340453098165684
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 73,
+  "correct": 1,
+  "disaad_au": -2.266784278996353,
+  "disaad_eu": -0.05494957283301062
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 74,
+  "correct": 1,
+  "disaad_au": -2.2621321178761407,
+  "disaad_eu": -0.05869768304488476
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 75,
+  "correct": 1,
+  "disaad_au": -2.26165106109852,
+  "disaad_eu": -0.059259505950961314
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 76,
+  "correct": 1,
+  "disaad_au": -2.262441009309549,
+  "disaad_eu": -0.056605884564316145
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 77,
+  "correct": 1,
+  "disaad_au": -2.2606236686349477,
+  "disaad_eu": -0.059262013505457796
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 78,
+  "correct": 1,
+  "disaad_au": -2.260631433551086,
+  "disaad_eu": -0.05839818927842292
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 79,
+  "correct": 1,
+  "disaad_au": -2.2650254481091348,
+  "disaad_eu": -0.05713692043415221
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 80,
+  "correct": 1,
+  "disaad_au": -2.261937048989565,
+  "disaad_eu": -0.05793517734645453
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 81,
+  "correct": 1,
+  "disaad_au": -2.2559308998596026,
+  "disaad_eu": -0.05905951334699273
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 82,
+  "correct": 1,
+  "disaad_au": -2.2593687031522407,
+  "disaad_eu": -0.05771624445832931
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 83,
+  "correct": 1,
+  "disaad_au": -2.2630938521425095,
+  "disaad_eu": -0.059233716837209086
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 84,
+  "correct": 1,
+  "disaad_au": -2.2624826977585486,
+  "disaad_eu": -0.05740443531830821
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 85,
+  "correct": 1,
+  "disaad_au": -2.2615008135987122,
+  "disaad_eu": -0.05808032799544663
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 86,
+  "correct": 1,
+  "disaad_au": -2.2666977709690177,
+  "disaad_eu": -0.05571566092943272
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 87,
+  "correct": 1,
+  "disaad_au": -2.2646787361476313,
+  "disaad_eu": -0.0573353964897092
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 88,
+  "correct": 1,
+  "disaad_au": -2.2624167821645664,
+  "disaad_eu": -0.05762389240700478
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 89,
+  "correct": 1,
+  "disaad_au": -2.256774558330538,
+  "disaad_eu": -0.06080067372921061
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 90,
+  "correct": 1,
+  "disaad_au": -2.258438014439007,
+  "disaad_eu": -0.05690272798447519
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 91,
+  "correct": 1,
+  "disaad_au": -2.263022338593141,
+  "disaad_eu": -0.05928675735633502
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 92,
+  "correct": 0,
+  "disaad_au": -2.263206852658985,
+  "disaad_eu": -0.059004857309173785
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 93,
+  "correct": 1,
+  "disaad_au": -2.253764700079276,
+  "disaad_eu": -0.059911478756882366
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 94,
+  "correct": 1,
+  "disaad_au": -2.2658358583891784,
+  "disaad_eu": -0.056543514943053916
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 95,
+  "correct": 1,
+  "disaad_au": -2.262229949065314,
+  "disaad_eu": -0.06018328265065246
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 96,
+  "correct": 1,
+  "disaad_au": -2.263401274198677,
+  "disaad_eu": -0.05595751253663909
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 97,
+  "correct": 1,
+  "disaad_au": -2.2638155530910486,
+  "disaad_eu": -0.05757283711627171
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 98,
+  "correct": 0,
+  "disaad_au": -2.262805100584802,
+  "disaad_eu": -0.05626822916319811
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 99,
+  "correct": 1,
+  "disaad_au": -2.2611575982226904,
+  "disaad_eu": -0.056999642168429024
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 100,
+  "correct": 1,
+  "disaad_au": -2.2639046024427025,
+  "disaad_eu": -0.057738842225695475
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 101,
+  "correct": 1,
+  "disaad_au": -2.261610515145744,
+  "disaad_eu": -0.05895916750955858
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 102,
+  "correct": 1,
+  "disaad_au": -2.2628870755528068,
+  "disaad_eu": -0.058329210231281556
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 103,
+  "correct": 1,
+  "disaad_au": -2.26063556277187,
+  "disaad_eu": -0.0574930471763699
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 104,
+  "correct": 1,
+  "disaad_au": -2.265867616120001,
+  "disaad_eu": -0.05653676190890899
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 105,
+  "correct": 1,
+  "disaad_au": -2.2616167008212384,
+  "disaad_eu": -0.0562117874618375
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 106,
+  "correct": 1,
+  "disaad_au": -2.2557307849638986,
+  "disaad_eu": -0.05839544349111579
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 107,
+  "correct": 1,
+  "disaad_au": -2.2613206183686945,
+  "disaad_eu": -0.057054134091894367
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 108,
+  "correct": 1,
+  "disaad_au": -2.2648445044671326,
+  "disaad_eu": -0.05646370931678193
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 109,
+  "correct": 1,
+  "disaad_au": -2.2634645005099516,
+  "disaad_eu": -0.05614032817433312
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 110,
+  "correct": 1,
+  "disaad_au": -2.2614108781370046,
+  "disaad_eu": -0.05855248423685446
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 111,
+  "correct": 1,
+  "disaad_au": -2.2584391624328024,
+  "disaad_eu": -0.05720575920842338
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 112,
+  "correct": 1,
+  "disaad_au": -2.266168673684682,
+  "disaad_eu": -0.05668474192914622
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 113,
+  "correct": 0,
+  "disaad_au": -2.2635481337640044,
+  "disaad_eu": -0.0567994847999642
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 114,
+  "correct": 1,
+  "disaad_au": -2.265020977528169,
+  "disaad_eu": -0.05758117976967873
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 115,
+  "correct": 0,
+  "disaad_au": -2.2613626596674066,
+  "disaad_eu": -0.056547811181353144
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 116,
+  "correct": 1,
+  "disaad_au": -2.261643997287378,
+  "disaad_eu": -0.05840643903023409
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 117,
+  "correct": 1,
+  "disaad_au": -2.2593946109421674,
+  "disaad_eu": -0.05690224708324485
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 118,
+  "correct": 1,
+  "disaad_au": -2.2584950780218946,
+  "disaad_eu": -0.0601384385787854
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 119,
+  "correct": 1,
+  "disaad_au": -2.262188084389717,
+  "disaad_eu": -0.05533332041136159
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 120,
+  "correct": 1,
+  "disaad_au": -2.265273761172453,
+  "disaad_eu": -0.056130353965049944
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 121,
+  "correct": 1,
+  "disaad_au": -2.2623860135140395,
+  "disaad_eu": -0.05852989983743972
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 122,
+  "correct": 1,
+  "disaad_au": -2.258616592368866,
+  "disaad_eu": -0.057736389755736535
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 123,
+  "correct": 1,
+  "disaad_au": -2.2626302409296266,
+  "disaad_eu": -0.056880594233160595
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 124,
+  "correct": 1,
+  "disaad_au": -2.2634530664642774,
+  "disaad_eu": -0.05551880429303693
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 125,
+  "correct": 1,
+  "disaad_au": -2.2653787023685075,
+  "disaad_eu": -0.05538448163910253
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 126,
+  "correct": 1,
+  "disaad_au": -2.2574214638666956,
+  "disaad_eu": -0.06013964271709203
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 127,
+  "correct": 1,
+  "disaad_au": -2.259150480557948,
+  "disaad_eu": -0.060366722659406444
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 128,
+  "correct": 0,
+  "disaad_au": -2.257336609556687,
+  "disaad_eu": -0.05824840820234818
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 129,
+  "correct": 1,
+  "disaad_au": -2.260791543419322,
+  "disaad_eu": -0.05942099897619361
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 130,
+  "correct": 1,
+  "disaad_au": -2.263548575324993,
+  "disaad_eu": -0.055612673063391765
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 131,
+  "correct": 1,
+  "disaad_au": -2.2649973759558955,
+  "disaad_eu": -0.05465586086542939
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 132,
+  "correct": 1,
+  "disaad_au": -2.2629071724194443,
+  "disaad_eu": -0.05967443211569236
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 133,
+  "correct": 1,
+  "disaad_au": -2.2667678888701723,
+  "disaad_eu": -0.05417520643408942
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 134,
+  "correct": 1,
+  "disaad_au": -2.2669094408856783,
+  "disaad_eu": -0.056615222977797273
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 135,
+  "correct": 0,
+  "disaad_au": -2.263899782870136,
+  "disaad_eu": -0.0558646046320688
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 136,
+  "correct": 0,
+  "disaad_au": -2.2598845687608073,
+  "disaad_eu": -0.05950531750396893
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 137,
+  "correct": 1,
+  "disaad_au": -2.2604193202938383,
+  "disaad_eu": -0.05974947391335514
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 138,
+  "correct": 1,
+  "disaad_au": -2.2655082905848407,
+  "disaad_eu": -0.05869321085739818
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 139,
+  "correct": 1,
+  "disaad_au": -2.2640469137791532,
+  "disaad_eu": -0.057154100260699336
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 140,
+  "correct": 1,
+  "disaad_au": -2.264285716321105,
+  "disaad_eu": -0.055706954464107436
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 141,
+  "correct": 1,
+  "disaad_au": -2.2607650339064644,
+  "disaad_eu": -0.059317783988494924
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 142,
+  "correct": 1,
+  "disaad_au": -2.2584277477202543,
+  "disaad_eu": -0.057411002149337954
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 143,
+  "correct": 1,
+  "disaad_au": -2.2617032498812364,
+  "disaad_eu": -0.05692481652907518
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 144,
+  "correct": 1,
+  "disaad_au": -2.2554063715133803,
+  "disaad_eu": -0.05924698830335083
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 145,
+  "correct": 1,
+  "disaad_au": -2.264955773579037,
+  "disaad_eu": -0.05467487639960716
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 146,
+  "correct": 1,
+  "disaad_au": -2.257462693929083,
+  "disaad_eu": -0.05787044244232531
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 147,
+  "correct": 1,
+  "disaad_au": -2.2639809384132312,
+  "disaad_eu": -0.056483479986518335
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 148,
+  "correct": 1,
+  "disaad_au": -2.264338980820672,
+  "disaad_eu": -0.05604522907639809
+ },
+ {
+  "dataset": "medlfqa",
+  "item_id": 149,
+  "correct": 1,
+  "disaad_au": -2.2636313538871233,
+  "disaad_eu": -0.05976292880694114
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 0,
+  "correct": 1,
+  "disaad_au": -2.2688241420957196,
+  "disaad_eu": -0.055842688514049846
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 1,
+  "correct": 1,
+  "disaad_au": -2.268138813039999,
+  "disaad_eu": -0.05459561417832783
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 2,
+  "correct": 1,
+  "disaad_au": -2.2618659850564815,
+  "disaad_eu": -0.056762035988996005
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 3,
+  "correct": 1,
+  "disaad_au": -2.2644898902591915,
+  "disaad_eu": -0.05641571834006349
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 4,
+  "correct": 1,
+  "disaad_au": -2.2658904104861555,
+  "disaad_eu": -0.05356860315557896
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 5,
+  "correct": 1,
+  "disaad_au": -2.2650313948189185,
+  "disaad_eu": -0.054381347176153345
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 6,
+  "correct": 1,
+  "disaad_au": -2.260091655143207,
+  "disaad_eu": -0.05654771395986515
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 7,
+  "correct": 1,
+  "disaad_au": -2.2650060232449043,
+  "disaad_eu": -0.05626907011333542
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 8,
+  "correct": 1,
+  "disaad_au": -2.265736623371643,
+  "disaad_eu": -0.05386647962410993
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 9,
+  "correct": 0,
+  "disaad_au": -2.2669682544218905,
+  "disaad_eu": -0.05441604669260924
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 10,
+  "correct": 1,
+  "disaad_au": -2.2628233920723746,
+  "disaad_eu": -0.055686499548131436
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 11,
+  "correct": 1,
+  "disaad_au": -2.2592072834012287,
+  "disaad_eu": -0.05742968657936324
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 12,
+  "correct": 1,
+  "disaad_au": -2.2683158585464693,
+  "disaad_eu": -0.05425154385698135
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 13,
+  "correct": 1,
+  "disaad_au": -2.267638960391897,
+  "disaad_eu": -0.05531376592103367
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 14,
+  "correct": 1,
+  "disaad_au": -2.264224005656833,
+  "disaad_eu": -0.06265096766861898
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 15,
+  "correct": 1,
+  "disaad_au": -2.266600749595899,
+  "disaad_eu": -0.054954655677318845
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 16,
+  "correct": 1,
+  "disaad_au": -2.2675424338439822,
+  "disaad_eu": -0.05683538803349144
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 17,
+  "correct": 1,
+  "disaad_au": -2.260129757776271,
+  "disaad_eu": -0.05879861904248436
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 18,
+  "correct": 1,
+  "disaad_au": -2.2626322194875708,
+  "disaad_eu": -0.05611707765621175
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 19,
+  "correct": 0,
+  "disaad_au": -2.2648362756916955,
+  "disaad_eu": -0.05435344709532789
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 20,
+  "correct": 1,
+  "disaad_au": -2.266989279229973,
+  "disaad_eu": -0.053165110727147975
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 21,
+  "correct": 1,
+  "disaad_au": -2.2663342819941015,
+  "disaad_eu": -0.05434673657606477
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 22,
+  "correct": 0,
+  "disaad_au": -2.2657466166171445,
+  "disaad_eu": -0.05585683274069749
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 23,
+  "correct": 1,
+  "disaad_au": -2.2633707727338974,
+  "disaad_eu": -0.05564208055550056
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 24,
+  "correct": 1,
+  "disaad_au": -2.2635099334782396,
+  "disaad_eu": -0.05797266459539223
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 25,
+  "correct": 0,
+  "disaad_au": -2.2691121018889207,
+  "disaad_eu": -0.05278880424577612
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 26,
+  "correct": 1,
+  "disaad_au": -2.2606810790812255,
+  "disaad_eu": -0.058704668532719564
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 27,
+  "correct": 1,
+  "disaad_au": -2.265632520943962,
+  "disaad_eu": -0.05650507121261395
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 28,
+  "correct": 1,
+  "disaad_au": -2.266302587951814,
+  "disaad_eu": -0.05388873456933377
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 29,
+  "correct": 1,
+  "disaad_au": -2.2688159453045746,
+  "disaad_eu": -0.05270567802927735
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 30,
+  "correct": 1,
+  "disaad_au": -2.2618062973263773,
+  "disaad_eu": -0.055512898130620374
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 31,
+  "correct": 1,
+  "disaad_au": -2.262435234891006,
+  "disaad_eu": -0.0546931768763407
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 32,
+  "correct": 1,
+  "disaad_au": -2.2614447056692444,
+  "disaad_eu": -0.05735815338617343
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 33,
+  "correct": 1,
+  "disaad_au": -2.260164637670158,
+  "disaad_eu": -0.05488847002335531
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 34,
+  "correct": 1,
+  "disaad_au": -2.26527359056344,
+  "disaad_eu": -0.05397503942454704
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 35,
+  "correct": 1,
+  "disaad_au": -2.263499845861261,
+  "disaad_eu": -0.05573185664472878
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 36,
+  "correct": 1,
+  "disaad_au": -2.2653229243566098,
+  "disaad_eu": -0.05621627359110522
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 37,
+  "correct": 0,
+  "disaad_au": -2.2653028955006183,
+  "disaad_eu": -0.05702353426738241
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 38,
+  "correct": 1,
+  "disaad_au": -2.2653745928599514,
+  "disaad_eu": -0.05239966266589375
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 39,
+  "correct": 1,
+  "disaad_au": -2.262961530560635,
+  "disaad_eu": -0.055533797406382666
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 40,
+  "correct": 1,
+  "disaad_au": -2.2641000933948536,
+  "disaad_eu": -0.05587508167750938
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 41,
+  "correct": 1,
+  "disaad_au": -2.2625311233707626,
+  "disaad_eu": -0.05798208925117881
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 42,
+  "correct": 0,
+  "disaad_au": -2.266744211387971,
+  "disaad_eu": -0.05680633101659142
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 43,
+  "correct": 0,
+  "disaad_au": -2.2666081432701857,
+  "disaad_eu": -0.05445790767063453
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 44,
+  "correct": 1,
+  "disaad_au": -2.266252403739809,
+  "disaad_eu": -0.054468793077778646
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 45,
+  "correct": 1,
+  "disaad_au": -2.2641013714015443,
+  "disaad_eu": -0.05544466846809828
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 46,
+  "correct": 1,
+  "disaad_au": -2.2651210579770846,
+  "disaad_eu": -0.056583738231811655
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 47,
+  "correct": 1,
+  "disaad_au": -2.2662971981153524,
+  "disaad_eu": -0.05732134344390467
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 48,
+  "correct": 1,
+  "disaad_au": -2.265536702509164,
+  "disaad_eu": -0.056470016541480185
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 49,
+  "correct": 1,
+  "disaad_au": -2.261435669988502,
+  "disaad_eu": -0.05577995467512388
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 50,
+  "correct": 1,
+  "disaad_au": -2.266102654452552,
+  "disaad_eu": -0.058021171456144195
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 51,
+  "correct": 1,
+  "disaad_au": -2.265404817601101,
+  "disaad_eu": -0.053639011434404534
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 52,
+  "correct": 1,
+  "disaad_au": -2.2634084947807787,
+  "disaad_eu": -0.05659501422106614
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 53,
+  "correct": 1,
+  "disaad_au": -2.268477619339419,
+  "disaad_eu": -0.056119334730781796
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 54,
+  "correct": 1,
+  "disaad_au": -2.2622736806742982,
+  "disaad_eu": -0.05662595130460881
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 55,
+  "correct": 1,
+  "disaad_au": -2.264446145569963,
+  "disaad_eu": -0.055522666890727185
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 56,
+  "correct": 1,
+  "disaad_au": -2.267276800277743,
+  "disaad_eu": -0.055669667465951755
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 57,
+  "correct": 1,
+  "disaad_au": -2.2577395112531393,
+  "disaad_eu": -0.057328010602357725
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 58,
+  "correct": 1,
+  "disaad_au": -2.261345871065622,
+  "disaad_eu": -0.055906792407888053
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 59,
+  "correct": 0,
+  "disaad_au": -2.26245984902955,
+  "disaad_eu": -0.05861242331182668
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 60,
+  "correct": 1,
+  "disaad_au": -2.266662983692987,
+  "disaad_eu": -0.05368229666860856
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 61,
+  "correct": 1,
+  "disaad_au": -2.2647877493258344,
+  "disaad_eu": -0.057066635959052876
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 62,
+  "correct": 1,
+  "disaad_au": -2.264696220154032,
+  "disaad_eu": -0.056387803964470344
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 63,
+  "correct": 1,
+  "disaad_au": -2.2639334931992443,
+  "disaad_eu": -0.057260683248514445
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 64,
+  "correct": 1,
+  "disaad_au": -2.2651340885543068,
+  "disaad_eu": -0.05408535954354693
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 65,
+  "correct": 1,
+  "disaad_au": -2.2664951608056167,
+  "disaad_eu": -0.054927665522201866
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 66,
+  "correct": 1,
+  "disaad_au": -2.2653697173041967,
+  "disaad_eu": -0.05388413160548378
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 67,
+  "correct": 1,
+  "disaad_au": -2.2613374400559962,
+  "disaad_eu": -0.05904155031409921
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 68,
+  "correct": 1,
+  "disaad_au": -2.26564667637587,
+  "disaad_eu": -0.05552220446558005
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 69,
+  "correct": 1,
+  "disaad_au": -2.265707432961688,
+  "disaad_eu": -0.0578935133399253
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 70,
+  "correct": 0,
+  "disaad_au": -2.265247531318293,
+  "disaad_eu": -0.05786896094658571
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 71,
+  "correct": 1,
+  "disaad_au": -2.2629833016982994,
+  "disaad_eu": -0.0571169663401557
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 72,
+  "correct": 1,
+  "disaad_au": -2.2602240724030755,
+  "disaad_eu": -0.059281548655148605
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 73,
+  "correct": 0,
+  "disaad_au": -2.2679043929712392,
+  "disaad_eu": -0.054031780547723056
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 74,
+  "correct": 1,
+  "disaad_au": -2.2630266307628477,
+  "disaad_eu": -0.059063701516107986
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 75,
+  "correct": 1,
+  "disaad_au": -2.262588198184678,
+  "disaad_eu": -0.05533574587035703
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 76,
+  "correct": 0,
+  "disaad_au": -2.2687925175944015,
+  "disaad_eu": -0.05572796836777378
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 77,
+  "correct": 1,
+  "disaad_au": -2.262296587456323,
+  "disaad_eu": -0.05655346673856859
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 78,
+  "correct": 1,
+  "disaad_au": -2.263833724495593,
+  "disaad_eu": -0.05769819495387046
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 79,
+  "correct": 1,
+  "disaad_au": -2.267450828161639,
+  "disaad_eu": -0.0568998155739415
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 80,
+  "correct": 1,
+  "disaad_au": -2.266000759590278,
+  "disaad_eu": -0.055402475679525075
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 81,
+  "correct": 1,
+  "disaad_au": -2.2696331797270712,
+  "disaad_eu": -0.057288926652091544
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 82,
+  "correct": 1,
+  "disaad_au": -2.2635990783349973,
+  "disaad_eu": -0.054551377210933436
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 83,
+  "correct": 1,
+  "disaad_au": -2.2629823251534877,
+  "disaad_eu": -0.056061608796668785
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 84,
+  "correct": 1,
+  "disaad_au": -2.264905509678609,
+  "disaad_eu": -0.052697017855824965
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 85,
+  "correct": 1,
+  "disaad_au": -2.2650050245566913,
+  "disaad_eu": -0.05722002929025823
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 86,
+  "correct": 1,
+  "disaad_au": -2.2640892735028695,
+  "disaad_eu": -0.055139339958472575
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 87,
+  "correct": 1,
+  "disaad_au": -2.2653891319240325,
+  "disaad_eu": -0.05691108374202344
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 88,
+  "correct": 1,
+  "disaad_au": -2.2615142124337777,
+  "disaad_eu": -0.057004267497978676
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 89,
+  "correct": 1,
+  "disaad_au": -2.2662414953110424,
+  "disaad_eu": -0.055858747095458364
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 90,
+  "correct": 1,
+  "disaad_au": -2.2660048158437167,
+  "disaad_eu": -0.05417128615920781
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 91,
+  "correct": 1,
+  "disaad_au": -2.260323533655225,
+  "disaad_eu": -0.05552929184511654
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 92,
+  "correct": 1,
+  "disaad_au": -2.263929649003114,
+  "disaad_eu": -0.05532547438920574
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 93,
+  "correct": 0,
+  "disaad_au": -2.265878667231577,
+  "disaad_eu": -0.057700638036406765
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 94,
+  "correct": 1,
+  "disaad_au": -2.2672144521953213,
+  "disaad_eu": -0.05506613671005038
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 95,
+  "correct": 0,
+  "disaad_au": -2.264563971352023,
+  "disaad_eu": -0.05514025685965191
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 96,
+  "correct": 1,
+  "disaad_au": -2.267026216541504,
+  "disaad_eu": -0.05447875513990457
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 97,
+  "correct": 1,
+  "disaad_au": -2.2693507054299986,
+  "disaad_eu": -0.055198825884610205
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 98,
+  "correct": 1,
+  "disaad_au": -2.2639395986158983,
+  "disaad_eu": -0.05948129037997244
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 99,
+  "correct": 1,
+  "disaad_au": -2.264537330771171,
+  "disaad_eu": -0.05667070112706337
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 100,
+  "correct": 1,
+  "disaad_au": -2.2647144176124185,
+  "disaad_eu": -0.05615489027724724
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 101,
+  "correct": 1,
+  "disaad_au": -2.268824032390871,
+  "disaad_eu": -0.05567584619647889
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 102,
+  "correct": 1,
+  "disaad_au": -2.266697618632361,
+  "disaad_eu": -0.05455134817461998
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 103,
+  "correct": 1,
+  "disaad_au": -2.2658204005931184,
+  "disaad_eu": -0.056689884924299966
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 104,
+  "correct": 1,
+  "disaad_au": -2.265785041215391,
+  "disaad_eu": -0.05574204235995901
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 105,
+  "correct": 1,
+  "disaad_au": -2.2629709338511765,
+  "disaad_eu": -0.05726011650521469
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 106,
+  "correct": 1,
+  "disaad_au": -2.2595988859264446,
+  "disaad_eu": -0.05451768811915854
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 107,
+  "correct": 0,
+  "disaad_au": -2.2664942913575654,
+  "disaad_eu": -0.05615563265144579
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 108,
+  "correct": 1,
+  "disaad_au": -2.2707403745882373,
+  "disaad_eu": -0.05305803252977116
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 109,
+  "correct": 1,
+  "disaad_au": -2.268790395780205,
+  "disaad_eu": -0.054411394598377495
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 110,
+  "correct": 1,
+  "disaad_au": -2.2629927527452707,
+  "disaad_eu": -0.0569908467862086
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 111,
+  "correct": 1,
+  "disaad_au": -2.265393429838795,
+  "disaad_eu": -0.05422478964689899
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 112,
+  "correct": 1,
+  "disaad_au": -2.2679059997711173,
+  "disaad_eu": -0.053114351207273855
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 113,
+  "correct": 1,
+  "disaad_au": -2.2683266185432083,
+  "disaad_eu": -0.05486300420650947
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 114,
+  "correct": 1,
+  "disaad_au": -2.2627472009448852,
+  "disaad_eu": -0.055578002582134016
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 115,
+  "correct": 0,
+  "disaad_au": -2.268833933116851,
+  "disaad_eu": -0.05512519340065321
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 116,
+  "correct": 0,
+  "disaad_au": -2.2669527957910205,
+  "disaad_eu": -0.05640827600673756
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 117,
+  "correct": 1,
+  "disaad_au": -2.2655894403925645,
+  "disaad_eu": -0.057246005256199384
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 118,
+  "correct": 1,
+  "disaad_au": -2.263519261182266,
+  "disaad_eu": -0.05582195935246905
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 119,
+  "correct": 0,
+  "disaad_au": -2.259861136087393,
+  "disaad_eu": -0.05731208642382946
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 120,
+  "correct": 1,
+  "disaad_au": -2.2641355501061473,
+  "disaad_eu": -0.05519370669008895
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 121,
+  "correct": 1,
+  "disaad_au": -2.2628749228685665,
+  "disaad_eu": -0.0573976764512404
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 122,
+  "correct": 1,
+  "disaad_au": -2.2608124904560793,
+  "disaad_eu": -0.05526616014033398
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 123,
+  "correct": 1,
+  "disaad_au": -2.2639572536415047,
+  "disaad_eu": -0.054063863681304024
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 124,
+  "correct": 0,
+  "disaad_au": -2.2720849070836167,
+  "disaad_eu": -0.053482389000426615
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 125,
+  "correct": 1,
+  "disaad_au": -2.2667639228014957,
+  "disaad_eu": -0.05417470831597852
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 126,
+  "correct": 1,
+  "disaad_au": -2.25504639452123,
+  "disaad_eu": -0.05852732581011728
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 127,
+  "correct": 1,
+  "disaad_au": -2.2668214719734805,
+  "disaad_eu": -0.054340905247937374
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 128,
+  "correct": 1,
+  "disaad_au": -2.263755973248607,
+  "disaad_eu": -0.055017720382758935
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 129,
+  "correct": 1,
+  "disaad_au": -2.2677042836351267,
+  "disaad_eu": -0.05439748559436535
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 130,
+  "correct": 1,
+  "disaad_au": -2.2629626082338152,
+  "disaad_eu": -0.058678079536945565
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 131,
+  "correct": 1,
+  "disaad_au": -2.2632898125372933,
+  "disaad_eu": -0.057924852780628956
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 132,
+  "correct": 1,
+  "disaad_au": -2.2654448930763698,
+  "disaad_eu": -0.05555338671221263
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 133,
+  "correct": 1,
+  "disaad_au": -2.2646862514642607,
+  "disaad_eu": -0.05435947970616264
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 134,
+  "correct": 1,
+  "disaad_au": -2.263969319290547,
+  "disaad_eu": -0.05694132328873131
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 135,
+  "correct": 0,
+  "disaad_au": -2.266900195890466,
+  "disaad_eu": -0.05464295386564556
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 136,
+  "correct": 1,
+  "disaad_au": -2.266873981091264,
+  "disaad_eu": -0.05510445492365908
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 137,
+  "correct": 1,
+  "disaad_au": -2.261856743680557,
+  "disaad_eu": -0.05610371510821876
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 138,
+  "correct": 0,
+  "disaad_au": -2.2641100702681545,
+  "disaad_eu": -0.05673681682529034
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 139,
+  "correct": 1,
+  "disaad_au": -2.2633473015435097,
+  "disaad_eu": -0.055722434980235616
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 140,
+  "correct": 1,
+  "disaad_au": -2.2645938596315887,
+  "disaad_eu": -0.05422072481475857
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 141,
+  "correct": 1,
+  "disaad_au": -2.2586144102273047,
+  "disaad_eu": -0.05508877427526858
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 142,
+  "correct": 1,
+  "disaad_au": -2.2657698743459105,
+  "disaad_eu": -0.05472377188219289
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 143,
+  "correct": 1,
+  "disaad_au": -2.2617607795234105,
+  "disaad_eu": -0.05708801687552899
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 144,
+  "correct": 0,
+  "disaad_au": -2.2661971386892494,
+  "disaad_eu": -0.05499170515398551
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 145,
+  "correct": 1,
+  "disaad_au": -2.260783179491018,
+  "disaad_eu": -0.058085479752958906
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 146,
+  "correct": 1,
+  "disaad_au": -2.2597289712530233,
+  "disaad_eu": -0.05670653470056486
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 147,
+  "correct": 1,
+  "disaad_au": -2.27096652430865,
+  "disaad_eu": -0.05213393201817044
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 148,
+  "correct": 0,
+  "disaad_au": -2.2627278883653434,
+  "disaad_eu": -0.059661354155004995
+ },
+ {
+  "dataset": "gsm8k",
+  "item_id": 149,
+  "correct": 1,
+  "disaad_au": -2.2613094021063502,
+  "disaad_eu": -0.055411269558599985
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 0,
+  "correct": 1,
+  "disaad_au": -2.264412024414366,
+  "disaad_eu": -0.05549403606578383
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 1,
+  "correct": 0,
+  "disaad_au": -2.2639981834426024,
+  "disaad_eu": -0.05617650049870787
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 2,
+  "correct": 1,
+  "disaad_au": -2.2663097143286306,
+  "disaad_eu": -0.05810158407180448
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 3,
+  "correct": 1,
+  "disaad_au": -2.2575388476543945,
+  "disaad_eu": -0.059585033822118355
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 4,
+  "correct": 1,
+  "disaad_au": -2.2667304566398543,
+  "disaad_eu": -0.05475256203503651
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 5,
+  "correct": 1,
+  "disaad_au": -2.265112713761213,
+  "disaad_eu": -0.057504650036243395
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 6,
+  "correct": 1,
+  "disaad_au": -2.2650330342390657,
+  "disaad_eu": -0.055649699203116514
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 7,
+  "correct": 1,
+  "disaad_au": -2.270641797199719,
+  "disaad_eu": -0.05477775311131486
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 8,
+  "correct": 1,
+  "disaad_au": -2.260118996616887,
+  "disaad_eu": -0.055791865002116144
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 9,
+  "correct": 1,
+  "disaad_au": -2.2635347516540616,
+  "disaad_eu": -0.05604980482003416
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 10,
+  "correct": 1,
+  "disaad_au": -2.2508659002138685,
+  "disaad_eu": -0.0624053979926119
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 11,
+  "correct": 1,
+  "disaad_au": -2.2678516040893215,
+  "disaad_eu": -0.05501738744644926
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 12,
+  "correct": 0,
+  "disaad_au": -2.261182018367348,
+  "disaad_eu": -0.05928934363799765
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 13,
+  "correct": 1,
+  "disaad_au": -2.2665906408300027,
+  "disaad_eu": -0.05840485877828691
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 14,
+  "correct": 1,
+  "disaad_au": -2.2591686221424245,
+  "disaad_eu": -0.05593551677217577
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 15,
+  "correct": 1,
+  "disaad_au": -2.2618098638552597,
+  "disaad_eu": -0.058153417806840565
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 16,
+  "correct": 1,
+  "disaad_au": -2.2635112206417185,
+  "disaad_eu": -0.05757547890596936
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 17,
+  "correct": 0,
+  "disaad_au": -2.2601614917527715,
+  "disaad_eu": -0.054063268437811535
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 18,
+  "correct": 1,
+  "disaad_au": -2.2609396955874743,
+  "disaad_eu": -0.05915264259705143
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 19,
+  "correct": 1,
+  "disaad_au": -2.2549804071920136,
+  "disaad_eu": -0.05546397363901307
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 20,
+  "correct": 1,
+  "disaad_au": -2.2637980619039606,
+  "disaad_eu": -0.05829979656367059
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 21,
+  "correct": 1,
+  "disaad_au": -2.2543120581624847,
+  "disaad_eu": -0.0598895751084088
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 22,
+  "correct": 1,
+  "disaad_au": -2.2582417642635795,
+  "disaad_eu": -0.0600122018841089
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 23,
+  "correct": 0,
+  "disaad_au": -2.2595604595907197,
+  "disaad_eu": -0.05884063637608413
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 24,
+  "correct": 1,
+  "disaad_au": -2.259568846007527,
+  "disaad_eu": -0.06103963703678694
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 25,
+  "correct": 1,
+  "disaad_au": -2.2586789839778754,
+  "disaad_eu": -0.059274038605392994
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 26,
+  "correct": 0,
+  "disaad_au": -2.263238217183156,
+  "disaad_eu": -0.0632397772346991
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 27,
+  "correct": 1,
+  "disaad_au": -2.2532554858000506,
+  "disaad_eu": -0.05954830315584804
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 28,
+  "correct": 1,
+  "disaad_au": -2.257196291205643,
+  "disaad_eu": -0.060295914553899245
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 29,
+  "correct": 0,
+  "disaad_au": -2.250379940793249,
+  "disaad_eu": -0.0615472965374995
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 30,
+  "correct": 0,
+  "disaad_au": -2.2650242169779835,
+  "disaad_eu": -0.05904441864156655
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 31,
+  "correct": 1,
+  "disaad_au": -2.2534730645871526,
+  "disaad_eu": -0.05989208224141052
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 32,
+  "correct": 0,
+  "disaad_au": -2.261802300974698,
+  "disaad_eu": -0.06385645958077556
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 33,
+  "correct": 1,
+  "disaad_au": -2.257636980661833,
+  "disaad_eu": -0.06348529723109544
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 34,
+  "correct": 0,
+  "disaad_au": -2.2635250461798946,
+  "disaad_eu": -0.06045172268808106
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 35,
+  "correct": 1,
+  "disaad_au": -2.254888339141126,
+  "disaad_eu": -0.06207354078821792
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 36,
+  "correct": 1,
+  "disaad_au": -2.2517084780450225,
+  "disaad_eu": -0.06174619573165448
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 37,
+  "correct": 1,
+  "disaad_au": -2.2532778180942485,
+  "disaad_eu": -0.06660438178563795
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 38,
+  "correct": 1,
+  "disaad_au": -2.249002519930402,
+  "disaad_eu": -0.06194285653142669
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 39,
+  "correct": 0,
+  "disaad_au": -2.2574887611660928,
+  "disaad_eu": -0.06027540739406457
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 40,
+  "correct": 1,
+  "disaad_au": -2.2573027865991984,
+  "disaad_eu": -0.060281326019449015
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 41,
+  "correct": 0,
+  "disaad_au": -2.2594966761839075,
+  "disaad_eu": -0.05877844081521465
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 42,
+  "correct": 0,
+  "disaad_au": -2.2627651052970323,
+  "disaad_eu": -0.05740942656793443
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 43,
+  "correct": 0,
+  "disaad_au": -2.26249395385355,
+  "disaad_eu": -0.05865465629334159
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 44,
+  "correct": 0,
+  "disaad_au": -2.26275836679384,
+  "disaad_eu": -0.05557876985682303
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 45,
+  "correct": 1,
+  "disaad_au": -2.2669883223897616,
+  "disaad_eu": -0.05747419859052919
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 46,
+  "correct": 0,
+  "disaad_au": -2.2580928575906527,
+  "disaad_eu": -0.06092592933100747
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 47,
+  "correct": 0,
+  "disaad_au": -2.268251003542144,
+  "disaad_eu": -0.05732180283656639
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 48,
+  "correct": 0,
+  "disaad_au": -2.257889006817391,
+  "disaad_eu": -0.056651990534923514
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 49,
+  "correct": 0,
+  "disaad_au": -2.264797065319812,
+  "disaad_eu": -0.056976079765269305
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 50,
+  "correct": 0,
+  "disaad_au": -2.262511013816263,
+  "disaad_eu": -0.060746128182919856
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 51,
+  "correct": 1,
+  "disaad_au": -2.26463235178478,
+  "disaad_eu": -0.05506913551013646
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 52,
+  "correct": 1,
+  "disaad_au": -2.262918767320399,
+  "disaad_eu": -0.05937442474557296
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 53,
+  "correct": 0,
+  "disaad_au": -2.2638226839656115,
+  "disaad_eu": -0.0558903959318163
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 54,
+  "correct": 1,
+  "disaad_au": -2.260297921460274,
+  "disaad_eu": -0.06060333258699656
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 55,
+  "correct": 0,
+  "disaad_au": -2.2626781375299454,
+  "disaad_eu": -0.058315912539469356
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 56,
+  "correct": 0,
+  "disaad_au": -2.25629136568749,
+  "disaad_eu": -0.06222975579922857
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 57,
+  "correct": 1,
+  "disaad_au": -2.264633920750332,
+  "disaad_eu": -0.05216209743187476
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 58,
+  "correct": 1,
+  "disaad_au": -2.2610460457804313,
+  "disaad_eu": -0.06074359120812986
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 59,
+  "correct": 1,
+  "disaad_au": -2.264257722060102,
+  "disaad_eu": -0.05966908132620508
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 60,
+  "correct": 1,
+  "disaad_au": -2.264859529370453,
+  "disaad_eu": -0.05569537958808623
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 61,
+  "correct": 0,
+  "disaad_au": -2.2614885424939475,
+  "disaad_eu": -0.060799059704678304
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 62,
+  "correct": 0,
+  "disaad_au": -2.262194031054179,
+  "disaad_eu": -0.06036995326231175
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 63,
+  "correct": 1,
+  "disaad_au": -2.2629784500162233,
+  "disaad_eu": -0.05998469217810737
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 64,
+  "correct": 1,
+  "disaad_au": -2.2658823313179504,
+  "disaad_eu": -0.0543534393629553
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 65,
+  "correct": 0,
+  "disaad_au": -2.2628995050483605,
+  "disaad_eu": -0.057192555832289806
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 66,
+  "correct": 0,
+  "disaad_au": -2.2664259294105835,
+  "disaad_eu": -0.05770628635471884
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 67,
+  "correct": 1,
+  "disaad_au": -2.2627191523979087,
+  "disaad_eu": -0.05471669403371588
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 68,
+  "correct": 1,
+  "disaad_au": -2.2624241046848534,
+  "disaad_eu": -0.055189691743752135
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 69,
+  "correct": 1,
+  "disaad_au": -2.261611163535952,
+  "disaad_eu": -0.05440710148070876
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 70,
+  "correct": 0,
+  "disaad_au": -2.2491508726175633,
+  "disaad_eu": -0.06538765165419144
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 71,
+  "correct": 0,
+  "disaad_au": -2.263319209264811,
+  "disaad_eu": -0.05978921805741891
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 72,
+  "correct": 1,
+  "disaad_au": -2.2611800365288164,
+  "disaad_eu": -0.060309413329750386
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 73,
+  "correct": 1,
+  "disaad_au": -2.2587764388065095,
+  "disaad_eu": -0.0556287663062144
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 74,
+  "correct": 1,
+  "disaad_au": -2.2630671337422323,
+  "disaad_eu": -0.06092907936353578
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 75,
+  "correct": 0,
+  "disaad_au": -2.264971846078107,
+  "disaad_eu": -0.05779510523200207
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 76,
+  "correct": 1,
+  "disaad_au": -2.2594947832726526,
+  "disaad_eu": -0.054994508647515865
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 77,
+  "correct": 1,
+  "disaad_au": -2.2704495318055367,
+  "disaad_eu": -0.05151159704253152
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 78,
+  "correct": 1,
+  "disaad_au": -2.266405742794875,
+  "disaad_eu": -0.05590751093598184
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 79,
+  "correct": 1,
+  "disaad_au": -2.267048633548422,
+  "disaad_eu": -0.05707095063689026
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 80,
+  "correct": 0,
+  "disaad_au": -2.2668385489046425,
+  "disaad_eu": -0.06156943618346679
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 81,
+  "correct": 1,
+  "disaad_au": -2.2678422959479954,
+  "disaad_eu": -0.055218365205838275
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 82,
+  "correct": 0,
+  "disaad_au": -2.259857217337124,
+  "disaad_eu": -0.060379559984687435
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 83,
+  "correct": 1,
+  "disaad_au": -2.2676355880778116,
+  "disaad_eu": -0.05770409252570698
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 84,
+  "correct": 0,
+  "disaad_au": -2.2660522772680967,
+  "disaad_eu": -0.05693236969548551
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 85,
+  "correct": 1,
+  "disaad_au": -2.261496190597699,
+  "disaad_eu": -0.05994696781294752
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 86,
+  "correct": 0,
+  "disaad_au": -2.262740948796678,
+  "disaad_eu": -0.0616505963163255
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 87,
+  "correct": 0,
+  "disaad_au": -2.2577367519853313,
+  "disaad_eu": -0.06306893067528851
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 88,
+  "correct": 1,
+  "disaad_au": -2.266887100920749,
+  "disaad_eu": -0.0534194409136114
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 89,
+  "correct": 1,
+  "disaad_au": -2.263334944255278,
+  "disaad_eu": -0.05336953761528143
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 90,
+  "correct": 1,
+  "disaad_au": -2.2678397098573604,
+  "disaad_eu": -0.0563261186040544
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 91,
+  "correct": 0,
+  "disaad_au": -2.2584046508531017,
+  "disaad_eu": -0.06320357234719201
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 92,
+  "correct": 0,
+  "disaad_au": -2.2652175965799066,
+  "disaad_eu": -0.05696232196921958
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 93,
+  "correct": 0,
+  "disaad_au": -2.2603080368834023,
+  "disaad_eu": -0.0617957681830234
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 94,
+  "correct": 0,
+  "disaad_au": -2.267421584450905,
+  "disaad_eu": -0.05581005809895917
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 95,
+  "correct": 0,
+  "disaad_au": -2.257567729396824,
+  "disaad_eu": -0.06179945139389648
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 96,
+  "correct": 1,
+  "disaad_au": -2.2639324204550806,
+  "disaad_eu": -0.054691139677248875
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 97,
+  "correct": 0,
+  "disaad_au": -2.2605681779027647,
+  "disaad_eu": -0.0603509599886968
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 98,
+  "correct": 1,
+  "disaad_au": -2.2638642398598137,
+  "disaad_eu": -0.057611304960450284
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 99,
+  "correct": 1,
+  "disaad_au": -2.2647500662797686,
+  "disaad_eu": -0.058307627469269124
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 100,
+  "correct": 1,
+  "disaad_au": -2.2610883533165484,
+  "disaad_eu": -0.05892691678689716
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 101,
+  "correct": 1,
+  "disaad_au": -2.2565455450984806,
+  "disaad_eu": -0.06173506711906035
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 102,
+  "correct": 1,
+  "disaad_au": -2.2653317981111565,
+  "disaad_eu": -0.05448498511405398
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 103,
+  "correct": 1,
+  "disaad_au": -2.2675320654564244,
+  "disaad_eu": -0.05262395325911206
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 104,
+  "correct": 1,
+  "disaad_au": -2.256916262764401,
+  "disaad_eu": -0.05798915899391565
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 105,
+  "correct": 1,
+  "disaad_au": -2.256379889886183,
+  "disaad_eu": -0.05484427513992463
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 106,
+  "correct": 1,
+  "disaad_au": -2.265776718848401,
+  "disaad_eu": -0.054217064529958836
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 107,
+  "correct": 1,
+  "disaad_au": -2.2570249487103133,
+  "disaad_eu": -0.06409777750004557
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 108,
+  "correct": 1,
+  "disaad_au": -2.2607071323263757,
+  "disaad_eu": -0.05975786986466437
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 109,
+  "correct": 0,
+  "disaad_au": -2.2705907252389084,
+  "disaad_eu": -0.053673764826041526
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 110,
+  "correct": 0,
+  "disaad_au": -2.2679008486965526,
+  "disaad_eu": -0.05845716364898144
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 111,
+  "correct": 1,
+  "disaad_au": -2.252269534314365,
+  "disaad_eu": -0.06281598620655963
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 113,
+  "correct": 0,
+  "disaad_au": -2.2617018124997346,
+  "disaad_eu": -0.05997477897226873
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 114,
+  "correct": 1,
+  "disaad_au": -2.2453119873177303,
+  "disaad_eu": -0.06062070673878809
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 115,
+  "correct": 1,
+  "disaad_au": -2.2627496813949928,
+  "disaad_eu": -0.05545209624378487
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 116,
+  "correct": 0,
+  "disaad_au": -2.259556797593843,
+  "disaad_eu": -0.05811276853449881
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 117,
+  "correct": 0,
+  "disaad_au": -2.2545454676264054,
+  "disaad_eu": -0.06009926914552372
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 118,
+  "correct": 1,
+  "disaad_au": -2.2638029539487956,
+  "disaad_eu": -0.056278057109669544
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 119,
+  "correct": 1,
+  "disaad_au": -2.263864900076382,
+  "disaad_eu": -0.05538132488152738
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 120,
+  "correct": 0,
+  "disaad_au": -2.2580058765328834,
+  "disaad_eu": -0.05896546633383972
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 121,
+  "correct": 0,
+  "disaad_au": -2.2622850577194673,
+  "disaad_eu": -0.061696238094661925
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 122,
+  "correct": 0,
+  "disaad_au": -2.2637776742495386,
+  "disaad_eu": -0.05732208063023868
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 123,
+  "correct": 0,
+  "disaad_au": -2.264984761030111,
+  "disaad_eu": -0.053752018772827696
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 124,
+  "correct": 1,
+  "disaad_au": -2.265133989216949,
+  "disaad_eu": -0.054558770982340396
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 125,
+  "correct": 0,
+  "disaad_au": -2.265629887945149,
+  "disaad_eu": -0.05487085631057894
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 126,
+  "correct": 0,
+  "disaad_au": -2.2623463368118313,
+  "disaad_eu": -0.05723041337198886
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 127,
+  "correct": 0,
+  "disaad_au": -2.259071980283225,
+  "disaad_eu": -0.05899907193695943
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 128,
+  "correct": 0,
+  "disaad_au": -2.2585177070365234,
+  "disaad_eu": -0.05768315251187447
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 129,
+  "correct": 1,
+  "disaad_au": -2.262521452166431,
+  "disaad_eu": -0.05701098766188869
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 130,
+  "correct": 1,
+  "disaad_au": -2.2593474567761467,
+  "disaad_eu": -0.059437897901440384
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 131,
+  "correct": 0,
+  "disaad_au": -2.2637274804241208,
+  "disaad_eu": -0.057408568868825685
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 132,
+  "correct": 1,
+  "disaad_au": -2.2555125389254065,
+  "disaad_eu": -0.059485288242661936
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 133,
+  "correct": 0,
+  "disaad_au": -2.266403821703674,
+  "disaad_eu": -0.05753472126279246
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 134,
+  "correct": 1,
+  "disaad_au": -2.2616500623138056,
+  "disaad_eu": -0.05656863849051533
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 135,
+  "correct": 0,
+  "disaad_au": -2.2570788991965767,
+  "disaad_eu": -0.05766384903981054
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 136,
+  "correct": 1,
+  "disaad_au": -2.2681591730600448,
+  "disaad_eu": -0.053426249941581745
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 137,
+  "correct": 1,
+  "disaad_au": -2.2560391048637825,
+  "disaad_eu": -0.06314852202088365
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 138,
+  "correct": 1,
+  "disaad_au": -2.2645472070963955,
+  "disaad_eu": -0.0536287133827487
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 139,
+  "correct": 1,
+  "disaad_au": -2.2657793789360423,
+  "disaad_eu": -0.051661948467960954
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 140,
+  "correct": 0,
+  "disaad_au": -2.2653956984943977,
+  "disaad_eu": -0.05470903582798135
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 141,
+  "correct": 1,
+  "disaad_au": -2.26274212619159,
+  "disaad_eu": -0.056588217937799765
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 142,
+  "correct": 0,
+  "disaad_au": -2.2519728771072587,
+  "disaad_eu": -0.06133466620590026
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 143,
+  "correct": 0,
+  "disaad_au": -2.2607351802355917,
+  "disaad_eu": -0.05799358640043606
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 144,
+  "correct": 0,
+  "disaad_au": -2.2595405576987346,
+  "disaad_eu": -0.05753944653117215
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 145,
+  "correct": 0,
+  "disaad_au": -2.2628749171134075,
+  "disaad_eu": -0.059775564748737346
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 146,
+  "correct": 0,
+  "disaad_au": -2.262007547107149,
+  "disaad_eu": -0.05848393206681296
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 147,
+  "correct": 0,
+  "disaad_au": -2.266667248501992,
+  "disaad_eu": -0.05792700381282961
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 148,
+  "correct": 0,
+  "disaad_au": -2.257953925701801,
+  "disaad_eu": -0.059453576530411466
+ },
+ {
+  "dataset": "truthful_qa",
+  "item_id": 149,
+  "correct": 0,
+  "disaad_au": -2.256750782168506,
+  "disaad_eu": -0.0623319862279671
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 0,
+  "correct": 0,
+  "disaad_au": -2.2607043856088533,
+  "disaad_eu": -0.06008513534130156
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 1,
+  "correct": 0,
+  "disaad_au": -2.261949935531995,
+  "disaad_eu": -0.06394360340717108
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 2,
+  "correct": 1,
+  "disaad_au": -2.2515522376271933,
+  "disaad_eu": -0.0646237145629039
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 3,
+  "correct": 1,
+  "disaad_au": -2.2615405265144592,
+  "disaad_eu": -0.06379079707382392
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 4,
+  "correct": 0,
+  "disaad_au": -2.262366905129051,
+  "disaad_eu": -0.0602611079094586
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 5,
+  "correct": 0,
+  "disaad_au": -2.263737188372187,
+  "disaad_eu": -0.060195963284578394
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 6,
+  "correct": 1,
+  "disaad_au": -2.2541371265367105,
+  "disaad_eu": -0.06598908823163291
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 7,
+  "correct": 1,
+  "disaad_au": -2.260754155277314,
+  "disaad_eu": -0.06737642437385635
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 8,
+  "correct": 1,
+  "disaad_au": -2.253781505363312,
+  "disaad_eu": -0.060945918989512536
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 9,
+  "correct": 1,
+  "disaad_au": -2.2550501284141493,
+  "disaad_eu": -0.064194926007396
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 10,
+  "correct": 1,
+  "disaad_au": -2.2631233969807365,
+  "disaad_eu": -0.06069028060520871
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 11,
+  "correct": 1,
+  "disaad_au": -2.259486119768699,
+  "disaad_eu": -0.05993684972108678
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 12,
+  "correct": 0,
+  "disaad_au": -2.2640538096393654,
+  "disaad_eu": -0.0636605549676686
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 13,
+  "correct": 1,
+  "disaad_au": -2.263265528226524,
+  "disaad_eu": -0.05828121615017266
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 14,
+  "correct": 0,
+  "disaad_au": -2.2616906685874913,
+  "disaad_eu": -0.06687946877887425
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 15,
+  "correct": 1,
+  "disaad_au": -2.2615794714152186,
+  "disaad_eu": -0.061625166985665954
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 16,
+  "correct": 0,
+  "disaad_au": -2.2593155184823077,
+  "disaad_eu": -0.06228618218100825
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 17,
+  "correct": 1,
+  "disaad_au": -2.2570628871239555,
+  "disaad_eu": -0.07070250706196246
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 18,
+  "correct": 1,
+  "disaad_au": -2.257724481963543,
+  "disaad_eu": -0.07235254418149782
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 19,
+  "correct": 1,
+  "disaad_au": -2.2602350473026482,
+  "disaad_eu": -0.06809772617258013
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 20,
+  "correct": 1,
+  "disaad_au": -2.2598229061596844,
+  "disaad_eu": -0.06287510580975496
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 21,
+  "correct": 1,
+  "disaad_au": -2.257253486114457,
+  "disaad_eu": -0.06693731354022987
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 22,
+  "correct": 1,
+  "disaad_au": -2.2575224660504793,
+  "disaad_eu": -0.06836043577991538
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 23,
+  "correct": 1,
+  "disaad_au": -2.2508375837367516,
+  "disaad_eu": -0.07141058684906422
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 24,
+  "correct": 0,
+  "disaad_au": -2.2565281132983115,
+  "disaad_eu": -0.06799241929447612
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 25,
+  "correct": 1,
+  "disaad_au": -2.2613841498745417,
+  "disaad_eu": -0.06210812669113439
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 26,
+  "correct": 1,
+  "disaad_au": -2.262538224940054,
+  "disaad_eu": -0.06422608436920253
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 27,
+  "correct": 1,
+  "disaad_au": -2.2594028881343258,
+  "disaad_eu": -0.05970922879482169
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 28,
+  "correct": 0,
+  "disaad_au": -2.261914801889917,
+  "disaad_eu": -0.06012977030304777
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 29,
+  "correct": 1,
+  "disaad_au": -2.2563099836497678,
+  "disaad_eu": -0.06619641889991944
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 30,
+  "correct": 1,
+  "disaad_au": -2.255962903799642,
+  "disaad_eu": -0.07339361762253428
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 31,
+  "correct": 1,
+  "disaad_au": -2.262489699785896,
+  "disaad_eu": -0.060310754488145046
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 32,
+  "correct": 1,
+  "disaad_au": -2.2662260700102133,
+  "disaad_eu": -0.05779013490989554
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 33,
+  "correct": 1,
+  "disaad_au": -2.2586035594104876,
+  "disaad_eu": -0.06955091704320888
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 34,
+  "correct": 1,
+  "disaad_au": -2.2605476030002087,
+  "disaad_eu": -0.06720137571234476
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 35,
+  "correct": 1,
+  "disaad_au": -2.2620740637100574,
+  "disaad_eu": -0.060728892564831015
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 36,
+  "correct": 1,
+  "disaad_au": -2.2611848287101775,
+  "disaad_eu": -0.06718094713340182
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 37,
+  "correct": 1,
+  "disaad_au": -2.2572477879803103,
+  "disaad_eu": -0.0685777788491401
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 38,
+  "correct": 1,
+  "disaad_au": -2.261075477760801,
+  "disaad_eu": -0.06513217181418571
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 39,
+  "correct": 1,
+  "disaad_au": -2.258656094497101,
+  "disaad_eu": -0.06644526592862332
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 40,
+  "correct": 1,
+  "disaad_au": -2.2589640135449995,
+  "disaad_eu": -0.06508936038552571
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 41,
+  "correct": 1,
+  "disaad_au": -2.254615901987696,
+  "disaad_eu": -0.06476659104557689
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 42,
+  "correct": 0,
+  "disaad_au": -2.264403603053073,
+  "disaad_eu": -0.05601871950762559
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 43,
+  "correct": 1,
+  "disaad_au": -2.2637087821871518,
+  "disaad_eu": -0.05898440862548139
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 44,
+  "correct": 1,
+  "disaad_au": -2.2657643735582633,
+  "disaad_eu": -0.06110879112048758
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 45,
+  "correct": 1,
+  "disaad_au": -2.259824969065414,
+  "disaad_eu": -0.06010968307901083
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 46,
+  "correct": 1,
+  "disaad_au": -2.267657284895175,
+  "disaad_eu": -0.05733382225582728
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 47,
+  "correct": 0,
+  "disaad_au": -2.2600747383697177,
+  "disaad_eu": -0.05868691028683962
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 48,
+  "correct": 1,
+  "disaad_au": -2.260818016824814,
+  "disaad_eu": -0.06942534282542756
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 49,
+  "correct": 0,
+  "disaad_au": -2.2662757189153844,
+  "disaad_eu": -0.057588930025903234
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 50,
+  "correct": 1,
+  "disaad_au": -2.255348322506287,
+  "disaad_eu": -0.07049050968213066
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 51,
+  "correct": 1,
+  "disaad_au": -2.2653043983863728,
+  "disaad_eu": -0.06279788509857372
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 52,
+  "correct": 0,
+  "disaad_au": -2.2593087058091985,
+  "disaad_eu": -0.07035144738885013
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 53,
+  "correct": 1,
+  "disaad_au": -2.264437576071811,
+  "disaad_eu": -0.06562933221833782
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 54,
+  "correct": 1,
+  "disaad_au": -2.2599926769834697,
+  "disaad_eu": -0.06289140900787754
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 55,
+  "correct": 1,
+  "disaad_au": -2.262755752922048,
+  "disaad_eu": -0.06791286672091446
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 56,
+  "correct": 1,
+  "disaad_au": -2.2574570269748664,
+  "disaad_eu": -0.06636560909856894
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 57,
+  "correct": 1,
+  "disaad_au": -2.2591941114887613,
+  "disaad_eu": -0.06581021399177629
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 58,
+  "correct": 1,
+  "disaad_au": -2.2587131915245546,
+  "disaad_eu": -0.06798125099004053
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 59,
+  "correct": 1,
+  "disaad_au": -2.2639716325877144,
+  "disaad_eu": -0.06525373730965034
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 60,
+  "correct": 1,
+  "disaad_au": -2.2581217937972777,
+  "disaad_eu": -0.06753329390103276
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 61,
+  "correct": 1,
+  "disaad_au": -2.2578502748390332,
+  "disaad_eu": -0.06290329381477984
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 62,
+  "correct": 1,
+  "disaad_au": -2.260294303420408,
+  "disaad_eu": -0.06289374035020001
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 63,
+  "correct": 1,
+  "disaad_au": -2.2594719602822138,
+  "disaad_eu": -0.06981248801690619
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 64,
+  "correct": 1,
+  "disaad_au": -2.2594437520523867,
+  "disaad_eu": -0.07025001455378845
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 65,
+  "correct": 1,
+  "disaad_au": -2.263864491093305,
+  "disaad_eu": -0.05731724206503393
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 66,
+  "correct": 1,
+  "disaad_au": -2.2595012758725477,
+  "disaad_eu": -0.06706881801014611
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 67,
+  "correct": 0,
+  "disaad_au": -2.2581384625645917,
+  "disaad_eu": -0.06323606491185715
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 68,
+  "correct": 1,
+  "disaad_au": -2.265548186083381,
+  "disaad_eu": -0.06167577917210078
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 69,
+  "correct": 1,
+  "disaad_au": -2.2596132713802053,
+  "disaad_eu": -0.0632304553508884
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 70,
+  "correct": 1,
+  "disaad_au": -2.256041918891087,
+  "disaad_eu": -0.06489422305612681
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 71,
+  "correct": 1,
+  "disaad_au": -2.2597440921137673,
+  "disaad_eu": -0.06534123112297928
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 72,
+  "correct": 1,
+  "disaad_au": -2.2558610054183847,
+  "disaad_eu": -0.06875671528500236
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 73,
+  "correct": 1,
+  "disaad_au": -2.2619184372679144,
+  "disaad_eu": -0.06035685213000575
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 74,
+  "correct": 1,
+  "disaad_au": -2.256912450385347,
+  "disaad_eu": -0.061356600307252096
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 75,
+  "correct": 0,
+  "disaad_au": -2.253185455846428,
+  "disaad_eu": -0.06135995242301203
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 76,
+  "correct": 0,
+  "disaad_au": -2.2654730221871686,
+  "disaad_eu": -0.057524562572630486
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 77,
+  "correct": 1,
+  "disaad_au": -2.257081330893747,
+  "disaad_eu": -0.06360467681824446
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 78,
+  "correct": 1,
+  "disaad_au": -2.2609578130548003,
+  "disaad_eu": -0.0587122515807836
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 79,
+  "correct": 1,
+  "disaad_au": -2.2584516182072916,
+  "disaad_eu": -0.060688551721437285
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 80,
+  "correct": 1,
+  "disaad_au": -2.2592911276545897,
+  "disaad_eu": -0.0646252074110429
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 81,
+  "correct": 1,
+  "disaad_au": -2.2524740073067298,
+  "disaad_eu": -0.07061928318246771
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 82,
+  "correct": 1,
+  "disaad_au": -2.255043354106073,
+  "disaad_eu": -0.06560070373313323
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 83,
+  "correct": 1,
+  "disaad_au": -2.250893491654087,
+  "disaad_eu": -0.06273115935444223
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 84,
+  "correct": 1,
+  "disaad_au": -2.266144993286944,
+  "disaad_eu": -0.058857848009143635
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 85,
+  "correct": 1,
+  "disaad_au": -2.265575893751952,
+  "disaad_eu": -0.05640819452248258
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 86,
+  "correct": 0,
+  "disaad_au": -2.2668949335518804,
+  "disaad_eu": -0.059840818450722214
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 87,
+  "correct": 1,
+  "disaad_au": -2.2593379260916557,
+  "disaad_eu": -0.06298368731992789
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 88,
+  "correct": 1,
+  "disaad_au": -2.268885335486224,
+  "disaad_eu": -0.05525157592930402
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 89,
+  "correct": 0,
+  "disaad_au": -2.2667830134378146,
+  "disaad_eu": -0.060056439423142614
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 90,
+  "correct": 0,
+  "disaad_au": -2.258561312746703,
+  "disaad_eu": -0.07260353593791165
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 91,
+  "correct": 0,
+  "disaad_au": -2.2586835846394235,
+  "disaad_eu": -0.05937297907080948
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 92,
+  "correct": 1,
+  "disaad_au": -2.26252479236474,
+  "disaad_eu": -0.06492815844488992
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 93,
+  "correct": 1,
+  "disaad_au": -2.2587785572682786,
+  "disaad_eu": -0.071001186745784
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 94,
+  "correct": 1,
+  "disaad_au": -2.2569328486838933,
+  "disaad_eu": -0.059749402655180875
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 95,
+  "correct": 0,
+  "disaad_au": -2.2590783777168673,
+  "disaad_eu": -0.06176979434574954
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 96,
+  "correct": 1,
+  "disaad_au": -2.2570387529524023,
+  "disaad_eu": -0.06666562688057023
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 97,
+  "correct": 1,
+  "disaad_au": -2.2635517413044233,
+  "disaad_eu": -0.06513114590351454
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 98,
+  "correct": 0,
+  "disaad_au": -2.2611079939428262,
+  "disaad_eu": -0.06336555949941178
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 99,
+  "correct": 1,
+  "disaad_au": -2.25937724767852,
+  "disaad_eu": -0.06458534313799538
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 100,
+  "correct": 1,
+  "disaad_au": -2.2596533399730006,
+  "disaad_eu": -0.06346792527028866
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 101,
+  "correct": 1,
+  "disaad_au": -2.258626111989466,
+  "disaad_eu": -0.06706957786443025
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 102,
+  "correct": 1,
+  "disaad_au": -2.2598274253460238,
+  "disaad_eu": -0.05832910734313307
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 103,
+  "correct": 1,
+  "disaad_au": -2.2571776315070524,
+  "disaad_eu": -0.06578717797560635
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 104,
+  "correct": 1,
+  "disaad_au": -2.263156120500124,
+  "disaad_eu": -0.061310621690914696
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 105,
+  "correct": 1,
+  "disaad_au": -2.2552169542897986,
+  "disaad_eu": -0.06451733066834624
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 106,
+  "correct": 1,
+  "disaad_au": -2.2622473159228886,
+  "disaad_eu": -0.0643966287619969
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 107,
+  "correct": 1,
+  "disaad_au": -2.2606102230989746,
+  "disaad_eu": -0.06538366345654574
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 108,
+  "correct": 1,
+  "disaad_au": -2.2593932008212296,
+  "disaad_eu": -0.06338469094952516
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 109,
+  "correct": 1,
+  "disaad_au": -2.2615746432461297,
+  "disaad_eu": -0.06757116878249768
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 110,
+  "correct": 1,
+  "disaad_au": -2.2665612363560514,
+  "disaad_eu": -0.062373470171733385
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 111,
+  "correct": 1,
+  "disaad_au": -2.2617594422816065,
+  "disaad_eu": -0.061504405210360234
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 112,
+  "correct": 1,
+  "disaad_au": -2.262902090641119,
+  "disaad_eu": -0.06581429571475145
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 113,
+  "correct": 1,
+  "disaad_au": -2.2597985417645465,
+  "disaad_eu": -0.05795085484113254
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 114,
+  "correct": 1,
+  "disaad_au": -2.2537281654982904,
+  "disaad_eu": -0.06502239752580641
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 115,
+  "correct": 1,
+  "disaad_au": -2.2583204548121056,
+  "disaad_eu": -0.06813939849065502
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 116,
+  "correct": 0,
+  "disaad_au": -2.26463971491482,
+  "disaad_eu": -0.057390162841193415
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 117,
+  "correct": 1,
+  "disaad_au": -2.260813171301284,
+  "disaad_eu": -0.06626149823518092
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 118,
+  "correct": 1,
+  "disaad_au": -2.2608729985107523,
+  "disaad_eu": -0.06635841564058101
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 119,
+  "correct": 1,
+  "disaad_au": -2.263406016719846,
+  "disaad_eu": -0.05996074616567865
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 120,
+  "correct": 1,
+  "disaad_au": -2.2546649812233595,
+  "disaad_eu": -0.0618341261759325
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 121,
+  "correct": 1,
+  "disaad_au": -2.259851386684625,
+  "disaad_eu": -0.06107052427904507
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 122,
+  "correct": 1,
+  "disaad_au": -2.2574620628801516,
+  "disaad_eu": -0.06670226061310974
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 123,
+  "correct": 1,
+  "disaad_au": -2.260999816189797,
+  "disaad_eu": -0.061932700578915485
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 124,
+  "correct": 1,
+  "disaad_au": -2.25890163436659,
+  "disaad_eu": -0.06297770756856794
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 125,
+  "correct": 1,
+  "disaad_au": -2.2595071925238597,
+  "disaad_eu": -0.0706466149491979
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 126,
+  "correct": 0,
+  "disaad_au": -2.2600054996344556,
+  "disaad_eu": -0.06798333175109701
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 127,
+  "correct": 1,
+  "disaad_au": -2.263370173720581,
+  "disaad_eu": -0.05901386536462067
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 128,
+  "correct": 1,
+  "disaad_au": -2.256315482483134,
+  "disaad_eu": -0.06536415263926078
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 129,
+  "correct": 1,
+  "disaad_au": -2.2620665995580813,
+  "disaad_eu": -0.06691472545396544
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 130,
+  "correct": 1,
+  "disaad_au": -2.2599797310359673,
+  "disaad_eu": -0.06269161158681157
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 131,
+  "correct": 1,
+  "disaad_au": -2.266025305210169,
+  "disaad_eu": -0.05995788627748587
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 132,
+  "correct": 1,
+  "disaad_au": -2.2607825199157463,
+  "disaad_eu": -0.06078731356477596
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 133,
+  "correct": 1,
+  "disaad_au": -2.2619418860086955,
+  "disaad_eu": -0.0625276385830143
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 134,
+  "correct": 1,
+  "disaad_au": -2.264708214112244,
+  "disaad_eu": -0.05961789191948097
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 135,
+  "correct": 1,
+  "disaad_au": -2.258737174648663,
+  "disaad_eu": -0.06462048638829704
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 136,
+  "correct": 1,
+  "disaad_au": -2.257042431995806,
+  "disaad_eu": -0.06285545236317551
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 137,
+  "correct": 1,
+  "disaad_au": -2.2596701727327986,
+  "disaad_eu": -0.06544695258861524
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 138,
+  "correct": 1,
+  "disaad_au": -2.259828104094065,
+  "disaad_eu": -0.0645342552280307
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 139,
+  "correct": 1,
+  "disaad_au": -2.25319729662709,
+  "disaad_eu": -0.06456658019067661
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 140,
+  "correct": 1,
+  "disaad_au": -2.2585269768742413,
+  "disaad_eu": -0.06092837523454986
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 141,
+  "correct": 1,
+  "disaad_au": -2.2586084994133717,
+  "disaad_eu": -0.06572409649091608
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 142,
+  "correct": 1,
+  "disaad_au": -2.2587346456607635,
+  "disaad_eu": -0.060608200826939726
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 143,
+  "correct": 1,
+  "disaad_au": -2.264400825208433,
+  "disaad_eu": -0.061215556092779434
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 144,
+  "correct": 1,
+  "disaad_au": -2.256008926030913,
+  "disaad_eu": -0.06697055653102038
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 145,
+  "correct": 0,
+  "disaad_au": -2.256788721546837,
+  "disaad_eu": -0.06463659929911189
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 146,
+  "correct": 1,
+  "disaad_au": -2.2625375850979035,
+  "disaad_eu": -0.060584916258345514
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 147,
+  "correct": 0,
+  "disaad_au": -2.2602266307762338,
+  "disaad_eu": -0.06714372743172677
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 148,
+  "correct": 0,
+  "disaad_au": -2.2576202319458445,
+  "disaad_eu": -0.06409630965250737
+ },
+ {
+  "dataset": "wikipedia_factual",
+  "item_id": 149,
+  "correct": 1,
+  "disaad_au": -2.256630336850584,
+  "disaad_eu": -0.06877804024986016
+ }
+]

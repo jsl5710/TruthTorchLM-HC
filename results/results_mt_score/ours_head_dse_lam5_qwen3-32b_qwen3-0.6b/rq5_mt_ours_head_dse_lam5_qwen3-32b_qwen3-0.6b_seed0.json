@@ -1,0 +1,176 @@
+{
+  "variant": "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b",
+  "mode": "head",
+  "generator_key": "qwen3-32b",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 118,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.5005,
+          "aupr": 0.2104,
+          "ece": 0.0377,
+          "p50_ms": 28.545,
+          "p95_ms": 29.292
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 139,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.499,
+          "aupr": 0.1098,
+          "ece": 0.0254,
+          "p50_ms": 28.27,
+          "p95_ms": 28.957
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 120,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.4297,
+          "aupr": 0.1695,
+          "ece": 0.026,
+          "p50_ms": 28.85,
+          "p95_ms": 29.468
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 88,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.5821,
+          "aupr": 0.5155,
+          "ece": 0.1137,
+          "p50_ms": 28.234,
+          "p95_ms": 28.7
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 147,
+      "n_positive": 92,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.4773,
+          "aupr": 0.393,
+          "ece": 0.0486,
+          "p50_ms": 28.26,
+          "p95_ms": 28.497
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 149,
+      "n_positive": 122,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.5213,
+          "aupr": 0.2122,
+          "ece": 0.042,
+          "p50_ms": 28.252,
+          "p95_ms": 28.669
+        }
+      }
+    },
+    {
+      "dataset": "gsm8k",
+      "n_items": 150,
+      "n_positive": 118,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.5005,
+          "aupr": 0.2104,
+          "ece": 0.0377,
+          "p50_ms": 28.599,
+          "p95_ms": 28.968
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 139,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.499,
+          "aupr": 0.1098,
+          "ece": 0.0254,
+          "p50_ms": 28.395,
+          "p95_ms": 28.904
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 120,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.4297,
+          "aupr": 0.1695,
+          "ece": 0.026,
+          "p50_ms": 28.803,
+          "p95_ms": 29.222
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 88,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.5821,
+          "aupr": 0.5155,
+          "ece": 0.1137,
+          "p50_ms": 28.202,
+          "p95_ms": 28.568
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 147,
+      "n_positive": 92,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.4773,
+          "aupr": 0.393,
+          "ece": 0.0486,
+          "p50_ms": 28.251,
+          "p95_ms": 28.568
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 149,
+      "n_positive": 122,
+      "rows": {
+        "mt_ours_head_dse_lam5_qwen3-32b_qwen3-0.6b_N1": {
+          "auroc": 0.5213,
+          "aupr": 0.2122,
+          "ece": 0.042,
+          "p50_ms": 28.236,
+          "p95_ms": 28.533
+        }
+      }
+    }
+  ]
+}

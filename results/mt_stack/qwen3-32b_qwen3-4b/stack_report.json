@@ -1,0 +1,105 @@
+{
+  "dump_dir": "/home/jhu/jsalt2026-ext-jlucas32/JasonLucas/outputs/mt_stack/qwen3-32b_qwen3-4b",
+  "seed": 0,
+  "n_items": 1046,
+  "datasets": [
+    "bioasq",
+    "gsm8k",
+    "medlfqa",
+    "medqa",
+    "trivia_qa",
+    "truthful_qa",
+    "wikipedia_factual"
+  ],
+  "signs": {
+    "ours_u": 1.0,
+    "dald_au": -1.0,
+    "dald_eu": -1.0,
+    "disaad_au": -1.0,
+    "disaad_eu": -1.0
+  },
+  "single": {
+    "ours_u": {
+      "bioasq": null,
+      "gsm8k": 0.5573358050847458,
+      "medlfqa": 0.5366252452583388,
+      "medqa": 0.48777777777777775,
+      "trivia_qa": 0.6348057184750734,
+      "truthful_qa": 0.6241106719367588,
+      "wikipedia_factual": 0.393290831815422
+    },
+    "dald_au": {
+      "bioasq": null,
+      "gsm8k": 0.7415254237288136,
+      "medlfqa": 0.500327011118378,
+      "medqa": 0.6122222222222222,
+      "trivia_qa": 0.5269428152492669,
+      "truthful_qa": 0.4069169960474308,
+      "wikipedia_factual": 0.6305403764420158
+    },
+    "dald_eu": {
+      "bioasq": null,
+      "gsm8k": 0.5434322033898306,
+      "medlfqa": 0.5049051667756703,
+      "medqa": 0.41111111111111115,
+      "trivia_qa": 0.5416055718475072,
+      "truthful_qa": 0.6507905138339921,
+      "wikipedia_factual": 0.4414086217364906
+    },
+    "disaad_au": {
+      "bioasq": null,
+      "gsm8k": 0.6634004237288137,
+      "medlfqa": 0.5539568345323741,
+      "medqa": 0.5483333333333333,
+      "trivia_qa": 0.5265762463343108,
+      "truthful_qa": 0.40849802371541505,
+      "wikipedia_factual": 0.6308439587128112
+    },
+    "disaad_eu": {
+      "bioasq": null,
+      "gsm8k": 0.6234110169491525,
+      "medlfqa": 0.448005232177894,
+      "medqa": 0.4902777777777778,
+      "trivia_qa": 0.5203445747800587,
+      "truthful_qa": 0.6669960474308301,
+      "wikipedia_factual": 0.4514268366727383
+    }
+  },
+  "router": {
+    "bioasq": null,
+    "gsm8k": 0.7415254237288136,
+    "medlfqa": 0.5366252452583388,
+    "medqa": 0.48777777777777775,
+    "trivia_qa": 0.5269428152492669,
+    "truthful_qa": 0.6241106719367588,
+    "wikipedia_factual": 0.6305403764420158
+  },
+  "oracle": {
+    "bioasq": null,
+    "gsm8k": 0.7415254237288136,
+    "medlfqa": 0.5539568345323741,
+    "medqa": 0.6122222222222222,
+    "trivia_qa": 0.6348057184750734,
+    "truthful_qa": 0.6669960474308301,
+    "wikipedia_factual": 0.6308439587128112
+  },
+  "stack": {
+    "bioasq": null,
+    "gsm8k": 0.7584745762711864,
+    "medlfqa": 0.3799869195552649,
+    "medqa": 0.6336111111111111,
+    "trivia_qa": 0.5051319648093842,
+    "truthful_qa": 0.5972332015810277,
+    "wikipedia_factual": 0.47115968427443844
+  },
+  "means": {
+    "ours_u": 0.5389910083913527,
+    "dald_au": 0.5697458074680212,
+    "dald_eu": 0.515542198115767,
+    "disaad_au": 0.5552681367261764,
+    "disaad_eu": 0.5334102476314085,
+    "router": 0.5912537183988286,
+    "oracle": 0.6400583675170207,
+    "stack": 0.5575995762670688
+  }
+}

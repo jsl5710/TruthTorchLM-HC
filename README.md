@@ -18,6 +18,23 @@ specified in [`docs/benchmark_protocol.md`](docs/benchmark_protocol.md): under a
 constraint (no weights, no hidden states, no token log-probabilities), how do candidate UQ methods
 trade **accuracy** against **user-facing latency**?
 
+### 📄 Papers, results & models
+
+| Artifact | Location |
+| :--- | :--- |
+| **Findings paper** (read-out ≫ objective; LODO refutations; latency-first) | [`paper/`](paper/) — self-contained ACL / Overleaf source |
+| **Benchmark paper** (G×D→M→V; pure-BB, latency-aware) | [`paper_benchmark/`](paper_benchmark/) |
+| **Result artifacts** (metric JSONs behind every table) | [`results/`](results/) + [`results/README.md`](results/README.md) |
+| **Consolidated findings** | [`docs/multitarget_findings.md`](docs/multitarget_findings.md) |
+| **🤗 Distilled proxy adapters** (103 LoRA proxies, all G×D×M cells) | [**`jsl5710/TruthTorchLM-HC-proxies`**](https://huggingface.co/jsl5710/TruthTorchLM-HC-proxies) |
+| **DisAAD training patches** (uncertainty-aware trainer) | [`third_party_patches/DisAAD/`](third_party_patches/DisAAD/) |
+
+> **TL;DR of the study:** for distilled black-box UQ proxies the **read-out matters more than the
+> training objective** — a length-normalized *perplexity* read-out beats the evidential/LogTokU
+> defaults, and once it is fixed the DALD/DisAAD/Ours objectives tie. Every attempt to *combine*
+> methods, configs, or experts fails leave-one-dataset-out. The durable wins are **latency**
+> (~25–45 ms, target-decoupled) and the **read-out finding**. See the papers for details.
+
 ### What this fork adds
 
 | Area | Addition |

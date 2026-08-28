@@ -170,3 +170,8 @@ hc_benchmark/figures/
 *.parquet
 # Upstream writes this on every run_over_dataset call
 evaluation_results.txt
+.gateway_key
+*.gateway_key
+CLAUDE.md
+third_party/DALD
+third_party/DALD/

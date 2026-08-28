@@ -17,6 +17,10 @@ import numpy as np
 class PTrue(TruthMethod):
 
     REQUIRES_SAMPLED_TEXT = True
+    # PTrue reads the target's logits (log-softmax -> P("true") token) in forward_hf_local, so it
+    # is GREY-BOX, not pure black-box. This flag makes access_level()/is_black_box() classify it
+    # correctly, so the stage_cd guardrail keeps it out of the text-only benchmark.
+    REQUIRES_LOGPROBS = True
 
     def __init__(
         self,

@@ -1,7 +1,31 @@
+import json
+
 from datasets import load_dataset
 from TruthTorchLM.availability import AVAILABLE_DATASETS
 from typing import Union
 from tqdm import tqdm
+
+
+def _parse_json_answers(raw) -> list:
+    """Normalize an answer field into a list[str] of alias strings.
+
+    Some sources (PopQA) store the alias list as a JSON-encoded *string*
+    (`'["politician", "pol"]'`) rather than a real list. Decode those; leave a
+    genuine list alone; wrap a plain scalar string as a single-element list.
+    """
+    if isinstance(raw, list):
+        return [str(x) for x in raw]
+    if isinstance(raw, str):
+        s = raw.strip()
+        if s.startswith("[") and s.endswith("]"):
+            try:
+                parsed = json.loads(s)
+                if isinstance(parsed, list):
+                    return [str(x) for x in parsed]
+            except (json.JSONDecodeError, ValueError):
+                pass
+        return [raw]
+    return [str(raw)]
 
 from TruthTorchLM.utils.hc_datasets import (
     get_bioasq,
@@ -86,11 +110,15 @@ def get_dataset(
 
 def get_trivia_qa(size_of_data: float = 1.0, seed: int = 0, split="test"):
 
+    # datasets>=3 / huggingface_hub>=1 reject the bare "trivia_qa" repo id
+    # (HfUriError: repo id must be 'namespace/name'). The canonical mirror is
+    # mandarjoshi/trivia_qa, same configs and column schema.
     if split == "test":
         raw_dataset = load_dataset(
-            "trivia_qa", "rc.nocontext", split="validation")
+            "mandarjoshi/trivia_qa", "rc.nocontext", split="validation")
     elif split == "train":
-        raw_dataset = load_dataset("trivia_qa", "rc.nocontext", split="train")
+        raw_dataset = load_dataset(
+            "mandarjoshi/trivia_qa", "rc.nocontext", split="train")
     else:
         raise ValueError("Split should be either 'test' or 'train'.")
 
@@ -169,8 +197,13 @@ def get_pop_qa(size_of_data: float = 1.0, seed: int = 0, split="test"):
     questions = raw_dataset["question"]
     answers = raw_dataset["possible_answers"]
     for i in tqdm(range(len(raw_dataset))):
+        # `possible_answers` is a JSON-encoded string, e.g. '["politician", "pol"]'.
+        # Wrapping it as [answers[i]] would make ground_truths[0] the literal list
+        # text, so a judge/string-match compares against '["politician", ...]'.
+        # Parse it into the real list of alias strings instead.
+        ground_truths = _parse_json_answers(answers[i])
         dataset.append(
-            {"context": "", "question": questions[i], "ground_truths": [answers[i]]})
+            {"context": "", "question": questions[i], "ground_truths": ground_truths})
 
     return dataset
 

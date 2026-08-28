@@ -1,0 +1,37 @@
+# Stage-1 ZERO-API smoke: prove the G x D -> M -> V machinery end to end on an
+# open model, with no API key, no proxy training, and no heavy downloads.
+#
+#  * generator : a tiny UNGATED open model (Qwen2.5-0.5B-Instruct), loaded locally.
+#                Not in the registry -- it's here only to exercise the pipeline cheaply.
+#  * dataset   : a handful of trivia_qa items.
+#  * method    : LexicalSimilarity only (see scripts/smoke_open.py) -- pure sample-vs-sample
+#                ROUGE-L, so it calls no model and downloads no NLI weights.
+#  * labels    : a deterministic string-match stand-in judge (injected in the launcher),
+#                stored under the llm_judge key. NOT a real LLM judge -- no API is used.
+#
+# This proves infrastructure, not a research claim: AUROC ~0.5 on a handful of items
+# is expected and fine.
+# simple_qa (basicv8vc/SimpleQA): namespaced, parquet-only dataset -> loads under
+# datasets 5.0 (bare "trivia_qa" and script-based datasets do NOT; see dataset_utils fix TODO).
+dataset: simple_qa
+generator: qwen2.5-0.5b          # label only; the HF repo id is passed to the launcher
+generator_backend: huggingface
+
+n_max: 5
+n_sweep: [1, 5]
+seeds: [0]
+size_of_data: 0.003             # a handful of items (~13 of SimpleQA; keep tiny)
+
+decoding:
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 32
+  sample_temperature: 0.7
+  sample_top_p: 0.9
+
+# Only the match-based stand-in criterion; bleurt would pull a ~2GB checkpoint.
+correctness_criteria: [llm_judge]
+
+hardware: "1x A100 (smoke)"
+api_endpoint: "local:Qwen/Qwen2.5-0.5B-Instruct"
+notes: "Stage-1 zero-API smoke: tiny ungated open target, LexicalSimilarity, string-match labels."

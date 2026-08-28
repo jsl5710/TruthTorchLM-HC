@@ -57,33 +57,53 @@ def score_stage_c(
     for method in truth_methods:
         name = type(method).__name__
         results[name] = {}
-        for n in n_sweep:
-            if n > getattr(method, "number_of_generations", n):
-                # A method fixed at k samples cannot use more; record it once at its k.
-                pass
-            scores = MethodScores(truth_values=[], normalized_truth_values=[], timing_ms=[])
-            for item in tqdm(items, desc=f"[Stage C] {name} N={n}", leave=False):
-                sampled = _sampled_dict_from_cache(item, n)
-                messages = _messages_for(item)
+        # Isolate each method: a method that breaks on a given model family (e.g. an odd
+        # chat template) is recorded as empty and skipped, so the rest of the cell still
+        # produces results -- essential for a 6-model sweep.
+        try:
+            for n in n_sweep:
+                if n > getattr(method, "number_of_generations", n):
+                    # A method fixed at k samples cannot use more; record it once at its k.
+                    pass
+                scores = MethodScores(truth_values=[], normalized_truth_values=[],
+                                       timing_ms=[], aux_ms=[], gen_ms=[])
+                for item in tqdm(items, desc=f"[Stage C] {name} N={n}", leave=False):
+                    sampled = _sampled_dict_from_cache(item, n)
+                    messages = _messages_for(item)
 
-                ctx = capture(method=name, n=n) if collect_timing else _null()
-                with ctx as rec:
-                    with stage(Stage.AUXILIARY_COMPUTE, label=name):
-                        out = method(
-                            model=model,
-                            input_text="",
-                            generated_text=item["primary_answer"],
-                            question=item["question"],
-                            messages=messages,
-                            context=item.get("context", ""),
-                            sampled_generations_dict=sampled,
-                            tokenizer=tokenizer,
-                        )
-                scores["truth_values"].append(out["truth_value"])
-                scores["normalized_truth_values"].append(out["normalized_truth_value"])
-                if collect_timing and rec is not None:
-                    scores["timing_ms"].append(rec.stage_ms(Stage.AUXILIARY_COMPUTE))
-            results[name][n] = scores
+                    ctx = capture(method=name, n=n) if collect_timing else _null()
+                    with ctx as rec:
+                        with stage(Stage.AUXILIARY_COMPUTE, label=name):
+                            out = method(
+                                model=model,
+                                input_text="",
+                                generated_text=item["primary_answer"],
+                                question=item["question"],
+                                messages=messages,
+                                context=item.get("context", ""),
+                                sampled_generations_dict=sampled,
+                                tokenizer=tokenizer,
+                            )
+                    scores["truth_values"].append(out["truth_value"])
+                    scores["normalized_truth_values"].append(out["normalized_truth_value"])
+                    if collect_timing and rec is not None:
+                        aux = rec.stage_ms(Stage.AUXILIARY_COMPUTE)
+                        # Any generation DURING scoring is method-induced: the base sampling
+                        # already happened in Stage A. Verbalized methods elicit a confidence
+                        # answer here (logged as TARGET/EXTRA generation); cache-only methods
+                        # generate nothing, so gen == 0 and their number is unchanged.
+                        gen = (rec.stage_ms(Stage.TARGET_GENERATION)
+                               + rec.stage_ms(Stage.EXTRA_GENERATION))
+                        scores["aux_ms"].append(aux)
+                        scores["gen_ms"].append(gen)
+                        # timing_ms is the honest total method cost per item (aux + own gen).
+                        scores["timing_ms"].append(aux + gen)
+                results[name][n] = scores
+        except Exception as exc:  # noqa: BLE001
+            import traceback
+            traceback.print_exc()
+            print(f"[Stage C] method {name} FAILED: {type(exc).__name__}: {str(exc)[:150]} -- skipping.")
+            results[name] = {}
     return results
 
 

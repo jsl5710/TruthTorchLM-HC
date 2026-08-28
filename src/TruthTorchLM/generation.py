@@ -161,15 +161,20 @@ def generate_hf_local(
    tokenizer: Union[PreTrainedTokenizer, PreTrainedTokenizerFast] = None,
    add_generation_prompt=True,
    continue_final_message=False,
+   chat_template_kwargs: dict = None,
    **kwargs):
 
 
    tokenizer, messages = fix_tokenizer_chat(tokenizer, messages)
+   # chat_template_kwargs forwards template-level switches (e.g. Qwen3's
+   # enable_thinking=False) to apply_chat_template. Unknown keys are ignored by templates
+   # that don't reference them, so it is safe to pass for any model.
    text = tokenizer.apply_chat_template(
        messages,
        tokenize=False,
        add_generation_prompt=add_generation_prompt,
        continue_final_message=continue_final_message,
+       **(chat_template_kwargs or {}),
    )
    if question == None:
         question = ""

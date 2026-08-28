@@ -60,6 +60,12 @@ def label_stage_b(
         entry = {}
         if "llm_judge" in criteria:
             entry["correct_llm_judge"] = int(judge_fn(q, ans, gts))
+            # Persist the raw judge text only when the verdict was unparseable, so an
+            # inspector can distinguish a real INCORRECT (0) from judge garbage (-1). A
+            # plain judge_fn (e.g. the smoke's string-match) exposes no last_verdict, so
+            # this is a no-op for it.
+            if getattr(judge_fn, "last_verdict", None) == "unparsed":
+                entry["llm_judge_raw"] = getattr(judge_fn, "last_raw", "") or ""
         if "bleurt" in criteria:
             entry["correct_bleurt"] = int(bleurt_fn(q, ans, gts))
         labels[str(item["item_id"])] = entry
@@ -98,8 +104,16 @@ def _default_judge(judge_model, judge_system_prompt):
     )
 
     def _fn(question, answer, ground_truths):
-        return judge(question, answer, ground_truths, "")
+        label = judge(question, answer, ground_truths, "")
+        # Forward the judge's per-call diagnostics onto the callable so label_stage_b can
+        # persist raw output for unparseable verdicts (see the labelling loop).
+        _fn.last_raw = getattr(judge, "last_raw_output", None)
+        _fn.last_verdict = getattr(judge, "last_verdict", None)
+        return label
 
+    _fn.last_raw = None
+    _fn.last_verdict = None
+    _fn.judge = judge
     return _fn
 
 

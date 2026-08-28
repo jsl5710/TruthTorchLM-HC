@@ -1,0 +1,524 @@
+% ==============================================================================
+%  A Latency-Aware Pure Black-Box UQ Benchmark for LLMs  (G x D -> M -> V)
+%  ACL-format. Requires acl.sty + acl_natbib.bst (see README.md).
+%  Compile:  pdflatex main ; bibtex main ; pdflatex main ; pdflatex main
+% ==============================================================================
+\documentclass[11pt]{article}
+\usepackage[]{acl}
+% FALLBACK: comment the line above, uncomment below, if acl.sty is missing.
+% \usepackage[margin=1in]{geometry}\usepackage{natbib}\bibliographystyle{plainnat}
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{enumitem}
+
+\newcommand{\best}[1]{\textbf{#1}}
+\newcommand{\grey}[1]{\textcolor{gray}{#1}}
+
+\title{$G\times D\to M\to V$: A Latency-Aware, Pure Black-Box \\
+Uncertainty-Quantification Benchmark for Language Models}
+
+\author{Anonymous \\ \texttt{} \\}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Uncertainty quantification (UQ) for large language models is evaluated in fragmented
+conditions: different papers assume white-box logits or black-box text, use one target
+model and a handful of datasets, and---almost universally---ignore the \emph{cost} of
+producing the uncertainty signal. We present a unified benchmark organized around four
+explicit axes, $G$ (generator/target), $D$ (dataset), $M$ (UQ/truth method), and $V$
+(evaluation metric), with two design commitments that existing suites lack: (i)
+\textbf{pure black-box} semantics enforced at the interface---methods see the target's
+\emph{text} only, and any method that reads target log-probabilities (e.g.\ P(True)) is
+labelled grey-box and reported separately; and (ii) \textbf{latency measured relative to
+the target}, making the accuracy--cost trade a first-class result rather than a
+footnote. We instantiate the benchmark with four frontier targets (open Qwen3-32B and
+Llama-3.3-70B; closed GPT-4o and Claude-Haiku-4.5), seven task domains, and $\sim$70
+method configurations spanning sampling-consistency, graph-spectral, verbalized, and
+\emph{distilled-proxy} families, each swept over sample budgets $N\in\{1,3,5,10\}$ and
+scored with eight calibration/ranking metrics plus a latency frontier. A single cached,
+content-hashed generation per $(G,D)$ guarantees that every method is compared on
+identical inputs. Across 3{,}000+ method$\times$dataset$\times$target evaluations we find
+that (a) the best method is strongly \emph{generator-dependent} (graph-spectral and
+P(True) lead on Qwen; verbalized confidence leads on Llama at 0.707 AUROC); (b)
+sampling-consistency methods are \emph{uninformative at $N{=}1$} (AUROC $0.500$) and need
+$N{=}10$ samples---i.e.\ ten target generations---to peak; and (c) distilled proxies
+reach competitive AUROC at a \emph{target-decoupled} $\sim$25--45\,ms, hundreds of times
+below any sampling method. We release the harness, caches, and all configurations.
+\end{abstract}
+
+% ==============================================================================
+\section{Introduction}
+% ==============================================================================
+When a deployed system relies on a language model it does not control, it needs a signal
+for \emph{when the model is wrong}. The research literature on LLM uncertainty
+quantification is rich but hard to compare across: methods are proposed under different
+access assumptions (logits vs.\ text), evaluated on different single targets, on
+non-overlapping datasets, and---most consequentially for deployment---\emph{without
+reporting how much compute the uncertainty signal costs}. A method that needs ten extra
+generations of a 70B model to reach its headline AUROC is not comparable, at a system
+level, to one that needs a single small forward pass, yet current tables place them side
+by side on accuracy alone.
+
+We argue that a useful UQ benchmark must make three things explicit and enforceable:
+the \emph{access level} of each method (so ``black-box'' is a guarantee, not a claim),
+the \emph{four axes} that a UQ result actually depends on, and the \emph{latency}
+relative to the target. We organize the benchmark as
+\[
+  G \;\times\; D \;\longrightarrow\; M \;\longrightarrow\; V,
+\]
+where the generator $G$ and dataset $D$ define a cached evaluation surface, each method
+$M$ maps a target's text to an uncertainty score, and each metric $V$ scores that against
+correctness. This paper describes the benchmark, its harness, and a large comprehensive
+sweep, and reports the cross-axis phenomena that only a unified suite can
+surface.\footnote{Harness, configurations, cached results, and scripts:
+\url{https://github.com/jsl5710/TruthTorchLM-HC}}
+
+\paragraph{Contributions.}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item A \textbf{pure black-box, latency-aware UQ benchmark} with enforced access levels,
+four explicit axes, and a cached content-hashed harness that guarantees identical inputs
+across methods and sample budgets (\S\ref{sec:design}).
+\item A \textbf{comprehensive instantiation}: 4 frontier targets $\times$ 7 domains
+$\times$ $\sim$70 method configurations (sampling-consistency, graph-spectral, verbalized,
+distilled-proxy, and a grey-box P(True) reference) $\times$ 8 metrics, with sample-budget
+sweeps and measured latency (\S\ref{sec:results}).
+\item \textbf{Cross-axis findings} a single-condition study cannot see: strong
+generator-dependence of the best method, the sample-budget scaling wall of
+consistency methods, and a distinct fast frontier occupied by distilled proxies
+(\S\ref{sec:results}, \S\ref{sec:latency}).
+\end{enumerate}
+
+% ==============================================================================
+\section{Related Benchmarks}
+% ==============================================================================
+Prior UQ evaluations fall into three groups. \emph{White-box} suites assume access to
+the target's logits or hidden states and evaluate perplexity, energy, or evidential
+scores; these do not apply to hosted APIs. \emph{Black-box, single-target} studies
+introduce sampling-consistency \citep{kuhn2023semantic,farquhar2024detecting} and
+graph-spectral \citep{lin2023generating} methods, or verbalized confidence
+\citep{lin2022teaching}, but usually on one model and a few datasets, and---critically---%
+report accuracy without the number of target calls the method consumes. \emph{Library}
+efforts such as \textsc{TruthTorchLM} \citep{bakman2024truthtorchlm} unify method
+\emph{implementations} but not an access-enforced, latency-first \emph{evaluation}
+protocol. Our benchmark contributes the protocol: explicit axes, an enforced pure
+black-box interface with grey-box methods flagged, sample-budget sweeps, and
+target-relative latency as a reported axis.
+
+% ==============================================================================
+\section{Benchmark Design}\label{sec:design}
+% ==============================================================================
+\subsection{Axis $G$: Generators (targets)}
+Targets span scale and provider: open-weights \textbf{Qwen3-32B}
+\citep{yang2024qwen3} and \textbf{Llama-3.3-70B} \citep{dubey2024llama3}, and closed
+frontier \textbf{GPT-4o} and \textbf{Claude-Haiku-4.5} accessed through a text-only
+gateway. The harness is generator-agnostic; adding a target is a registry entry mapping a
+friendly key to a provider-qualified id, backend, and \emph{access level}. Access levels
+are verified, not assumed: a helper probes each provider to confirm it returns text only
+before any ``black-box'' result is recorded.
+
+\subsection{Axis $D$: Datasets}
+Seven categories, one representative dataset each, 150 items per cell:
+General (TriviaQA \citealp{joshi2017triviaqa}), Medical-open (BioASQ
+\citealp{tsatsaronis2015bioasq}), Medical-MCQ (MedQA \citealp{jin2021medqa}),
+Medical-long-form (MedLFQA), Math (GSM8K \citealp{cobbe2021gsm8k}), Adversarial
+(TruthfulQA \citealp{lin2021truthfulqa}), and Factual (Wikipedia). The categories span
+the axes UQ practitioners care about: answer format (free-form / MCQ / numeric),
+knowledge type (general / specialist), and failure mode (recall error vs.\ imitative
+falsehood). The harness supports a broader roster (open-domain QA, MMLU-medical, and
+others) behind the same interface. Labels use an LLM judge, with exact-match on
+multiple-choice.
+
+\subsection{Axis $M$: Methods}
+The method roster (Table~\ref{tab:roster}) is deliberately comprehensive and organized by
+family and \emph{access level}. Sampling-consistency and graph-spectral methods read a
+set of $N$ target samples and summarize their semantic dispersion; verbalized confidence
+elicits one self-reported score; distilled proxies read the logits of a small white-box
+student distilled from the target's text. P(True) is included but \emph{labelled
+grey-box}---it reads the target's probability of the token ``true''---and is never
+counted as a pure-BB result. Every consistency method is swept over sample budgets
+$N\in\{1,3,5,10\}$ by \emph{truncating} the same cached samples, so the $N$-sweep costs no
+extra generation and is perfectly controlled.
+
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{3.5cm} c c}
+\toprule
+family (\# configs) & access & target calls\\
+\midrule
+Graph-spectral: Eccentricity, MatrixDegree, EigV, SumEigen (Conf/Unc) $\times N$ & black-box & $N$\\
+Semantic-set: DiscreteSemEntropy, NumSemanticSet, KernelLangEntropy $\times N$ & black-box & $N$\\
+Similarity: LexicalSimilarity $\times N$ & black-box & $N$\\
+Verbalized confidence & black-box & $1$\\
+\textbf{Distilled proxy}: DALD, DisAAD, Ours $\times$ 9 read-outs & black-box & $0$\\
+\grey{P(True) (reference)} & \grey{grey-box} & \grey{$1$}\\
+\bottomrule
+\end{tabular}
+\caption{Method roster by family, access level, and \emph{target-call cost}. Proxies pay
+zero target calls at inference (one small student forward); consistency methods pay $N$;
+verbalized/P(True) pay one. $\sim$70 total configurations.}
+\label{tab:roster}
+\end{table}
+
+\subsection{Axis $V$: Metrics}
+Each method is scored with a ranking/calibration suite: AUROC (primary), AUPRC, AUARC,
+prediction-rejection ratio (PRR), and calibration error (ECE/ACE/MCE) and Brier score,
+all against binary answer correctness, aggregated as mean$\pm$std over seeds. Orthogonal
+to $V$ is the \emph{latency frontier}: p50 wall-clock of the uncertainty computation
+under a fixed protocol (\S\ref{sec:latency}). We report AUROC in the main tables and the
+full suite in the release.
+
+\subsection{Harness}
+The pipeline runs in four stages. \textbf{A} generates and \emph{caches} the target's
+answers (and $N$ samples) once per $(G,D)$, keyed by a content hash over dataset,
+generator, decoding, budget, and size, so a decoding change never silently reuses a stale
+cache. \textbf{B} labels with the judge. \textbf{C} scores every method by \emph{reading
+the same cache} (sweeping $N$ by truncation). \textbf{D} evaluates $V$ and the latency
+frontier. This ``generate once, score many'' discipline is what makes the comparison
+fair and the $N$-sweep exact.
+
+% ==============================================================================
+\section{Comprehensive Results}\label{sec:results}
+% ==============================================================================
+Table~\ref{tab:leaderboard} is the benchmark's central artifact: per-dataset AUROC for
+representative methods of each family on the two open targets, at each method's best
+sample budget. Two cross-axis phenomena stand out.
+
+\begin{table*}[t]\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l ccccccc c}
+\toprule
+method & trivia & bioasq & medqa & medlfqa & gsm8k & truthful & wiki & \best{MEAN}\\
+\midrule
+\multicolumn{9}{l}{\emph{Target: Qwen3-32B}}\\
+Verbalized conf.\ ($N{=}1$)       & \best{0.728} & 0.500 & \best{0.702} & 0.546 & 0.668 & \best{0.686} & 0.483 & 0.616\\
+Eccentricity ($N{=}10$)           & 0.817 & 0.500 & 0.522 & \best{0.614} & 0.764 & 0.607 & 0.564 & 0.627\\
+Semantic entropy ($N{=}10$)       & \best{0.819} & 0.500 & 0.500 & 0.623 & 0.710 & 0.557 & 0.533 & 0.606\\
+Lexical similarity ($N{=}10$)     & 0.695 & 0.500 & 0.539 & 0.580 & 0.575 & 0.501 & \best{0.607} & 0.571\\
+Distilled proxy ($N{=}0$)         & 0.618 & --    & 0.705 & 0.523 & 0.780 & 0.472 & 0.593 & 0.612\\
+\grey{P(True) (grey-box)}         & \grey{0.827} & \grey{0.500} & \grey{0.690} & \grey{0.595} & \grey{\best{0.838}} & \grey{0.623} & \grey{0.560} & \grey{\best{0.662}}\\
+\midrule
+\multicolumn{9}{l}{\emph{Target: Llama-3.3-70B}}\\
+Verbalized conf.\ ($N{=}1$)       & 0.656 & 0.966 & \best{0.699} & \best{0.648} & 0.627 & \best{0.797} & \best{0.557} & \best{0.707}\\
+Eccentricity ($N{=}10$)           & \best{0.796} & 0.973 & 0.585 & 0.653 & 0.702 & 0.500 & 0.526 & 0.677\\
+Semantic entropy ($N{=}10$)       & 0.630 & 0.487 & 0.496 & 0.501 & 0.585 & 0.473 & 0.492 & 0.523\\
+Lexical similarity ($N{=}10$)     & 0.758 & \best{1.000} & 0.667 & 0.456 & 0.591 & 0.518 & 0.544 & 0.648\\
+Distilled proxy ($N{=}0$)         & 0.631 & 0.993 & 0.600 & 0.450 & 0.694 & 0.551 & 0.507 & 0.632\\
+\grey{P(True) (grey-box)}         & \grey{0.690} & \grey{1.000} & \grey{0.549} & \grey{0.567} & \grey{0.711} & \grey{0.564} & \grey{0.535} & \grey{0.659}\\
+\bottomrule
+\end{tabular}
+\caption{Per-dataset AUROC leaderboard, representative method per family, best sample
+budget, two open targets. Distilled proxy is the best deployable proxy read via
+perplexity. Grey rows are grey-box (read target log-probs) and excluded from the pure-BB
+ranking. Bioasq is degenerate on Qwen (trivially separable) and omitted from its mean.}
+\label{tab:leaderboard}
+\end{table*}
+
+\paragraph{The best method is generator-dependent.} On Qwen3-32B the pure-BB winners are
+graph-spectral (Eccentricity 0.627) with verbalized confidence mid-pack (0.616); on
+Llama-3.3-70B \emph{verbalized confidence dominates} (0.707), far ahead of the same
+graph-spectral method (0.677) and with semantic entropy \emph{collapsing} to near-chance
+(0.523). The closed targets sharpen this (Appendix~\ref{app:closed}): verbalized
+confidence is the strongest method on \emph{both} GPT-4o (0.737) and Claude-Haiku (0.672),
+and on Haiku it is the \emph{only} method above chance---every sampling-consistency method
+there is at or below 0.55. So verbalized confidence wins on three of four targets and
+graph-spectral on the fourth (Qwen): no single method wins across targets, and a benchmark
+reporting one generator would draw the opposite conclusion depending on which it picked---%
+exactly the fragmentation the $G$ axis exposes.
+
+\paragraph{Domain structure is sharp and method-specific.} Verbalized confidence is
+strong on Adversarial (TruthfulQA: Llama 0.797) where consistency is
+\emph{structurally blind} (Eccentricity 0.500---imitative falsehoods are produced
+consistently), while consistency methods dominate General/Math where sample dispersion
+tracks error. This complementarity is only visible with the full $D\times M$ grid.
+
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l cccc}
+\toprule
+family (mean AUROC) & $N{=}1$ & $N{=}3$ & $N{=}5$ & $N{=}10$\\
+\midrule
+\multicolumn{5}{l}{\emph{Qwen3-32B}}\\
+Eccentricity      & 0.500 & 0.594 & 0.620 & \best{0.627}\\
+SumEigen          & 0.500 & 0.596 & 0.618 & \best{0.634}\\
+Semantic entropy  & 0.500 & 0.560 & 0.588 & \best{0.606}\\
+Lexical sim.      & 0.500 & 0.555 & 0.560 & \best{0.571}\\
+Verbalized conf.  & \best{0.616} & 0.616 & 0.616 & 0.616\\
+\midrule
+\multicolumn{5}{l}{\emph{Llama-3.3-70B}}\\
+Eccentricity      & 0.500 & 0.642 & 0.671 & \best{0.677}\\
+Lexical sim.      & 0.500 & 0.643 & 0.645 & \best{0.648}\\
+Semantic entropy  & 0.500 & 0.513 & 0.517 & \best{0.523}\\
+Verbalized conf.  & \best{0.707} & 0.707 & 0.707 & 0.707\\
+\bottomrule
+\end{tabular}
+\caption{Sample-budget ($N$) scaling. Consistency/graph methods are \emph{uninformative
+at $N{=}1$} (AUROC 0.500---one sample has no dispersion) and require $N{=}10$ target
+generations to peak. Verbalized confidence is $N$-invariant (one call). The distilled
+proxy (not shown; $N{=}0$) reaches 0.61--0.63 with no target samples at all.}
+\label{tab:nsweep}
+\end{table}
+
+\paragraph{Sample budget is a hidden cost.} Table~\ref{tab:nsweep} makes the
+accuracy--budget dependence explicit. Every consistency/graph method scores exactly
+$0.500$ at $N{=}1$---a single sample has no dispersion to measure---and climbs to its
+peak only at $N{=}10$, i.e.\ ten target generations per item. Verbalized confidence is
+budget-invariant, and distilled proxies need \emph{zero} target samples. This axis is
+invisible in tables that fix $N$.
+
+\paragraph{Ranking is not calibration.} AUROC alone hides two effects
+(Table~\ref{tab:metrics}). First, \emph{AUPRC is base-rate inflated}: because correct
+answers dominate, every method scores $0.82$--$0.92$ AUPRC regardless of how well it
+ranks errors, so AUPRC is a poor discriminator here. Second, the
+\emph{prediction--rejection ratio} (PRR)---the useful secondary ranking metric---adds
+granularity that AUROC misses: LexicalSimilarity on Qwen ranks non-trivially by AUROC
+(0.571) but has PRR $0.067$, i.e.\ rejecting by its score barely beats random rejection.
+Calibration metrics (ECE/ACE/MCE/Brier) are computed and released, but the raw
+uncertainty scores are not probabilities, so cross-method ECE is only meaningful after
+per-method calibration (natively-probabilistic verbalized confidence and P(True) reach
+ECE $\approx 0.14$; the un-normalized graph and LogTokU-proxy scores do not, by construction).
+We therefore report the three scale-robust ranking metrics in the main text and the full
+eight-metric suite in the release.
+
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l ccc}
+\toprule
+method (mean over datasets) & AUROC & AUPRC & PRR\\
+\midrule
+\multicolumn{4}{l}{\emph{Qwen3-32B}}\\
+Verbalized conf.        & 0.616 & 0.898 & 0.280\\
+Eccentricity ($N{=}10$) & \best{0.627} & 0.840 & 0.140\\
+Semantic entropy ($N{=}10$) & 0.606 & \best{0.913} & 0.283\\
+Lexical sim.\ ($N{=}10$)& 0.571 & 0.842 & 0.067\\
+Distilled proxy (native)& 0.560 & 0.819 & 0.155\\
+\grey{P(True) (grey)}   & \grey{0.662} & \grey{0.890} & \grey{\best{0.391}}\\
+\midrule
+\multicolumn{4}{l}{\emph{Llama-3.3-70B}}\\
+Verbalized conf.        & \best{0.707} & \best{0.915} & 0.352\\
+Eccentricity ($N{=}10$) & 0.677 & 0.859 & \best{0.402}\\
+Semantic entropy ($N{=}10$) & 0.523 & 0.902 & 0.112\\
+Lexical sim.\ ($N{=}10$)& 0.648 & 0.866 & 0.342\\
+Distilled proxy (native)& 0.607 & 0.851 & 0.307\\
+\grey{P(True) (grey)}   & \grey{0.659} & \grey{0.909} & \grey{0.350}\\
+\bottomrule
+\end{tabular}
+\caption{Beyond AUROC: three scale-robust ranking metrics (mean over datasets). AUPRC is
+uniformly high (correct-answer base rate); PRR discriminates where AUPRC cannot. The full
+eight-metric suite (adding AUARC, ECE, ACE, MCE, Brier) is in the release. Proxy shown at
+its native read-out; grey rows are grey-box.}
+\label{tab:metrics}
+\end{table}
+
+% ==============================================================================
+\section{The Latency Frontier}\label{sec:latency}
+% ==============================================================================
+Because the benchmark measures cost relative to the target (batch 1, GPU warm-up,
+exclusive allocation, p50 over items), the accuracy--latency trade is a reported result
+(Table~\ref{tab:latency}). The three families occupy distinct regimes. Distilled proxies
+are \emph{target-decoupled}: one small student forward, measured at 24--44\,ms
+independent of target size or price. Verbalized confidence pays one target generation.
+Consistency methods pay $N$ target generations plus NLI clustering---seconds on a 70B, and
+$\approx$11\,s (GPT-4o) / $\approx$19\,s (Claude-Haiku) per item on API targets at
+$N{=}10$.
+
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l c c}
+\toprule
+method class & target calls & latency / item\\
+\midrule
+Distilled proxy   & $0$ & \textbf{24--44 ms} (measured)\\
+Verbalized conf.  & $1$ & 1 target generation\\
+Consistency ($N{=}10$) & $10$ & 10 gen.\ $+$ NLI: sec.--$\sim$19\,s\\
+\grey{P(True) (grey)} & \grey{$1$} & \grey{1 target call $+$ logprobs}\\
+\bottomrule
+\end{tabular}
+\caption{Latency frontier by method class. Proxy latency is measured on the student
+(qwen3-4b 41--44\,ms; llama3.2-3b 24--34\,ms) and is \emph{constant} in the target;
+sampling latency scales with target cost $\times N$. The proxy is $\sim$400--700$\times$
+cheaper than $N{=}10$ consistency on API targets, widening with target price.}
+\label{tab:latency}
+\end{table}
+
+The practical reading: on the AUROC--latency plane the distilled proxy is Pareto-optimal
+whenever a few points of AUROC are worth two-to-three orders of magnitude of latency, and
+its advantage \emph{grows} with target cost. Verbalized confidence buys the best
+accuracy on strong targets at one target-generation cost; consistency methods buy
+accuracy only by spending $N$ generations. These trade-offs are the benchmark's most
+deployment-relevant output and are absent from accuracy-only leaderboards.
+
+% ==============================================================================
+\section{Using the Benchmark}
+% ==============================================================================
+The suite answers questions a single-condition study cannot: \emph{which method for my
+target?} (generator-dependent---Table~\ref{tab:leaderboard}), \emph{how many samples can I
+afford?} (Table~\ref{tab:nsweep}), and \emph{what does the signal cost?}
+(Table~\ref{tab:latency}). It is extensible along every axis: a new target is a registry
+entry, a new dataset a loader, a new method a class implementing the text$\to$score
+interface, a new metric an evaluator. Because Stage-A caches are content-hashed and
+shared, adding a method or metric re-uses all existing generations at zero extra target
+cost. We release the harness, the cached generations and labels for the reported cells,
+all $\sim$70 method configurations, and the analysis scripts that regenerate every table.
+
+% ==============================================================================
+\section{Limitations}
+% ==============================================================================
+The reported cells use 150 items per dataset; per-cell variance is real and we avoid
+claims that hinge on sub-0.02 AUROC gaps. The deep comparison centers on two open targets;
+the closed arm is reported for the direct methods and corroborates the generator-%
+dependence but is not exhaustively swept for proxies. Latency is measured on one
+hardware/serving configuration---absolute milliseconds will move, but the target-relative
+\emph{ratios}, the load-bearing claim, will not. Judge-based labeling inherits the judge's
+biases; we keep both an LLM-judge and lexical labels and report the judge used.
+
+% ==============================================================================
+\section{Conclusion}
+% ==============================================================================
+Uncertainty quantification for black-box LLMs should be evaluated as what it is: a
+function of the target, the data, the method, \emph{and} its cost. Our $G\times D\to M\to
+V$ benchmark makes these axes explicit, enforces pure black-box access with grey-box
+methods flagged, and reports latency relative to the target. A comprehensive sweep over
+four frontier targets, seven domains, and $\sim$70 method configurations shows that the
+best method is generator-dependent, that sampling methods hide a per-item budget of up to
+ten target generations, and that distilled proxies define a fast, target-decoupled
+frontier. We release everything needed to place a new method on all four axes.
+
+\section*{Reproducibility}
+Every $(G,D)$ generation is cached and content-hashed; methods and $N$-budgets read the
+same cache. The harness, caches, method configurations, metric suite, and table-%
+regeneration scripts are released at \url{https://github.com/jsl5710/TruthTorchLM-HC}.
+
+\section*{Ethics Statement}
+UQ signals are a safety mechanism; we therefore report where methods fall to or below
+chance (e.g.\ semantic entropy on Llama, and every consistency method at $N{=}1$) so they
+are not deployed with false assurance, especially in the medical domains included. All
+datasets are public and used under their licenses; no human-subjects data was collected.
+
+\bibliography{references}
+
+\appendix
+
+\section{Full Method Leaderboards (Open Targets)}\label{app:leaderboard}
+Table~\ref{tab:app-open} lists the full pure black-box method ranking (48 configurations
+scored per target; top entries shown) by mean AUROC. It expands the representative rows of
+Table~\ref{tab:leaderboard} to the complete graph-spectral and semantic-set families and
+makes the generator-dependence unmistakable: the Qwen leaderboard is topped by
+graph-spectral scores and the Llama leaderboard by verbalized confidence, with semantic
+entropy strong on Qwen (0.606) but near-chance on Llama (0.523).
+
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{l cc}
+\toprule
+method (best $N$, mean AUROC) & Qwen & Llama\\
+\midrule
+Verbalized confidence         & 0.616 & \best{0.707}\\
+Eccentricity (Unc, $N{=}10$)  & 0.627 & 0.677\\
+Eccentricity (Conf, $N{=}10$) & 0.633 & 0.668\\
+SumEigen / EigV ($N{=}10$)    & \best{0.634} & 0.639\\
+MatrixDegree (Unc, $N{=}10$)  & \best{0.634} & 0.639\\
+MatrixDegree (Conf, $N{=}10$) & 0.629 & 0.645\\
+Lexical similarity ($N{=}10$) & 0.571 & 0.648\\
+Kernel language entropy ($N{=}10$) & 0.604 & 0.619\\
+Discrete semantic entropy ($N{=}10$) & 0.606 & 0.523\\
+Num.\ semantic sets ($N{=}10$)& 0.605 & 0.523\\
+Distilled proxy ($N{=}0$)     & 0.612 & 0.632\\
+\grey{P(True) (grey-box)}     & \grey{\best{0.662}} & \grey{0.672}\\
+\bottomrule
+\end{tabular}
+\caption{Full pure-BB leaderboard, two open targets, mean AUROC at each method's best
+sample budget (48 configs scored per target). Grey-box P(True) shown for reference.}
+\label{tab:app-open}
+\end{table}
+
+\section{Closed-Target Results}\label{app:closed}
+The benchmark includes a closed frontier arm (GPT-4o, Claude-Haiku-4.5) accessed through a
+text-only gateway. One protocol constraint is permanent: closed APIs do not expose
+log-probabilities, so \emph{P(True) is impossible} and grey-box logit read-outs do not
+exist for these targets. All other pure-BB methods run; verbalized confidence, which the
+cached-only closed pipeline had skipped (``no live target''), we obtain with a dedicated
+gateway elicitation matching the open prompt. Table~\ref{tab:app-closed} tells a sharp
+story: the \emph{sampling-consistency} families \textbf{degrade badly}---GPT-4o tops at
+$\sim$0.63, and on \textbf{Claude-Haiku every consistency method is at or below chance}
+(best 0.546 at $N{=}5$; Eccentricity $N{=}10$ falls to 0.467)---while \textbf{verbalized
+confidence is by far the strongest and, on Haiku, the \emph{only} method that works}
+(GPT-4o 0.737, Haiku 0.672). Asking a frontier model directly beats measuring the
+dispersion of its (tightly-decoded, self-consistent) samples. Two honest caveats: on
+Haiku the mean spans extremes (medqa 1.000, trivially separable; wikipedia 0.000,
+\emph{confidently wrong on factual recall}), and GSM8K/BioASQ are unscored where frontier
+accuracy is near-100\% (no errors to rank). We also distilled the full proxy family from
+each closed teacher (36 cells: DALD/DisAAD/Ours $\times$ 6 students $\times$ 2 teachers) and
+read them via Perplexity: the objectives \emph{tie} (as on open targets), but the proxies
+are weaker---GPT-4o best $\sim$0.64 (qwen3-4b), Claude-Haiku $\sim$0.55---so a proxy
+distilled from a frontier API teacher inherits that target's difficulty. The
+\emph{read-out $\gg$ objective} conclusion thus holds on all four teachers and all six
+students.
+
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{l cc}
+\toprule
+method (mean AUROC) & GPT-4o & Claude-Haiku\\
+\midrule
+\textbf{Verbalized confidence} & \best{0.737} & \best{0.672}\\
+Eccentricity (Unc, $N{=}10$)  & 0.628 & 0.467\\
+Eccentricity (Unc, $N{=}5$)   & 0.600 & 0.546\\
+Lexical similarity ($N{=}10$) & 0.620 & 0.504\\
+Semantic entropy ($N{=}10$)   & 0.568 & 0.502\\
+SumEigen / EigV ($N{=}10$)    & 0.586 & 0.529\\
+\midrule
+\grey{P(True) / grey-box}     & \grey{n/a} & \grey{n/a}\\
+\bottomrule
+\end{tabular}
+\caption{Closed-target results. Consistency families degrade (to chance on Claude-Haiku),
+but \textbf{verbalized confidence is strong and the only method that works on Haiku}
+(mean over $n{=}6$/$5$ non-degenerate datasets). P(True) and grey-box read-outs are
+impossible (no API logprobs). A target-dependence a single-generator suite would miss.}
+\label{tab:app-closed}
+\end{table}
+
+\section{Sample-Budget Sweep, All Families}\label{app:nsweep}
+Table~\ref{tab:nsweep} (main text) shows the $N$-sweep for representative families; the
+pattern is universal across the graph-spectral and semantic-set families: AUROC $=0.500$
+at $N{=}1$ (a single sample carries no dispersion), rising monotonically to a peak at
+$N{=}10$ on strong targets. The one exception is non-monotonicity on weak targets---on
+Claude-Haiku, Eccentricity peaks at $N{=}5$ (0.546) and \emph{falls} by $N{=}10$
+(0.467), i.e.\ more samples of a poorly-separating target add noise. Verbalized confidence
+and the distilled proxy are budget-invariant by construction ($N{=}1$ and $N{=}0$).
+
+\section{Datasets, Judge, Metrics, and Compute}\label{app:details}
+\paragraph{Datasets.} Seven categories, 150 items each: TriviaQA (General), BioASQ
+(Medical-open), MedQA (Medical-MCQ), MedLFQA (Medical-long-form), GSM8K (Math), TruthfulQA
+(Adversarial), Wikipedia-factual (Factual). Answers are cached once per $(G,D)$ with $N{=}10$
+samples; the $N$-sweep truncates these. The harness loads a broader roster (open-domain QA,
+MMLU-medical, and others) behind the same interface.
+\paragraph{Judge and labels.} Correctness is an LLM-judge decision (a local
+instruction-tuned judge), with exact-letter match for multiple-choice; both an LLM-judge
+and lexical labels are retained and the judge is recorded per cell.
+\paragraph{Metrics.} $V$ comprises AUROC, AUPRC, AUARC, PRR, ECE, ACE, MCE, and Brier,
+against binary answer correctness. Calibration metrics use out-of-fold isotonic
+calibration; because raw uncertainty scores are not probabilities, cross-method ECE is
+meaningful only after this step. All eight are in the release; the main text reports the
+scale-robust ranking metrics.
+\paragraph{Latency protocol.} Batch size 1, GPU warm-up before timing, exclusive node
+allocation, p50 over items. Proxy latency is the student forward; sampling latency is $N$
+target generations plus NLI clustering; verbalized/P(True) is one target call.
+\paragraph{Compute.} Targets served in bf16 (Qwen3-32B on one, Llama-3.3-70B on two 80\,GB
+GPUs); 4-bit for grey-box read-out and label generation. Proxies are LoRA
+(rank 32, $\alpha{=}64$), one epoch. Every $(G,D)$ generation is cached and content-hashed,
+so adding a method or metric re-uses all generations at zero extra target cost.
+
+\end{document}

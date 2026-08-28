@@ -170,6 +170,34 @@ def current_record() -> Optional[TimingRecord]:
     return _CURRENT.get()
 
 
+# --------------------------------------------------------------------------
+# CUDA synchronization for accurate GPU timing (protocol §5 measurement hygiene)
+# --------------------------------------------------------------------------
+# CUDA kernels are asynchronous: perf_counter around a GPU op returns when the kernel is
+# *launched*, not when it *completes*, so an unsynchronized span under-measures GPU work
+# (NLI clustering, generation). We drain the device at each span boundary so a stage's
+# duration reflects finished work. Resolved lazily (keeps this module importable without
+# torch) and cached; disable with TTLM_TIMING_CUDA_SYNC=0 (e.g. to avoid the barrier in a
+# concurrency measurement, or on CPU where it is a pure no-op anyway).
+import os as _os
+
+_SYNC_ENABLED = _os.environ.get("TTLM_TIMING_CUDA_SYNC", "1") != "0"
+_SYNC_FN = None  # lazily set to torch.cuda.synchronize or a no-op
+
+
+def _maybe_sync() -> None:
+    global _SYNC_FN
+    if not _SYNC_ENABLED:
+        return
+    if _SYNC_FN is None:
+        try:
+            import torch
+            _SYNC_FN = torch.cuda.synchronize if torch.cuda.is_available() else (lambda: None)
+        except Exception:  # noqa: BLE001 -- torch absent / no CUDA: never let timing break a run
+            _SYNC_FN = lambda: None
+    _SYNC_FN()
+
+
 @contextmanager
 def _null_context():
     yield None
@@ -196,12 +224,14 @@ def stage(stage: Stage, label: str = "", **metadata):
         yield None
         return
 
+    _maybe_sync()  # drain prior GPU work so it isn't attributed to this span
     start = time.perf_counter_ns()
     event = StageEvent(stage=stage, label=label or stage.value, duration_ms=0.0,
                        metadata=dict(metadata))
     try:
         yield event
     finally:
+        _maybe_sync()  # wait for this span's GPU work to finish before the clock read
         event.duration_ms = (time.perf_counter_ns() - start) / 1e6
         record.add(event)
 
@@ -222,6 +252,7 @@ def begin_stage(stage: Stage, label: str = "", **metadata):
         return None
     event = StageEvent(stage=stage, label=label or stage.value, duration_ms=0.0,
                        metadata=dict(metadata))
+    _maybe_sync()  # drain prior GPU work so it isn't attributed to this span
     return (record, event, time.perf_counter_ns())
 
 
@@ -230,6 +261,7 @@ def end_stage(span) -> None:
     if span is None:
         return
     record, event, start = span
+    _maybe_sync()  # wait for this span's GPU work to finish before the clock read
     event.duration_ms = (time.perf_counter_ns() - start) / 1e6
     record.add(event)
 

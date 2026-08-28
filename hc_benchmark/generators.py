@@ -136,6 +136,40 @@ _SPECS = [
                         "id against ai.google.dev before a real run -- the flash line versions "
                         "quickly."),
 
+    # --- JHU gateway (closed APIs via an OpenAI-compatible proxy) ------------
+    # Routed through https://gateway.engineering.jhu.edu/gateway/compat/chat/completions
+    # with Bearer auth (GATEWAY_KEY env). model_id is the exact gateway model name. These
+    # use the custom gateway generation path (scripts/stage_cd_api.py), not plain litellm.
+    GeneratorSpec("jhu-gpt-4o", "openai/gpt-4o", "jhu_gateway", "jhu-gateway",
+                  Access.BLACK_BOX, env_var="GATEWAY_KEY", size_hint="frontier",
+                  notes="OpenAI GPT-4o via JHU gateway."),
+    GeneratorSpec("jhu-gpt-4o-mini", "openai/gpt-4o-mini", "jhu_gateway", "jhu-gateway",
+                  Access.BLACK_BOX, env_var="GATEWAY_KEY", size_hint="small-frontier",
+                  notes="OpenAI GPT-4o-mini via JHU gateway; fast (~1s), non-reasoning."),
+    GeneratorSpec("jhu-claude-opus-4.8", "anthropic/claude-opus-4.8", "jhu_gateway",
+                  "jhu-gateway", Access.BLACK_BOX, is_reasoning=True,
+                  reasoning_trace=ReasoningTrace.ANSWER_ONLY, env_var="GATEWAY_KEY",
+                  size_hint="frontier", notes="Claude Opus 4.8 via JHU gateway."),
+    GeneratorSpec("jhu-claude-sonnet-5", "anthropic/claude-sonnet-5-20260630", "jhu_gateway",
+                  "jhu-gateway", Access.BLACK_BOX, is_reasoning=True,
+                  reasoning_trace=ReasoningTrace.ANSWER_ONLY, env_var="GATEWAY_KEY",
+                  size_hint="frontier", notes="Claude Sonnet 5 via JHU gateway."),
+    GeneratorSpec("jhu-claude-haiku-4.5", "anthropic/claude-haiku-4.5", "jhu_gateway",
+                  "jhu-gateway", Access.BLACK_BOX, env_var="GATEWAY_KEY",
+                  size_hint="small-frontier", notes="Claude Haiku 4.5 via JHU gateway."),
+    GeneratorSpec("jhu-gemini-2.5-pro", "google-ai-studio/gemini-2.5-pro", "jhu_gateway",
+                  "jhu-gateway", Access.BLACK_BOX, is_reasoning=True,
+                  reasoning_trace=ReasoningTrace.ANSWER_ONLY, env_var="GATEWAY_KEY",
+                  size_hint="frontier",
+                  notes="Gemini 2.5 Pro via JHU gateway; reasoning model -- needs "
+                        "max_completion_tokens>=256 (reasoning eats the budget), gateway "
+                        "returns answer-only."),
+    GeneratorSpec("jhu-gemini-3.1-flash-lite", "google-ai-studio/gemini-3.1-flash-lite",
+                  "jhu_gateway", "jhu-gateway", Access.BLACK_BOX, env_var="GATEWAY_KEY",
+                  size_hint="small-frontier",
+                  notes="Fast Gemini flash-lite (TEXT). NB: the '-image' variant is an image "
+                        "model and returns no text -- do not use it for QA."),
+
     # --- Open models (white-box) -- reference line + targets ----------------
     GeneratorSpec("llama-3.1-8b", "meta-llama/Llama-3.1-8B-Instruct", "huggingface", "open",
                   Access.WHITE_BOX, roles=(Role.TARGET,), size_hint="8B",
@@ -147,6 +181,22 @@ _SPECS = [
                   Access.WHITE_BOX, roles=(Role.TARGET, Role.PROXY), is_reasoning=True,
                   reasoning_trace=ReasoningTrace.ANSWER_ONLY, size_hint="8B",
                   notes="Qwen3 with a thinking mode; open LRM for reasoning-trace experiments."),
+    # --- multi-target RQ: large DENSE Qwen3 teacher + same-family student sweep ---
+    # (Qwen3.5 dropped: it is a multimodal + hybrid-attention line, not dense text.)
+    GeneratorSpec("qwen3-32b", "Qwen/Qwen3-32B", "huggingface", "open",
+                  Access.WHITE_BOX, roles=(Role.TARGET,), is_reasoning=True,
+                  reasoning_trace=ReasoningTrace.ANSWER_ONLY, size_hint="32B",
+                  notes="Qwen3 large dense teacher; the large open target for the multi-target proxy story."),
+    GeneratorSpec("qwen3-4b-instruct", "Qwen/Qwen3-4B-Instruct-2507", "huggingface", "open",
+                  Access.WHITE_BOX, roles=(Role.TARGET, Role.PROXY), size_hint="4B",
+                  notes="Qwen3-4B non-thinking instruct (2507 update); ungated open target and "
+                        "a candidate proxy substrate. is_reasoning=False -- the -Instruct-2507 "
+                        "variant answers directly, no thinking trace."),
+    GeneratorSpec("qwen3-1.7b", "Qwen/Qwen3-1.7B", "huggingface", "open",
+                  Access.WHITE_BOX, roles=(Role.TARGET, Role.PROXY), is_reasoning=True,
+                  reasoning_trace=ReasoningTrace.ANSWER_ONLY, size_hint="1.7B",
+                  notes="Qwen3-1.7B (original hybrid-thinking release); ungated small open target "
+                        "and a cheap proxy substrate. is_reasoning=True -- has a thinking mode."),
     GeneratorSpec("mistral-7b", "mistralai/Mistral-7B-Instruct-v0.3", "huggingface", "open",
                   Access.WHITE_BOX, roles=(Role.TARGET, Role.PROXY), size_hint="7B",
                   notes="Open target and a candidate proxy substrate."),

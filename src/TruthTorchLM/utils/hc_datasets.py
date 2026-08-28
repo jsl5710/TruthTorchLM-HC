@@ -262,8 +262,25 @@ def get_kqa(size_of_data: float = 1.0, seed: int = 0, split="test"):
 
     ``Must_have`` statements are the claim-level references the long-form pipeline scores
     against, so they are carried after the free-form answer rather than discarded.
+
+    Loaded via the ``json`` builder pointed at the answers JSONL: the repo's two files have
+    incompatible column sets (the answers file adds ``entity_text`` / ``matched_entity`` /
+    ``entity_tag``), so datasets>=3 fails the whole-repo load with a strict CastError
+    against the card schema. Reading the one file we need sidesteps it.
+
+    The file is resolved with ``hf_hub_download`` rather than an ``hf://`` ``data_files``
+    URI: ``hf://`` needs a live hub call to resolve, which fails on an offline compute node
+    (``HF_HUB_OFFLINE=1``); ``hf_hub_download`` returns the cached local path offline, so a
+    login-node prefetch makes this work air-gapped like every other loader.
     """
-    raw_dataset = load_dataset("Itaykhealth/K-QA", split="questions_with_answers")
+    from huggingface_hub import hf_hub_download
+
+    local_path = hf_hub_download(
+        repo_id="Itaykhealth/K-QA",
+        filename="questions_w_answers.jsonl",
+        repo_type="dataset",
+    )
+    raw_dataset = load_dataset("json", data_files=local_path, split="train")
     raw_dataset = _subsample(raw_dataset, size_of_data, seed)
 
     dataset = []

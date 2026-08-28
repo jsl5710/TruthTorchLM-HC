@@ -148,7 +148,7 @@ def check_entailment(
     seq2: str,
 ):
     with torch.no_grad():
-        inputs = tokenizer_for_entailment.encode_plus(
+        inputs = tokenizer_for_entailment(
             text=context + " " + seq1,
             text_pair=context + " " + seq2,
             return_tensors="pt",
@@ -274,7 +274,7 @@ def entailment_probability(
     mode="minus_contradiction",
     temperature: float = 3.0,
 ):
-    inputs = tokenizer_for_entailment.encode_plus(
+    inputs = tokenizer_for_entailment(
         text=context + " " + seq1,
         text_pair=context + " " + seq2,
         return_tensors="pt",

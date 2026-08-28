@@ -114,6 +114,8 @@ def generate_stage_a_local(
     user_prompt: str = DEFAULT_USER_PROMPT,
     system_prompt: str = DEFAULT_SYSTEM_BENCHMARK_PROMPT,
     overwrite: bool = False,
+    chat_template_kwargs: dict = None,
+    max_items: int = None,
 ):
     """Stage A for an **open (HuggingFace) target** — the white-box reference-line path.
 
@@ -141,7 +143,19 @@ def generate_stage_a_local(
             f"'{config.resolved_backend()}'. Use generate_stage_a for API targets."
         )
 
-    dataset = get_dataset(config.dataset, size_of_data=config.size_of_data, seed=seed)
+    try:
+        dataset = get_dataset(config.dataset, size_of_data=config.size_of_data, seed=seed)
+    except Exception as exc:  # noqa: BLE001
+        # A too-small size fraction makes train_test_split fail on a tiny/multi-config
+        # dataset (e.g. mmlu_med per subject). Retry whole; the max_items cap below bounds
+        # the work. Mirrors scripts/verify_datasets.py.
+        msg = str(exc)
+        if "train" in msg and "size" in msg:
+            dataset = get_dataset(config.dataset, size_of_data=1.0, seed=seed)
+        else:
+            raise
+    if max_items is not None and len(dataset) > max_items:
+        dataset = dataset[:max_items]
     dec = config.decoding
 
     items = []
@@ -155,6 +169,7 @@ def generate_stage_a_local(
             model=model, messages=messages, question=data["question"], tokenizer=tokenizer,
             temperature=dec.temperature, top_p=dec.top_p, max_new_tokens=dec.max_tokens,
             do_sample=dec.temperature > 0,
+            chat_template_kwargs=chat_template_kwargs,
         )
         sampled = sample_generations_hf_local(
             model=model, input_text=primary_out["text"], tokenizer=tokenizer,

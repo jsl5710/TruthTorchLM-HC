@@ -1,0 +1,134 @@
+{
+  "variant": "dald",
+  "mode": "edl",
+  "generator_key": "qwen3-8b",
+  "seed": 1,
+  "cells": [
+    {
+      "dataset": "natural_qa",
+      "n_items": 150,
+      "n_positive": 76,
+      "rows": {
+        "dald_N1": {
+          "auroc": 0.5293,
+          "aupr": 0.5119,
+          "ece": 0.0657,
+          "p50_ms": 28.984,
+          "p95_ms": 29.926
+        }
+      }
+    },
+    {
+      "dataset": "pop_qa",
+      "n_items": 150,
+      "n_positive": 57,
+      "rows": {
+        "dald_N1": {
+          "auroc": 0.5019,
+          "aupr": 0.5991,
+          "ece": 0.038,
+          "p50_ms": 29.292,
+          "p95_ms": 30.467
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 149,
+      "n_positive": 65,
+      "rows": {
+        "dald_N1": {
+          "auroc": 0.5619,
+          "aupr": 0.6288,
+          "ece": 0.0593,
+          "p50_ms": 28.856,
+          "p95_ms": 29.749
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 150,
+      "n_positive": 79,
+      "rows": {
+        "dald_N1": {
+          "auroc": 0.5915,
+          "aupr": 0.5469,
+          "ece": 0.1118,
+          "p50_ms": 28.766,
+          "p95_ms": 29.436
+        }
+      }
+    },
+    {
+      "dataset": "bioasq",
+      "n_items": 150,
+      "n_positive": 149,
+      "rows": {
+        "dald_N1": {
+          "auroc": 0.1812,
+          "aupr": 0.0078,
+          "ece": 0.0,
+          "p50_ms": 29.11,
+          "p95_ms": 29.99
+        }
+      }
+    },
+    {
+      "dataset": "kqa",
+      "n_items": 145,
+      "n_positive": 112,
+      "rows": {
+        "dald_N1": {
+          "auroc": 0.488,
+          "aupr": 0.2817,
+          "ece": 0.0488,
+          "p50_ms": 29.206,
+          "p95_ms": 30.054
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 133,
+      "rows": {
+        "dald_N1": {
+          "auroc": 0.4624,
+          "aupr": 0.1297,
+          "ece": 0.0714,
+          "p50_ms": 28.999,
+          "p95_ms": 29.769
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 101,
+      "rows": {
+        "dald_N1": {
+          "auroc": 0.5099,
+          "aupr": 0.3318,
+          "ece": 0.0313,
+          "p50_ms": 29.177,
+          "p95_ms": 29.801
+        }
+      }
+    },
+    {
+      "dataset": "mmlu_med",
+      "n_items": 150,
+      "n_positive": 106,
+      "rows": {
+        "dald_N1": {
+          "auroc": 0.4042,
+          "aupr": 0.2574,
+          "ece": 0.0861,
+          "p50_ms": 29.198,
+          "p95_ms": 29.813
+        }
+      }
+    }
+  ]
+}

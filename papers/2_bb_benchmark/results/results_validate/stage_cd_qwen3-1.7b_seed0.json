@@ -1,0 +1,215 @@
+{
+  "target": "Qwen/Qwen3-1.7B",
+  "generator_key": "qwen3-1.7b",
+  "judge": "Qwen/Qwen3-4B-Instruct-2507",
+  "thinking": "off",
+  "n_max": 10,
+  "n_sweep": [
+    5,
+    10
+  ],
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "trivia_qa",
+      "n_items": 25,
+      "n_positive": 10,
+      "n_dropped": 0,
+      "rows": {
+        "LexicalSimilarity_N5": {
+          "auroc": 0.5666666666666667,
+          "auprc": 0.5770812704499102,
+          "prr": -0.25521774784482143,
+          "p50_ms": 286.048,
+          "p95_ms": 311.069,
+          "fits_500ms": true
+        },
+        "LexicalSimilarity_N10": {
+          "auroc": 0.6433333333333333,
+          "auprc": 0.5584454189601249,
+          "prr": -0.010148362007714044,
+          "p50_ms": 1292.821,
+          "p95_ms": 1321.648,
+          "fits_500ms": false
+        },
+        "DiscreteSemanticEntropy_N5": {
+          "auroc": 0.7,
+          "auprc": 0.7159649122807017,
+          "prr": -0.06548071631153195,
+          "p50_ms": 248.838,
+          "p95_ms": 530.302,
+          "fits_500ms": false
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "auroc": 0.7633333333333334,
+          "auprc": 0.7395048482219535,
+          "prr": 0.3575157432854374,
+          "p50_ms": 556.637,
+          "p95_ms": 1809.418,
+          "fits_500ms": false
+        },
+        "EigV_N5": {
+          "auroc": 0.76,
+          "auprc": 0.679381685565896,
+          "prr": 0.5336187054913175,
+          "p50_ms": 712.937,
+          "p95_ms": 721.134,
+          "fits_500ms": false
+        },
+        "EigV_N10": {
+          "auroc": 0.8466666666666667,
+          "auprc": 0.8392038027332144,
+          "prr": 0.7636430943055932,
+          "p50_ms": 3232.953,
+          "p95_ms": 3257.475,
+          "fits_500ms": false
+        },
+        "NumSemanticSetUncertainty_N5": {
+          "auroc": 0.7066666666666667,
+          "auprc": 0.719298245614035,
+          "prr": -0.06548071631153195,
+          "p50_ms": 246.856,
+          "p95_ms": 430.9,
+          "fits_500ms": true
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "auroc": 0.7766666666666666,
+          "auprc": 0.7457386363636362,
+          "prr": 0.3434785482717589,
+          "p50_ms": 556.476,
+          "p95_ms": 1813.693,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N5": {
+          "auroc": 0.6633333333333333,
+          "auprc": 0.4949169810237921,
+          "prr": 0.028413194052995396,
+          "p50_ms": 1066.135,
+          "p95_ms": 1076.398,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N10": {
+          "auroc": 0.72,
+          "auprc": 0.5023466117216117,
+          "prr": 0.21164761134142074,
+          "p50_ms": 3198.288,
+          "p95_ms": 3221.945,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N5": {
+          "auroc": 0.6633333333333333,
+          "auprc": 0.45571544210863096,
+          "prr": 0.054449457568288694,
+          "p50_ms": 710.322,
+          "p95_ms": 714.952,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N10": {
+          "auroc": 0.7333333333333334,
+          "auprc": 0.5148528773857721,
+          "prr": 0.251728943563905,
+          "p50_ms": 3194.533,
+          "p95_ms": 3214.972,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N5": {
+          "auroc": 0.7466666666666667,
+          "auprc": 0.6325174850948845,
+          "prr": 0.4623465689042378,
+          "p50_ms": 1064.947,
+          "p95_ms": 1079.963,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N10": {
+          "auroc": 0.8,
+          "auprc": 0.7929071173924115,
+          "prr": 0.6895874190814872,
+          "p50_ms": 3198.872,
+          "p95_ms": 3225.746,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N5": {
+          "auroc": 0.76,
+          "auprc": 0.679381685565896,
+          "prr": 0.5336187054913175,
+          "p50_ms": 713.069,
+          "p95_ms": 720.533,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "auroc": 0.8266666666666667,
+          "auprc": 0.8306984707758701,
+          "prr": 0.7446600811419837,
+          "p50_ms": 3199.419,
+          "p95_ms": 3226.549,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N5": {
+          "auroc": 0.6699999999999999,
+          "auprc": 0.6763570691434468,
+          "prr": -0.17137927306894782,
+          "p50_ms": 612.701,
+          "p95_ms": 616.94,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N10": {
+          "auroc": 0.72,
+          "auprc": 0.6944393351746293,
+          "prr": 0.1147749659291838,
+          "p50_ms": 2753.017,
+          "p95_ms": 2780.506,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N5": {
+          "auroc": 0.76,
+          "auprc": 0.679381685565896,
+          "prr": 0.5336187054913175,
+          "p50_ms": 709.691,
+          "p95_ms": 718.415,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N10": {
+          "auroc": 0.8466666666666667,
+          "auprc": 0.8392038027332144,
+          "prr": 0.7636430943055932,
+          "p50_ms": 3199.3,
+          "p95_ms": 3227.169,
+          "fits_500ms": false
+        },
+        "VerbalizedConfidence_N5": {
+          "auroc": 0.66,
+          "auprc": 0.6868611404225216,
+          "prr": 0.07884520015111614,
+          "p50_ms": 232.004,
+          "p95_ms": 1399.148,
+          "fits_500ms": false
+        },
+        "VerbalizedConfidence_N10": {
+          "auroc": 0.66,
+          "auprc": 0.6868611404225216,
+          "prr": 0.07884520015111614,
+          "p50_ms": 232.201,
+          "p95_ms": 1405.457,
+          "fits_500ms": false
+        },
+        "PTrue_N5": {
+          "auroc": 0.65,
+          "auprc": 0.4442677497940656,
+          "prr": 0.0704989100608138,
+          "p50_ms": 52.168,
+          "p95_ms": 66.134,
+          "fits_500ms": true
+        },
+        "PTrue_N10": {
+          "auroc": 0.65,
+          "auprc": 0.4442677497940656,
+          "prr": 0.0704989100608138,
+          "p50_ms": 51.907,
+          "p95_ms": 66.018,
+          "fits_500ms": true
+        }
+      }
+    }
+  ],
+  "wall_seconds": 830.3
+}

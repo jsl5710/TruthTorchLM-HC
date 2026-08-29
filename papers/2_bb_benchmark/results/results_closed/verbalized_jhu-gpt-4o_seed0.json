@@ -1,0 +1,92 @@
+{
+  "generator_key": "jhu-gpt-4o",
+  "model": "openai/gpt-4o",
+  "method": "VerbalizedConfidence",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "trivia_qa",
+      "n_items": 60,
+      "n_positive": 52,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.6767,
+          "auprc": 0.2347,
+          "ece": 0.072,
+          "mce": 1.0,
+          "brier": 0.133
+        }
+      }
+    },
+    {
+      "dataset": "bioasq",
+      "n_items": 70,
+      "n_positive": 45,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.6476,
+          "auprc": 0.4411,
+          "ece": 0.0012,
+          "mce": 0.0015,
+          "brier": 0.201
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 50,
+      "n_positive": 45,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.6156,
+          "auprc": 0.3059,
+          "ece": 0.0544,
+          "mce": 0.3968,
+          "brier": 0.0952
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 66,
+      "n_positive": 65,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.8846,
+          "auprc": 0.0667,
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.0141
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 54,
+      "n_positive": 46,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.8139,
+          "auprc": 0.4509,
+          "ece": 0.053,
+          "mce": 1.0,
+          "brier": 0.1277
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 40,
+      "n_positive": 13,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.7835,
+          "auprc": 0.875,
+          "ece": 0.1054,
+          "mce": 0.3333,
+          "brier": 0.1985
+        }
+      }
+    }
+  ]
+}

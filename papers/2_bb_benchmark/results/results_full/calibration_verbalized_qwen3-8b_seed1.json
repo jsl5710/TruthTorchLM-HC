@@ -1,0 +1,90 @@
+{
+  "generator": "qwen3-8b",
+  "seed": 1,
+  "cells": [
+    {
+      "dataset": "natural_qa",
+      "n_items": 150,
+      "n_positive": 76,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.2501,
+          "auroc": 0.5,
+          "cross_fitted": true
+        },
+        "PTrue_N1": {
+          "ece": 0.0654,
+          "mce": 0.5,
+          "brier": 0.2066,
+          "auroc": 0.7182,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "pop_qa",
+      "n_items": 150,
+      "n_positive": 57,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.2357,
+          "auroc": 0.5,
+          "cross_fitted": true
+        },
+        "PTrue_N1": {
+          "ece": 0.0437,
+          "mce": 0.3249,
+          "brier": 0.2268,
+          "auroc": 0.6007,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "trivia_qa",
+      "n_items": 149,
+      "n_positive": 65,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.246,
+          "auroc": 0.5,
+          "cross_fitted": true
+        },
+        "PTrue_N1": {
+          "ece": 0.1002,
+          "mce": 0.4889,
+          "brier": 0.2176,
+          "auroc": 0.7304,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 150,
+      "n_positive": 79,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.2494,
+          "auroc": 0.5,
+          "cross_fitted": true
+        },
+        "PTrue_N1": {
+          "ece": 0.0671,
+          "mce": 0.4085,
+          "brier": 0.2335,
+          "auroc": 0.6466,
+          "cross_fitted": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1200 @@
+{
+  "target": "mistralai/Mistral-7B-Instruct-v0.3",
+  "generator_key": "mistral-7b",
+  "judge": "Qwen/Qwen3-4B-Instruct-2507",
+  "thinking": "off",
+  "n_max": 10,
+  "n_sweep": [
+    1,
+    5,
+    10
+  ],
+  "seed": 1,
+  "cells": [
+    {
+      "dataset": "trivia_qa",
+      "n_items": 150,
+      "n_positive": 88,
+      "n_dropped": 0,
+      "rows": {
+        "LexicalSimilarity_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7933333333333333,
+          "prr": -0.11440719442188504,
+          "p50_ms": 0.058,
+          "p95_ms": 0.071,
+          "fits_500ms": true
+        },
+        "LexicalSimilarity_N5": {
+          "auroc": 0.6815432551319648,
+          "auprc": 0.7509525777029166,
+          "prr": 0.35448118413027907,
+          "p50_ms": 5225.064,
+          "p95_ms": 7533.603,
+          "fits_500ms": false
+        },
+        "LexicalSimilarity_N10": {
+          "auroc": 0.6853005865102639,
+          "auprc": 0.7409116704833028,
+          "prr": 0.34622580202763265,
+          "p50_ms": 22661.544,
+          "p95_ms": 28121.867,
+          "fits_500ms": false
+        },
+        "DiscreteSemanticEntropy_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7933333333333333,
+          "prr": -0.11440719442188504,
+          "p50_ms": 0.103,
+          "p95_ms": 0.112,
+          "fits_500ms": true
+        },
+        "DiscreteSemanticEntropy_N5": {
+          "auroc": 0.6747617302052786,
+          "auprc": 0.8124846759210804,
+          "prr": 0.18951395856668293,
+          "p50_ms": 241.458,
+          "p95_ms": 544.807,
+          "fits_500ms": false
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "auroc": 0.6693548387096775,
+          "auprc": 0.8072068637453378,
+          "prr": 0.20750040581862805,
+          "p50_ms": 543.677,
+          "p95_ms": 1665.306,
+          "fits_500ms": false
+        },
+        "EigV_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7933333333333333,
+          "prr": -0.11440719442188504,
+          "p50_ms": 0.117,
+          "p95_ms": 0.132,
+          "fits_500ms": true
+        },
+        "EigV_N5": {
+          "auroc": 0.7083944281524925,
+          "auprc": 0.7253128526643037,
+          "prr": 0.3866282147009158,
+          "p50_ms": 706.553,
+          "p95_ms": 713.206,
+          "fits_500ms": false
+        },
+        "EigV_N10": {
+          "auroc": 0.7153592375366569,
+          "auprc": 0.737826171368359,
+          "prr": 0.4182700989269128,
+          "p50_ms": 3181.193,
+          "p95_ms": 3199.851,
+          "fits_500ms": false
+        },
+        "NumSemanticSetUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7933333333333333,
+          "prr": -0.11440719442188504,
+          "p50_ms": 0.058,
+          "p95_ms": 0.066,
+          "fits_500ms": true
+        },
+        "NumSemanticSetUncertainty_N5": {
+          "auroc": 0.6721957478005864,
+          "auprc": 0.8117139077853364,
+          "prr": 0.1887934329995088,
+          "p50_ms": 242.786,
+          "p95_ms": 540.604,
+          "fits_500ms": false
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "auroc": 0.6679802052785924,
+          "auprc": 0.8068919946234261,
+          "prr": 0.20393093122158484,
+          "p50_ms": 548.396,
+          "p95_ms": 1694.182,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N1": {
+          "auroc": 0.594024926686217,
+          "auprc": 0.8000018477457502,
+          "prr": 0.10916159222101564,
+          "p50_ms": 71.017,
+          "p95_ms": 72.454,
+          "fits_500ms": true
+        },
+        "EccentricityConfidence_N5": {
+          "auroc": 0.71875,
+          "auprc": 0.7391352530858266,
+          "prr": 0.42435870842034934,
+          "p50_ms": 1091.442,
+          "p95_ms": 1148.362,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N10": {
+          "auroc": 0.717741935483871,
+          "auprc": 0.7439739766855226,
+          "prr": 0.4240278304380828,
+          "p50_ms": 3247.959,
+          "p95_ms": 3449.85,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7933333333333333,
+          "prr": -0.11440719442188504,
+          "p50_ms": 0.14,
+          "p95_ms": 0.15,
+          "fits_500ms": true
+        },
+        "EccentricityUncertainty_N5": {
+          "auroc": 0.7214076246334311,
+          "auprc": 0.7471397807264357,
+          "prr": 0.44316683895932213,
+          "p50_ms": 708.56,
+          "p95_ms": 721.675,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N10": {
+          "auroc": 0.717283724340176,
+          "auprc": 0.7065645673824071,
+          "prr": 0.31866021429751373,
+          "p50_ms": 3181.02,
+          "p95_ms": 3206.755,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N1": {
+          "auroc": 0.6499266862170088,
+          "auprc": 0.6955309835718817,
+          "prr": 0.3084180606971268,
+          "p50_ms": 70.259,
+          "p95_ms": 70.985,
+          "fits_500ms": true
+        },
+        "MatrixDegreeConfidence_N5": {
+          "auroc": 0.7098607038123166,
+          "auprc": 0.7227416132143529,
+          "prr": 0.3806882034794607,
+          "p50_ms": 1062.447,
+          "p95_ms": 1070.572,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N10": {
+          "auroc": 0.721041055718475,
+          "auprc": 0.7458500336296996,
+          "prr": 0.43772400480162155,
+          "p50_ms": 3177.338,
+          "p95_ms": 3252.495,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7933333333333333,
+          "prr": -0.11440719442188504,
+          "p50_ms": 0.091,
+          "p95_ms": 0.102,
+          "fits_500ms": true
+        },
+        "MatrixDegreeUncertainty_N5": {
+          "auroc": 0.7102272727272727,
+          "auprc": 0.7257433292034294,
+          "prr": 0.3880331186107953,
+          "p50_ms": 724.289,
+          "p95_ms": 759.972,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "auroc": 0.7153592375366569,
+          "auprc": 0.7375907496536894,
+          "prr": 0.4177588694902816,
+          "p50_ms": 3395.88,
+          "p95_ms": 3716.933,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7933333333333333,
+          "prr": -0.11440719442188504,
+          "p50_ms": 0.122,
+          "p95_ms": 0.144,
+          "fits_500ms": true
+        },
+        "KernelLanguageEntropy_N5": {
+          "auroc": 0.7461510263929618,
+          "auprc": 0.8261739161779542,
+          "prr": 0.5528929714867988,
+          "p50_ms": 618.343,
+          "p95_ms": 624.847,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N10": {
+          "auroc": 0.7441348973607038,
+          "auprc": 0.8218493054156379,
+          "prr": 0.5766720848672012,
+          "p50_ms": 2778.217,
+          "p95_ms": 2797.968,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7933333333333333,
+          "prr": -0.11440719442188504,
+          "p50_ms": 0.115,
+          "p95_ms": 0.136,
+          "fits_500ms": true
+        },
+        "SumEigenUncertainty_N5": {
+          "auroc": 0.7083944281524925,
+          "auprc": 0.7253128526643037,
+          "prr": 0.3866282147009158,
+          "p50_ms": 719.177,
+          "p95_ms": 727.186,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N10": {
+          "auroc": 0.7153592375366569,
+          "auprc": 0.737826171368359,
+          "prr": 0.4182700989269128,
+          "p50_ms": 3230.086,
+          "p95_ms": 3254.174,
+          "fits_500ms": false
+        },
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.5807368035190615,
+          "auprc": 0.7916517073483246,
+          "prr": -0.11467446706964766,
+          "p50_ms": 132.013,
+          "p95_ms": 134.585,
+          "fits_500ms": true
+        },
+        "VerbalizedConfidence_N5": {
+          "auroc": 0.5807368035190615,
+          "auprc": 0.7916517073483246,
+          "prr": -0.11467446706964766,
+          "p50_ms": 131.847,
+          "p95_ms": 134.222,
+          "fits_500ms": true
+        },
+        "VerbalizedConfidence_N10": {
+          "auroc": 0.5807368035190615,
+          "auprc": 0.7916517073483246,
+          "prr": -0.11467446706964766,
+          "p50_ms": 131.792,
+          "p95_ms": 134.03,
+          "fits_500ms": true
+        },
+        "PTrue_N1": {
+          "auroc": 0.5046737536656891,
+          "auprc": 0.5434037959225512,
+          "prr": -0.22221085199100757,
+          "p50_ms": 37.25,
+          "p95_ms": 46.71,
+          "fits_500ms": true
+        },
+        "PTrue_N5": {
+          "auroc": 0.4876282991202346,
+          "auprc": 0.5481395425195525,
+          "prr": -0.15044633974040317,
+          "p50_ms": 56.484,
+          "p95_ms": 97.277,
+          "fits_500ms": true
+        },
+        "PTrue_N10": {
+          "auroc": 0.4876282991202346,
+          "auprc": 0.5481395425195525,
+          "prr": -0.15044633974040317,
+          "p50_ms": 56.532,
+          "p95_ms": 97.93,
+          "fits_500ms": true
+        }
+      }
+    },
+    {
+      "dataset": "natural_qa",
+      "n_items": 149,
+      "n_positive": 88,
+      "n_dropped": 1,
+      "rows": {
+        "LexicalSimilarity_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7953020134228188,
+          "prr": -0.013146440243201246,
+          "p50_ms": 0.058,
+          "p95_ms": 0.065,
+          "fits_500ms": true
+        },
+        "LexicalSimilarity_N5": {
+          "auroc": 0.6666356184798807,
+          "auprc": 0.7528177721469356,
+          "prr": 0.3855121967839142,
+          "p50_ms": 292.241,
+          "p95_ms": 3043.671,
+          "fits_500ms": false
+        },
+        "LexicalSimilarity_N10": {
+          "auroc": 0.6857302533532041,
+          "auprc": 0.7588574835858705,
+          "prr": 0.4680106732150582,
+          "p50_ms": 13351.921,
+          "p95_ms": 20370.027,
+          "fits_500ms": false
+        },
+        "DiscreteSemanticEntropy_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7953020134228188,
+          "prr": -0.013146440243201246,
+          "p50_ms": 0.105,
+          "p95_ms": 0.115,
+          "fits_500ms": true
+        },
+        "DiscreteSemanticEntropy_N5": {
+          "auroc": 0.6626304023845007,
+          "auprc": 0.8225129110394795,
+          "prr": 0.29682790543956156,
+          "p50_ms": 247.821,
+          "p95_ms": 445.968,
+          "fits_500ms": true
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "auroc": 0.6795827123695976,
+          "auprc": 0.8162413757336039,
+          "prr": 0.3083516843785001,
+          "p50_ms": 562.724,
+          "p95_ms": 1197.085,
+          "fits_500ms": false
+        },
+        "EigV_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7953020134228188,
+          "prr": -0.013146440243201246,
+          "p50_ms": 0.121,
+          "p95_ms": 0.136,
+          "fits_500ms": true
+        },
+        "EigV_N5": {
+          "auroc": 0.6902011922503726,
+          "auprc": 0.7530760675607187,
+          "prr": 0.4457656817059803,
+          "p50_ms": 726.946,
+          "p95_ms": 751.832,
+          "fits_500ms": false
+        },
+        "EigV_N10": {
+          "auroc": 0.7257824143070045,
+          "auprc": 0.7777694716667967,
+          "prr": 0.5090517118935889,
+          "p50_ms": 3261.82,
+          "p95_ms": 3310.448,
+          "fits_500ms": false
+        },
+        "NumSemanticSetUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7953020134228188,
+          "prr": -0.013146440243201246,
+          "p50_ms": 0.057,
+          "p95_ms": 0.066,
+          "fits_500ms": true
+        },
+        "NumSemanticSetUncertainty_N5": {
+          "auroc": 0.6643070044709389,
+          "auprc": 0.8231485402435677,
+          "prr": 0.2982358156655216,
+          "p50_ms": 247.664,
+          "p95_ms": 441.576,
+          "fits_500ms": true
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "auroc": 0.6742734724292101,
+          "auprc": 0.8146773101721405,
+          "prr": 0.2989268057165894,
+          "p50_ms": 558.722,
+          "p95_ms": 1189.307,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N1": {
+          "auroc": 0.5831780923994039,
+          "auprc": 0.8026148434084543,
+          "prr": 0.1871827616690616,
+          "p50_ms": 72.195,
+          "p95_ms": 78.511,
+          "fits_500ms": true
+        },
+        "EccentricityConfidence_N5": {
+          "auroc": 0.7260618479880775,
+          "auprc": 0.7782431356393165,
+          "prr": 0.5124836796572866,
+          "p50_ms": 1095.187,
+          "p95_ms": 1123.059,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N10": {
+          "auroc": 0.7116244411326379,
+          "auprc": 0.7551928096652807,
+          "prr": 0.45492791728634807,
+          "p50_ms": 3316.456,
+          "p95_ms": 3376.351,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7953020134228188,
+          "prr": -0.013146440243201246,
+          "p50_ms": 0.144,
+          "p95_ms": 0.175,
+          "fits_500ms": true
+        },
+        "EccentricityUncertainty_N5": {
+          "auroc": 0.6976527570789866,
+          "auprc": 0.7583186501238139,
+          "prr": 0.4595775314535778,
+          "p50_ms": 733.774,
+          "p95_ms": 752.823,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N10": {
+          "auroc": 0.7456222056631893,
+          "auprc": 0.7980988458569669,
+          "prr": 0.5596843145156439,
+          "p50_ms": 3302.423,
+          "p95_ms": 3341.902,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N1": {
+          "auroc": 0.7039865871833085,
+          "auprc": 0.7654728976716471,
+          "prr": 0.47854987996557863,
+          "p50_ms": 72.971,
+          "p95_ms": 77.553,
+          "fits_500ms": true
+        },
+        "MatrixDegreeConfidence_N5": {
+          "auroc": 0.7267138599105812,
+          "auprc": 0.7748466681728454,
+          "prr": 0.5021136598983523,
+          "p50_ms": 1100.502,
+          "p95_ms": 1121.638,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N10": {
+          "auroc": 0.7078986587183309,
+          "auprc": 0.7437803989507425,
+          "prr": 0.42881828978178804,
+          "p50_ms": 3297.552,
+          "p95_ms": 3328.843,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7953020134228188,
+          "prr": -0.013146440243201246,
+          "p50_ms": 0.101,
+          "p95_ms": 0.242,
+          "fits_500ms": true
+        },
+        "MatrixDegreeUncertainty_N5": {
+          "auroc": 0.6909463487332339,
+          "auprc": 0.7535897028314933,
+          "prr": 0.4471409921595788,
+          "p50_ms": 735.688,
+          "p95_ms": 752.022,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "auroc": 0.724478390461997,
+          "auprc": 0.7763215469710095,
+          "prr": 0.505784985380693,
+          "p50_ms": 3297.047,
+          "p95_ms": 3351.934,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7953020134228188,
+          "prr": -0.013146440243201246,
+          "p50_ms": 0.122,
+          "p95_ms": 0.151,
+          "fits_500ms": true
+        },
+        "KernelLanguageEntropy_N5": {
+          "auroc": 0.7038002980625931,
+          "auprc": 0.7799702154888271,
+          "prr": 0.37594507965355095,
+          "p50_ms": 625.025,
+          "p95_ms": 641.996,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N10": {
+          "auroc": 0.7303464977645305,
+          "auprc": 0.7945224753049624,
+          "prr": 0.5208378197468567,
+          "p50_ms": 2826.069,
+          "p95_ms": 2859.212,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.7953020134228188,
+          "prr": -0.013146440243201246,
+          "p50_ms": 0.117,
+          "p95_ms": 0.147,
+          "fits_500ms": true
+        },
+        "SumEigenUncertainty_N5": {
+          "auroc": 0.6902011922503726,
+          "auprc": 0.7530760675607187,
+          "prr": 0.4457656817059803,
+          "p50_ms": 734.229,
+          "p95_ms": 752.667,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N10": {
+          "auroc": 0.7257824143070045,
+          "auprc": 0.7777694716667967,
+          "prr": 0.5090517118935889,
+          "p50_ms": 3299.4,
+          "p95_ms": 3358.875,
+          "fits_500ms": false
+        },
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.6179210134128168,
+          "auprc": 0.8094394163585262,
+          "prr": 0.2570984548596806,
+          "p50_ms": 133.566,
+          "p95_ms": 140.312,
+          "fits_500ms": true
+        },
+        "VerbalizedConfidence_N5": {
+          "auroc": 0.6179210134128168,
+          "auprc": 0.8094394163585262,
+          "prr": 0.2570984548596806,
+          "p50_ms": 135.078,
+          "p95_ms": 139.129,
+          "fits_500ms": true
+        },
+        "VerbalizedConfidence_N10": {
+          "auroc": 0.6179210134128168,
+          "auprc": 0.8094394163585262,
+          "prr": 0.2570984548596806,
+          "p50_ms": 135.007,
+          "p95_ms": 141.956,
+          "fits_500ms": true
+        },
+        "PTrue_N1": {
+          "auroc": 0.3691318926974665,
+          "auprc": 0.48519251934650365,
+          "prr": -0.44271333585962797,
+          "p50_ms": 38.633,
+          "p95_ms": 55.129,
+          "fits_500ms": true
+        },
+        "PTrue_N5": {
+          "auroc": 0.5685543964232489,
+          "auprc": 0.6168028076095298,
+          "prr": 0.06969588994863972,
+          "p50_ms": 63.991,
+          "p95_ms": 142.185,
+          "fits_500ms": true
+        },
+        "PTrue_N10": {
+          "auroc": 0.5685543964232489,
+          "auprc": 0.6168028076095298,
+          "prr": 0.06969588994863972,
+          "p50_ms": 63.824,
+          "p95_ms": 139.258,
+          "fits_500ms": true
+        }
+      }
+    },
+    {
+      "dataset": "pop_qa",
+      "n_items": 149,
+      "n_positive": 55,
+      "n_dropped": 1,
+      "rows": {
+        "LexicalSimilarity_N1": {
+          "auroc": 0.5,
+          "auprc": 0.6845637583892618,
+          "prr": 0.02340829578708953,
+          "p50_ms": 0.055,
+          "p95_ms": 0.076,
+          "fits_500ms": true
+        },
+        "LexicalSimilarity_N5": {
+          "auroc": 0.719825918762089,
+          "auprc": 0.5521789779748867,
+          "prr": 0.358562371812299,
+          "p50_ms": 281.935,
+          "p95_ms": 300.923,
+          "fits_500ms": true
+        },
+        "LexicalSimilarity_N10": {
+          "auroc": 0.7274661508704061,
+          "auprc": 0.577325152521492,
+          "prr": 0.41975349163934106,
+          "p50_ms": 1274.002,
+          "p95_ms": 1314.861,
+          "fits_500ms": false
+        },
+        "DiscreteSemanticEntropy_N1": {
+          "auroc": 0.5,
+          "auprc": 0.6845637583892618,
+          "prr": 0.02340829578708953,
+          "p50_ms": 0.103,
+          "p95_ms": 0.133,
+          "fits_500ms": true
+        },
+        "DiscreteSemanticEntropy_N5": {
+          "auroc": 0.6536750483558994,
+          "auprc": 0.6550343427104597,
+          "prr": 0.2359117966045672,
+          "p50_ms": 254.002,
+          "p95_ms": 572.598,
+          "fits_500ms": false
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "auroc": 0.6746615087040619,
+          "auprc": 0.6572411488810042,
+          "prr": 0.33794327626859044,
+          "p50_ms": 619.985,
+          "p95_ms": 1950.229,
+          "fits_500ms": false
+        },
+        "EigV_N1": {
+          "auroc": 0.5,
+          "auprc": 0.6845637583892618,
+          "prr": 0.02340829578708953,
+          "p50_ms": 0.121,
+          "p95_ms": 0.133,
+          "fits_500ms": true
+        },
+        "EigV_N5": {
+          "auroc": 0.6622823984526113,
+          "auprc": 0.4618024257709163,
+          "prr": 0.2056350017946414,
+          "p50_ms": 732.058,
+          "p95_ms": 757.64,
+          "fits_500ms": false
+        },
+        "EigV_N10": {
+          "auroc": 0.6876208897485493,
+          "auprc": 0.4965980315789432,
+          "prr": 0.2850739544874719,
+          "p50_ms": 3304.709,
+          "p95_ms": 3347.456,
+          "fits_500ms": false
+        },
+        "NumSemanticSetUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.6845637583892618,
+          "prr": 0.02340829578708953,
+          "p50_ms": 0.057,
+          "p95_ms": 0.078,
+          "fits_500ms": true
+        },
+        "NumSemanticSetUncertainty_N5": {
+          "auroc": 0.6593810444874274,
+          "auprc": 0.6574116658703486,
+          "prr": 0.2481272869304242,
+          "p50_ms": 254.681,
+          "p95_ms": 568.078,
+          "fits_500ms": false
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "auroc": 0.6806576402321083,
+          "auprc": 0.6604807590065855,
+          "prr": 0.3468860601511339,
+          "p50_ms": 624.609,
+          "p95_ms": 1952.699,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N1": {
+          "auroc": 0.5679883945841393,
+          "auprc": 0.6333631349712152,
+          "prr": 0.16188216579488204,
+          "p50_ms": 73.081,
+          "p95_ms": 76.083,
+          "fits_500ms": true
+        },
+        "EccentricityConfidence_N5": {
+          "auroc": 0.65715667311412,
+          "auprc": 0.5080731408344689,
+          "prr": 0.2799197890780236,
+          "p50_ms": 1091.899,
+          "p95_ms": 1109.741,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N10": {
+          "auroc": 0.683752417794971,
+          "auprc": 0.5413079395323332,
+          "prr": 0.34823919147549076,
+          "p50_ms": 3276.241,
+          "p95_ms": 3323.676,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.6845637583892618,
+          "prr": 0.02340829578708953,
+          "p50_ms": 0.143,
+          "p95_ms": 0.174,
+          "fits_500ms": true
+        },
+        "EccentricityUncertainty_N5": {
+          "auroc": 0.6581237911025146,
+          "auprc": 0.5050095440897279,
+          "prr": 0.29434380145346134,
+          "p50_ms": 728.895,
+          "p95_ms": 748.504,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N10": {
+          "auroc": 0.6705996131528046,
+          "auprc": 0.5294632548860343,
+          "prr": 0.33964384041068685,
+          "p50_ms": 3290.666,
+          "p95_ms": 3321.058,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N1": {
+          "auroc": 0.5545454545454546,
+          "auprc": 0.38491661344829753,
+          "prr": 0.010728656151324808,
+          "p50_ms": 72.471,
+          "p95_ms": 75.965,
+          "fits_500ms": true
+        },
+        "MatrixDegreeConfidence_N5": {
+          "auroc": 0.6580270793036751,
+          "auprc": 0.4553391438584985,
+          "prr": 0.18996543136067862,
+          "p50_ms": 1094.029,
+          "p95_ms": 1110.817,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N10": {
+          "auroc": 0.6802707930367505,
+          "auprc": 0.486421714803734,
+          "prr": 0.26510887622066487,
+          "p50_ms": 3280.858,
+          "p95_ms": 3307.277,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.6845637583892618,
+          "prr": 0.02340829578708953,
+          "p50_ms": 0.091,
+          "p95_ms": 0.115,
+          "fits_500ms": true
+        },
+        "MatrixDegreeUncertainty_N5": {
+          "auroc": 0.6591876208897486,
+          "auprc": 0.46003928917306847,
+          "prr": 0.20197653064631105,
+          "p50_ms": 727.736,
+          "p95_ms": 738.735,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "auroc": 0.6806576402321083,
+          "auprc": 0.4917705434697317,
+          "prr": 0.2755859743527959,
+          "p50_ms": 3273.066,
+          "p95_ms": 3299.935,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N1": {
+          "auroc": 0.5,
+          "auprc": 0.6845637583892618,
+          "prr": 0.02340829578708953,
+          "p50_ms": 0.125,
+          "p95_ms": 0.135,
+          "fits_500ms": true
+        },
+        "KernelLanguageEntropy_N5": {
+          "auroc": 0.6457446808510638,
+          "auprc": 0.50804307318173,
+          "prr": 0.20966095973331633,
+          "p50_ms": 612.272,
+          "p95_ms": 621.42,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N10": {
+          "auroc": 0.6522243713733076,
+          "auprc": 0.4991049781810736,
+          "prr": 0.2506010979917622,
+          "p50_ms": 2759.977,
+          "p95_ms": 2786.618,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.6845637583892618,
+          "prr": 0.02340829578708953,
+          "p50_ms": 0.119,
+          "p95_ms": 0.131,
+          "fits_500ms": true
+        },
+        "SumEigenUncertainty_N5": {
+          "auroc": 0.6622823984526113,
+          "auprc": 0.4618024257709163,
+          "prr": 0.2056350017946414,
+          "p50_ms": 718.253,
+          "p95_ms": 727.183,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N10": {
+          "auroc": 0.6876208897485493,
+          "auprc": 0.4965980315789432,
+          "prr": 0.2850739544874719,
+          "p50_ms": 3227.402,
+          "p95_ms": 3271.177,
+          "fits_500ms": false
+        },
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.6409090909090909,
+          "auprc": 0.6309093265905977,
+          "prr": 0.17652316255602657,
+          "p50_ms": 129.892,
+          "p95_ms": 133.937,
+          "fits_500ms": true
+        },
+        "VerbalizedConfidence_N5": {
+          "auroc": 0.6409090909090909,
+          "auprc": 0.6309093265905977,
+          "prr": 0.17652316255602657,
+          "p50_ms": 131.201,
+          "p95_ms": 135.824,
+          "fits_500ms": true
+        },
+        "VerbalizedConfidence_N10": {
+          "auroc": 0.6409090909090909,
+          "auprc": 0.6309093265905977,
+          "prr": 0.17652316255602657,
+          "p50_ms": 129.792,
+          "p95_ms": 134.118,
+          "fits_500ms": true
+        },
+        "PTrue_N1": {
+          "auroc": 0.5028046421663444,
+          "auprc": 0.35855951145366766,
+          "prr": -0.03759680640811992,
+          "p50_ms": 35.216,
+          "p95_ms": 40.55,
+          "fits_500ms": true
+        },
+        "PTrue_N5": {
+          "auroc": 0.495164410058027,
+          "auprc": 0.3436476173893456,
+          "prr": -0.0933789115495475,
+          "p50_ms": 49.489,
+          "p95_ms": 72.056,
+          "fits_500ms": true
+        },
+        "PTrue_N10": {
+          "auroc": 0.495164410058027,
+          "auprc": 0.3436476173893456,
+          "prr": -0.0933789115495475,
+          "p50_ms": 49.069,
+          "p95_ms": 71.966,
+          "fits_500ms": true
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 147,
+      "n_positive": 90,
+      "n_dropped": 3,
+      "rows": {
+        "LexicalSimilarity_N1": {
+          "auroc": 0.5,
+          "auprc": 0.8061224489795918,
+          "prr": -0.20942945458995676,
+          "p50_ms": 0.055,
+          "p95_ms": 0.08,
+          "fits_500ms": true
+        },
+        "LexicalSimilarity_N5": {
+          "auroc": 0.5401559454191033,
+          "auprc": 0.6332805677670046,
+          "prr": 0.03195751446084326,
+          "p50_ms": 4131.319,
+          "p95_ms": 6771.055,
+          "fits_500ms": false
+        },
+        "LexicalSimilarity_N10": {
+          "auroc": 0.5687134502923976,
+          "auprc": 0.6550691093537833,
+          "prr": 0.09292037231942855,
+          "p50_ms": 9584.088,
+          "p95_ms": 20488.016,
+          "fits_500ms": false
+        },
+        "DiscreteSemanticEntropy_N1": {
+          "auroc": 0.5,
+          "auprc": 0.8061224489795918,
+          "prr": -0.20942945458995676,
+          "p50_ms": 0.102,
+          "p95_ms": 0.126,
+          "fits_500ms": true
+        },
+        "DiscreteSemanticEntropy_N5": {
+          "auroc": 0.5760233918128654,
+          "auprc": 0.8079895489327333,
+          "prr": 0.026680273398515135,
+          "p50_ms": 249.441,
+          "p95_ms": 373.768,
+          "fits_500ms": true
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "auroc": 0.5988304093567252,
+          "auprc": 0.8076541619773432,
+          "prr": 0.10109516034883217,
+          "p50_ms": 561.402,
+          "p95_ms": 915.778,
+          "fits_500ms": false
+        },
+        "EigV_N1": {
+          "auroc": 0.5,
+          "auprc": 0.8061224489795918,
+          "prr": -0.20942945458995676,
+          "p50_ms": 0.116,
+          "p95_ms": 0.146,
+          "fits_500ms": true
+        },
+        "EigV_N5": {
+          "auroc": 0.5623781676413255,
+          "auprc": 0.63154385627393,
+          "prr": 0.0431324822311543,
+          "p50_ms": 722.917,
+          "p95_ms": 731.28,
+          "fits_500ms": false
+        },
+        "EigV_N10": {
+          "auroc": 0.6099415204678363,
+          "auprc": 0.6599822076258388,
+          "prr": 0.13484726771373462,
+          "p50_ms": 3254.117,
+          "p95_ms": 3274.499,
+          "fits_500ms": false
+        },
+        "NumSemanticSetUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.8061224489795918,
+          "prr": -0.20942945458995676,
+          "p50_ms": 0.056,
+          "p95_ms": 0.076,
+          "fits_500ms": true
+        },
+        "NumSemanticSetUncertainty_N5": {
+          "auroc": 0.5749512670565302,
+          "auprc": 0.8077232596809738,
+          "prr": 0.024417442310036484,
+          "p50_ms": 248.702,
+          "p95_ms": 376.262,
+          "fits_500ms": true
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "auroc": 0.5945419103313839,
+          "auprc": 0.8065496681323744,
+          "prr": 0.09575115265917958,
+          "p50_ms": 559.546,
+          "p95_ms": 910.051,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N1": {
+          "auroc": 0.5950292397660819,
+          "auprc": 0.8212602749433107,
+          "prr": 0.042082073901101684,
+          "p50_ms": 72.665,
+          "p95_ms": 73.451,
+          "fits_500ms": true
+        },
+        "EccentricityConfidence_N5": {
+          "auroc": 0.5753411306042885,
+          "auprc": 0.6453467117524523,
+          "prr": 0.09796693067215399,
+          "p50_ms": 1082.943,
+          "p95_ms": 1090.677,
+          "fits_500ms": false
+        },
+        "EccentricityConfidence_N10": {
+          "auroc": 0.5888888888888889,
+          "auprc": 0.659927017828613,
+          "prr": 0.13488067618665292,
+          "p50_ms": 3258.208,
+          "p95_ms": 3288.321,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.8061224489795918,
+          "prr": -0.20942945458995676,
+          "p50_ms": 0.14,
+          "p95_ms": 0.169,
+          "fits_500ms": true
+        },
+        "EccentricityUncertainty_N5": {
+          "auroc": 0.5851851851851853,
+          "auprc": 0.6557716250479662,
+          "prr": 0.12670130559804268,
+          "p50_ms": 726.197,
+          "p95_ms": 734.25,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N10": {
+          "auroc": 0.6121832358674464,
+          "auprc": 0.6786992445804397,
+          "prr": 0.19306489498316443,
+          "p50_ms": 3259.188,
+          "p95_ms": 3283.068,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N1": {
+          "auroc": 0.569980506822612,
+          "auprc": 0.6390784323837718,
+          "prr": 0.07228958916064968,
+          "p50_ms": 71.757,
+          "p95_ms": 72.577,
+          "fits_500ms": true
+        },
+        "MatrixDegreeConfidence_N5": {
+          "auroc": 0.5573099415204679,
+          "auprc": 0.6280257598087202,
+          "prr": 0.03198400995393035,
+          "p50_ms": 1080.07,
+          "p95_ms": 1094.169,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N10": {
+          "auroc": 0.5846003898635478,
+          "auprc": 0.6418593845394094,
+          "prr": 0.07530292887973532,
+          "p50_ms": 3238.165,
+          "p95_ms": 3275.505,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.8061224489795918,
+          "prr": -0.20942945458995676,
+          "p50_ms": 0.091,
+          "p95_ms": 0.117,
+          "fits_500ms": true
+        },
+        "MatrixDegreeUncertainty_N5": {
+          "auroc": 0.5606237816764132,
+          "auprc": 0.631014135625104,
+          "prr": 0.041467297929735476,
+          "p50_ms": 723.712,
+          "p95_ms": 732.514,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "auroc": 0.6046783625730994,
+          "auprc": 0.6584222358673263,
+          "prr": 0.12998609665627558,
+          "p50_ms": 3228.854,
+          "p95_ms": 3277.251,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N1": {
+          "auroc": 0.5,
+          "auprc": 0.8061224489795918,
+          "prr": -0.20942945458995676,
+          "p50_ms": 0.125,
+          "p95_ms": 0.139,
+          "fits_500ms": true
+        },
+        "KernelLanguageEntropy_N5": {
+          "auroc": 0.5811890838206627,
+          "auprc": 0.6572143345298591,
+          "prr": 0.09875378992679204,
+          "p50_ms": 616.12,
+          "p95_ms": 624.097,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N10": {
+          "auroc": 0.5972709551656921,
+          "auprc": 0.6649326253415861,
+          "prr": 0.1416740312053289,
+          "p50_ms": 2775.766,
+          "p95_ms": 2801.861,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N1": {
+          "auroc": 0.5,
+          "auprc": 0.8061224489795918,
+          "prr": -0.20942945458995676,
+          "p50_ms": 0.119,
+          "p95_ms": 0.128,
+          "fits_500ms": true
+        },
+        "SumEigenUncertainty_N5": {
+          "auroc": 0.5623781676413255,
+          "auprc": 0.63154385627393,
+          "prr": 0.0431324822311543,
+          "p50_ms": 725.038,
+          "p95_ms": 737.464,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N10": {
+          "auroc": 0.6099415204678363,
+          "auprc": 0.6599822076258388,
+          "prr": 0.13484726771373462,
+          "p50_ms": 3249.304,
+          "p95_ms": 3288.42,
+          "fits_500ms": false
+        },
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.5936647173489278,
+          "auprc": 0.7706695765357882,
+          "prr": 0.08307825575705026,
+          "p50_ms": 132.051,
+          "p95_ms": 134.342,
+          "fits_500ms": true
+        },
+        "VerbalizedConfidence_N5": {
+          "auroc": 0.5936647173489278,
+          "auprc": 0.7706695765357882,
+          "prr": 0.08307825575705026,
+          "p50_ms": 132.082,
+          "p95_ms": 136.217,
+          "fits_500ms": true
+        },
+        "VerbalizedConfidence_N10": {
+          "auroc": 0.5936647173489278,
+          "auprc": 0.7706695765357882,
+          "prr": 0.08307825575705026,
+          "p50_ms": 131.617,
+          "p95_ms": 134.723,
+          "fits_500ms": true
+        },
+        "PTrue_N1": {
+          "auroc": 0.49541910331384015,
+          "auprc": 0.5865469786286084,
+          "prr": -0.10099341003121795,
+          "p50_ms": 39.169,
+          "p95_ms": 50.63,
+          "fits_500ms": true
+        },
+        "PTrue_N5": {
+          "auroc": 0.49493177387914233,
+          "auprc": 0.6046150220322196,
+          "prr": -0.04349249018171028,
+          "p50_ms": 67.606,
+          "p95_ms": 113.594,
+          "fits_500ms": true
+        },
+        "PTrue_N10": {
+          "auroc": 0.49493177387914233,
+          "auprc": 0.6046150220322196,
+          "prr": -0.04349249018171028,
+          "p50_ms": 67.68,
+          "p95_ms": 111.577,
+          "fits_500ms": true
+        }
+      }
+    }
+  ],
+  "wall_seconds": 27963.2
+}

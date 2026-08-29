@@ -1,0 +1,391 @@
+{
+  "generator": "qwen3-1.7b",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "bioasq",
+      "n_items": 150,
+      "n_positive": 141,
+      "rows": {
+        "LexicalSimilarity_N10": {
+          "ece": 0.0239,
+          "mce": 0.8478,
+          "brier": 0.0459,
+          "auroc": 0.7545,
+          "cross_fitted": true
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.0565,
+          "auroc": 0.4929,
+          "cross_fitted": true
+        },
+        "EigV_N10": {
+          "ece": 0.0205,
+          "mce": 0.8333,
+          "brier": 0.0397,
+          "auroc": 0.6942,
+          "cross_fitted": true
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.0565,
+          "auroc": 0.4929,
+          "cross_fitted": true
+        },
+        "EccentricityConfidence_N10": {
+          "ece": 0.0206,
+          "mce": 0.8333,
+          "brier": 0.0392,
+          "auroc": 0.6533,
+          "cross_fitted": true
+        },
+        "EccentricityUncertainty_N10": {
+          "ece": 0.0296,
+          "mce": 0.8333,
+          "brier": 0.0398,
+          "auroc": 0.8645,
+          "cross_fitted": true
+        },
+        "MatrixDegreeConfidence_N10": {
+          "ece": 0.0148,
+          "mce": 0.5,
+          "brier": 0.0351,
+          "auroc": 0.7006,
+          "cross_fitted": true
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "ece": 0.0209,
+          "mce": 0.873,
+          "brier": 0.0405,
+          "auroc": 0.6958,
+          "cross_fitted": true
+        },
+        "KernelLanguageEntropy_N10": {
+          "ece": 0.0048,
+          "mce": 0.6625,
+          "brier": 0.0292,
+          "auroc": 0.751,
+          "cross_fitted": true
+        },
+        "SumEigenUncertainty_N10": {
+          "ece": 0.0205,
+          "mce": 0.8333,
+          "brier": 0.0397,
+          "auroc": 0.6942,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "kqa",
+      "n_items": 145,
+      "n_positive": 80,
+      "rows": {
+        "LexicalSimilarity_N10": {
+          "ece": 0.1018,
+          "mce": 1.0,
+          "brier": 0.2527,
+          "auroc": 0.5591,
+          "cross_fitted": true
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "ece": 0.0342,
+          "mce": 0.3333,
+          "brier": 0.2485,
+          "auroc": 0.5478,
+          "cross_fitted": true
+        },
+        "EigV_N10": {
+          "ece": 0.0566,
+          "mce": 0.333,
+          "brier": 0.2465,
+          "auroc": 0.5715,
+          "cross_fitted": true
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "ece": 0.0203,
+          "mce": 0.2153,
+          "brier": 0.2432,
+          "auroc": 0.5483,
+          "cross_fitted": true
+        },
+        "EccentricityConfidence_N10": {
+          "ece": 0.0661,
+          "mce": 0.5,
+          "brier": 0.2482,
+          "auroc": 0.5597,
+          "cross_fitted": true
+        },
+        "EccentricityUncertainty_N10": {
+          "ece": 0.0628,
+          "mce": 0.3333,
+          "brier": 0.2495,
+          "auroc": 0.5528,
+          "cross_fitted": true
+        },
+        "MatrixDegreeConfidence_N10": {
+          "ece": 0.0408,
+          "mce": 0.836,
+          "brier": 0.2336,
+          "auroc": 0.5785,
+          "cross_fitted": true
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "ece": 0.061,
+          "mce": 0.3331,
+          "brier": 0.2483,
+          "auroc": 0.5729,
+          "cross_fitted": true
+        },
+        "KernelLanguageEntropy_N10": {
+          "ece": 0.0417,
+          "mce": 0.3203,
+          "brier": 0.2403,
+          "auroc": 0.5683,
+          "cross_fitted": true
+        },
+        "SumEigenUncertainty_N10": {
+          "ece": 0.0566,
+          "mce": 0.333,
+          "brier": 0.2465,
+          "auroc": 0.5715,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 104,
+      "rows": {
+        "LexicalSimilarity_N10": {
+          "ece": 0.0487,
+          "mce": 0.5,
+          "brier": 0.2105,
+          "auroc": 0.5441,
+          "cross_fitted": true
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "ece": 0.0342,
+          "mce": 1.0,
+          "brier": 0.1989,
+          "auroc": 0.6059,
+          "cross_fitted": true
+        },
+        "EigV_N10": {
+          "ece": 0.051,
+          "mce": 0.4103,
+          "brier": 0.2011,
+          "auroc": 0.5765,
+          "cross_fitted": true
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "ece": 0.0243,
+          "mce": 0.9,
+          "brier": 0.1972,
+          "auroc": 0.6058,
+          "cross_fitted": true
+        },
+        "EccentricityConfidence_N10": {
+          "ece": 0.0488,
+          "mce": 0.5,
+          "brier": 0.2048,
+          "auroc": 0.5727,
+          "cross_fitted": true
+        },
+        "EccentricityUncertainty_N10": {
+          "ece": 0.0623,
+          "mce": 0.5385,
+          "brier": 0.2047,
+          "auroc": 0.552,
+          "cross_fitted": true
+        },
+        "MatrixDegreeConfidence_N10": {
+          "ece": 0.053,
+          "mce": 0.8837,
+          "brier": 0.2089,
+          "auroc": 0.5707,
+          "cross_fitted": true
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "ece": 0.0506,
+          "mce": 0.6775,
+          "brier": 0.199,
+          "auroc": 0.5773,
+          "cross_fitted": true
+        },
+        "KernelLanguageEntropy_N10": {
+          "ece": 0.0463,
+          "mce": 0.7042,
+          "brier": 0.2079,
+          "auroc": 0.5414,
+          "cross_fitted": true
+        },
+        "SumEigenUncertainty_N10": {
+          "ece": 0.051,
+          "mce": 0.4103,
+          "brier": 0.2011,
+          "auroc": 0.5765,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 72,
+      "rows": {
+        "LexicalSimilarity_N10": {
+          "ece": 0.0395,
+          "mce": 0.1465,
+          "brier": 0.2512,
+          "auroc": 0.5202,
+          "cross_fitted": true
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.2497,
+          "auroc": 0.5,
+          "cross_fitted": true
+        },
+        "EigV_N10": {
+          "ece": 0.0542,
+          "mce": 1.0,
+          "brier": 0.2595,
+          "auroc": 0.4615,
+          "cross_fitted": true
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.2497,
+          "auroc": 0.5,
+          "cross_fitted": true
+        },
+        "EccentricityConfidence_N10": {
+          "ece": 0.055,
+          "mce": 0.4559,
+          "brier": 0.256,
+          "auroc": 0.5121,
+          "cross_fitted": true
+        },
+        "EccentricityUncertainty_N10": {
+          "ece": 0.0954,
+          "mce": 1.0,
+          "brier": 0.2585,
+          "auroc": 0.593,
+          "cross_fitted": true
+        },
+        "MatrixDegreeConfidence_N10": {
+          "ece": 0.0661,
+          "mce": 1.0,
+          "brier": 0.2593,
+          "auroc": 0.4537,
+          "cross_fitted": true
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "ece": 0.0542,
+          "mce": 1.0,
+          "brier": 0.2595,
+          "auroc": 0.4615,
+          "cross_fitted": true
+        },
+        "KernelLanguageEntropy_N10": {
+          "ece": 0.0032,
+          "mce": 0.0032,
+          "brier": 0.2497,
+          "auroc": 0.5064,
+          "cross_fitted": true
+        },
+        "SumEigenUncertainty_N10": {
+          "ece": 0.0542,
+          "mce": 1.0,
+          "brier": 0.2595,
+          "auroc": 0.4615,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "mmlu",
+      "n_items": 150,
+      "n_positive": 86,
+      "rows": {
+        "LexicalSimilarity_N10": {
+          "ece": 0.0279,
+          "mce": 0.8194,
+          "brier": 0.2484,
+          "auroc": 0.5023,
+          "cross_fitted": true
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.2447,
+          "auroc": 0.5,
+          "cross_fitted": true
+        },
+        "EigV_N10": {
+          "ece": 0.0703,
+          "mce": 1.0,
+          "brier": 0.2578,
+          "auroc": 0.4786,
+          "cross_fitted": true
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.2447,
+          "auroc": 0.5,
+          "cross_fitted": true
+        },
+        "EccentricityConfidence_N10": {
+          "ece": 0.0209,
+          "mce": 0.8552,
+          "brier": 0.2509,
+          "auroc": 0.5319,
+          "cross_fitted": true
+        },
+        "EccentricityUncertainty_N10": {
+          "ece": 0.0149,
+          "mce": 1.0,
+          "brier": 0.2533,
+          "auroc": 0.4987,
+          "cross_fitted": true
+        },
+        "MatrixDegreeConfidence_N10": {
+          "ece": 0.0692,
+          "mce": 0.5833,
+          "brier": 0.2553,
+          "auroc": 0.4733,
+          "cross_fitted": true
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "ece": 0.0666,
+          "mce": 0.8084,
+          "brier": 0.2527,
+          "auroc": 0.4786,
+          "cross_fitted": true
+        },
+        "KernelLanguageEntropy_N10": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.2447,
+          "auroc": 0.4942,
+          "cross_fitted": true
+        },
+        "SumEigenUncertainty_N10": {
+          "ece": 0.0703,
+          "mce": 1.0,
+          "brier": 0.2578,
+          "auroc": 0.4786,
+          "cross_fitted": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "generator_key": "jhu-claude-haiku-4.5",
+  "model": "anthropic/claude-haiku-4.5",
+  "method": "VerbalizedConfidence",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "trivia_qa",
+      "n_items": 60,
+      "n_positive": 49,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.859,
+          "auprc": 0.5267,
+          "ece": 0.1185,
+          "mce": 0.6667,
+          "brier": 0.1211
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 44,
+      "n_positive": 43,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 1.0,
+          "auprc": 1.0,
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.0
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 53,
+      "n_positive": 51,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.6716,
+          "auprc": 0.0694,
+          "ece": 0.0355,
+          "mce": 0.1667,
+          "brier": 0.0399
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "n_items": 46,
+      "n_positive": 37,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.8273,
+          "auprc": 0.6329,
+          "ece": 0.1532,
+          "mce": 0.4371,
+          "brier": 0.1205
+        }
+      }
+    },
+    {
+      "dataset": "wikipedia_factual",
+      "n_items": 3,
+      "n_positive": 1,
+      "rows": {
+        "VerbalizedConfidence_N1": {
+          "auroc": 0.0,
+          "auprc": 0.6667,
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.2222
+        }
+      }
+    }
+  ]
+}

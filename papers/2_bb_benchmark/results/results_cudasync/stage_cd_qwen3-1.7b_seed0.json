@@ -1,0 +1,102 @@
+{
+  "target": "Qwen/Qwen3-1.7B",
+  "generator_key": "qwen3-1.7b",
+  "judge": "Qwen/Qwen3-4B-Instruct-2507",
+  "thinking": "off",
+  "n_max": 10,
+  "n_sweep": [
+    5
+  ],
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "trivia_qa",
+      "n_items": 25,
+      "n_positive": 10,
+      "n_dropped": 0,
+      "rows": {
+        "LexicalSimilarity_N5": {
+          "auroc": 0.5666666666666667,
+          "auprc": 0.5770812704499102,
+          "prr": -0.25521774784482143,
+          "p50_ms": 268.483,
+          "p95_ms": 288.859,
+          "fits_500ms": true
+        },
+        "DiscreteSemanticEntropy_N5": {
+          "auroc": 0.7,
+          "auprc": 0.7159649122807017,
+          "prr": -0.06548071631153195,
+          "p50_ms": 244.138,
+          "p95_ms": 525.803,
+          "fits_500ms": false
+        },
+        "EigV_N5": {
+          "auroc": 0.76,
+          "auprc": 0.679381685565896,
+          "prr": 0.5336187054913175,
+          "p50_ms": 707.748,
+          "p95_ms": 717.205,
+          "fits_500ms": false
+        },
+        "NumSemanticSetUncertainty_N5": {
+          "auroc": 0.7066666666666667,
+          "auprc": 0.719298245614035,
+          "prr": -0.06548071631153195,
+          "p50_ms": 244.504,
+          "p95_ms": 428.336,
+          "fits_500ms": true
+        },
+        "EccentricityConfidence_N5": {
+          "auroc": 0.6633333333333333,
+          "auprc": 0.4949169810237921,
+          "prr": 0.028413194052995396,
+          "p50_ms": 1061.477,
+          "p95_ms": 1068.606,
+          "fits_500ms": false
+        },
+        "EccentricityUncertainty_N5": {
+          "auroc": 0.6633333333333333,
+          "auprc": 0.45571544210863096,
+          "prr": 0.054449457568288694,
+          "p50_ms": 706.972,
+          "p95_ms": 713.189,
+          "fits_500ms": false
+        },
+        "MatrixDegreeConfidence_N5": {
+          "auroc": 0.7466666666666667,
+          "auprc": 0.6325174850948845,
+          "prr": 0.4623465689042378,
+          "p50_ms": 1062.448,
+          "p95_ms": 1069.211,
+          "fits_500ms": false
+        },
+        "MatrixDegreeUncertainty_N5": {
+          "auroc": 0.76,
+          "auprc": 0.679381685565896,
+          "prr": 0.5336187054913175,
+          "p50_ms": 707.218,
+          "p95_ms": 710.566,
+          "fits_500ms": false
+        },
+        "KernelLanguageEntropy_N5": {
+          "auroc": 0.6699999999999999,
+          "auprc": 0.6763570691434468,
+          "prr": -0.17137927306894782,
+          "p50_ms": 609.276,
+          "p95_ms": 618.051,
+          "fits_500ms": false
+        },
+        "SumEigenUncertainty_N5": {
+          "auroc": 0.76,
+          "auprc": 0.679381685565896,
+          "prr": 0.5336187054913175,
+          "p50_ms": 704.084,
+          "p95_ms": 711.148,
+          "fits_500ms": false
+        }
+      }
+    }
+  ],
+  "wall_seconds": 162.5
+}

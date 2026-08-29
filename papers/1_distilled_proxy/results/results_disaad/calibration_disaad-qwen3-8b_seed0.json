@@ -1,0 +1,197 @@
+{
+  "generator": "qwen3-8b",
+  "method": "DisAAD",
+  "proxy_path": "/home/jhu/jsalt2026-ext-jlucas32/JasonLucas/outputs/disaad/proxy_qwen3-0.6b_from_qwen3-8b/merged",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "natural",
+      "n_items": 150,
+      "n_positive": 76,
+      "rows": {
+        "DisAAD-au_N1": {
+          "ece": 0.0482,
+          "mce": 0.7775,
+          "brier": 0.2378,
+          "auroc": 0.585,
+          "cross_fitted": true
+        },
+        "DisAAD-eu_N1": {
+          "ece": 0.123,
+          "mce": 1.0,
+          "brier": 0.2737,
+          "auroc": 0.5096,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "pop",
+      "n_items": 150,
+      "n_positive": 57,
+      "rows": {
+        "DisAAD-au_N1": {
+          "ece": 0.1282,
+          "mce": 0.7303,
+          "brier": 0.2371,
+          "auroc": 0.6538,
+          "cross_fitted": true
+        },
+        "DisAAD-eu_N1": {
+          "ece": 0.0345,
+          "mce": 0.5196,
+          "brier": 0.2319,
+          "auroc": 0.5542,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "trivia",
+      "n_items": 149,
+      "n_positive": 65,
+      "rows": {
+        "DisAAD-au_N1": {
+          "ece": 0.0181,
+          "mce": 0.3333,
+          "brier": 0.2495,
+          "auroc": 0.5068,
+          "cross_fitted": true
+        },
+        "DisAAD-eu_N1": {
+          "ece": 0.0295,
+          "mce": 0.4417,
+          "brier": 0.2409,
+          "auroc": 0.5822,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "truthful",
+      "n_items": 150,
+      "n_positive": 79,
+      "rows": {
+        "DisAAD-au_N1": {
+          "ece": 0.0444,
+          "mce": 1.0,
+          "brier": 0.2619,
+          "auroc": 0.4216,
+          "cross_fitted": true
+        },
+        "DisAAD-eu_N1": {
+          "ece": 0.0893,
+          "mce": 1.0,
+          "brier": 0.2637,
+          "auroc": 0.5422,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "bioasq",
+      "n_items": 150,
+      "n_positive": 149,
+      "rows": {
+        "DisAAD-au_N1": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.0062,
+          "auroc": 0.906,
+          "cross_fitted": false
+        },
+        "DisAAD-eu_N1": {
+          "ece": 0.0,
+          "mce": 0.0,
+          "brier": 0.0065,
+          "auroc": 0.6242,
+          "cross_fitted": false
+        }
+      }
+    },
+    {
+      "dataset": "kqa",
+      "n_items": 145,
+      "n_positive": 112,
+      "rows": {
+        "DisAAD-au_N1": {
+          "ece": 0.113,
+          "mce": 0.4409,
+          "brier": 0.1796,
+          "auroc": 0.6107,
+          "cross_fitted": true
+        },
+        "DisAAD-eu_N1": {
+          "ece": 0.0396,
+          "mce": 0.3333,
+          "brier": 0.1789,
+          "auroc": 0.51,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "medlfqa",
+      "n_items": 150,
+      "n_positive": 133,
+      "rows": {
+        "DisAAD-au_N1": {
+          "ece": 0.0359,
+          "mce": 0.5,
+          "brier": 0.1066,
+          "auroc": 0.5369,
+          "cross_fitted": true
+        },
+        "DisAAD-eu_N1": {
+          "ece": 0.0129,
+          "mce": 0.0326,
+          "brier": 0.104,
+          "auroc": 0.4896,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "n_items": 150,
+      "n_positive": 101,
+      "rows": {
+        "DisAAD-au_N1": {
+          "ece": 0.0563,
+          "mce": 0.96,
+          "brier": 0.2286,
+          "auroc": 0.5294,
+          "cross_fitted": true
+        },
+        "DisAAD-eu_N1": {
+          "ece": 0.06,
+          "mce": 1.0,
+          "brier": 0.2355,
+          "auroc": 0.4963,
+          "cross_fitted": true
+        }
+      }
+    },
+    {
+      "dataset": "mmlu",
+      "n_items": 150,
+      "n_positive": 106,
+      "rows": {
+        "DisAAD-au_N1": {
+          "ece": 0.083,
+          "mce": 1.0,
+          "brier": 0.2122,
+          "auroc": 0.5536,
+          "cross_fitted": true
+        },
+        "DisAAD-eu_N1": {
+          "ece": 0.0377,
+          "mce": 1.0,
+          "brier": 0.2175,
+          "auroc": 0.4048,
+          "cross_fitted": true
+        }
+      }
+    }
+  ]
+}

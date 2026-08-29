@@ -1,0 +1,97 @@
+{
+  "generator_key": "qwen3-0.6b-proxy",
+  "teacher": "qwen3-8b",
+  "seed": 1,
+  "rows": [
+    {
+      "dataset": "trivia_qa",
+      "task_type": "QA",
+      "domain": "General",
+      "proxy_acc": 0.1476510067114094,
+      "teacher_acc": 0.436241610738255,
+      "delta": -0.2885906040268456,
+      "n_proxy": 149,
+      "n_teacher": 149
+    },
+    {
+      "dataset": "natural_qa",
+      "task_type": "QA",
+      "domain": "General",
+      "proxy_acc": 0.13513513513513514,
+      "teacher_acc": 0.5066666666666667,
+      "delta": -0.37153153153153157,
+      "n_proxy": 148,
+      "n_teacher": 150
+    },
+    {
+      "dataset": "pop_qa",
+      "task_type": "QA",
+      "domain": "General",
+      "proxy_acc": 0.24,
+      "teacher_acc": 0.38,
+      "delta": -0.14,
+      "n_proxy": 150,
+      "n_teacher": 150
+    },
+    {
+      "dataset": "truthful_qa",
+      "task_type": "QA",
+      "domain": "General",
+      "proxy_acc": 0.2328767123287671,
+      "teacher_acc": 0.5266666666666666,
+      "delta": -0.2937899543378995,
+      "n_proxy": 146,
+      "n_teacher": 150
+    },
+    {
+      "dataset": "medqa",
+      "task_type": "MCQ",
+      "domain": "Health",
+      "proxy_acc": 0.34,
+      "teacher_acc": 0.6733333333333333,
+      "delta": -0.3333333333333333,
+      "n_proxy": 150,
+      "n_teacher": 150
+    },
+    {
+      "dataset": "mmlu_med",
+      "task_type": "MCQ",
+      "domain": "Health",
+      "proxy_acc": 0.41333333333333333,
+      "teacher_acc": 0.7066666666666667,
+      "delta": -0.29333333333333333,
+      "n_proxy": 150,
+      "n_teacher": 150
+    },
+    {
+      "dataset": "kqa",
+      "task_type": "QA",
+      "domain": "Health",
+      "proxy_acc": 0.4068965517241379,
+      "teacher_acc": 0.7724137931034483,
+      "delta": -0.36551724137931035,
+      "n_proxy": 145,
+      "n_teacher": 145
+    },
+    {
+      "dataset": "medlfqa",
+      "task_type": "QA",
+      "domain": "Health",
+      "proxy_acc": 0.4266666666666667,
+      "teacher_acc": 0.8866666666666667,
+      "delta": -0.46,
+      "n_proxy": 150,
+      "n_teacher": 150
+    },
+    {
+      "dataset": "bioasq",
+      "task_type": "QA",
+      "domain": "Health",
+      "proxy_acc": 0.8133333333333334,
+      "teacher_acc": 0.9933333333333333,
+      "delta": -0.17999999999999994,
+      "n_proxy": 150,
+      "n_teacher": 150
+    }
+  ]
+}

@@ -8,6 +8,7 @@ from .eccentricity_uncertainty import EccentricityUncertainty
 from .matrix_degree_uncertainty import MatrixDegreeUncertainty
 from .num_semantic_set_uncertainty import NumSemanticSetUncertainty
 from .discrete_semantic_entropy import DiscreteSemanticEntropy
+from .coi_verbalized import CoIVerbalized
 from .lexical_similarity import LexicalSimilarity
 from .eigv import EigV
 from .spuq import SPUQ

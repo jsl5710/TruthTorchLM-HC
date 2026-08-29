@@ -1,0 +1,62 @@
+{
+  "llama-3.1-8b/trivia_qa": {
+    "n": 149,
+    "pos": 106,
+    "aurocs": {
+      "v0_phi": 0.6857,
+      "1-mean": 0.667,
+      "1-max": 0.6805,
+      "prod": 0.6999,
+      "nOR": 0.3596,
+      "mean_bxr": 0.6867,
+      "min_bxr": 0.7109,
+      "logit_CV": 0.6886
+    },
+    "best": "min_bxr"
+  },
+  "llama-3.1-8b/medlfqa": {
+    "n": 150,
+    "pos": 115,
+    "aurocs": {
+      "v0_phi": 0.5005,
+      "1-mean": 0.5005,
+      "1-max": 0.5153,
+      "prod": 0.5194,
+      "nOR": 0.5216,
+      "mean_bxr": 0.4688,
+      "min_bxr": 0.4796,
+      "logit_CV": 0.4518
+    },
+    "best": "nOR"
+  },
+  "qwen3-8b/trivia_qa": {
+    "n": 149,
+    "pos": 65,
+    "aurocs": {
+      "v0_phi": 0.7897,
+      "1-mean": 0.7874,
+      "1-max": 0.7874,
+      "prod": 0.7874,
+      "nOR": 0.2126,
+      "mean_bxr": 0.7897,
+      "min_bxr": 0.7897,
+      "logit_CV": 0.7831
+    },
+    "best": "v0_phi"
+  },
+  "qwen3-8b/medlfqa": {
+    "n": 150,
+    "pos": 133,
+    "aurocs": {
+      "v0_phi": 0.6566,
+      "1-mean": 0.6566,
+      "1-max": 0.6566,
+      "prod": 0.6566,
+      "nOR": 0.3434,
+      "mean_bxr": 0.6566,
+      "min_bxr": 0.6566,
+      "logit_CV": 0.6314
+    },
+    "best": "v0_phi"
+  }
+}

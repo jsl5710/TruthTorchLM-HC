@@ -1,0 +1,647 @@
+% ==============================================================================
+%  CoI-Verbalized: Chain-of-Interaction Verbalized Confidence
+%  ACL-format paper. Requires the official ACL style files in this directory:
+%    acl.sty, acl_natbib.bst   (from https://github.com/acl-org/acl-style-files)
+%  Compile:  pdflatex main ; bibtex main ; pdflatex main ; pdflatex main
+% ==============================================================================
+\documentclass[11pt]{article}
+
+\usepackage[]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{enumitem}
+
+\newcommand{\best}[1]{\textbf{#1}}
+\newcommand{\nverb}{$n_1$}     % verbalized floor
+\newcommand{\nphi}{$n_3$}      % deterministic phi CoI
+\newcommand{\nyn}{$n_6$}       % decision-framed verify
+\newcommand{\nsc}{$n_7$}       % self-consistency verify
+
+\title{CoI-Verbalized: Discriminative Self-Consistency Verification \\
+Beats Verbalized Confidence on Long-Form Factuality}
+
+\author{Anonymous \\ \texttt{} \\}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Verbalized confidence---asking a language model to rate how likely its own answer is
+correct---is the default black-box uncertainty signal, but it is overconfident and, on
+long-form answers, poorly calibrated. We study \textbf{CoI-Verbalized}, a family of
+pure black-box confidence estimators that judge a \emph{fixed} candidate answer by
+decomposing it into atomic claims and scoring each claim, then aggregating in code. An
+ablation ladder isolates where the signal lives: the self-rated per-claim \emph{risk} used
+by a deterministic aggregation ($\phi$) is the weak link, and replacing it with a
+\emph{discriminative} verification step---a fresh yes/no ``Is this claim correct?'' asked
+once (decision-framed) or $K$ times (self-consistency)---is what matters. Evaluating across
+\textbf{six targets spanning 8B open models to 32B/70B open models to frontier closed models
+(GPT-4o, Claude-Haiku), over up to twelve datasets}, we find the verification advantage is
+\emph{conditional and mechanistic}, not universal: it helps precisely where the verbalized
+baseline is weak or \emph{inverted}. On overconfident closed targets, verbalized confidence
+falls \emph{below chance} on health long-form (GPT-4o AUROC $0.34$), and self-consistency
+verification recovers it to $0.68$ ($+0.34$); on long-form general knowledge it lifts AUROC
+$+0.09$ to $+0.11$ over verbalized. But where the baseline is already strong---short factual
+QA, MCQ, and \emph{every dataset on the strong open 32B/70B targets} (verification wins
+$0/9$)---it adds nothing. Crucially, a strong \emph{open} judge (Llama-70B) still loses health
+long-form to verbalized ($0.64$ vs.\ $0.55$): the win is driven by closed-model
+\emph{overconfidence}, not judge capability. Against established multi-sample baselines
+(semantic entropy, spectral, lexical), CoI-Verbalized is a competitive \emph{single-answer}
+estimator that never resamples the target. We release the method and evaluation harness.
+\end{abstract}
+
+\section{Introduction}
+Deployed systems increasingly consume answers from language models they cannot inspect:
+no logits, no hidden states, no weights, only text. The cheapest confidence signal in
+this setting is \emph{verbalized confidence}~\citep{tian2023just,kadavath2022language}:
+prompt the model to rate, on a $0$--$100$ scale, how likely its answer is correct. It is
+one extra call and needs no training, but it is systematically overconfident, and on
+long-form answers---where correctness is a property of many interacting facts---a single
+global self-rating is a coarse summary of a structured object.
+
+A natural fix is to make the structure explicit. \textbf{Chain-of-Interaction (CoI)}
+verbalized confidence judges a fixed candidate answer $y$ for a query $x$ by (i)
+decomposing $y$ into atomic, independently checkable claims, (ii) gathering evidence and
+an adversarial critique per claim, and (iii) scanning for cross-claim contradictions;
+the confidence \emph{score} is then computed deterministically in code (a fixed-prior
+aggregation $\phi$) rather than self-rated, which removes the same-pass overconfidence of
+plain verbalized confidence. This is attractive in principle, but raises an empirical
+question we answer here: \emph{which part of the chain actually carries the signal?}
+
+We study an ablation ladder (\S\ref{sec:method}) over a six-target grid and report four
+findings (\S\ref{sec:results}).
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item The \textbf{self-rated per-claim risk is the weak link}. The deterministic-$\phi$
+CoI beats verbalized confidence on some short QA but \emph{collapses below it on long-form},
+where each answer contributes many hedged risk scores. Replacing risk with a
+\textbf{discriminative yes/no verification} (once, or $K$ times as self-consistency) is
+what recovers signal.
+\item \textbf{The verification advantage is a minority, not a majority.} Across the full
+suite it beats the best baseline on only $2$--$3$ of $11$ datasets on 8B targets and
+\textbf{$0$ of $9$ on the strong open 32B/70B targets}. Blanket ``decomposition beats
+verbalized confidence'' is false.
+\item \textbf{It helps where the baseline is weak or inverted.} On overconfident
+\emph{closed} targets, verbalized confidence drops below chance and verification recovers
+it---its largest win is health long-form on GPT-4o ($0.34\rightarrow0.68$); closed win-rate
+is $4/6$ (GPT-4o) and $3/5$ (Claude). It also wins long-form general knowledge (where $\phi$
+collapses) on 8B.
+\item \textbf{The mechanism is overconfidence, not judge strength.} A strong \emph{open}
+judge (Llama-70B) still loses health long-form to verbalized ($0.64$ vs.\ $0.55$), whereas
+weaker but \emph{overconfident} closed judges are where verification wins. Judge capability
+does not predict the advantage; baseline inversion does.
+\end{enumerate}
+
+\section{Method: CoI-Verbalized}\label{sec:method}
+All estimators take a query $x$ and a \emph{fixed} candidate answer $y$ (never rewriting
+$y$) and return a confidence in $[0,1]$; higher means more likely correct. They are
+\emph{pure black-box}: they read only text, and the judge model is the target itself. We
+organize them as a ladder of ``interaction chains'' $n$.
+
+\paragraph{$n_1$: Verbalized confidence (floor).} One call: ``Judge how likely $y$ is
+correct; return \{confidence: 0--100\}.'' The standard baseline.
+
+\paragraph{$n_3$: Deterministic $\phi$ (CoI default).} Decompose $y$ into claims; per
+claim, the model returns a \emph{grounding} label (contextual/parametric/inferred), an
+evidence sentence, a counter-argument, and a self-rated \emph{risk} $r\in[0,1]$; a
+consistency chain lists contradictions. Confidence is computed in code:
+each claim scores $s = \mathrm{base}[\text{grounding}]\cdot(1-r)\cdot\text{penalty}$,
+with a fixed prior $\mathrm{base}=\{1.0,0.85,0.65\}$ and a contradiction penalty; claims
+are pooled by a min/mean rule ($\phi$). No training data is used.
+
+\paragraph{$n_6$: Decision-framed verification.} Decompose $y$ into claims; then, instead
+of a self-rated risk, issue a \emph{fresh} discriminative call per claim: ``Is the
+statement factually correct and a correct answer to the question? Answer YES or NO.''
+The per-claim confidence is $1$ for YES and $0$ for NO; claims are pooled by the same
+min/mean rule. One verification call per claim (greedy).
+
+\paragraph{$n_7$: Self-consistency verification.} As $n_6$, but each claim is verified
+$K{=}5$ times at temperature $0.7$; the per-claim confidence is the \emph{YES-vote
+fraction}. The intuition is that hallucinated facts are unstable across samples while
+known facts are stable, so vote entropy discriminates where a single self-rating cannot.
+
+The ladder isolates two design choices: $n_1{\to}n_3$ swaps a global self-rating for a
+structured self-rating; $n_3{\to}n_6$ swaps self-rated \emph{risk} for a discriminative
+\emph{decision}; $n_6{\to}n_7$ adds sampling-based consistency. All chains run with model
+``thinking'' disabled, so latency reflects the estimator, not incidental reasoning.
+
+\section{Experimental Setup}\label{sec:setup}
+\paragraph{Targets.} Six models spanning the capability and access spectrum, each used as
+both generator and its own chain-judge (pure black-box): two \textbf{8B open}
+(Llama-3.1-8B-Instruct, Qwen3-8B), two \textbf{large open} (Qwen3-32B, Llama-3.3-70B,
+4-bit), and two \textbf{frontier closed} accessed via a gateway (GPT-4o, Claude-Haiku-4.5).
+The spread lets us separate judge \emph{capability} from judge \emph{calibration}.
+
+\paragraph{Datasets.} Up to twelve, spanning format (short-factual, long-form, MCQ,
+multi-hop, adversarial) and domain (general, health, math): TriviaQA, NaturalQA, PopQA
+(general short), \textbf{LongFact}~\citep{wei2024longfact} (general long-form, 300 prompts),
+TruthfulQA (adversarial), MedQA/MMLU-Med (MCQ), BioASQ/K-QA (health free), MedLFQA (health
+long-form), GSM8K (math), HotpotQA (multi-hop). Each is 150 items unless noted; closed and
+large-open targets are evaluated on the subset with cached generations (six datasets each).
+Correctness is a gold-grounded LLM judge (Qwen3-4B; letter-match for MCQ); LongFact has no
+gold, so we label factuality with an offline decompose-and-verify judge (Llama-3.3-70B,
+4-bit), correct only if fully factual. Cells whose minority class is $<15$ (e.g.\ BioASQ,
+near-single-class) are marked \emph{degenerate} and excluded from AUROC ranking. Per-dataset
+item and positive counts are in Appendix~\ref{app:stats}.
+
+\paragraph{Baselines.} Beyond verbalized confidence (our $n_1$ rung), we compare against
+three established \emph{pure black-box} estimators from the sampling-consistency family,
+at their standard $N{=}5$ operating point (3-seed means): \textbf{discrete semantic
+entropy} (DSE)~\citep{kuhn2023semantic}, \textbf{lexical similarity} across
+samples, and \textbf{EigV}, a graph-Laplacian spectral score over the sample
+graph~\citep{lin2024generating}. These are \emph{multi-sample}: they resample the target
+answer $N$ times and score the dispersion of the resulting set. They therefore operate in
+a different, more expensive regime than CoI-Verbalized, which scores a single fixed answer
+and never resamples the target; we report them for context and mark them inapplicable
+(``---'') on our single-answer long-form setting, where multi-sample generation was not run.
+
+\paragraph{Protocol.} Generation is cached once per (target, dataset); every estimator
+reads the same cached answers (fair comparison). We report \textbf{AUROC} (discrimination
+of correct vs.\ incorrect), \textbf{ECE} (calibration), and \textbf{median per-item
+latency} measured relative to generator time at batch size~1 with GPU warm-up. Latency is
+a first-class metric: a confidence signal that costs more than the answer is not
+deployable. For the multi-sample baselines, the reported per-method latency excludes the
+$N{-}1$ extra target generations they require upstream.
+
+\section{Results}\label{sec:results}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lc}
+\toprule
+Target & verify wins / valid datasets \\
+\midrule
+Llama-3.1-8B (8B open)   & 3/11 \\
+Qwen3-8B (8B open)       & 2/11 \\
+Qwen3-32B (large open)   & 0/4 \\
+Llama-3.3-70B (large open) & 0/5 \\
+GPT-4o (closed)          & \textbf{4/6} \\
+Claude-Haiku-4.5 (closed) & \textbf{3/5} \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Where verification (\nyn/\nsc) beats the best baseline (\nverb/\nphi),}
+per target, over valid (non-degenerate) datasets. The advantage is a minority on open
+models---and \emph{zero} on the strong 32B/70B open targets---but a majority on the
+overconfident closed targets. Judge capability does not predict the win.}
+\label{tab:winrate}
+\end{table}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lcccc}
+\toprule
+Target & \nverb\ Verb. & \nphi\ $\phi$ & \nyn\ Decis. & \nsc\ SelfC. \\
+\midrule
+Llama-3.1-8B  & \textbf{0.647} & 0.500 & 0.561 & 0.567 \\
+Qwen3-8B      & \textbf{0.678} & 0.657 & 0.492 & 0.521 \\
+Llama-3.3-70B & \textbf{0.635} & 0.477 & 0.553 & 0.547 \\
+GPT-4o        & 0.337 & 0.487 & 0.524 & \textbf{0.675} \\
+Claude-Haiku  & 0.469 & 0.400 & 0.387 & \textbf{0.593} \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{The mechanism, on MedLFQA (health long-form).} On open targets---including
+the strong 70B---verbalized confidence (\nverb) is above chance and \emph{wins}; verification
+loses. On closed targets verbalized confidence is \emph{inverted} (below $0.5$: the model is
+overconfident on wrong answers), and self-consistency verification (\nsc) recovers a strong
+signal ($+0.34$ on GPT-4o). The win tracks baseline inversion, not judge strength.
+(Qwen3-32B degenerate here, excluded.)}
+\label{tab:medlfqa}
+\end{table}
+
+\subsection{The verification advantage is a minority, and conditional}
+Table~\ref{tab:winrate} summarizes the full six-target grid. Discriminative verification
+(\nyn/\nsc) beats the best baseline (\nverb/\nphi) on only $2$--$3$ of $11$ datasets on the
+8B targets, and---strikingly---on \emph{none} of the $9$ valid cells on the strong open
+32B/70B targets (full grid, Appendix~\ref{app:bigopen}), where $\phi$-CoI or verbalized
+confidence are already strong ($0.62$--$0.82$).
+The blanket claim ``decomposed verification beats verbalized confidence'' is false. Two
+regimes buck this: (i) long-form general knowledge, where $\phi$ collapses (below), and
+(ii) the closed targets, where verification wins a majority ($4/6$, $3/5$). The intermediate
+ablation rungs ($n_2,n_4,n_5$) are dominated by $\{n_1,n_3,n_6,n_7\}$ throughout
+(Appendix~\ref{app:ladder}), so we report only the latter here.
+
+\subsection{Self-rated risk collapses on long-form; verification recovers it}
+The deterministic-$\phi$ CoI (\nphi), which aggregates self-rated per-claim \emph{risk}, is
+not robust to answer length: on LongFact it falls to $0.525$/$0.613$ on the 8B
+targets---\emph{below} the plain verbalized floor ($0.540$/$0.623$). A 180-word answer
+decomposes into many claims, each assigned a hedged risk near $0.5$; pooling washes out the
+signal. Replacing risk with a fresh yes/no decision fixes this: on LongFact, self-consistency
+(\nsc) reaches $0.644$/$0.716$, \textbf{$+0.105$/$+0.092$ over verbalized}, holding
+decomposition fixed---the gain is the discriminative read, not the chain structure.
+Self-consistency ($n_7$) edges decision-framing ($n_6$) where real-but-uncertain knowledge
+exists (LongFact $+0.017$/$+0.014$), consistent with sampling instability exposing
+hallucination. Multi-sample baselines (semantic entropy, spectral) are \emph{inapplicable} on
+long-form---they would resample each 180-word answer $N$ times---so the single-answer verify
+rungs are the strongest single-answer signal available there; on short QA, where resampling is
+cheap, the spectral baseline EigV ($0.798$ on Llama/TriviaQA) still leads (Table~\ref{tab:baselines}).
+
+\subsection{The advantage is overconfidence, not judge strength}
+Table~\ref{tab:medlfqa} is the key result. On MedLFQA, every \emph{open} target---8B and the
+strong 70B alike---keeps verbalized confidence above chance ($0.635$--$0.678$), and there
+verification \emph{loses}. On the \emph{closed} targets, verbalized confidence is
+\emph{inverted}: GPT-4o scores $0.337$ and Claude $0.469$, i.e.\ the model is systematically
+\emph{more} confident on its wrong answers. Exactly there, self-consistency verification
+recovers a strong signal---GPT-4o $0.337\rightarrow0.675$ ($+0.34$), Claude
+$0.469\rightarrow0.593$. Because a strong \emph{open} judge (Llama-70B) fails to benefit while
+weaker \emph{closed} judges do, the advantage cannot be attributed to judge capability; it
+tracks \textbf{baseline inversion from closed-model overconfidence}. The same pattern recurs
+across the closed grid (Table~\ref{tab:closed}): verification wins where verbalized confidence
+is near or below chance, and loses where a baseline is already strong (e.g.\ Claude/GSM8K,
+verbalized $0.837$).
+
+\subsection{The latency trade}
+\begin{table}[t]
+\centering\small
+\begin{tabular}{llcccc}
+\toprule
+Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
+\midrule
+Llama & TriviaQA & 259 & 4469 & 1440 & 2299 \\
+Llama & LongFact & 270 & 23639 & 10858 & 18831 \\
+Llama & MedLFQA  & 183 & 5656 & 3719 & 6964 \\
+\midrule
+Qwen  & TriviaQA & 286 & 7576 & 1462 & 2474 \\
+Qwen  & LongFact & 308 & 15656 & 8076 & 12641 \\
+Qwen  & MedLFQA  & 284 & 7672 & 1717 & 2721 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Median per-item latency (ms).} Verbalized (\nverb) is one short call.
+On long-form, discriminative verification (\nyn/\nsc) is both \emph{more accurate and
+faster} than $\phi$-CoI (\nphi), which must emit a large multi-claim JSON object.
+Self-consistency (\nsc) costs $\sim$1.5$\times$ decision-framing (\nyn).}
+\label{tab:latency}
+\end{table}
+Latency (Table~\ref{tab:latency}) makes the case sharper. On LongFact, $\phi$-CoI is the
+slowest estimator ($16$--$24$s/item) because it emits a large structured object per
+answer; the verification rungs produce tiny yes/no completions and run at $8$--$19$s while
+scoring higher. Thus on long-form general knowledge the verification rungs
+\textbf{dominate $\phi$-CoI on both axes} (full latency grid, Appendix~\ref{app:latency}).
+Verbalized confidence remains far cheaper
+($\sim$0.3s) and is the right choice when its lower accuracy is acceptable; self-consistency
+buys $+0.09$--$0.11$ AUROC at a $40$--$60\times$ latency cost over the single call.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{llcccc}
+\toprule
+Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
+\midrule
+\multirow{5}{*}{GPT-4o}
+ & TriviaQA   & 0.512 & 0.500 & 0.525 & \textbf{0.535} \\
+ & TruthfulQA & 0.508 & 0.511 & \textbf{0.530} & 0.513 \\
+ & MedQA      & \textbf{0.591} & 0.545 & 0.471 & 0.521 \\
+ & MedLFQA    & 0.337 & 0.487 & 0.524 & \textbf{0.675} \\
+ & GSM8K      & 0.601 & 0.495 & \textbf{0.643} & 0.378 \\
+\midrule
+\multirow{5}{*}{Claude-H}
+ & TriviaQA   & 0.514 & 0.571 & \textbf{0.588} & 0.569 \\
+ & TruthfulQA & 0.484 & 0.510 & 0.498 & \textbf{0.596} \\
+ & MedQA      & 0.527 & \textbf{0.658} & 0.510 & 0.504 \\
+ & MedLFQA    & 0.469 & 0.400 & 0.387 & \textbf{0.593} \\
+ & GSM8K      & \textbf{0.837} & 0.728 & 0.422 & 0.527 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Closed-target grid} (AUROC; BioASQ omitted as degenerate). Verification
+(\nyn/\nsc) wins where verbalized confidence is near or below chance (MedLFQA, TruthfulQA,
+TriviaQA) and loses where a baseline is already strong (Claude/GSM8K verbalized $0.837$;
+MedQA). The overconfidence pattern---many \nverb\ entries $\le 0.53$---is the closed-target
+signature that verification exploits.}
+\label{tab:closed}
+\end{table}
+
+\subsection{Supporting grids and baselines}
+The full 8B suite (Appendix~\ref{app:suite}, Table~\ref{tab:suite}) shows the pattern in
+detail: verification wins LongFact, HotpotQA and (Llama) GSM8K, while short-factual, MCQ,
+and most health cells go to \nverb\ or \nphi. On the open 8B \emph{and} large targets, MedLFQA
+verbalized confidence stays informative and is the best pure black-box signal of any kind---it
+beats even the multi-sample baselines (Table~\ref{tab:baselines}: best baseline EigV
+$0.62$/$0.53$). Chain inspection explains the open-model behavior: on MedLFQA the 8B per-claim
+self-rated risk is uninformative (mean risk $0.385$ for both correct and incorrect answers) and
+grounding is a near-constant---so $\phi$ collapses, while a \emph{holistic} verbalized judgment
+still separates. What changes on the closed targets is not the chain but the \emph{baseline}:
+the closed model's holistic self-rating inverts (overconfident on errors), and the discriminative
+per-claim vote, which asks a different question than ``how sure are you,'' is no longer dragged
+down with it. The multi-sample baselines (Table~\ref{tab:baselines}) confirm the regime split:
+strong on short QA (they resample the target $N{=}5\times$), inapplicable on long-form.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{llccc}
+\toprule
+Target & Dataset & DSE & LexSim & EigV \\
+\midrule
+Llama-8B & TriviaQA & 0.750 & 0.760 & \textbf{0.798} \\
+Llama-8B & MedLFQA  & 0.513 & 0.582 & 0.623 \\
+Qwen-8B  & TriviaQA & 0.686 & 0.715 & 0.688 \\
+Qwen-8B  & MedLFQA  & 0.524 & 0.484 & 0.526 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Multi-sample baselines} (AUROC, $N{=}5$, 3-seed means): discrete semantic
+entropy, lexical similarity, graph-Laplacian spectral (EigV). They resample the target
+$5\times$ (so cost $5\times$ the answer and are inapplicable to our single-answer long-form
+setting). Strong on short QA; near chance on MedLFQA---where single-call verbalized confidence
+($0.647$/$0.678$, Table~\ref{tab:medlfqa}) beats them.}
+\label{tab:baselines}
+\end{table}
+
+\subsection{Can better aggregation math rescue $\phi$?}
+Because $\phi$'s weakness on long-form is an aggregation of per-claim scores, we asked
+whether a better aggregator recovers signal. Offline, over the cached CoI features, we
+compared the fixed-prior $\phi$ against closed-form pools (mean/max/product of
+$1{-}r$; grounding-weighted min/mean) and a cross-validated logistic regression fit on
+$13$ CoI features (Appendix~\ref{app:agg}). \textbf{No learned or closed-form aggregator
+beats the fixed prior} on any cell: the logistic regression, with more parameters,
+\emph{underperforms} $\phi$ everywhere (e.g.\ Llama/TriviaQA $0.689$ vs.\ $0.686$;
+Qwen/MedLFQA $0.631$ vs.\ $0.657$), overfitting at $n{\approx}150$. And on MedLFQA every
+aggregator sits at $\sim$0.50. The lesson is that the fixed prior is not the bottleneck;
+the \emph{inputs} (self-rated risk) are, which is precisely what the verification rungs
+replace.
+
+\section{Discussion}
+The grid yields a selection rule rather than a universal winner. Discriminative
+self-consistency verification ($n_7$) is the right black-box estimator in exactly two
+situations: (i) \textbf{long-form} answers, where the deterministic-$\phi$ chain collapses and
+verification is the strongest single-answer signal (multi-sample methods being inapplicable);
+and (ii) \textbf{overconfident targets}, diagnosable by a verbalized-confidence AUROC near or
+below $0.5$, where verification recovers a signal the self-rating has inverted---most sharply on
+frontier closed models. Everywhere else---short factual QA, MCQ, and any dataset on a
+well-calibrated strong open model---plain verbalized confidence or $\phi$ is as good or better
+and far cheaper, and one should not pay for decomposition. The practical implication is a cheap
+\emph{router}: measure verbalized confidence's own reliability on held-out data per (target,
+domain), and escalate to verification only where that reliability is poor. The headline is not
+that decomposition wins, but that \emph{its value is predictable from a one-call diagnostic of
+the baseline}, which is what makes it deployable.
+
+\section{Limitations}
+Results are single-seed. The large-open (32B/70B) and closed targets are evaluated on the
+six datasets with cached generations, not the full twelve, so LongFact and multi-hop are
+measured only on 8B---the closed/large columns lack the long-form general cell where 8B
+verification wins most, and the ``overconfidence'' account would be strengthened by a
+long-form general closed cell. The overconfidence diagnosis is correlational: we observe that
+verification wins where verbalized AUROC is low, but do not intervene on calibration directly.
+LongFact correctness is judged by a 70B model without retrieval (parametric factuality, not
+ground truth); absolute AUROCs inherit that noise, though we rely on the relative ordering.
+Verification's calibration (ECE, Appendix~\ref{app:ece}) is worse than verbalized confidence in
+raw scale because votes are coarse; discrimination (AUROC) is our headline and post-hoc
+calibration is orthogonal. Degenerate near-single-class cells (BioASQ) are excluded.
+
+\section{Conclusion}
+Verbalized confidence is a weak but cheap black-box signal, and making its structure explicit
+helps only conditionally. Across six targets and up to twelve datasets, replacing self-rated
+risk with a discriminative self-consistency verification wins a \emph{minority} of
+cells---nothing on strong open 32B/70B models---but wins decisively in two diagnosable regimes:
+long-form answers, where the deterministic chain collapses, and overconfident targets, where
+verbalized confidence inverts (below chance) and verification recovers it, most sharply on
+frontier closed models ($0.34\rightarrow0.68$ on GPT-4o health long-form). The advantage tracks
+\emph{baseline inversion, not judge capability}---a strong open judge still loses where a weaker
+overconfident closed judge wins---so a one-call reliability check on verbalized confidence
+predicts when to escalate. We release the estimators and evaluation harness.
+
+\section*{Acknowledgments}
+This work was done in part at the 2026 Jelinek Memorial Summer Workshop on Speech and
+Language Technology and was supported by NSF CCRI Grant No.\ 2120435, Google DeepMind, the
+JHU Amazon Initiative for Interactive Artificial Intelligence, the JHU Human Language
+Technology Center of Excellence, and the Association for Computational Linguistics.
+
+\bibliographystyle{acl_natbib}
+\bibliography{references}
+
+\appendix
+\section{Full ablation ladder ($n{=}1$--$7$)}\label{app:ladder}
+The main text reports the four informative rungs ($n_1,n_3,n_6,n_7$). Table~\ref{tab:ladder}
+gives all seven, on the two cells where every rung was run. The intermediate self-rating rungs
+are dominated: $n_2$ (per-claim self-rated \emph{confidence}) is noisy---best on Qwen/MedLFQA
+($0.709$) but weak elsewhere; $n_4$ (separate evidence/critique chains) and $n_5$ ($n_4$ plus a
+final self-rating, whose reported $\phi$ score is identical to $n_4$) never beat $n_3$ by more
+than $0.002$. Splitting or re-rating the chain does not help; only the discriminative read
+($n_6/n_7$) or, on short QA, $n_3$ moves the needle. This is why we carry $\{n_1,n_3,n_6,n_7\}$
+forward as the representative ladder.
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{llccccccc}
+\toprule
+Target & Data & $n_1$ & $n_2$ & $n_3$ & $n_4$ & $n_5$ & $n_6$ & $n_7$ \\
+\midrule
+Llama-8B & TriviaQA & 0.659 & 0.662 & 0.686 & 0.688 & 0.688 & \textbf{0.709} & 0.661 \\
+Llama-8B & MedLFQA  & \textbf{0.647} & 0.563 & 0.500 & 0.618 & 0.618 & 0.561 & 0.567 \\
+Qwen-8B  & TriviaQA & 0.727 & 0.719 & \textbf{0.790} & 0.732 & 0.732 & 0.692 & 0.713 \\
+Qwen-8B  & MedLFQA  & 0.678 & \textbf{0.709} & 0.657 & 0.686 & 0.686 & 0.492 & 0.521 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Full ablation ladder}, AUROC. $n_1$ verbalized; $n_2$ per-claim self-rated
+confidence; $n_3$ deterministic $\phi$ over self-rated risk; $n_4$ separate evidence/critique
+chains; $n_5$ adds a final self-rating (reported $\phi$ $\equiv n_4$); $n_6$ decision-framed
+verify; $n_7$ self-consistency verify.}
+\label{tab:ladder}
+\end{table}
+
+\section{Large open targets (32B/70B)}\label{app:bigopen}
+Table~\ref{tab:bigopen} gives the AUROC grid for the strong open targets (4-bit), on the six
+datasets with cached generations. Verification ($n_6/n_7$) wins none of these cells: $\phi$
+($n_3$) leads on general/adversarial/math, and verbalized ($n_1$) on the health cells. MedLFQA
+stays above chance for Llama-70B ($0.635$, $n_1$) and is degenerate for Qwen-32B---the contrast
+with the \emph{inverted} closed targets (Table~\ref{tab:medlfqa}) is the crux of
+\S\ref{sec:results}.
+\begin{table}[h]
+\centering\small
+\begin{tabular}{llcccc}
+\toprule
+Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
+\midrule
+\multirow{5}{*}{Qwen3-32B}
+ & TriviaQA   & 0.685 & \textbf{0.777} & 0.545 & 0.628 \\
+ & TruthfulQA & 0.748 & \textbf{0.759} & 0.662 & 0.701 \\
+ & MedQA      & 0.705 & \textbf{0.772} & 0.533 & 0.609 \\
+ & MedLFQA    & \textbf{0.510} & 0.437 & 0.489 & 0.486 \\
+ & GSM8K      & 0.769 & \textbf{0.815} & 0.563 & 0.631 \\
+\midrule
+\multirow{5}{*}{Llama-3.3-70B}
+ & TriviaQA   & 0.656 & \textbf{0.684} & 0.660 & 0.675 \\
+ & TruthfulQA & \textbf{0.782} & 0.771 & 0.582 & 0.590 \\
+ & MedQA      & \textbf{0.673} & 0.574 & 0.568 & 0.603 \\
+ & MedLFQA    & \textbf{0.635} & 0.477 & 0.553 & 0.547 \\
+ & GSM8K      & 0.610 & \textbf{0.623} & 0.557 & 0.540 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Large open targets} (AUROC, 4-bit, seed 0; BioASQ degenerate, omitted).
+Verification wins $0/10$: strong open judges keep $\phi$/verbalized informative.}
+\label{tab:bigopen}
+\end{table}
+
+\section{ECE by rung}\label{app:ece}
+\begin{table}[h]
+\centering\small
+\begin{tabular}{llcccc}
+\toprule
+Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
+\midrule
+\multirow{7}{*}{Llama-8B}
+ & TriviaQA   & 0.186 & 0.109 & 0.300 & 0.237 \\
+ & LongFact   & 0.143 & 0.240 & 0.417 & 0.344 \\
+ & TruthfulQA & 0.285 & 0.082 & 0.244 & 0.235 \\
+ & MedQA      & 0.245 & 0.189 & 0.238 & 0.201 \\
+ & MedLFQA    & 0.104 & 0.262 & 0.366 & 0.334 \\
+ & GSM8K      & 0.221 & 0.174 & 0.491 & 0.518 \\
+ & HotpotQA   & 0.261 & 0.262 & 0.361 & 0.245 \\
+\midrule
+\multirow{7}{*}{Qwen-8B}
+ & TriviaQA   & 0.389 & 0.107 & 0.315 & 0.302 \\
+ & LongFact   & 0.080 & 0.207 & 0.160 & 0.149 \\
+ & TruthfulQA & 0.294 & 0.083 & 0.327 & 0.308 \\
+ & MedQA      & 0.171 & 0.155 & 0.413 & 0.391 \\
+ & MedLFQA    & 0.053 & 0.263 & 0.127 & 0.121 \\
+ & GSM8K      & 0.099 & 0.075 & 0.393 & 0.366 \\
+ & HotpotQA   & 0.478 & 0.141 & 0.260 & 0.235 \\
+\bottomrule
+\end{tabular}
+\caption{Expected calibration error (lower better), 8B targets. Verification rungs
+discriminate well (Table~\ref{tab:medlfqa}, \ref{tab:suite}) but are less calibrated in raw
+scale (coarse votes); $\phi$ ($n_3$) is best-calibrated. Post-hoc calibration is orthogonal to
+the AUROC result and would be applied per (target,domain) at deployment.}
+\label{tab:ece}
+\end{table}
+
+\section{Full 8B dataset suite}\label{app:suite}
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llcccc}
+\toprule
+Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
+\midrule
+\multirow{11}{*}{Llama-3.1-8B}
+ & TriviaQA   & 0.659 & 0.686 & \textbf{0.709} & 0.661 \\
+ & NaturalQA  & \textbf{0.726} & 0.671 & 0.613 & 0.615 \\
+ & PopQA      & 0.500 & \textbf{0.780} & 0.479 & 0.479 \\
+ & LongFact   & 0.540 & 0.525 & 0.627 & \textbf{0.644} \\
+ & TruthfulQA & 0.671 & \textbf{0.677} & 0.621 & 0.560 \\
+ & MedQA      & \textbf{0.568} & 0.551 & 0.567 & 0.563 \\
+ & MMLU-Med   & 0.555 & \textbf{0.570} & 0.467 & 0.390 \\
+ & K-QA       & \textbf{0.632} & 0.592 & 0.544 & 0.618 \\
+ & MedLFQA    & \textbf{0.647} & 0.500 & 0.561 & 0.567 \\
+ & GSM8K      & 0.639 & 0.554 & 0.619 & \textbf{0.654} \\
+ & HotpotQA   & \textbf{0.752} & 0.642 & 0.489 & 0.558 \\
+\midrule
+\multirow{11}{*}{Qwen3-8B}
+ & TriviaQA   & 0.727 & \textbf{0.790} & 0.692 & 0.713 \\
+ & NaturalQA  & \textbf{0.687} & 0.621 & 0.591 & 0.612 \\
+ & PopQA      & 0.643 & \textbf{0.685} & 0.617 & 0.648 \\
+ & LongFact   & 0.623 & 0.613 & 0.702 & \textbf{0.716} \\
+ & TruthfulQA & 0.755 & \textbf{0.769} & 0.663 & 0.678 \\
+ & MedQA      & \textbf{0.739} & 0.732 & 0.641 & 0.658 \\
+ & MMLU-Med   & \textbf{0.710} & 0.708 & 0.634 & 0.654 \\
+ & K-QA       & 0.642 & \textbf{0.645} & 0.537 & 0.532 \\
+ & MedLFQA    & \textbf{0.678} & 0.657 & 0.492 & 0.521 \\
+ & GSM8K      & 0.674 & \textbf{0.726} & 0.544 & 0.530 \\
+ & HotpotQA   & 0.756 & 0.703 & 0.746 & \textbf{0.766} \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Full 8B suite} (AUROC; 150 items/cell, seed 1; BioASQ omitted as
+degenerate). Verification (\nyn/\nsc) wins LongFact, HotpotQA and Llama/GSM8K; short-factual,
+MCQ, adversarial and most health cells go to verbalized (\nverb) or $\phi$ (\nphi).}
+\label{tab:suite}
+\end{table}
+
+\section{Latency (full 8B grid)}\label{app:latency}
+Table~\ref{tab:latfull} gives median per-item latency for all 8B cells. Verbalized ($n_1$) is a
+single short call ($\sim$0.3\,s). $\phi$ ($n_3$) emits a full multi-claim JSON object and is the
+slowest ($4.5$--$24$\,s), worst on long-form. Verification produces tiny yes/no completions:
+$n_6$ is $1$--$11$\,s and $n_7$ ($K{=}5$) is $\sim$1.5--2$\times$ $n_6$. Where verification wins
+(long-form), it is also \emph{faster} than $\phi$.
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrr}
+\toprule
+Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
+\midrule
+\multirow{7}{*}{Llama-8B}
+ & TriviaQA & 259 & 4469 & 1440 & 2299 \\
+ & LongFact & 270 & 23639 & 10858 & 18831 \\
+ & TruthfulQA & 258 & 5391 & 3280 & 5761 \\
+ & MedQA & 265 & 4474 & 5523 & 10176 \\
+ & MedLFQA & 183 & 5656 & 3719 & 6964 \\
+ & GSM8K & 267 & 14165 & 4730 & 9073 \\
+ & HotpotQA & 260 & 5616 & 2349 & 4001 \\
+\midrule
+\multirow{7}{*}{Qwen-8B}
+ & TriviaQA & 286 & 7576 & 1462 & 2474 \\
+ & LongFact & 308 & 15656 & 8076 & 12641 \\
+ & TruthfulQA & 295 & 7538 & 1668 & 2707 \\
+ & MedQA & 300 & 8711 & 994 & 1335 \\
+ & MedLFQA & 284 & 7672 & 1717 & 2721 \\
+ & GSM8K & 321 & 9808 & 1476 & 2508 \\
+ & HotpotQA & 285 & 8298 & 1954 & 2963 \\
+\bottomrule
+\end{tabular}
+\caption{Median per-item latency (ms), 8B targets, batch 1, GPU warm.}
+\label{tab:latfull}
+\end{table}
+
+\section{Dataset statistics}\label{app:stats}
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lccc}
+\toprule
+Dataset & $n$ items & pos (Llama) & pos (Qwen) \\
+\midrule
+TriviaQA & 149 & 106 & 65 \\
+NaturalQA & 150 & 103 & 76 \\
+PopQA & 127 & 59 & 57 \\
+LongFact & 300 & 239 & 259 \\
+TruthfulQA & 150 & 78 & 79 \\
+MedQA & 150 & 101 & 101 \\
+MMLU-Med & 150 & 100 & 106 \\
+BioASQ$^\dagger$ & 150 & 150 & 149 \\
+K-QA & 146 & 106 & 112 \\
+MedLFQA & 150 & 115 & 133 \\
+GSM8K & 150 & 118 & 135 \\
+HotpotQA & 150 & 45 & 51 \\
+\bottomrule
+\end{tabular}
+\caption{Item counts and positive (correct) counts per 8B target. $^\dagger$BioASQ is
+near-single-class (minority $\le 1$) and excluded from AUROC as degenerate. Positives are the
+LLM-judge (or letter-match, MCQ) correct labels; LongFact uses the 70B factuality judge.}
+\label{tab:stats}
+\end{table}
+
+\section{Aggregation search}\label{app:agg}
+Because $\phi$'s weakness is an aggregation of per-claim scores, we asked offline whether a
+better aggregator over the same cached CoI features recovers signal (\S\ref{sec:results}).
+Table~\ref{tab:agg} compares the fixed-prior $\phi$ (v0) against six alternatives: closed-form
+pools ($1{-}$mean, $1{-}$max, $\prod(1{-}r)$, noisy-OR), grounding-weighted mean/min pools of
+$\mathrm{base}\cdot(1{-}r)$, and a cross-validated logistic regression over $13$ CoI features.
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lccccccc}
+\toprule
+Cell & $\phi$ & $1{-}$mn & $1{-}$mx & $\prod$ & nOR & min$_b$ & logit \\
+\midrule
+Llama/TriviaQA & 0.686 & 0.667 & 0.680 & 0.700 & 0.360 & \textbf{0.711} & 0.689 \\
+Llama/MedLFQA  & 0.500 & 0.500 & 0.515 & 0.519 & \textbf{0.522} & 0.480 & 0.452 \\
+Qwen/TriviaQA  & \textbf{0.790} & 0.787 & 0.787 & 0.787 & 0.213 & \textbf{0.790} & 0.783 \\
+Qwen/MedLFQA   & \textbf{0.657} & \textbf{0.657} & \textbf{0.657} & \textbf{0.657} & 0.343 & \textbf{0.657} & 0.631 \\
+\bottomrule
+\end{tabular}
+\caption{AUROC of alternative aggregators over the same CoI features ($1{-}$mn/mx: $1{-}$mean/max
+risk; $\prod$: $\prod(1{-}r)$; nOR: noisy-OR; min$_b$: min-pool of $\mathrm{base}\cdot(1{-}r)$;
+logit: $13$-feature CV logistic regression). No learned or closed-form aggregator beats the
+fixed prior $\phi$ by more than noise ($\pm0.04$ at $n{\approx}150$); the logistic regression
+\emph{underperforms} it everywhere, overfitting. On MedLFQA all aggregators sit near chance. The
+inputs (self-rated risk), not the aggregator, are the bottleneck---which is what the
+verification rungs replace.}
+\label{tab:agg}
+\end{table}
+
+\end{document}

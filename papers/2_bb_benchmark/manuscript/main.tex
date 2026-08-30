@@ -4,7 +4,7 @@
 %  Compile:  pdflatex main ; bibtex main ; pdflatex main ; pdflatex main
 % ==============================================================================
 \documentclass[11pt]{article}
-\usepackage[]{acl}
+\usepackage[review]{acl}
 % FALLBACK: comment the line above, uncomment below, if acl.sty is missing.
 % \usepackage[margin=1in]{geometry}\usepackage{natbib}\bibliographystyle{plainnat}
 
@@ -28,8 +28,8 @@
 \title{$G\times D\to M\to V$: A Latency-Aware, Pure Black-Box \\
 Uncertainty-Quantification Benchmark for Language Models}
 
-\author{Anonymous \\ \texttt{} \\}
-
+% author block omitted: [review] mode emits "Anonymous ACL submission".
+% CAMERA-READY: restore \author{...} here.
 \begin{document}
 \maketitle
 
@@ -51,8 +51,9 @@ method configurations spanning sampling-consistency, graph-spectral, verbalized,
 scored with eight calibration/ranking metrics plus a latency frontier. A single cached,
 content-hashed generation per $(G,D)$ guarantees that every method is compared on
 identical inputs. Across 3{,}000+ method$\times$dataset$\times$target evaluations we find
-that (a) the best method is strongly \emph{generator-dependent} (graph-spectral and
-P(True) lead on Qwen; verbalized confidence leads on Llama at 0.707 AUROC); (b)
+that (a) the best method is \emph{generator-dependent} (graph-spectral and verbalized
+confidence tie on Qwen at $\approx$0.65; verbalized confidence leads on Llama at 0.664 AUROC,
+where semantic entropy falls to near-chance); (b)
 sampling-consistency methods are \emph{uninformative at $N{=}1$} (AUROC $0.500$) and need
 $N{=}10$ samples---i.e.\ ten target generations---to peak; and (c) distilled proxies
 reach competitive AUROC at a \emph{target-decoupled} $\sim$25--45\,ms, hundreds of times
@@ -84,7 +85,7 @@ $M$ maps a target's text to an uncertainty score, and each metric $V$ scores tha
 correctness. This paper describes the benchmark, its harness, and a large comprehensive
 sweep, and reports the cross-axis phenomena that only a unified suite can
 surface.\footnote{Harness, configurations, cached results, and scripts:
-\url{https://github.com/jsl5710/TruthTorchLM-HC}}
+\url{[repository URL withheld for anonymous review]}}
 
 \paragraph{Contributions.}
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
@@ -206,34 +207,43 @@ sample budget. Two cross-axis phenomena stand out.
 method & trivia & bioasq & medqa & medlfqa & gsm8k & truthful & wiki & \best{MEAN}\\
 \midrule
 \multicolumn{9}{l}{\emph{Target: Qwen3-32B}}\\
-Verbalized conf.\ ($N{=}1$)       & \best{0.728} & 0.500 & \best{0.702} & 0.546 & 0.668 & \best{0.686} & 0.483 & 0.616\\
-Eccentricity ($N{=}10$)           & 0.817 & 0.500 & 0.522 & \best{0.614} & 0.764 & 0.607 & 0.564 & 0.627\\
-Semantic entropy ($N{=}10$)       & \best{0.819} & 0.500 & 0.500 & 0.623 & 0.710 & 0.557 & 0.533 & 0.606\\
-Lexical similarity ($N{=}10$)     & 0.695 & 0.500 & 0.539 & 0.580 & 0.575 & 0.501 & \best{0.607} & 0.571\\
-Distilled proxy ($N{=}0$)         & 0.618 & --    & 0.705 & 0.523 & 0.780 & 0.472 & 0.593 & 0.612\\
-\grey{P(True) (grey-box)}         & \grey{0.827} & \grey{0.500} & \grey{0.690} & \grey{0.595} & \grey{\best{0.838}} & \grey{0.623} & \grey{0.560} & \grey{\best{0.662}}\\
+Verbalized conf.\ ($N{=}1$)       & \best{0.728} & \grey{--} & \best{0.702} & \grey{--} & 0.668 & \best{0.686} & 0.483 & 0.653\\
+Eccentricity ($N{=}10$)           & 0.817 & \grey{--} & 0.522 & \grey{--} & 0.764 & 0.607 & 0.564 & \best{0.655}\\
+Semantic entropy ($N{=}10$)       & \best{0.819} & \grey{--} & 0.500 & \grey{--} & 0.710 & 0.557 & 0.533 & 0.624\\
+Lexical similarity ($N{=}10$)     & 0.695 & \grey{--} & 0.539 & \grey{--} & 0.575 & 0.501 & \best{0.607} & 0.583\\
+Distilled proxy ($N{=}0$)         & 0.618 & \grey{--} & 0.705 & \grey{--} & 0.780 & 0.472 & 0.593 & 0.634\\
+\grey{P(True) (grey-box)}         & \grey{0.827} & \grey{--} & \grey{0.690} & \grey{--} & \grey{\best{0.838}} & \grey{0.623} & \grey{0.560} & \grey{0.708}\\
 \midrule
 \multicolumn{9}{l}{\emph{Target: Llama-3.3-70B}}\\
-Verbalized conf.\ ($N{=}1$)       & 0.656 & 0.966 & \best{0.699} & \best{0.648} & 0.627 & \best{0.797} & \best{0.557} & \best{0.707}\\
-Eccentricity ($N{=}10$)           & \best{0.796} & 0.973 & 0.585 & 0.653 & 0.702 & 0.500 & 0.526 & 0.677\\
-Semantic entropy ($N{=}10$)       & 0.630 & 0.487 & 0.496 & 0.501 & 0.585 & 0.473 & 0.492 & 0.523\\
-Lexical similarity ($N{=}10$)     & 0.758 & \best{1.000} & 0.667 & 0.456 & 0.591 & 0.518 & 0.544 & 0.648\\
-Distilled proxy ($N{=}0$)         & 0.631 & 0.993 & 0.600 & 0.450 & 0.694 & 0.551 & 0.507 & 0.632\\
-\grey{P(True) (grey-box)}         & \grey{0.690} & \grey{1.000} & \grey{0.549} & \grey{0.567} & \grey{0.711} & \grey{0.564} & \grey{0.535} & \grey{0.659}\\
+Verbalized conf.\ ($N{=}1$)       & 0.656 & \grey{--} & \best{0.699} & \best{0.648} & 0.627 & \best{0.797} & \best{0.557} & \best{0.664}\\
+Eccentricity ($N{=}10$)           & \best{0.796} & \grey{--} & 0.585 & 0.653 & 0.702 & 0.500 & 0.526 & 0.627\\
+Semantic entropy ($N{=}10$)       & 0.630 & \grey{--} & 0.496 & 0.501 & 0.585 & 0.473 & 0.492 & 0.529\\
+Lexical similarity ($N{=}10$)     & 0.758 & \grey{--} & 0.667 & 0.456 & 0.591 & 0.518 & 0.544 & 0.589\\
+Distilled proxy ($N{=}0$)         & 0.631 & \grey{--} & 0.600 & 0.450 & 0.694 & 0.551 & 0.507 & 0.572\\
+\grey{P(True) (grey-box)}         & \grey{0.690} & \grey{--} & \grey{0.549} & \grey{0.567} & \grey{0.711} & \grey{0.564} & \grey{0.535} & \grey{0.603}\\
 \bottomrule
 \end{tabular}
 \caption{Per-dataset AUROC leaderboard, representative method per family, best sample
 budget, two open targets. Distilled proxy is the best deployable proxy read via
 perplexity. Grey rows are grey-box (read target log-probs) and excluded from the pure-BB
-ranking. Bioasq is degenerate on Qwen (trivially separable) and omitted from its mean.}
+ranking. \textbf{Cells whose minority class is $<15$ are excluded} (``--'') and dropped from the
+means, since an AUROC there is undefined or set by one or two items. This removes BioASQ on both
+targets ($150/150$ correct on Qwen, $149/150$ on Llama) and MedLFQA on Qwen ($139/150$). On
+Llama, BioASQ would otherwise contribute $0.97$--$1.00$ and inflate every mean by $0.04$--$0.06$.
+Means are consequently over five datasets (Qwen) and six (Llama) and are not directly
+comparable across the two blocks. No undefined cell is imputed as $0.500$. Per-cell class
+balances are in Appendix~\ref{app:details}.}
 \label{tab:leaderboard}
 \end{table*}
 
-\paragraph{The best method is generator-dependent.} On Qwen3-32B the pure-BB winners are
-graph-spectral (Eccentricity 0.627) with verbalized confidence mid-pack (0.616); on
-Llama-3.3-70B \emph{verbalized confidence dominates} (0.707), far ahead of the same
-graph-spectral method (0.677) and with semantic entropy \emph{collapsing} to near-chance
-(0.523). The closed targets sharpen this (Appendix~\ref{app:closed}): verbalized
+\paragraph{The best method is generator-dependent.} On Qwen3-32B graph-spectral and verbalized
+confidence are \emph{statistically indistinguishable} at the top (Eccentricity 0.655 vs.\
+verbalized 0.653, a gap far inside the $\pm0.045$ standard error at $n{\approx}150$); on
+Llama-3.3-70B \emph{verbalized confidence leads} (0.664) ahead of the same graph-spectral
+method (0.627), with semantic entropy \emph{collapsing} to near-chance (0.529). The
+generator-dependence is therefore asymmetric: it is a real reordering on Llama, and a tie on
+Qwen. Recall that these two means are over different dataset sets (five vs.\ six) after
+degenerate-cell exclusion, so we compare methods \emph{within} a target, never across. The closed targets sharpen this (Appendix~\ref{app:closed}): verbalized
 confidence is the strongest method on \emph{both} GPT-4o (0.737) and Claude-Haiku (0.672),
 and on Haiku it is the \emph{only} method above chance---every sampling-consistency method
 there is at or below 0.55. So verbalized confidence wins on three of four targets and
@@ -254,17 +264,17 @@ tracks error. This complementarity is only visible with the full $D\times M$ gri
 family (mean AUROC) & $N{=}1$ & $N{=}3$ & $N{=}5$ & $N{=}10$\\
 \midrule
 \multicolumn{5}{l}{\emph{Qwen3-32B}}\\
-Eccentricity      & 0.500 & 0.594 & 0.620 & \best{0.627}\\
-SumEigen          & 0.500 & 0.596 & 0.618 & \best{0.634}\\
-Semantic entropy  & 0.500 & 0.560 & 0.588 & \best{0.606}\\
-Lexical sim.      & 0.500 & 0.555 & 0.560 & \best{0.571}\\
-Verbalized conf.  & \best{0.616} & 0.616 & 0.616 & 0.616\\
+Eccentricity      & 0.500 & 0.628 & 0.645 & \best{0.655}\\
+SumEigen / EigV   & 0.500 & 0.619 & 0.633 & \best{0.651}\\
+Semantic entropy  & 0.500 & 0.578 & 0.599 & \best{0.624}\\
+Lexical sim.      & 0.500 & 0.563 & 0.571 & \best{0.583}\\
+Verbalized conf.  & \best{0.653} & 0.653 & 0.653 & 0.653\\
 \midrule
 \multicolumn{5}{l}{\emph{Llama-3.3-70B}}\\
-Eccentricity      & 0.500 & 0.642 & 0.671 & \best{0.677}\\
-Lexical sim.      & 0.500 & 0.643 & 0.645 & \best{0.648}\\
-Semantic entropy  & 0.500 & 0.513 & 0.517 & \best{0.523}\\
-Verbalized conf.  & \best{0.707} & 0.707 & 0.707 & 0.707\\
+Eccentricity      & 0.500 & 0.584 & 0.617 & \best{0.627}\\
+Lexical sim.      & 0.500 & \best{0.596} & 0.592 & 0.589\\
+Semantic entropy  & 0.500 & 0.515 & 0.520 & \best{0.529}\\
+Verbalized conf.  & \best{0.664} & 0.664 & 0.664 & 0.664\\
 \bottomrule
 \end{tabular}
 \caption{Sample-budget ($N$) scaling. Consistency/graph methods are \emph{uninformative
@@ -302,26 +312,28 @@ eight-metric suite in the release.
 method (mean over datasets) & AUROC & AUPRC & PRR\\
 \midrule
 \multicolumn{4}{l}{\emph{Qwen3-32B}}\\
-Verbalized conf.        & 0.616 & 0.898 & 0.280\\
-Eccentricity ($N{=}10$) & \best{0.627} & 0.840 & 0.140\\
-Semantic entropy ($N{=}10$) & 0.606 & \best{0.913} & 0.283\\
-Lexical sim.\ ($N{=}10$)& 0.571 & 0.842 & 0.067\\
-Distilled proxy (native)& 0.560 & 0.819 & 0.155\\
-\grey{P(True) (grey)}   & \grey{0.662} & \grey{0.890} & \grey{\best{0.391}}\\
+Verbalized conf.        & 0.653 & 0.866 & \best{0.324}\\
+Eccentricity ($N{=}10$) & \best{0.655} & 0.791 & 0.212\\
+Semantic entropy ($N{=}10$) & 0.624 & \best{0.884} & 0.318\\
+Lexical sim.\ ($N{=}10$)& 0.583 & 0.794 & 0.114\\
+\grey{P(True) (grey)}   & \grey{0.707} & \grey{0.856} & \grey{0.484}\\
 \midrule
 \multicolumn{4}{l}{\emph{Llama-3.3-70B}}\\
-Verbalized conf.        & \best{0.707} & \best{0.915} & 0.352\\
-Eccentricity ($N{=}10$) & 0.677 & 0.859 & \best{0.402}\\
-Semantic entropy ($N{=}10$) & 0.523 & 0.902 & 0.112\\
-Lexical sim.\ ($N{=}10$)& 0.648 & 0.866 & 0.342\\
-Distilled proxy (native)& 0.607 & 0.851 & 0.307\\
-\grey{P(True) (grey)}   & \grey{0.659} & \grey{0.909} & \grey{0.350}\\
+Verbalized conf.        & \best{0.664} & \best{0.901} & 0.251\\
+Eccentricity ($N{=}10$) & 0.627 & 0.835 & \best{0.307}\\
+Semantic entropy ($N{=}10$) & 0.529 & 0.886 & 0.067\\
+Lexical sim.\ ($N{=}10$)& 0.589 & 0.843 & 0.232\\
+\grey{P(True) (grey)}   & \grey{0.603} & \grey{0.894} & \grey{0.242}\\
 \bottomrule
 \end{tabular}
-\caption{Beyond AUROC: three scale-robust ranking metrics (mean over datasets). AUPRC is
-uniformly high (correct-answer base rate); PRR discriminates where AUPRC cannot. The full
-eight-metric suite (adding AUARC, ECE, ACE, MCE, Brier) is in the release. Proxy shown at
-its native read-out; grey rows are grey-box.}
+\caption{Beyond AUROC: three scale-robust ranking metrics, means over the same
+non-degenerate cells as Table~\ref{tab:leaderboard} (five datasets on Qwen, six on Llama).
+AUPRC is uniformly high (correct-answer base rate); PRR discriminates where AUPRC cannot,
+and the two disagree---on Qwen, Eccentricity has the best AUROC but semantic entropy and
+verbalized confidence have far better PRR. Grey rows are grey-box. The distilled-proxy row is
+omitted here because its per-dataset metrics were computed on a different (BioASQ-inclusive)
+aggregate; its AUROC appears in Table~\ref{tab:leaderboard}. The full eight-metric suite
+(adding AUARC, ECE, ACE, MCE, Brier) is in the release.}
 \label{tab:metrics}
 \end{table}
 
@@ -377,17 +389,6 @@ cost. We release the harness, the cached generations and labels for the reported
 all $\sim$70 method configurations, and the analysis scripts that regenerate every table.
 
 % ==============================================================================
-\section{Limitations}
-% ==============================================================================
-The reported cells use 150 items per dataset; per-cell variance is real and we avoid
-claims that hinge on sub-0.02 AUROC gaps. The deep comparison centers on two open targets;
-the closed arm is reported for the direct methods and corroborates the generator-%
-dependence but is not exhaustively swept for proxies. Latency is measured on one
-hardware/serving configuration---absolute milliseconds will move, but the target-relative
-\emph{ratios}, the load-bearing claim, will not. Judge-based labeling inherits the judge's
-biases; we keep both an LLM-judge and lexical labels and report the judge used.
-
-% ==============================================================================
 \section{Conclusion}
 % ==============================================================================
 Uncertainty quantification for black-box LLMs should be evaluated as what it is: a
@@ -399,12 +400,23 @@ best method is generator-dependent, that sampling methods hide a per-item budget
 ten target generations, and that distilled proxies define a fast, target-decoupled
 frontier. We release everything needed to place a new method on all four axes.
 
+\section*{Limitations}
+% ==============================================================================
+The reported cells use 150 items per dataset; per-cell variance is real and we avoid
+claims that hinge on sub-0.02 AUROC gaps. The deep comparison centers on two open targets;
+the closed arm is reported for the direct methods and corroborates the generator-%
+dependence but is not exhaustively swept for proxies. Latency is measured on one
+hardware/serving configuration---absolute milliseconds will move, but the target-relative
+\emph{ratios}, the load-bearing claim, will not. Judge-based labeling inherits the judge's
+biases; we keep both an LLM-judge and lexical labels and report the judge used.
+
+% ==============================================================================
 \section*{Reproducibility}
 Every $(G,D)$ generation is cached and content-hashed; methods and $N$-budgets read the
 same cache. The harness, caches, method configurations, metric suite, and table-%
-regeneration scripts are released at \url{https://github.com/jsl5710/TruthTorchLM-HC}; the
+regeneration scripts are released at \url{[repository URL withheld for anonymous review]}; the
 103 distilled proxy adapters are on the Hugging Face Hub at
-\url{https://huggingface.co/jsl5710/TruthTorchLM-HC-proxies}.
+\url{[model-hub URL withheld for anonymous review]}.
 
 \section*{Ethics Statement}
 UQ signals are a safety mechanism; we therefore report where methods fall to or below
@@ -412,11 +424,12 @@ chance (e.g.\ semantic entropy on Llama, and every consistency method at $N{=}1$
 are not deployed with false assurance, especially in the medical domains included. All
 datasets are public and used under their licenses; no human-subjects data was collected.
 
-\section*{Acknowledgments}
-This work was done in part at the 2026 Jelinek Memorial Summer Workshop on Speech and
-Language Technology and was supported by NSF CCRI Grant No.\ 2120435, Google DeepMind, the
-JHU Amazon Initiative for Interactive Artificial Intelligence, the JHU Human Language
-Technology Center of Excellence, and the Association for Computational Linguistics.
+% ---- CAMERA-READY ONLY: de-anonymizing; restore after acceptance ----
+% \section*{Acknowledgments}
+% This work was done in part at the 2026 Jelinek Memorial Summer Workshop on Speech and
+% Language Technology and was supported by NSF CCRI Grant No.\ 2120435, Google DeepMind, the
+% JHU Amazon Initiative for Interactive Artificial Intelligence, the JHU Human Language
+% Technology Center of Excellence, and the Association for Computational Linguistics.
 
 \bibliography{references}
 
@@ -510,9 +523,11 @@ result.
 Table~\ref{tab:app-open} lists the full pure black-box method ranking (48 configurations
 scored per target; top entries shown) by mean AUROC. It expands the representative rows of
 Table~\ref{tab:leaderboard} to the complete graph-spectral and semantic-set families and
-makes the generator-dependence unmistakable: the Qwen leaderboard is topped by
-graph-spectral scores and the Llama leaderboard by verbalized confidence, with semantic
-entropy strong on Qwen (0.606) but near-chance on Llama (0.523).
+shows where generator-dependence is real: on Qwen the graph-spectral family and verbalized
+confidence are bunched within $0.006$ ($0.651$--$0.657$) and cannot be separated at this sample
+size, whereas on Llama verbalized confidence ($0.664$) leads the best spectral score ($0.627$)
+by more than the standard error. The clearest generator effect is not which method wins but how
+far semantic entropy falls: strong on Qwen ($0.624$) and near-chance on Llama ($0.529$).
 
 \begin{table}[t]\centering\small
 \setlength{\tabcolsep}{5pt}
@@ -520,22 +535,24 @@ entropy strong on Qwen (0.606) but near-chance on Llama (0.523).
 \toprule
 method (best $N$, mean AUROC) & Qwen & Llama\\
 \midrule
-Verbalized confidence         & 0.616 & \best{0.707}\\
-Eccentricity (Unc, $N{=}10$)  & 0.627 & 0.677\\
-Eccentricity (Conf, $N{=}10$) & 0.633 & 0.668\\
-SumEigen / EigV ($N{=}10$)    & \best{0.634} & 0.639\\
-MatrixDegree (Unc, $N{=}10$)  & \best{0.634} & 0.639\\
-MatrixDegree (Conf, $N{=}10$) & 0.629 & 0.645\\
-Lexical similarity ($N{=}10$) & 0.571 & 0.648\\
-Kernel language entropy ($N{=}10$) & 0.604 & 0.619\\
-Discrete semantic entropy ($N{=}10$) & 0.606 & 0.523\\
-Num.\ semantic sets ($N{=}10$)& 0.605 & 0.523\\
-Distilled proxy ($N{=}0$)     & 0.612 & 0.632\\
-\grey{P(True) (grey-box)}     & \grey{\best{0.662}} & \grey{0.672}\\
+Verbalized confidence         & 0.653 & \best{0.664}\\
+Eccentricity (Unc, $N{=}10$)  & 0.655 & 0.627\\
+Eccentricity (Conf, $N{=}10$) & \best{0.657} & 0.619\\
+SumEigen / EigV ($N{=}10$)    & 0.651 & 0.583\\
+MatrixDegree (Unc, $N{=}10$)  & 0.650 & 0.583\\
+Lexical similarity ($N{=}10$) & 0.583 & 0.589\\
+Kernel language entropy ($N{=}10$) & 0.632 & 0.556\\
+Discrete semantic entropy ($N{=}10$) & 0.624 & 0.529\\
+Num.\ semantic sets ($N{=}10$)& 0.623 & 0.530\\
+Distilled proxy ($N{=}0$)     & 0.634 & 0.572\\
+\grey{P(True) (grey-box)}     & \grey{0.707} & \grey{0.603}\\
 \bottomrule
 \end{tabular}
 \caption{Full pure-BB leaderboard, two open targets, mean AUROC at each method's best
-sample budget (48 configs scored per target). Grey-box P(True) shown for reference.}
+sample budget, over the non-degenerate cells only (five datasets on Qwen, six on Llama; see
+Table~\ref{tab:leaderboard}). Grey-box P(True) shown for reference. The top four pure-BB
+entries on Qwen span $0.651$--$0.657$ and are \emph{not} separable at $n{\approx}150$; we bold
+only where a gap exceeds the standard error.}
 \label{tab:app-open}
 \end{table}
 
@@ -602,7 +619,19 @@ samples; the $N$-sweep truncates these. The harness loads a broader roster (open
 MMLU-medical, and others) behind the same interface.
 \paragraph{Judge and labels.} Correctness is an LLM-judge decision (a local
 instruction-tuned judge), with exact-letter match for multiple-choice; both an LLM-judge
-and lexical labels are retained and the judge is recorded per cell.
+and lexical labels are retained and the judge is recorded per cell. The judge was not
+validated against human annotation, so absolute AUROCs inherit its error; we rely on
+orderings within a cell, where that error is shared across methods.
+
+\paragraph{Class balance and excluded cells.} AUROC is undefined without both classes and
+unstable when one is tiny, so we exclude any cell whose minority class is $<15$. Positive
+(correct) counts out of $n{=}150$ are: Qwen3-32B---trivia 88, \emph{bioasq 150}, medqa 120,
+\emph{medlfqa 139}, gsm8k 118, truthful 92/147, wiki 122/149; Llama-3.3-70B---trivia 119,
+\emph{bioasq 149}, medqa 116, medlfqa 132, gsm8k 128, truthful 84/149, wiki 123. Italicised
+cells fail the criterion (BioASQ on both targets, MedLFQA on Qwen) and are dropped from every
+table and mean; no undefined cell is imputed as $0.500$. Because the exclusions differ by
+target, the two blocks' means cover different dataset sets and we never compare a mean across
+targets.
 \paragraph{Metrics.} $V$ comprises AUROC, AUPRC, AUARC, PRR, ECE, ACE, MCE, and Brier,
 against binary answer correctness. Calibration metrics use out-of-fold isotonic
 calibration; because raw uncertainty scores are not probabilities, cross-method ECE is

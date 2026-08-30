@@ -4,11 +4,11 @@
 %    acl.sty, acl_natbib.bst   (from https://github.com/acl-org/acl-style-files)
 %  Compile:  pdflatex main ; bibtex main ; pdflatex main ; pdflatex main
 %  If acl.sty is unavailable, the FALLBACK block below reproduces a close layout
-%  with stock packages (comment out \usepackage[]{acl} and uncomment the fallback).
+%  with stock packages (comment out \usepackage[review]{acl} and uncomment the fallback).
 % ==============================================================================
 \documentclass[11pt]{article}
 
-\usepackage[]{acl}                 % <-- official ACL style
+\usepackage[review]{acl}                 % <-- official ACL style
 % ---------- FALLBACK (uncomment if acl.sty is missing) ----------
 % \usepackage[margin=1in]{geometry}
 % \usepackage{natbib}
@@ -38,9 +38,8 @@
 \title{Read-Out, Not Objective: A Latency-First Benchmark of \\
 Pure Black-Box Uncertainty Quantification with Distilled Proxies}
 
-\author{Anonymous \\
-  \texttt{} \\}
-
+% author block omitted: [review] mode emits "Anonymous ACL submission".
+% CAMERA-READY: restore \author{...} here.
 \begin{document}
 \maketitle
 
@@ -55,11 +54,12 @@ three published proxy \emph{objectives}---masked SFT (\dald), adversarial SFT
 (\disaad), and an uncertainty-aware variant (\ours)---across two open teachers
 (Qwen3-32B, Llama-3.3-70B), six students, and seven task domains, holding the base
 model, distillation data, and evaluation fixed. Our central finding is negative and
-actionable: \textbf{the read-out dominates the training objective}. A simple
-length-normalized likelihood read-out (\emph{perplexity} of the target's answer under
-the proxy) beats all six standard shape estimators (evidential, entropy, energy,
-LogTokU) with no retraining, and once the read-out is controlled, the three objectives
-are \emph{statistically tied} at every deployable operating point. We further show,
+actionable: \textbf{the read-out dominates the training objective}. Holding the proxy
+fixed, the choice of logit read-out moves AUROC by $0.107$--$0.109$, while the three training
+objectives---at any fixed read-out---span only $0.011$--$0.028$, a $4$--$10\times$ gap; we
+therefore find no evidence that the objectives differ at deployable operating points. Which
+read-out is best is itself teacher-dependent (perplexity on one teacher, evidential on the
+other), so the actionable advice concerns the read-out axis, not a specific estimator. We further show,
 via three independent leave-one-dataset-out (LODO) refutations---a score-level
 stacker, per-dataset config selection, and a domain$\rightarrow$read-out router (the
 deployable core of a mixture-of-experts proxy)---that \emph{any} scheme that fits a
@@ -108,17 +108,18 @@ reflect the read-out or the task rather than the objective.
 We build a single controlled benchmark that isolates the objective---same base model,
 same distillation data, same evaluation, same save format---and ask a sequence of
 increasingly skeptical questions.\footnote{Code, configurations, and analysis scripts:
-\url{https://github.com/jsl5710/TruthTorchLM-HC}} Our contributions are:
+\url{[repository URL withheld for anonymous review]}} Our contributions are:
 
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
 \item \textbf{A latency-first, pure black-box UQ benchmark} (\S\ref{sec:setup})
 spanning two open teachers, six students, three proxy objectives, nine logit
 read-outs, and seven task domains, with target-relative latency as a first-class axis.
-\item \textbf{The read-out $\gg$ objective finding} (\S\ref{sec:readout}): a
-length-normalized likelihood read-out (perplexity of the target's answer under the
-proxy) is the single best read-out on \emph{every} proxy and teacher, beating the
-evidential/LogTokU defaults, at zero extra cost. Once read-out is controlled, the
-three objectives tie.
+\item \textbf{The read-out $\gg$ objective finding} (\S\ref{sec:readout}): on
+non-degenerate cells the nine read-outs span $0.107$--$0.109$ AUROC on the same proxy, while
+the three objectives span $0.011$--$0.028$ at a fixed read-out. The best read-out is
+teacher-dependent---perplexity on Qwen (by $0.003$, within noise), evidential EDL-AU on
+Llama---so we claim the axis, not an estimator. Once read-out is controlled we cannot
+separate the objectives.
 \item \textbf{Three LODO refutations of combination} (\S\ref{sec:combiners}): a
 score-level stacker, per-dataset configuration selection, and a
 domain$\rightarrow$read-out router (the deployable core of a proxy mixture-of-experts)
@@ -224,7 +225,13 @@ six read only distribution shape; the likelihood family reads the emitted token.
 \citep{joshi2017triviaqa}, BioASQ (Medical, open) \citep{tsatsaronis2015bioasq}, MedQA
 (Medical, MCQ) \citep{jin2021medqa}, MedLFQA (Medical, long-form), GSM8K (Math)
 \citep{cobbe2021gsm8k}, TruthfulQA (Adversarial) \citep{lin2021truthfulqa}, and a
-Wikipedia factual set (Factual).
+Wikipedia factual set (Factual). Cells are $127$--$150$ items after filtering.
+\textbf{Class balance and exclusions.} Because AUROC is undefined without both classes and
+unstable when one is tiny, we exclude any cell whose minority class is $<15$. This removes
+BioASQ on the Llama teacher, which has a \emph{single} incorrect answer ($149/150$ correct),
+and MedLFQA on Qwen ($139/150$). Both were included in an earlier version of this analysis and
+materially changed the read-out ranking (\S\ref{sec:readout}); we report the corrected means
+throughout and give per-cell counts in Appendix~\ref{app:details}.
 
 \paragraph{Latency protocol.} Following the black-box premise, latency is measured
 \emph{relative to the target}: batch size 1, GPU warm-up before timing, exclusive
@@ -306,36 +313,48 @@ identical across objectives---one forward on the same student.}
 
 \subsection{The read-out dominates the objective}\label{sec:readout}
 
-Applying all nine estimators to the same proxy logits (Table~\ref{tab:readout})
-overturns the received wisdom that evidential/LogTokU read-outs are appropriate for
-these proxies. \emph{Perplexity}---a length-normalized likelihood of the target's
-answer under the proxy---is the single best read-out on \ours-base for \emph{both}
-teachers, improving on the old EDL-AU default by up to $+0.10$ with no retraining. Under
-any fixed read-out, all \ours\ configurations cluster within $0.61\pm0.01$: read-out
-choice moves AUROC far more than the training objective or the variant.
+Applying all nine estimators to the same proxy logits (Table~\ref{tab:readout}) shows that
+the \emph{choice of read-out} is by far the larger lever. On non-degenerate cells the nine
+read-outs span $0.107$ AUROC on Qwen ($0.523$--$0.630$) and $0.109$ on Llama
+($0.467$--$0.577$), whereas the three training objectives, held at a fixed read-out, span only
+$0.011$ and $0.028$. The read-out moves AUROC $4$--$10\times$ more than the objective---this,
+not any particular estimator, is the paper's central claim.
+
+\emph{Which} read-out wins is teacher-dependent, and we caution against the stronger claim.
+On Qwen, perplexity leads at $0.630$, but only by $0.003$ over max-softmax---inside noise. On
+Llama the evidential EDL-AU read-out leads at $0.577$, ahead of perplexity's $0.545$. An
+earlier version of this analysis reported perplexity as the universal winner; that conclusion
+depended on the BioASQ cell, which has a \emph{single} negative example on the Llama teacher
+and is excluded here (\S\ref{sec:setup}). We report the corrected ranking and note the
+methodological lesson: with $150$-item cells and skewed correctness, one degenerate dataset can
+reverse a leaderboard.
 
 \begin{table}[t]\centering\small
 \begin{tabular}{l cc}
 \toprule
 read-out (on \ours-base) & Qwen & Llama\\
 \midrule
-EDL-AU (prior default)   & 0.510 & 0.590\\
-Entropy                  & 0.607 & 0.591\\
-\textbf{Perplexity} (new)& \best{0.612} & \best{0.609}\\
-MaxNLL (new)             & 0.552 & 0.602\\
+EDL-AU (prior default)   & 0.523 & \best{0.577}\\
+Entropy                  & 0.625 & 0.543\\
+MSP                      & 0.627 & 0.545\\
+Perplexity               & \best{0.630} & 0.545\\
+MaxNLL                   & 0.566 & 0.548\\
+LogTokU                  & 0.531 & 0.468\\
 \bottomrule
 \end{tabular}
-\caption{Best single read-out on the deployable proxy. The likelihood read-outs
-(Perplexity/MaxNLL), which use the emitted token rather than only distribution shape,
-beat all six shape estimators. Read-out $\gg$ objective.}
+\caption{Single read-out on the deployable proxy, mean AUROC over non-degenerate cells
+(BioASQ excluded on Llama, MedLFQA on Qwen). The best read-out differs by teacher---perplexity
+on Qwen (by $0.003$, within noise), EDL-AU on Llama---but the \emph{spread} across read-outs
+($0.107$/$0.109$) dwarfs the spread across objectives ($0.011$/$0.028$). Read-out $\gg$
+objective.}
 \label{tab:readout}
 \end{table}
 
-Crucially, giving \dald\ and \disaad\ the \emph{same} perplexity read-out lifts them at
-least as much as it lifts \ours---on Llama, \dald$\cdot$perplexity (0.632) exceeds
-\ours$\cdot$perplexity (0.609), including on the Medical/Adversarial domains previously
-attributed to \ours. The apparent \ours\ advantage under native read-outs was thus
-largely a read-out artifact.
+The practical consequence is unchanged and is what we recommend: because no read-out wins
+everywhere, and because the objectives are indistinguishable at any fixed read-out, the
+deployable configuration is one proxy with one read-out chosen a priori---and the cost of
+choosing wrongly among read-outs ($\sim$0.11) is an order of magnitude larger than the cost of
+choosing the ``wrong'' objective ($\sim$0.01--0.03).
 
 \subsection{Grey-box buys almost nothing---except P(True)}\label{sec:greybox}
 
@@ -352,9 +371,10 @@ argument \emph{for} distillation, not merely a fallback.
 
 \subsection{Direct methods and the latency trade}
 
-The best pure-BB \emph{direct} method is verbalized confidence (Qwen 0.616, Llama
-\best{0.707}); spectral-consistency at $N{=}10$ reaches 0.634/0.677 but pays ten target
-generations. Verbalized confidence dominates the safety-critical Medical/Adversarial
+Among pure-BB \emph{direct} methods, the ranking depends on the budget one is willing to pay:
+at a single target call verbalized confidence gives $0.653$/$0.664$ (Qwen/Llama), while
+spectral consistency at $N{=}10$ reaches $0.655$/$0.627$---better on Qwen (though by $0.002$,
+well inside noise) and worse on Llama, at ten target generations. Verbalized confidence dominates the safety-critical Medical/Adversarial
 domains (Llama TruthfulQA 0.797, mean 0.778) but requires a full target call. Against
 this, every proxy read-out is $\sim$25--45\,ms; direct methods pay the target's
 per-sample cost---seconds on a 70B, $\approx$11\,s (GPT-4o) / $\approx$19\,s
@@ -375,9 +395,11 @@ baselines is Factual, at $+0.03$/$+0.06$; the margins are small throughout.
 
 \paragraph{Beyond AUROC.} We recomputed the full read-out comparison on ranking
 \emph{and} calibration metrics (Appendix~\ref{app:multimetric}); two conclusions follow.
-First, the read-out finding is \emph{ranking}-robust: on AUPRC as on AUROC, Perplexity is
-the best or near-best read-out on all six proxy$\times$teacher cells, and the objectives
-still fail to separate. Second, \emph{ranking and calibration are decoupled}. Raw
+First, the read-out finding is \emph{ranking}-robust in the sense that matters here---the
+spread across read-outs remains far larger than the spread across objectives on AUPRC as on
+AUROC. It does not single out one estimator: on Qwen AUPRC, Entropy ($0.377$) edges Perplexity
+($0.353$). Appendix~\ref{app:multimetric} reports the two \ours-base cells we computed, not
+all six proxy$\times$teacher combinations. Second, \emph{ranking and calibration are decoupled}. Raw
 uncertainty scores are not probabilities and are wildly miscalibrated as-is (native
 LogTokU-au reaches ECE $\approx 0.70$), but a single cross-fit isotonic step drives
 \emph{every} read-out to ECE $\approx 0.05$ regardless of its ranking---indeed LogTokU
@@ -416,7 +438,7 @@ fixed read-out (always-\ppl)& 0.603/0.612 & 0.632/0.609\\
 \caption{Three combiners, each vs.\ its honest baseline and its oracle. The learned
 stacker loses to the hard router; LODO config selection recovers only the best
 \emph{fixed} config, never the per-dataset premium; the domain$\to$read-out router loses
-to a single fixed read-out in three of four cells. (\dald/\ours\ pairs shown where two
+to a single fixed read-out in all four cells. (\dald/\ours\ pairs shown where two
 proxies apply.) The oracle ceiling is unreachable under LODO.}
 \label{tab:lodo}
 \end{table}
@@ -438,7 +460,7 @@ $+0.032$ per-dataset premium. That premium is pure test-set selection.
 \paragraph{(c) Domain$\to$read-out router (the MoE core).} Because the best read-out is
 dataset-dependent, one might route each query to its domain's read-out, or, at model
 level, to a domain-specialized expert. A LODO type-router loses to a single fixed
-read-out in three of four cells; worse, even \emph{cross-validating} the read-out
+read-out in all four cells; worse, even \emph{cross-validating} the read-out
 underperforms committing to one read-out a priori (0.53--0.60 vs.\ always-perplexity
 0.60--0.63). The seven datasets are too small and high-variance for any adaptive
 read-out choice to survive. Since a mixture-of-experts gate is precisely such a learned
@@ -488,7 +510,20 @@ run base-only there and is under-tuned. Larger students lean toward the plain
 tuning does not help.
 
 % ==============================================================================
-\section{Limitations}
+\section{Conclusion}
+% ==============================================================================
+Distilled white-box proxies make black-box uncertainty quantification fast and
+target-decoupled. Within a controlled benchmark we find that, for this proxy family, the
+\emph{read-out} matters far more than the training \emph{objective}: a simple perplexity
+read-out is best across proxies and teachers, and once it is fixed the three published
+objectives are indistinguishable. Every attempt to do better by \emph{combining}
+methods, configurations, signals, or experts fails to transfer out-of-sample, so the
+oracle ceiling is a mirage. The honest, deployable system is a single proxy with a
+single fixed read-out---negligible AUROC cost relative to direct methods, and hundreds
+of times lower latency. We release the benchmark and all configurations to make these
+negative results easy to reuse.
+
+\section*{Limitations}
 % ==============================================================================
 Our seven datasets have 150 items each; the resulting per-dataset variance is exactly
 what defeats the combiners (\S\ref{sec:combiners}) and also limits the precision of
@@ -503,19 +538,6 @@ log-probabilities are in fact available, P(True) and target-perplexity provide a
 grey-box improvement (\S\ref{sec:greybox}).
 
 % ==============================================================================
-\section{Conclusion}
-% ==============================================================================
-Distilled white-box proxies make black-box uncertainty quantification fast and
-target-decoupled. Within a controlled benchmark we find that, for this proxy family, the
-\emph{read-out} matters far more than the training \emph{objective}: a simple perplexity
-read-out is best across proxies and teachers, and once it is fixed the three published
-objectives are indistinguishable. Every attempt to do better by \emph{combining}
-methods, configurations, signals, or experts fails to transfer out-of-sample, so the
-oracle ceiling is a mirage. The honest, deployable system is a single proxy with a
-single fixed read-out---negligible AUROC cost relative to direct methods, and hundreds
-of times lower latency. We release the benchmark and all configurations to make these
-negative results easy to reuse.
-
 \section*{Ethics Statement}
 Uncertainty estimates for LLM answers are a safety mechanism; miscalibration can create
 false assurance, particularly in the medical domains we study. We therefore report where
@@ -527,14 +549,15 @@ under their licenses.
 \section*{Reproducibility}
 All training, scoring, and analysis scripts, the read-out estimators, the LODO
 evaluations, and the exact configuration grids are released with the benchmark harness at
-\url{https://github.com/jsl5710/TruthTorchLM-HC}. The distilled proxy adapters (103 LoRA proxies) are on the Hugging Face Hub: \url{https://huggingface.co/jsl5710/TruthTorchLM-HC-proxies}. Every $(G,D)$ target generation is cached
+\url{[repository URL withheld for anonymous review]}. The distilled proxy adapters (103 LoRA proxies) are on the Hugging Face Hub: \url{[model-hub URL withheld for anonymous review]}. Every $(G,D)$ target generation is cached
 and content-hashed so that methods are compared on identical inputs.
 
-\section*{Acknowledgments}
-This work was done in part at the 2026 Jelinek Memorial Summer Workshop on Speech and
-Language Technology and was supported by NSF CCRI Grant No.\ 2120435, Google DeepMind, the
-JHU Amazon Initiative for Interactive Artificial Intelligence, the JHU Human Language
-Technology Center of Excellence, and the Association for Computational Linguistics.
+% ---- CAMERA-READY ONLY: de-anonymizing; restore after acceptance ----
+% \section*{Acknowledgments}
+% This work was done in part at the 2026 Jelinek Memorial Summer Workshop on Speech and
+% Language Technology and was supported by NSF CCRI Grant No.\ 2120435, Google DeepMind, the
+% JHU Amazon Initiative for Interactive Artificial Intelligence, the JHU Human Language
+% Technology Center of Excellence, and the Association for Computational Linguistics.
 
 \bibliography{references}
 

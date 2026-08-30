@@ -95,8 +95,10 @@ near-constant floor independent of the target's size or price.
 Three published training objectives instantiate this idea.
 \dald~\citep{zeng2024dald} distills a surrogate by masked supervised fine-tuning
 (SFT) on the target's outputs so that logit-based detectors align.
-\disaad~\citep{cui2026disaad} adds an adversarial term to sharpen the surrogate's
-distribution. A natural third variant, which we call \ours, adds an
+\disaad (Distribution-Aligned Adversarial Distillation)~\citep{cui2026disaad} adds a
+discriminator-based adversarial regularizer to align the surrogate's output distribution
+with the target's and reads uncertainty via an evidential (Dirichlet) head. A natural
+third variant, which we call \ours, adds an
 \emph{uncertainty-aware} distillation term that supervises the proxy's evidential
 uncertainty toward a black-box oracle computed on the teacher's samples. Prior work
 reports these methods with their \emph{native} read-outs and on their native tasks,
@@ -197,11 +199,15 @@ distillation set (a fixed 400-prompt mixture); they differ \emph{only} in the tr
 loss:
 \[
 \begin{aligned}
-\dald  &: \; \mathcal{L}_{\text{SFT}}^{\text{masked}} \quad(\text{response tokens only})\\
-\disaad&: \; \mathcal{L}_{\text{SFT}} + \mathcal{L}_{\text{adv}}\\
-\ours  &: \; \mathcal{L}_{\text{SFT}} + \mathcal{L}_{\text{adv}} + \lambda\,\mathcal{L}_{\text{unc}}
+\dald  &: \; \mathcal{L}_{\text{task}} \quad(\text{masked distillation, response tokens only})\\
+\disaad&: \; \mathcal{L}_{\text{task}} + \lambda_{\text{adv}}\,\mathcal{L}_{\text{reg}}\\
+\ours  &: \; \mathcal{L}_{\text{task}} + \lambda_{\text{adv}}\,\mathcal{L}_{\text{reg}} + \lambda\,\mathcal{L}_{\text{unc}}
 \end{aligned}
 \]
+Following \disaad, $\mathcal{L}_{\text{task}}(\theta)=-\frac{1}{NM}\sum_{i,j}\sum_t\log
+P_\theta(y_t\mid y_{<t})$ is the token-level distillation loss (prompt tokens masked) and
+$\mathcal{L}_{\text{reg}}$ is the sequence-level adversarial regularizer against a
+discriminator $\mathcal{M}_D$ (App.~\ref{app:readouts}). Our added term
 $\mathcal{L}_{\text{unc}}$ pushes the proxy's top-$k$ Dirichlet evidential uncertainty
 (or an MLP head) toward a black-box oracle $u^\star(x)\in[0,1]$ computed on the
 teacher's samples (Eccentricity or Discrete Semantic Entropy). $\lambda$, the oracle,
@@ -534,8 +540,27 @@ Technology Center of Excellence, and the Association for Computational Linguisti
 
 \appendix
 
-\section{Full Per-Read-Out Results}\label{app:readouts}
-Table~\ref{tab:app-readout} gives the complete nine-read-out $\times$ seven-dataset AUROC
+\section{Definitions and Full Per-Read-Out Results}\label{app:readouts}
+\paragraph{Objective terms.} On the distillation set $D_{\mathrm{distill}}=\{(x^{(i)},
+y_B^{(i,j)})\}_{i,j=1}^{N,M}$ (target responses $y_B$), the task loss is the masked
+token-level distillation $\mathcal{L}_{\text{task}}(\theta)=-\frac{1}{NM}\sum_{i,j}\sum_t
+\log P_\theta(y_t\mid y_{<t})$. Following \disaad~\citep{cui2026disaad}, the adversarial
+regularizer trains against a discriminator $\mathcal{M}_D$ (params $\phi$),
+$\mathcal{L}_{\text{reg}}(\theta)=-\frac{1}{NM}\sum_{i,j}\log \mathcal{M}_D(x^{(i)},
+y_P^{(i,j)};\phi)$ where $y_P$ is the current proxy's response, alternated with
+$\mathcal{L}_D(\phi)=-\frac{1}{NM}\sum_{i,j}[\log\mathcal{M}_D(x^{(i)},y_B^{(i,j)};\phi)+
+\log(1-\mathcal{M}_D(x^{(i)},y_P^{(i,j)};\phi))]$. Our term $\mathcal{L}_{\text{unc}}=
+\frac{1}{N}\sum_i \big(u_\theta(x^{(i)})-u^\star(x^{(i)})\big)^2$ regresses the proxy's
+uncertainty read-out $u_\theta$ onto the black-box oracle $u^\star$.
+
+\paragraph{Evidential (EDL) read-out.} Treating the top-$K$ proxy logits $z_t$ as Dirichlet
+evidence $\alpha_k=\mathrm{ReLU}(z_{t,k})$, $\alpha_0=\sum_{k=1}^K\alpha_k$, the aleatoric and
+epistemic scores are $\mathrm{AU}(u_t)=-\sum_k\frac{\alpha_k}{\alpha_0}(\psi(\alpha_k{+}1)-
+\psi(\alpha_0{+}1))$ and $\mathrm{EU}(u_t)=K/\sum_k(\alpha_k{+}1)$ ($\psi$: digamma), matching
+\disaad. Likelihood read-outs instead use the emitted token: \emph{perplexity} is the mean
+negative log-likelihood of $y_B$ under the proxy, \emph{MaxNLL} its weakest-token NLL.
+
+\paragraph{Full grid.} Table~\ref{tab:app-readout} gives the complete nine-read-out $\times$ seven-dataset AUROC
 grid for the deployable proxy (\ours-base) on both teachers---the full data behind the
 summary in \S\ref{sec:readout}. Perplexity is the best or near-best single read-out on
 both teachers' means; the shape estimators (EDL/entropy/energy/LogTokU) are dataset-%

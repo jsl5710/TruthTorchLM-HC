@@ -148,7 +148,10 @@ set of $N$ target samples and summarize their semantic dispersion; verbalized co
 elicits one self-reported score; distilled proxies read the logits of a small white-box
 student distilled from the target's text. P(True) is included but \emph{labelled
 grey-box}---it reads the target's probability of the token ``true''---and is never
-counted as a pure-BB result. Every consistency method is swept over sample budgets
+counted as a pure-BB result. Full mathematical definitions of every family---semantic-set
+and graph-spectral consistency scores, the nine proxy read-outs (including the evidential
+AU/EU head), and the DALD/DisAAD/Ours training objectives---are in
+Appendix~\ref{app:methods}. Every consistency method is swept over sample budgets
 $N\in\{1,3,5,10\}$ by \emph{truncating} the same cached samples, so the $N$-sweep costs no
 extra generation and is perfectly controlled.
 
@@ -418,6 +421,90 @@ Technology Center of Excellence, and the Association for Computational Linguisti
 \bibliography{references}
 
 \appendix
+
+\section{Method Definitions}\label{app:methods}
+This appendix gives the mathematical definition of every method family in
+Table~\ref{tab:roster}; the main text is self-contained and refers here for the exact forms.
+
+\paragraph{Notation.} A target model $\mathcal{M}_B$ (black-box: text out only) receives a
+prompt $x$ and returns an answer $y_B$. When a budget of $N$ samples is used, we draw
+$\{y^{(n)}\}_{n=1}^{N}\sim \mathcal{M}_B(\cdot\mid x)$ from the cached pool. A binary label
+$c\in\{0,1\}$ marks answer correctness (LLM-judge). A method maps its inputs to an
+uncertainty score $u$ (higher $=$ less reliable); we report AUROC of $u$ vs.\ $1-c$.
+
+\subsection{Sampling-consistency (semantic-set) methods}
+Samples are clustered into semantic-equivalence sets by a bidirectional-entailment NLI
+relation $E(\cdot,\cdot)$~\citep{kuhn2023semantic,farquhar2024semantic}; let $\mathcal{C}=
+\{C_1,\dots,C_m\}$ be the clusters with empirical masses $p_i=|C_i|/N$.
+\emph{Discrete semantic entropy} (DSE) is the entropy over clusters,
+\begin{equation}
+u_{\mathrm{DSE}} = -\sum_{i=1}^{m} p_i \log p_i .
+\end{equation}
+\emph{Semantic entropy} (SE) weights clusters by sequence likelihood where available; in the
+pure-BB setting we use its length-normalized discrete form. \emph{NumSemanticSet} is the raw
+cluster count $m$; \emph{Kernel language entropy} replaces the hard partition with a
+semantic kernel over samples and takes its von Neumann entropy. At $N{=}1$ every set-based
+score is constant (one cluster), giving AUROC $0.5$ (Appendix~\ref{app:nsweep}).
+
+\subsection{Graph-spectral methods}
+Build a symmetric similarity graph on the $N$ samples with weights $w_{ab}=\mathrm{sim}
+(y^{(a)},y^{(b)})$ (NLI-entailment or Jaccard), degree matrix $D$, and normalized Laplacian
+$L = I - D^{-1/2} W D^{-1/2}$ with eigenvalues $\lambda_1\le\dots\le\lambda_N$
+\citep{lin2024generating}. \emph{EigV} sums the ``uncertainty mass'' in the spectrum,
+$u_{\mathrm{EigV}}=\sum_{k=1}^{N}\max(0,\,1-\lambda_k)$ (equivalently the number of
+near-zero eigenvalues, i.e.\ connected semantic components). \emph{Eccentricity} embeds each
+sample by the smallest eigenvectors $U_{1:k}$ and scores dispersion of the embedded points
+about their centroid; \emph{MatrixDegree} uses the mean off-diagonal degree $1-\tfrac{1}{N}
+\sum_a D_{aa}$; \emph{SumEigen} sums $\lambda_k$. Confidence/uncertainty variants negate the
+score. \emph{LexicalSimilarity} is the same idea with $\mathrm{sim}=$ mean pairwise ROUGE-L,
+$u=1-\tfrac{2}{N(N-1)}\sum_{a<b}\mathrm{ROUGE}\text{-}\mathrm{L}(y^{(a)},y^{(b)})$.
+
+\subsection{Verbalized confidence}
+One extra call asks $\mathcal{M}_B$ to rate $y_B$ on $[0,100]$; $u=1-\hat{c}/100$
+\citep{tian2023just}. Budget-invariant (one target call).
+
+\subsection{Distilled-proxy read-outs (white-box on a small student)}
+A proxy $\mathcal{M}_p$ (LoRA student, \S\ref{sec:design}) reproduces $y_B$ and exposes
+per-token logits $z_t\in\mathbb{R}^{|V|}$ over the answer span. \emph{Shape} read-outs use
+only the distribution: max-softmax $u=1-\max_k \mathrm{softmax}(z_t)_k$; predictive
+\emph{entropy}; \emph{energy} $-\log\sum_k e^{z_{t,k}}$; \emph{LogTokU} and \emph{evidential}
+(EDL), which treat the top-$K$ logits as Dirichlet evidence
+$\alpha_k=\mathrm{ReLU}(z_{t,k})$, $\alpha_0=\sum_{k=1}^K\alpha_k$, and read aleatoric and
+epistemic uncertainty~\citep{sensoy2018evidential,ma2025logtoku,cui2026disaad}
+\begin{align}
+\mathrm{AU}(u_t) &= -\sum_{k=1}^{K}\tfrac{\alpha_k}{\alpha_0}\big(\psi(\alpha_k{+}1)-\psi(\alpha_0{+}1)\big),\\
+\mathrm{EU}(u_t) &= K \big/ \textstyle\sum_{k=1}^{K}(\alpha_k+1),
+\end{align}
+with $\psi$ the digamma function, aggregated over the least-reliable tokens. \emph{Likelihood}
+read-outs additionally use the token the target emitted: \emph{perplexity} (mean negative
+log-likelihood of $y_B$ under $\mathcal{M}_p$), \emph{MaxNLL}, and \emph{LogitMargin}. Proxies
+cost \emph{zero} target calls at inference (one student forward).
+
+\subsection{Distilled-proxy objectives}
+All proxies are LoRA adapters $W=W_0+BA$ trained on a fixed distillation set
+$D_{\mathrm{distill}}=\{(x^{(i)},y_B^{(i,j)})\}_{i,j=1}^{N,M}$; they differ only in the loss.
+\textbf{DALD}~\citep{zeng2024dald} is masked distillation (response tokens only),
+$\mathcal{L}_{\mathrm{task}}(\theta)=-\tfrac{1}{NM}\sum_{i,j}\sum_t \log P_\theta(y_t\mid
+y_{<t})$. \textbf{DisAAD} (Distribution-Aligned Adversarial Distillation)
+\citep{cui2026disaad} adds a discriminator $\mathcal{M}_D$ (params $\phi$) and a
+sequence-level adversarial regularizer, training
+\begin{equation}
+\min_\theta\; \mathcal{L}_{\mathrm{task}}(\theta) + \lambda_{\mathrm{adv}}\,
+\mathcal{L}_{\mathrm{reg}}(\theta), \quad
+\mathcal{L}_{\mathrm{reg}}(\theta)=-\tfrac{1}{NM}\!\sum_{i,j}\!\log \mathcal{M}_D\big(x^{(i)},y_P^{(i,j)};\phi\big),
+\end{equation}
+alternating with the discriminator objective $\mathcal{L}_D(\phi)=-\tfrac{1}{NM}\sum_{i,j}
+[\log \mathcal{M}_D(x^{(i)},y_B^{(i,j)};\phi)+\log(1-\mathcal{M}_D(x^{(i)},y_P^{(i,j)};\phi))]$,
+so $y_P$ (proxy) becomes indistinguishable from $y_B$ (target). \textbf{Ours} keeps
+$\mathcal{L}_{\mathrm{task}}$ and adds an uncertainty-alignment term $\lambda\,
+\mathcal{L}_{\mathrm{unc}}$ that pulls the proxy's EDL uncertainty toward a black-box oracle
+computed on the teacher's samples. At inference all three are read by any read-out above.
+
+\subsection{Grey-box reference (excluded from pure-BB)}
+\emph{P(True)} reads the target's own probability of the token ``true'' when asked if $y_B$
+is correct~\citep{kadavath2022language}, $u=1-P_{\mathcal{M}_B}(\text{``true''})$. It requires
+target log-probabilities, so it is reported (grey) but never counted as a pure black-box
+result.
 
 \section{Full Method Leaderboards (Open Targets)}\label{app:leaderboard}
 Table~\ref{tab:app-open} lists the full pure black-box method ranking (48 configurations

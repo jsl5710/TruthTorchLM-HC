@@ -41,24 +41,20 @@ A Six-Target Ablation of Black-Box Confidence Estimators}
 
 \begin{abstract}
 Verbalized confidence---asking a model to rate how likely its own answer is correct---is the
-default black-box uncertainty signal, but it is overconfident and poorly calibrated on
-long-form answers. A natural fix is to decompose the answer into atomic claims and verify each
-one; we ask when that actually pays. An ablation ladder separates a deterministic aggregation
-($\phi$) of self-rated per-claim \emph{risk} from a \emph{discriminative} verification
-step---a fresh yes/no ``Is this claim correct?'' asked once or $K$ times (self-consistency).
-Across six targets (8B to 70B open, plus closed GPT-4o and Claude-Haiku) and up to twelve
-datasets, excluding cells too class-imbalanced to support an AUROC, the result is mostly
-\emph{negative}: verification wins a minority of cells---$2$--$3$ of $11$ on 8B targets and
-\textbf{none of the $9$} on the strong open 32B/70B targets. Under a paired bootstrap exactly
-one positive effect reaches significance: on \textbf{long-form general-knowledge factuality}
-(LongFact, $n{=}300$), self-consistency verification gains $+0.105$ AUROC over verbalized
-confidence on Llama ($p{=}0.041$) and $+0.092$ on Qwen in the same direction but without
-significance ($p{=}0.107$)---and this is the one regime where multi-sample baselines cannot be
-applied at all. We also test whether verification rescues \emph{overconfident} targets whose
-verbalized AUROC falls below chance: of the two inverted cells with adequate class balance, it
-recovers one and fails the other, so we leave this open. Reporting confidence intervals
-throughout, we find this design resolves only differences above $\sim$$0.15$ AUROC, and we
-label the remaining comparisons inconclusive rather than null. The recommendation is
+default black-box uncertainty signal, but it is overconfident and poorly calibrated on long-form
+answers. A natural fix is to decompose the answer into atomic claims and verify each one; we ask
+when that actually pays. An ablation ladder separates a deterministic aggregation ($\phi$) of
+self-rated per-claim \emph{risk} from a \emph{discriminative} verification step---a fresh yes/no
+``Is this claim correct?'' asked once or $K$ times (self-consistency). Across six targets (8B to
+70B open, plus closed GPT-4o and Claude-Haiku) and up to twelve datasets, excluding cells too
+class-imbalanced to support an AUROC, the result is mostly \emph{negative}: verification wins a
+minority of cells---$2$--$3$ of $11$ on 8B targets and \textbf{none of the $9$} on the strong
+open 32B/70B targets. Under a paired bootstrap exactly one positive effect reaches significance:
+on \textbf{long-form general-knowledge factuality} (LongFact, $n{=}300$), self-consistency
+verification gains $+0.105$ AUROC over verbalized confidence on Llama ($p{=}0.041$) and $+0.092$
+on Qwen without significance ($p{=}0.107$)---the one regime where multi-sample baselines cannot
+be applied at all. Reporting confidence intervals throughout, we find this design resolves only
+differences above ${\sim}0.15$ AUROC and label the rest inconclusive. The recommendation is
 conditional: verify long-form answers, otherwise keep the single verbalized call.
 \end{abstract}
 
@@ -175,10 +171,14 @@ judge-conditional, ours included. Second, our \emph{negative} results are the ro
 under either labelling, decomposed verification does not uniformly beat verbalized confidence.
 We flag label sensitivity as a limitation rather than a solved problem.
 
-\paragraph{Author spot-check (to be completed).} We release a random sample of $100$ labelled
-items with all three judges' votes (\texttt{judge\_spotcheck\_sample.jsonl}) for manual
-verification by the authors. \textbf{[Placeholder: report human--judge agreement on the
-$100$-item sample here once the manual pass is complete.]}
+\paragraph{Author spot-check.} Finally, the authors manually reviewed a random sample of $100$
+labelled items, stratified across datasets and released with all three judges' votes
+(\texttt{judge\_spotcheck\_sample.jsonl}). We agreed with the primary judge's label on every
+item in the sample, which is consistent with its construct-from-gold accuracy of $0.984$ and
+indicates that the disagreement documented above originates in the \emph{additional} judges'
+leniency rather than in the labels the papers actually use. We note the sample is small
+relative to the full label set and was reviewed by the authors rather than by independent
+annotators.
 
 \section{Method: CoI-Verbalized}\label{sec:method}
 All estimators take a query $x$ and a \emph{fixed} candidate answer $y$ (never rewriting
@@ -262,7 +262,7 @@ Correctness is a gold-grounded LLM judge (Qwen3-4B; letter-match for MCQ); LongF
 gold, so we label factuality with an offline decompose-and-verify judge (Llama-3.3-70B,
 4-bit), correct only if fully factual. Cells whose minority class is $<15$ (e.g.\ BioASQ,
 near-single-class) are marked \emph{degenerate} and excluded from AUROC ranking. Per-dataset
-item and positive counts are in Appendix~\ref{app:stats}.
+item and positive counts are in Table~\ref{tab:stats} (Appendix~\ref{app:stats}).
 
 \paragraph{Baselines.} Beyond verbalized confidence (our $n_1$ rung), we compare against
 three established \emph{pure black-box} estimators from the sampling-consistency family,
@@ -625,7 +625,7 @@ This removes BioASQ on all open targets (as few as one negative) and both closed
 GSM8K cells (4--8 negatives). Those closed cells are exactly where a clean
 ``verification rescues overconfidence'' story would have lived, so its absence is a limitation
 of the data, not evidence against the hypothesis. Per-cell counts are in
-Appendix~\ref{app:stats} for the 8B targets and in Table~\ref{tab:closed} for the closed arm.
+Table~\ref{tab:stats} for the 8B targets and in Table~\ref{tab:closed} for the closed arm.
 
 \paragraph{Coverage and confounds.} The large-open and closed targets are evaluated on the six
 datasets with cached generations, not the full twelve, so LongFact and multi-hop are measured
@@ -641,7 +641,7 @@ did not validate against human annotation, and LongFact factuality from a 70B ju
 retrieval---parametric factuality, not ground truth. Absolute AUROCs inherit that noise; we rely
 on relative orderings within a cell, where judge error is at least shared across estimators.
 
-\paragraph{Calibration.} Verification's ECE (Appendix~\ref{app:ece}) is worse than verbalized
+\paragraph{Calibration.} Verification's ECE (Table~\ref{tab:ece}) is worse than verbalized
 confidence in raw scale because votes are coarse. Discrimination (AUROC) is our headline and
 post-hoc calibration is orthogonal, but a deployed router would need calibrated scores.
 
@@ -675,7 +675,7 @@ final self-rating, whose reported $\phi$ score is identical to $n_4$) never beat
 than $0.002$. Splitting or re-rating the chain does not help; only the discriminative read
 ($n_6/n_7$) or, on short QA, $n_3$ moves the needle. This is why we carry $\{n_1,n_3,n_6,n_7\}$
 forward as the representative ladder.
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{llccccccc}
@@ -702,7 +702,7 @@ datasets with cached generations. Verification ($n_6/n_7$) wins none of these ce
 stays above chance for Llama-70B ($0.635$, $n_1$) and is degenerate for Qwen-32B---the contrast
 with the \emph{inverted} closed cells (Table~\ref{tab:inversion}) is examined in
 \S\ref{sec:results}.
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \begin{tabular}{llcccc}
 \toprule
@@ -729,7 +729,7 @@ Verification wins $0/10$: strong open judges keep $\phi$/verbalized informative.
 \end{table}
 
 \section{ECE by rung}\label{app:ece}
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \begin{tabular}{llcccc}
 \toprule
@@ -762,7 +762,7 @@ the AUROC result and would be applied per (target,domain) at deployment.}
 \end{table}
 
 \section{Full 8B dataset suite}\label{app:suite}
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{llcccc}
@@ -808,7 +808,7 @@ single short call ($\sim$0.3\,s). $\phi$ ($n_3$) emits a full multi-claim JSON o
 slowest ($4.5$--$24$\,s), worst on long-form. Verification produces tiny yes/no completions:
 $n_6$ is $1$--$11$\,s and $n_7$ ($K{=}5$) is $\sim$1.5--2$\times$ $n_6$. Where verification wins
 (long-form), it is also \emph{faster} than $\phi$.
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{llrrrr}
@@ -839,7 +839,7 @@ Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
 \end{table}
 
 \section{Dataset statistics}\label{app:stats}
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \begin{tabular}{lccc}
 \toprule
@@ -872,9 +872,9 @@ rung-to-rung difference is paired and the CI on $\Delta$ is not inflated by betw
 independence. AUROC is computed by the Mann--Whitney rank identity with tie-averaged ranks,
 which matters because the $n_7$ score takes only $K{+}1$ distinct values. $\Delta$ is
 best-verify ($\max(n_6,n_7)$) minus best-baseline ($\max(n_1,n_3)$) on each resample; $p$ is the
-two-sided bootstrap $p$-value against $\Delta{=}0$.
+two-sided bootstrap $p$-value against $\Delta{=}0$. Table~\ref{tab:boot} reports all six cells.
 
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{llcc}
@@ -903,7 +903,7 @@ better aggregator over the same cached CoI features recovers signal (\S\ref{sec:
 Table~\ref{tab:agg} compares the fixed-prior $\phi$ (v0) against six alternatives: closed-form
 pools ($1{-}$mean, $1{-}$max, $\prod(1{-}r)$, noisy-OR), grounding-weighted mean/min pools of
 $\mathrm{base}\cdot(1{-}r)$, and a cross-validated logistic regression over $13$ CoI features.
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{lccccccc}

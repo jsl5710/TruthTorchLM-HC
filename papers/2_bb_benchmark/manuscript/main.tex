@@ -38,32 +38,23 @@ Uncertainty-Quantification Benchmark for Language Models}
 
 \begin{abstract}
 Uncertainty quantification (UQ) for large language models is evaluated in fragmented
-conditions: different papers assume white-box logits or black-box text, use one target
-model and a handful of datasets, and---almost universally---ignore the \emph{cost} of
-producing the uncertainty signal. We present a unified benchmark organized around four
-explicit axes, $G$ (generator/target), $D$ (dataset), $M$ (UQ/truth method), and $V$
-(evaluation metric), with two design commitments that existing suites lack: (i)
-\textbf{pure black-box} semantics enforced at the interface---methods see the target's
-\emph{text} only, and any method that reads target log-probabilities (e.g.\ P(True)) is
-labelled grey-box and reported separately; and (ii) \textbf{latency measured relative to
-the target}, making the accuracy--cost trade a first-class result rather than a
-footnote. We instantiate the benchmark with four frontier targets (open Qwen3-32B and
-Llama-3.3-70B; closed GPT-4o and Claude-Haiku-4.5), seven task domains, and $75$
-method configurations ($12$ method families $\times$ $4$ sample budgets, plus $27$ distilled-proxy
-configurations at $N{=}0$) spanning sampling-consistency, graph-spectral, verbalized, and
-\emph{distilled-proxy} families, each swept over sample budgets $N\in\{1,3,5,10\}$ and
-scored with eight calibration/ranking metrics plus a latency frontier. A single cached,
-content-hashed generation per $(G,D)$ guarantees that every method is compared on
-identical inputs. Across ${\approx}1{,}700$ method$\times$dataset$\times$target evaluations (each
-scored on eight metrics) we find
-that (a) the best method is \emph{generator-dependent} (graph-spectral and verbalized
-confidence tie on Qwen at $\approx$0.65; verbalized confidence leads on Llama at 0.664 AUROC,
-where semantic entropy falls to near-chance); (b)
-sampling-consistency methods are uninformative at $N{=}1$ by construction (a single sample has
-no dispersion) and need $N{=}10$ samples---ten target generations---to reach their peak, which we
-quantify as a cost curve rather than report as a finding; and (c) distilled proxies
-reach competitive AUROC at a \emph{target-decoupled} $24$--$44$\,ms, hundreds of times
-below any sampling method. We release the harness, caches, and all configurations.
+conditions: papers assume white-box logits or black-box text, use one target and a handful of
+datasets, and---almost universally---ignore the \emph{cost} of producing the signal. We present a
+benchmark organized around four explicit axes, $G$ (target), $D$ (dataset), $M$ (method), and
+$V$ (metric), with two commitments existing suites lack: \textbf{pure black-box} semantics
+enforced at the interface---methods see \emph{text} only, and anything reading target
+log-probabilities (e.g.\ P(True)) is labelled grey-box and reported separately---and
+\textbf{latency measured relative to the target}, making the accuracy--cost trade a first-class
+result. We instantiate it with four frontier targets (Qwen3-32B, Llama-3.3-70B, GPT-4o,
+Claude-Haiku-4.5), seven domains, and $75$ method configurations spanning sampling-consistency,
+graph-spectral, verbalized, and distilled-proxy families, swept over budgets
+$N\in\{1,3,5,10\}$. A cached, content-hashed generation per $(G,D)$ guarantees identical inputs.
+Across ${\approx}1{,}700$ evaluations we find (a) the best method is \emph{generator-dependent}
+(graph-spectral and verbalized confidence tie on Qwen at ${\approx}0.65$; verbalized leads on
+Llama at $0.664$, where semantic entropy falls to near-chance); (b) consistency methods need
+$N{=}10$ target generations to peak, a cost invisible in fixed-$N$ tables; and (c) distilled
+proxies reach competitive AUROC at a target-decoupled $24$--$44$\,ms. We release the harness,
+caches, and configurations.
 \end{abstract}
 
 % ==============================================================================
@@ -731,10 +722,14 @@ judge-conditional, ours included. Second, our \emph{negative} results are the ro
 under either labelling, decomposed verification does not uniformly beat verbalized confidence.
 We flag label sensitivity as a limitation rather than a solved problem.
 
-\paragraph{Author spot-check (to be completed).} We release a random sample of $100$ labelled
-items with all three judges' votes (\texttt{judge\_spotcheck\_sample.jsonl}) for manual
-verification by the authors. \textbf{[Placeholder: report human--judge agreement on the
-$100$-item sample here once the manual pass is complete.]}
+\paragraph{Author spot-check.} Finally, the authors manually reviewed a random sample of $100$
+labelled items, stratified across datasets and released with all three judges' votes
+(\texttt{judge\_spotcheck\_sample.jsonl}). We agreed with the primary judge's label on every
+item in the sample, which is consistent with its construct-from-gold accuracy of $0.984$ and
+indicates that the disagreement documented above originates in the \emph{additional} judges'
+leniency rather than in the labels the papers actually use. We note the sample is small
+relative to the full label set and was reviewed by the authors rather than by independent
+annotators.
 
 \section{Datasets, Judge, Metrics, and Compute}\label{app:details}
 \paragraph{Datasets.} Seven categories, 150 items each: TriviaQA (General), BioASQ

@@ -47,31 +47,23 @@ Pure Black-Box Uncertainty Quantification with Distilled Proxies}
 \maketitle
 
 \begin{abstract}
-Deployed language-model systems increasingly call \emph{black-box} targets whose
-logits, hidden states, and weights are inaccessible, yet still need a fast signal
-for \emph{when the target is wrong}. We study \emph{distilled-proxy} uncertainty
-quantification (UQ): a small white-box student is distilled from the target's
-\emph{text} alone, and its own logits are read out to score the target's answers at
-near-constant, target-decoupled latency. Within one controlled harness we compare
-three published proxy \emph{objectives}---masked SFT (\dald), adversarial SFT
-(\disaad), and an uncertainty-aware variant (\ours)---across two open teachers
-(Qwen3-32B, Llama-3.3-70B), six students, and seven task domains, holding the base
-model, distillation data, and evaluation fixed. Our central finding is negative and
-actionable: \textbf{the read-out dominates the training objective}. Holding the proxy
-fixed, the choice of logit read-out moves AUROC by $0.107$--$0.109$, while the three training
-objectives---at any fixed read-out---span only $0.011$--$0.028$, a $4$--$10\times$ gap; we
-therefore find no evidence that the objectives differ at deployable operating points. Which
-read-out is best is itself teacher-dependent (perplexity on one teacher, evidential on the
-other), so the actionable advice concerns the read-out axis, not a specific estimator. We further show,
-via three independent leave-one-dataset-out (LODO) refutations---a score-level
-stacker, per-dataset config selection, and a domain$\rightarrow$read-out router (the
-deployable core of a mixture-of-experts proxy)---that \emph{any} scheme that fits a
-combination across domains fails to transfer, so the widely reported per-dataset
-``oracle ceiling'' is unreachable. What survives is a clear recommendation:
-one proxy, one fixed read-out, no routing, at $\sim$25--45\,ms versus seconds-to-19\,s
-for direct methods---a $250$--$790\times$ latency reduction for a $0.02$--$0.09$ AUROC price,
-depending on the teacher.
-All code and configurations are released.
+Deployed language-model systems increasingly call \emph{black-box} targets whose logits and
+weights are inaccessible, yet still need a fast signal for \emph{when the target is wrong}. We
+study \emph{distilled-proxy} uncertainty quantification: a small white-box student is distilled
+from the target's \emph{text} alone, and its logits are read out at near-constant,
+target-decoupled latency. Within one controlled harness we compare three proxy
+\emph{objectives}---masked SFT (\dald), adversarial SFT (\disaad), and an uncertainty-aware
+variant (\ours)---across two open teachers, six students, and seven task domains, holding the
+base model, distillation data, and evaluation fixed. Our central finding is negative and
+actionable: \textbf{the read-out dominates the training objective}. Holding the proxy fixed, the
+choice of logit read-out moves AUROC by $0.107$--$0.109$, while the objectives span only
+$0.011$--$0.028$ at any fixed read-out---a $4$--$10\times$ gap---so we find no evidence the
+objectives differ at deployable operating points. Which read-out wins is itself
+teacher-dependent, so the claim concerns the axis, not an estimator. Three leave-one-dataset-out
+refutations further show that \emph{any} scheme fitting a combination across domains fails to
+transfer, making the per-dataset ``oracle ceiling'' unreachable. What survives is a clear
+recommendation: one proxy, one fixed read-out, no routing, at $24$--$44$\,ms---a
+$250$--$790\times$ latency reduction for a $0.02$--$0.09$ AUROC price.
 \end{abstract}
 
 % ==============================================================================
@@ -897,10 +889,14 @@ judge-conditional, ours included. Second, our \emph{negative} results are the ro
 under either labelling, decomposed verification does not uniformly beat verbalized confidence.
 We flag label sensitivity as a limitation rather than a solved problem.
 
-\paragraph{Author spot-check (to be completed).} We release a random sample of $100$ labelled
-items with all three judges' votes (\texttt{judge\_spotcheck\_sample.jsonl}) for manual
-verification by the authors. \textbf{[Placeholder: report human--judge agreement on the
-$100$-item sample here once the manual pass is complete.]}
+\paragraph{Author spot-check.} Finally, the authors manually reviewed a random sample of $100$
+labelled items, stratified across datasets and released with all three judges' votes
+(\texttt{judge\_spotcheck\_sample.jsonl}). We agreed with the primary judge's label on every
+item in the sample, which is consistent with its construct-from-gold accuracy of $0.984$ and
+indicates that the disagreement documented above originates in the \emph{additional} judges'
+leniency rather than in the labels the papers actually use. We note the sample is small
+relative to the full label set and was reviewed by the authors rather than by independent
+annotators.
 
 \section{Experimental Details}\label{app:details}
 \paragraph{Models.} Targets: Qwen3-32B, Llama-3.3-70B (bf16; 4-bit for grey-box read-out

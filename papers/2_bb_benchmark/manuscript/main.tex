@@ -414,7 +414,7 @@ aggregate; its AUROC appears in Table~\ref{tab:leaderboard}. The full eight-metr
 % ==============================================================================
 Because the benchmark measures cost relative to the target (batch 1, GPU warm-up,
 exclusive allocation, p50 over items), the accuracy--latency trade is a reported result
-(Table~\ref{tab:latency}). The three families occupy distinct regimes. Distilled proxies
+(Table~\ref{tab:latency}, Fig.~\ref{fig:pareto2}). The three families occupy distinct regimes. Distilled proxies
 are \emph{target-decoupled}: one small student forward, measured at 24--44\,ms
 independent of target size or price. Verbalized confidence pays one target generation.
 Consistency methods pay $N$ target generations plus NLI clustering---seconds on a 70B, and
@@ -425,20 +425,60 @@ $N{=}10$.
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{l c c}
 \toprule
-method class & target calls & latency / item\\
+method class & target calls & scoring latency / item\\
 \midrule
-Distilled proxy   & $0$ & \textbf{24--44 ms} (measured)\\
-Verbalized conf.  & $1$ & 1 target generation\\
-Consistency ($N{=}10$) & $10$ & 10 gen.\ $+$ NLI: sec.--$\sim$19\,s\\
-\grey{P(True) (grey)} & \grey{$1$} & \grey{1 target call $+$ logprobs}\\
+Distilled proxy   & $0$  & \textbf{24--44 ms}\\
+\grey{P(True) (grey)} & \grey{$1$} & \grey{109--205 ms}\\
+Verbalized conf.  & $1$  & 286--287 ms\\
+Semantic entropy ($N{=}10$) & $10$ & 541--551 ms\\
+Lexical sim.\ ($N{=}10$)    & $10$ & 1275--1336 ms\\
+Eccentricity ($N{=}10$)     & $10$ & 3133--3239 ms\\
 \bottomrule
 \end{tabular}
-\caption{Latency frontier by method class. Proxy latency is measured on the student
-(qwen3-4b 41--44\,ms; llama3.2-3b 24--34\,ms) and is \emph{constant} in the target;
-sampling latency scales with target cost $\times N$. The proxy is $\sim$400--700$\times$
-cheaper than $N{=}10$ consistency on API targets, widening with target price.}
+\caption{Latency frontier by method class, all values \emph{measured} (p50 over
+non-degenerate cells, both open targets; batch 1, GPU warm, exclusive node). These are
+\textbf{scoring} costs and exclude the target calls in column two, which dominate: a method with
+$N{=}10$ additionally pays ten target generations, seconds each on a 70B and $\approx$1--2\,s on
+an API. Only the proxy's figure is complete as shown, because it makes no target call. On
+scoring compute alone the proxy is $71$--$135\times$ cheaper than $N{=}10$ Eccentricity; once the
+ten API generations are included the end-to-end ratio is $250$--$790\times$
+(\S\ref{sec:latency}).}
 \label{tab:latency}
 \end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=\columnwidth, height=5.4cm,
+  xmode=log, log basis x=10,
+  xlabel={measured scoring latency per item (ms, log scale)},
+  ylabel={mean AUROC},
+  xmin=15, xmax=6000, ymin=0.50, ymax=0.72,
+  xlabel style={font=\small}, ylabel style={font=\small},
+  tick label style={font=\scriptsize},
+  grid=major, grid style={gray!22}, axis line style={gray!60},
+  legend style={font=\scriptsize, at={(0.02,0.97)}, anchor=north west,
+                draw=gray!50, fill=white, fill opacity=0.9, text opacity=1},
+  legend cell align=left,
+]
+\addplot[only marks, mark=square*, mark size=2.4pt, black] coordinates {(24,0.572)(44,0.634)};
+\addlegendentry{distilled proxy ($0$ calls)}
+\addplot[only marks, mark=triangle*, mark size=3pt, gray!55!black] coordinates {(286,0.664)(287,0.653)};
+\addlegendentry{verbalized ($1$ call)}
+\addplot[only marks, mark=*, mark size=2.4pt, gray!75!black]
+  coordinates {(551,0.529)(541,0.624)(1336,0.589)(1275,0.583)(3239,0.627)(3133,0.655)};
+\addlegendentry{consistency / spectral ($10$ calls)}
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{Accuracy against measured scoring latency}, two open targets (two points per
+class). The $x$ axis is the method's own compute only; the $10$-call family additionally pays ten
+target generations, which moves it one to two further decades to the right and is the cost this
+benchmark exists to expose. Note the frontier is not a clean trade: the cheapest family (proxies)
+is not the least accurate, and the most expensive scoring method (Eccentricity) does not lead on
+either target.}
+\label{fig:pareto2}
+\end{figure}
 
 The practical reading: on the AUROC--latency plane the distilled proxy is Pareto-optimal
 whenever a few points of AUROC are worth two-to-three orders of magnitude of latency, and
@@ -533,14 +573,14 @@ score is constant (one cluster), giving AUROC $0.5$ (Appendix~\ref{app:nsweep}).
 
 \subsection{Graph-spectral methods}
 Build a symmetric similarity graph on the $N$ samples with weights $w_{ab}=\mathrm{sim}
-(y^{(a)},y^{(b)})$ (NLI-entailment or Jaccard), degree matrix $D$, and normalized Laplacian
-$L = I - D^{-1/2} W D^{-1/2}$ with eigenvalues $\lambda_1\le\dots\le\lambda_N$
+(y^{(a)},y^{(b)})$ (NLI-entailment or Jaccard), degree matrix $\mathbf{\Delta}$ (we write
+$\mathbf{\Delta}$, not $D$, since $D$ is the dataset axis), and normalized Laplacian
+$L = I - \mathbf{\Delta}^{-1/2} W \mathbf{\Delta}^{-1/2}$ with eigenvalues $\lambda_1\le\dots\le\lambda_N$
 \citep{lin2024generating}. \emph{EigV} sums the ``uncertainty mass'' in the spectrum,
 $u_{\mathrm{EigV}}=\sum_{k=1}^{N}\max(0,\,1-\lambda_k)$ (equivalently the number of
 near-zero eigenvalues, i.e.\ connected semantic components). \emph{Eccentricity} embeds each
 sample by the smallest eigenvectors $U_{1:k}$ and scores dispersion of the embedded points
-about their centroid; \emph{MatrixDegree} uses the mean off-diagonal degree $1-\tfrac{1}{N}
-\sum_a D_{aa}$; \emph{SumEigen} sums $\lambda_k$. Confidence/uncertainty variants negate the
+about their centroid; \emph{MatrixDegree} uses the normalized total degree $1-\tfrac{1}{N^{2}}\sum_a \mathbf{\Delta}_{aa}$; \emph{SumEigen} sums $\lambda_k$. Confidence/uncertainty variants negate the
 score. \emph{LexicalSimilarity} is the same idea with $\mathrm{sim}=$ mean pairwise ROUGE-L,
 $u=1-\tfrac{2}{N(N-1)}\sum_{a<b}\mathrm{ROUGE}\text{-}\mathrm{L}(y^{(a)},y^{(b)})$.
 
@@ -567,20 +607,23 @@ cost \emph{zero} target calls at inference (one student forward).
 
 \subsection{Distilled-proxy objectives}
 All proxies are LoRA adapters $W=W_0+BA$ trained on a fixed distillation set
-$D_{\mathrm{distill}}=\{(x^{(i)},y_B^{(i,j)})\}_{i,j=1}^{N,M}$; they differ only in the loss.
+$\mathcal{D}_{\mathrm{distill}}=\{(x^{(i)},y_B^{(i,j)})\}_{i,j=1}^{P,Q}$ ($P$ prompts $\times$ $Q$
+teacher samples; we use $P,Q$ rather than $N,M$, which denote the sample budget and the method
+axis elsewhere in this paper); they differ only in the loss.
 \textbf{DALD}~\citep{zeng2024dald} is masked distillation (response tokens only),
-$\mathcal{L}_{\mathrm{task}}(\theta)=-\tfrac{1}{NM}\sum_{i,j}\sum_t \log P_\theta(y_t\mid
-y_{<t})$. \textbf{DisAAD} (Distribution-Aligned Adversarial Distillation)
+$\mathcal{L}_{\mathrm{task}}(\theta)=-\tfrac{1}{PQ}\sum_{i,j}\sum_t \log P_\theta\!\left(y^{(i,j)}_t\mid y^{(i,j)}_{<t},x^{(i)}\right)$. \textbf{DisAAD} (Distribution-Aligned Adversarial Distillation)
 \citep{cui2026disaad} adds a discriminator $\mathcal{M}_D$ (params $\phi$) and a
 sequence-level adversarial regularizer, training
 \begin{equation}
 \min_\theta\; \mathcal{L}_{\mathrm{task}}(\theta) + \lambda_{\mathrm{adv}}\,
 \mathcal{L}_{\mathrm{reg}}(\theta), \quad
-\mathcal{L}_{\mathrm{reg}}(\theta)=-\tfrac{1}{NM}\!\sum_{i,j}\!\log \mathcal{M}_D\big(x^{(i)},y_P^{(i,j)};\phi\big),
+\mathcal{L}_{\mathrm{reg}}(\theta)=-\tfrac{1}{PQ}\!\sum_{i,j}\!\log \mathcal{M}_D\big(x^{(i)},\tilde{y}^{(i,j)};\phi\big),
 \end{equation}
-alternating with the discriminator objective $\mathcal{L}_D(\phi)=-\tfrac{1}{NM}\sum_{i,j}
-[\log \mathcal{M}_D(x^{(i)},y_B^{(i,j)};\phi)+\log(1-\mathcal{M}_D(x^{(i)},y_P^{(i,j)};\phi))]$,
-so $y_P$ (proxy) becomes indistinguishable from $y_B$ (target). \textbf{Ours} keeps
+alternating with the discriminator objective $\mathcal{L}_D(\phi)=-\tfrac{1}{PQ}\sum_{i,j}
+[\log \mathcal{M}_D(x^{(i)},y_B^{(i,j)};\phi)+\log(1-\mathcal{M}_D(x^{(i)},\tilde{y}^{(i,j)};\phi))]$,
+so the proxy's own response $\tilde{y}$ becomes indistinguishable from the target's $y_B$.
+Because $\tilde{y}$ is discrete text, the adversarial gradient reaches $\theta$ through the
+proxy's output distribution rather than through sampled tokens. \textbf{Ours} keeps
 $\mathcal{L}_{\mathrm{task}}$ and adds an uncertainty-alignment term $\lambda\,
 \mathcal{L}_{\mathrm{unc}}$ that pulls the proxy's EDL uncertainty toward a black-box oracle
 computed on the teacher's samples. At inference all three are read by any read-out above.

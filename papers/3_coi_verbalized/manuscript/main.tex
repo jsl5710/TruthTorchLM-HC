@@ -450,11 +450,50 @@ and they point in opposite directions: on Claude/TruthfulQA verification recover
 $0.622$. The two cells that would have supported a clean story, GPT-4o and Claude on MedLFQA,
 have 7 and 8 negatives respectively and are excluded under the criterion in
 \S\ref{sec:setup}; we show them in Table~\ref{tab:inversion} only for transparency and base no
-claim on them. We also note a design confound that this grid cannot break: every inverted
+claim on them. There is also a much cheaper competitor that this framing invites and that we must report.
+If a baseline is reliably \emph{inverted}, the obvious remedy is to negate it: since negation
+maps AUROC $a\mapsto 1-a$ exactly, an inverted verbalized score of $0.35$ is worth $0.65$ to
+anyone willing to flip the sign, at one target call rather than $K$. Table~\ref{tab:negated}
+makes that comparison. It is unfavourable to verification: on GPT-4o/BioASQ the negated
+baseline reaches $0.654$ against verification's $0.466$, and on the (degenerate) GPT-4o/MedLFQA
+cell verification leads the negated baseline by only $+0.012$---not the $+0.34$ that the
+comparison against the \emph{uncorrected} score suggests. Verification is clearly ahead on just
+one cell (Claude/TruthfulQA, $+0.081$). The natural objection is that negating requires knowing
+the sign, which requires held-out labels; but so does the reliability router we sketch in
+\S\ref{sec:discussion}, so wherever that router is feasible the sign-flip is feasible and
+cheaper. We therefore do not claim verification as the remedy for overconfident targets.
+We also note a design confound that this grid cannot break: every inverted
 target here is closed and every calibrated target is open, so ``inversion'' and
 ``closed-weights'' are perfectly collinear. Establishing the hypothesis would require inverted
 \emph{open} targets (or calibrated closed ones) and long-form cells with adequate negatives on
 the closed arm---neither of which our cached generations provide.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llccc}
+\toprule
+Target / dataset & neg. & $1-\nverb$ & best verify & diff. \\
+\midrule
+\multicolumn{5}{l}{\emph{valid cells (minority $\ge 15$)}}\\
+GPT-4o / BioASQ     & 38 & \textbf{0.654} & 0.466 & $-0.188$ \\
+Claude / TruthfulQA & 27 & 0.516 & \textbf{0.596} & $+0.081$ \\
+\midrule
+\multicolumn{5}{l}{\emph{degenerate---excluded, shown for transparency}}\\
+GPT-4o / MedLFQA    & 7  & 0.663 & 0.675 & $+0.012$ \\
+Claude / MedLFQA    & 8  & 0.531 & 0.593 & $+0.062$ \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{The cheap control: simply negating verbalized confidence.} Because negating a
+score maps AUROC $a \mapsto 1-a$ exactly, an inverted baseline is worth $1-\nverb$ to anyone
+willing to flip its sign---at one target call rather than $K$. On the two valid inverted cells
+the comparison splits, and the loss is larger than the win. On the degenerate GPT-4o/MedLFQA
+cell---which an earlier version of this work reported as a $+0.34$ gain over verbalized
+confidence---verification's margin over the negated baseline is $+0.012$, i.e.\ essentially
+nothing. We report this because the correct comparison for ``verification rescues an
+overconfident target'' is against the sign-flip, not against the uncorrected score.}
+\label{tab:negated}
+\end{table}
 
 \subsection{The latency trade}
 \begin{table}[t]
@@ -575,7 +614,7 @@ no training data at all. And on MedLFQA every aggregator sits near $0.50$. The l
 the aggregator is not the bottleneck; the \emph{inputs} (self-rated risk) are, which is
 precisely what the verification rungs replace.
 
-\section{Discussion}
+\section{Discussion}\label{sec:discussion}
 The grid yields a narrow recommendation rather than a universal winner. Decomposed
 verification earns its cost in one demonstrated setting: \textbf{long-form answers}, where it
 gains $\sim0.10$ AUROC over verbalized confidence on both targets we could measure, and where
@@ -587,10 +626,10 @@ cheaper, so decomposition should not be paid for by default.
 We had expected a second regime, \textbf{overconfident targets}, where a below-chance verbalized
 AUROC signals that the self-rating is anti-correlated with correctness. Our data cannot support
 that claim (\S\ref{sec:inversion}), and we flag two reasons it remains attractive but unproven.
-First, the obvious control is missing from our comparison: if verbalized confidence is
-\emph{reliably} inverted, simply negating it is a one-call fix, and on the cells where
-verification wins it does so by a margin over negated-verbalized that is far smaller than the
-margin over verbalized itself. Second, ``inverted'' and ``closed-weights'' are perfectly
+First, the obvious control is unfavourable: if verbalized confidence is \emph{reliably}
+inverted, negating it is a one-call fix, and against that control (Table~\ref{tab:negated})
+verification leads on only one of the four inverted cells---losing the one valid strongly-inverted
+cell by $0.188$. Second, ``inverted'' and ``closed-weights'' are perfectly
 confounded in this grid. A deployable router of the form ``measure verbalized reliability on
 held-out data, escalate where it is poor'' is therefore a hypothesis our results motivate but do
 not establish; testing it needs inverted open targets and long-form closed cells with adequate
@@ -640,9 +679,9 @@ datasets with cached generations, not the full twelve, so LongFact and multi-hop
 only on 8B. The long-form and overconfidence conditions therefore never co-occur in a single
 non-degenerate cell. Moreover every inverted target in our grid is closed and every calibrated
 one is open, so inversion and closed-weights are collinear and we cannot attribute the effect to
-either. We also do not compare against the obvious cheap control for an inverted baseline,
-\emph{negated} verbalized confidence, which would cost one call rather than $K$; adding it is
-necessary before recommending verification on inversion grounds.
+either. We do compare against the obvious cheap control for an inverted baseline---\emph{negated}
+verbalized confidence (Table~\ref{tab:negated})---and it is unfavourable to verification, which
+is why we make no recommendation on inversion grounds.
 
 \paragraph{Labels.} Correctness comes from an LLM judge (Qwen3-4B; letter-match for MCQ) that we
 did not validate against human annotation, and LongFact factuality from a 70B judge without

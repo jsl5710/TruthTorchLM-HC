@@ -48,18 +48,21 @@ explicit axes, $G$ (generator/target), $D$ (dataset), $M$ (UQ/truth method), and
 labelled grey-box and reported separately; and (ii) \textbf{latency measured relative to
 the target}, making the accuracy--cost trade a first-class result rather than a
 footnote. We instantiate the benchmark with four frontier targets (open Qwen3-32B and
-Llama-3.3-70B; closed GPT-4o and Claude-Haiku-4.5), seven task domains, and $\sim$70
-method configurations spanning sampling-consistency, graph-spectral, verbalized, and
+Llama-3.3-70B; closed GPT-4o and Claude-Haiku-4.5), seven task domains, and $75$
+method configurations ($12$ method families $\times$ $4$ sample budgets, plus $27$ distilled-proxy
+configurations at $N{=}0$) spanning sampling-consistency, graph-spectral, verbalized, and
 \emph{distilled-proxy} families, each swept over sample budgets $N\in\{1,3,5,10\}$ and
 scored with eight calibration/ranking metrics plus a latency frontier. A single cached,
 content-hashed generation per $(G,D)$ guarantees that every method is compared on
-identical inputs. Across 3{,}000+ method$\times$dataset$\times$target evaluations we find
+identical inputs. Across ${\approx}1{,}700$ method$\times$dataset$\times$target evaluations (each
+scored on eight metrics) we find
 that (a) the best method is \emph{generator-dependent} (graph-spectral and verbalized
 confidence tie on Qwen at $\approx$0.65; verbalized confidence leads on Llama at 0.664 AUROC,
 where semantic entropy falls to near-chance); (b)
-sampling-consistency methods are \emph{uninformative at $N{=}1$} (AUROC $0.500$) and need
-$N{=}10$ samples---i.e.\ ten target generations---to peak; and (c) distilled proxies
-reach competitive AUROC at a \emph{target-decoupled} $\sim$25--45\,ms, hundreds of times
+sampling-consistency methods are uninformative at $N{=}1$ by construction (a single sample has
+no dispersion) and need $N{=}10$ samples---ten target generations---to reach their peak, which we
+quantify as a cost curve rather than report as a finding; and (c) distilled proxies
+reach competitive AUROC at a \emph{target-decoupled} $24$--$44$\,ms, hundreds of times
 below any sampling method. We release the harness, caches, and all configurations.
 \end{abstract}
 
@@ -96,7 +99,7 @@ surface.\footnote{Harness, configurations, cached results, and scripts:
 four explicit axes, and a cached content-hashed harness that guarantees identical inputs
 across methods and sample budgets (\S\ref{sec:design}).
 \item A \textbf{comprehensive instantiation}: 4 frontier targets $\times$ 7 domains
-$\times$ $\sim$70 method configurations (sampling-consistency, graph-spectral, verbalized,
+$\times$ $75$ method configurations (sampling-consistency, graph-spectral, verbalized,
 distilled-proxy, and a grey-box P(True) reference) $\times$ 8 metrics, with sample-budget
 sweeps and measured latency (\S\ref{sec:results}).
 \item \textbf{Cross-axis findings} a single-condition study cannot see: strong
@@ -174,10 +177,33 @@ Verbalized confidence & black-box & $1$\\
 \bottomrule
 \end{tabular}
 \caption{Method roster by family, access level, and \emph{target-call cost}. Proxies pay
-zero target calls at inference (one small student forward); consistency methods pay $N$;
-verbalized/P(True) pay one. $\sim$70 total configurations.}
+zero target calls \emph{at inference} (one small student forward); consistency methods pay $N$;
+verbalized/P(True) pay one. The proxy's zero is an inference-time figure and excludes a
+one-off training cost: $400$ distillation prompts $\times$ $10$ target samples $=$ $4{,}000$
+target generations, plus LoRA fine-tuning. Amortized, the proxy breaks even against $N{=}10$
+consistency after ${\approx}400$ scored queries and against one-call verbalized confidence after
+${\approx}4{,}000$; past that its marginal target cost is zero while theirs is not. $75$ total configurations: $12$ families $\times$ $4$ budgets, plus $27$ proxy read-out configurations.}
 \label{tab:roster}
 \end{table}
+
+\paragraph{What each family computes.} So that Table~\ref{tab:leaderboard} can be read without
+the appendix: \emph{semantic-set} methods cluster the $N$ samples into meaning-equivalent groups
+with an entailment model and score the entropy of the cluster distribution (Discrete Semantic
+Entropy; NumSemanticSet is the raw cluster count). \emph{Graph-spectral} methods build a
+similarity graph over the samples and read its Laplacian spectrum---EigV counts near-zero
+eigenvalues (how many distinct semantic components exist), Eccentricity measures how far the
+samples sit from their common centroid in the spectral embedding, and MatrixDegree/SumEigen are
+degree- and eigenvalue-sum summaries of the same graph. \emph{Lexical similarity} replaces the
+entailment graph with mean pairwise ROUGE-L. All of these score \emph{disagreement among
+resamples}, which is why they are exactly $0.5$ at $N{=}1$. \emph{Verbalized confidence} asks the
+target to rate its own answer once. \emph{Distilled proxies} run a small student trained on the
+target's text and read a scalar off its logits---either the distribution's shape (max-softmax,
+entropy, energy, evidential AU/EU, LogTokU) or the likelihood it assigns to the tokens the target
+actually emitted (perplexity, MaxNLL, LogitMargin); ``AU/EU'' are the aleatoric and epistemic
+terms of a Dirichlet fit to the top-$K$ logits. \emph{P(True)} asks the target for the probability
+of the token ``true'' and therefore needs log-probabilities, which is why we label it grey-box.
+Exact formulas for every method, and the three proxy training objectives, are in
+Appendix~\ref{app:methods}.
 
 \subsection{Axis $V$: Metrics}
 Each method is scored with a ranking/calibration suite: AUROC (primary), AUPRC, AUARC,
@@ -201,7 +227,13 @@ fair and the $N$-sweep exact.
 % ==============================================================================
 Table~\ref{tab:leaderboard} is the benchmark's central artifact: per-dataset AUROC for
 representative methods of each family on the two open targets, at each method's best
-sample budget. Two cross-axis phenomena stand out.
+sample budget. \textbf{This is an oracle operating point, not a deployable one}: $N$ (and, for
+the proxy, the read-out) is chosen post hoc on the same $150$ items the AUROC is computed on,
+with no held-out split. The selection is not symmetric across families---the proxy is chosen
+from $3$ objectives $\times$ $9$ read-outs while verbalized confidence has nothing to select---so
+the proxy row is the most optimistic of the table. We quantify the size of that bias in
+\S\ref{sec:results} and report the unselected native read-out alongside it in
+Table~\ref{tab:metrics}; the ranking claims we make are the ones that survive it. Two cross-axis phenomena stand out.
 
 \begin{table*}[t]\centering\small
 \setlength{\tabcolsep}{4pt}
@@ -611,9 +643,14 @@ text-only gateway. One protocol constraint is permanent: closed APIs do not expo
 log-probabilities, so \emph{P(True) is impossible} and grey-box logit read-outs do not
 exist for these targets. All other pure-BB methods run; verbalized confidence, which the
 cached-only closed pipeline had skipped (``no live target''), we obtain with a dedicated
-gateway elicitation matching the open prompt. Table~\ref{tab:app-closed} tells a sharp
+gateway elicitation matching the open prompt. \textbf{Caveat:} this breaks the input-matching
+guarantee that holds everywhere else in the benchmark---the verbalized score is elicited live,
+whereas the consistency methods score the \emph{cached} generations---so the closed-target
+comparison is not strictly input-matched and should be read as indicative. Re-running verbalized
+confidence against the cached answers is the fix, and is supported by the released harness.
+Table~\ref{tab:app-closed} tells a sharp
 story: the \emph{sampling-consistency} families \textbf{degrade badly}---GPT-4o tops at
-$\sim$0.63, and on \textbf{Claude-Haiku every consistency method is at or below chance}
+$\sim$0.63, and on \textbf{Claude-Haiku every consistency method is at or below $0.55$}
 (best 0.546 at $N{=}5$; Eccentricity $N{=}10$ falls to 0.467)---while \textbf{verbalized
 confidence is by far the strongest and, on Haiku, the \emph{only} method that works}
 (GPT-4o 0.737, Haiku 0.672). Asking a frontier model directly beats measuring the

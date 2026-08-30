@@ -481,7 +481,7 @@ hard domain-router          & 0.591 & 0.692\\
 \addlinespace
 best-fixed config           & 0.664 & 0.675\\
 \quad LODO config policy     & 0.664 & 0.675\\
-\quad per-dataset oracle     & 0.668 & 0.707\\
+\quad per-dataset oracle$^{\dagger}$ & 0.668 & 0.707\\
 \addlinespace
 fixed read-out (always-\ppl)& 0.603/0.612 & 0.632/0.609\\
 \quad LODO read-out router  & 0.502/0.503 & 0.560/0.568\\
@@ -492,7 +492,11 @@ fixed read-out (always-\ppl)& 0.603/0.612 & 0.632/0.609\\
 stacker loses to the hard router; LODO config selection recovers only the best
 \emph{fixed} config, never the per-dataset premium; the domain$\to$read-out router loses
 to a single fixed read-out in all four cells. (\dald/\ours\ pairs shown where two
-proxies apply.) The oracle ceiling is unreachable under LODO.}
+proxies apply.) The oracle ceiling is unreachable under LODO. $^{\dagger}$Note this
+per-dataset oracle is defined at a \emph{fixed} read-out and so differs from the
+\texttt{ceil} column of Table~\ref{tab:triptych}, which additionally maximizes over
+read-outs and is correspondingly higher ($0.690$/$0.715$ vs.\ $0.668$/$0.707$); we keep the
+two distinct and never compare them.}
 \label{tab:lodo}
 \end{table}
 
@@ -605,7 +609,7 @@ under their licenses.
 \section*{Reproducibility}
 All training, scoring, and analysis scripts, the read-out estimators, the LODO
 evaluations, and the exact configuration grids are released with the benchmark harness at
-\url{[repository URL withheld for anonymous review]}. The distilled proxy adapters (103 LoRA proxies) are on the Hugging Face Hub: \url{[model-hub URL withheld for anonymous review]}. Every $(G,D)$ target generation is cached
+\url{[repository URL withheld for anonymous review]}. All trained LoRA proxy adapters are released on the Hugging Face Hub: \url{[model-hub URL withheld for anonymous review]}. Every $(G,D)$ target generation is cached
 and content-hashed so that methods are compared on identical inputs.
 
 % ---- CAMERA-READY ONLY: de-anonymizing; restore after acceptance ----

@@ -15,7 +15,6 @@
 % \bibliographystyle{plainnat}
 % ----------------------------------------------------------------
 
-\usepackage{times}
 \usepackage{latexsym}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -208,7 +207,8 @@ discriminator $\mathcal{M}_D$ (App.~\ref{app:readouts}). Our added term
 $\mathcal{L}_{\text{unc}}$ pushes the proxy's top-$k$ Dirichlet evidential uncertainty
 (or an MLP head) toward a black-box oracle $u^\star(x)\in[0,1]$ computed on the
 teacher's samples (Eccentricity or Discrete Semantic Entropy). $\lambda$, the oracle,
-and the read-out (\texttt{edl}/\texttt{head}) define the \ours\ variant grid.
+and the read-out (\texttt{edl}/\texttt{head}) define the \ours\ variant grid; the full grid is in
+Appendix~\ref{app:variants}, and a single-target oracle sweep in Appendix~\ref{app:rq5}.
 
 \paragraph{Read-outs.} On any proxy's logits over the answer span we compute nine
 estimators: evidential aleatoric/epistemic (EDL-AU/EU), maximum-softmax (MSP), entropy,
@@ -555,7 +555,7 @@ combination can achieve, and (iii) the latency-relative framing and benchmark. W
 holding this line---baseline faithful, contribution analytical---is what makes the study
 credible.
 
-\paragraph{Teacher and scale dependence.} On frontier API teachers the picture shifts
+\paragraph{Teacher and scale dependence.} (Six-student sweep: Appendix~\ref{app:students}.) On frontier API teachers the picture shifts
 toward \dald\ (a stronger teacher yields cleaner distilled logits); the \ours\ arm was
 run base-only there and is under-tuned. Larger students lean toward the plain
 \texttt{base} configuration, consistent with the base signal being strong enough that

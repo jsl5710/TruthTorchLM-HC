@@ -7,7 +7,6 @@
 \documentclass[11pt]{article}
 
 \usepackage[review]{acl}
-\usepackage{times}
 \usepackage{latexsym}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -280,10 +279,14 @@ reads the same cached answers (fair comparison). We report \textbf{AUROC} (discr
 of correct vs.\ incorrect), \textbf{ECE} (calibration), and \textbf{median per-item
 latency} measured relative to generator time at batch size~1 with GPU warm-up. Latency is
 a first-class metric: a confidence signal that costs more than the answer is not
-deployable. For the multi-sample baselines, the reported per-method latency excludes the
-$N{-}1$ extra target generations they require upstream.
+deployable. We do not report per-method latency for the multi-sample baselines, since their
+dominant cost is the $N$ target generations they require upstream rather than the scoring step.
 
 \section{Results}\label{sec:results}
+We first establish the headline negative result---verification wins a minority of cells
+(\S\ref{sec:minority})---then isolate the one regime where it does help
+(\S\ref{sec:longfact}), test the overconfidence hypothesis (\S\ref{sec:inversion}), and close
+with the latency trade and an aggregation ablation.
 
 \begin{table}[t]
 \centering\small
@@ -402,7 +405,7 @@ rather than null. CI widths of $0.11$--$0.30$ set the resolution of this design.
 \label{fig:forest}
 \end{figure}
 
-\subsection{The verification advantage is a minority, and conditional}
+\subsection{The verification advantage is a minority, and conditional}\label{sec:minority}
 Table~\ref{tab:winrate} summarizes the full six-target grid. Discriminative verification
 (\nyn/\nsc) beats the best baseline (\nverb/\nphi) on only $2$--$3$ of $11$ datasets on the
 8B targets, and---strikingly---on \emph{none} of the $9$ valid cells on the strong open
@@ -415,7 +418,7 @@ one (Qwen/MedLFQA, $-0.156$, $p{=}0.009$), with every other comparison inconclus
 dominated by $\{n_1,n_3,n_6,n_7\}$ throughout (Appendix~\ref{app:ladder}), so we report only
 the latter here.
 
-\subsection{The exception: long-form general knowledge}
+\subsection{The exception: long-form general knowledge}\label{sec:longfact}
 Table~\ref{tab:longfact} is the paper's one significant positive result. On LongFact,
 self-consistency verification (\nsc) reaches $0.644$/$0.716$ against a verbalized floor of
 $0.540$/$0.623$---\textbf{$+0.105$ and $+0.092$}---on two independent 8B targets, at $n{=}300$
@@ -482,7 +485,8 @@ scoring higher. Thus on long-form general knowledge the verification rungs
 \textbf{dominate $\phi$-CoI on both axes} (full latency grid, Appendix~\ref{app:latency}).
 Verbalized confidence remains far cheaper
 ($\sim$0.3s) and is the right choice when its lower accuracy is acceptable; self-consistency
-buys $+0.09$--$0.11$ AUROC at a $40$--$60\times$ latency cost over the single call.
+buys ${\approx}0.10$ AUROC at a $41$--$70\times$ latency cost over the single call on LongFact
+(the ratio is smaller on shorter datasets; full grid in Appendix~\ref{app:latency}).
 
 \begin{table}[t]
 \centering\small
@@ -540,15 +544,19 @@ Target & Dataset & DSE & LexSim & EigV \\
 \midrule
 Llama-8B & TriviaQA & 0.750 & 0.760 & \textbf{0.798} \\
 Llama-8B & MedLFQA  & 0.513 & 0.582 & 0.623 \\
+Llama-8B & LongFact & --- & --- & --- \\
 Qwen-8B  & TriviaQA & 0.686 & 0.715 & 0.688 \\
 Qwen-8B  & MedLFQA  & 0.524 & 0.484 & 0.526 \\
+Qwen-8B  & LongFact & --- & --- & --- \\
 \bottomrule
 \end{tabular}
 \caption{\textbf{Multi-sample baselines} (AUROC, $N{=}5$, 3-seed means): discrete semantic
 entropy, lexical similarity, graph-Laplacian spectral (EigV). They resample the target
 $5\times$ (so cost $5\times$ the answer and are inapplicable to our single-answer long-form
-setting). Strong on short QA; near chance on MedLFQA---where single-call verbalized confidence
-($0.647$/$0.678$, Table~\ref{tab:suite}) beats them.}
+setting; ``---'' marks the LongFact rows they cannot be run on). Strong on short QA; near
+chance on MedLFQA---where single-call verbalized confidence ($0.647$/$0.678$,
+Table~\ref{tab:suite}) beats them. Note these are 3-seed means whereas our rungs are
+single-seed, so the comparison is not symmetric (Limitations).}
 \label{tab:baselines}
 \end{table}
 
@@ -641,7 +649,7 @@ did not validate against human annotation, and LongFact factuality from a 70B ju
 retrieval---parametric factuality, not ground truth. Absolute AUROCs inherit that noise; we rely
 on relative orderings within a cell, where judge error is at least shared across estimators.
 
-\paragraph{Calibration.} Verification's ECE (Table~\ref{tab:ece}) is worse than verbalized
+\paragraph{Calibration.} Verification's ECE (Table~\ref{tab:ece}, Appendix~\ref{app:ece}) is worse than verbalized
 confidence in raw scale because votes are coarse. Discrimination (AUROC) is our headline and
 post-hoc calibration is orthogonal, but a deployed router would need calibrated scores.
 
@@ -712,7 +720,7 @@ Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
  & TriviaQA   & 0.685 & \textbf{0.777} & 0.545 & 0.628 \\
  & TruthfulQA & 0.748 & \textbf{0.759} & 0.662 & 0.701 \\
  & MedQA      & 0.705 & \textbf{0.772} & 0.533 & 0.609 \\
- & MedLFQA    & \textbf{0.510} & 0.437 & 0.489 & 0.486 \\
+ & \grey{MedLFQA} & \grey{0.510} & \grey{0.437} & \grey{0.489} & \grey{0.486} \\
  & GSM8K      & 0.769 & \textbf{0.815} & 0.563 & 0.631 \\
 \midrule
 \multirow{5}{*}{Llama-3.3-70B}
@@ -724,7 +732,8 @@ Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
 \bottomrule
 \end{tabular}
 \caption{\textbf{Large open targets} (AUROC, 4-bit, seed 0; BioASQ degenerate, omitted).
-Verification wins $0/10$: strong open judges keep $\phi$/verbalized informative.}
+Verification wins $0/9$ valid cells: strong open judges keep $\phi$/verbalized informative
+(the Qwen3-32B MedLFQA row is degenerate and excluded from the count).}
 \label{tab:bigopen}
 \end{table}
 
@@ -798,7 +807,10 @@ Target & Dataset & \nverb & \nphi & \nyn & \nsc \\
 \end{tabular}
 \caption{\textbf{Full 8B suite} (AUROC; 150 items/cell, seed 1; BioASQ omitted as
 degenerate). Verification (\nyn/\nsc) wins LongFact, HotpotQA and Llama/GSM8K; short-factual,
-MCQ, adversarial and most health cells go to verbalized (\nverb) or $\phi$ (\nphi).}
+MCQ, adversarial and most health cells go to verbalized (\nverb) or $\phi$ (\nphi). Two cells
+read exactly $0.500$ (Llama/PopQA at \nverb, Llama/MedLFQA at \nphi): the estimator returned a
+constant on those cells, so the value reflects an uninformative output rather than a
+graded-but-weak one.}
 \label{tab:suite}
 \end{table}
 

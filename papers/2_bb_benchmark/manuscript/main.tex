@@ -8,7 +8,6 @@
 % FALLBACK: comment the line above, uncomment below, if acl.sty is missing.
 % \usepackage[margin=1in]{geometry}\usepackage{natbib}\bibliographystyle{plainnat}
 
-\usepackage{times}
 \usepackage{latexsym}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -269,7 +268,8 @@ Llama-3.3-70B \emph{verbalized confidence leads} (0.664) ahead of the same graph
 method (0.627), with semantic entropy \emph{collapsing} to near-chance (0.529). The
 generator-dependence is therefore asymmetric: it is a real reordering on Llama, and a tie on
 Qwen. Recall that these two means are over different dataset sets (five vs.\ six) after
-degenerate-cell exclusion, so we compare methods \emph{within} a target, never across. The closed targets sharpen this (Appendix~\ref{app:closed}): verbalized
+degenerate-cell exclusion, so we compare methods \emph{within} a target, never across. The full per-target leaderboard is in Appendix~\ref{app:leaderboard}. The closed targets
+sharpen this (Appendix~\ref{app:closed}): verbalized
 confidence is the strongest method on \emph{both} GPT-4o (0.737) and Claude-Haiku (0.672),
 and on Haiku it is the \emph{only} method above chance---every sampling-consistency method
 there is at or below 0.55. So verbalized confidence wins on three of four targets and

@@ -6,11 +6,10 @@
 }
 
 @inproceedings{cui2026disaad,
-  title={Distilling Adversarial Aleatoric and Epistemic Uncertainty for Black-box Hallucination Detection},
-  author={Cui, et al.},
-  booktitle={Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL)},
-  year={2026},
-  note={as implemented in the DisAAD reference codebase}
+  title={Estimating the Black-box {LLM} Uncertainty with Distribution-Aligned Adversarial Distillation},
+  author={Cui, Huizi and Ma, Huan and Wang, Qilin and Gao, Yuhang and Zhang, Changqing},
+  booktitle={Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  year={2026}
 }
 
 @article{bakman2024truthtorchlm,
@@ -35,20 +34,11 @@
 }
 
 @article{farquhar2024detecting,
-  title={Detecting Hallucinations in Large Language Models using Semantic Entropy},
+  title={Detecting Hallucinations in Large Language Models Using Semantic Entropy},
   author={Farquhar, Sebastian and Kossen, Jannik and Kuhn, Lorenz and Gal, Yarin},
-  journal={Nature},
-  volume={630},
-  pages={625--630},
-  year={2024}
+  journal={Nature}, volume={630}, pages={625--630}, year={2024}
 }
 
-@inproceedings{lin2023generating,
-  title={Generating with Confidence: Uncertainty Quantification for Black-box Large Language Models},
-  author={Lin, Zhen and Trivedi, Shubhendu and Sun, Jimeng},
-  booktitle={Transactions on Machine Learning Research (TMLR)},
-  year={2023}
-}
 
 @inproceedings{lin2022teaching,
   title={Teaching Models to Express Their Uncertainty in Words},
@@ -93,30 +83,31 @@
 }
 
 @inproceedings{lin2021truthfulqa,
-  title={{T}ruthful{QA}: Measuring How Models Mimic Human Falsehoods},
+  title={{TruthfulQA}: Measuring How Models Mimic Human Falsehoods},
   author={Lin, Stephanie and Hilton, Jacob and Evans, Owain},
-  booktitle={Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL)},
+  booktitle={Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (ACL)},
   year={2022}
 }
 
-@inproceedings{jin2021medqa,
+@article{jin2021medqa,
   title={What Disease Does This Patient Have? A Large-Scale Open Domain Question Answering Dataset from Medical Exams},
   author={Jin, Di and Pan, Eileen and Oufattole, Nassim and Weng, Wei-Hung and Fang, Hanyi and Szolovits, Peter},
-  booktitle={Applied Sciences},
+  journal={Applied Sciences},
+  volume={11}, number={14}, pages={6421},
   year={2021}
 }
 
-@inproceedings{cobbe2021gsm8k,
+@article{cobbe2021gsm8k,
   title={Training Verifiers to Solve Math Word Problems},
-  author={Cobbe, Karl and Kosaraju, Vineet and Bavarian, Mohammad and others},
+  author={Cobbe, Karl and Kosaraju, Vineet and Bavarian, Mohammad and Chen, Mark and Jun, Heewoo and Kaiser, Lukasz and Plappert, Matthias and Tworek, Jerry and Hilton, Jacob and Nakano, Reiichiro and Hesse, Christopher and Schulman, John},
   journal={arXiv preprint arXiv:2110.14168},
   year={2021}
 }
 
 @inproceedings{joshi2017triviaqa,
-  title={{T}rivia{QA}: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension},
-  author={Joshi, Mandar and Choi, Eunsol and Weld, Daniel and Zettlemoyer, Luke},
-  booktitle={Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL)},
+  title={{TriviaQA}: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension},
+  author={Joshi, Mandar and Choi, Eunsol and Weld, Daniel S. and Zettlemoyer, Luke},
+  booktitle={Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (ACL)},
   year={2017}
 }
 
@@ -135,22 +126,56 @@
 }
 
 @article{yang2024qwen3,
-  title={{Qwen}3 Technical Report},
+  title={{Qwen3} Technical Report},
   author={Yang, An and others},
-  journal={arXiv preprint},
+  journal={arXiv preprint arXiv:2505.09388},
   year={2025}
 }
 
 @inproceedings{hu2022lora,
-  title={{L}o{RA}: Low-Rank Adaptation of Large Language Models},
-  author={Hu, Edward and Shen, Yelong and Wallis, Phillip and Allen-Zhu, Zeyuan and Li, Yuanzhi and Wang, Shean and Wang, Lu and Chen, Weizhu},
+  title={{LoRA}: Low-Rank Adaptation of Large Language Models},
+  author={Hu, Edward J. and Shen, Yelong and Wallis, Phillip and Allen-Zhu, Zeyuan and Li, Yuanzhi and Wang, Shean and Wang, Lu and Chen, Weizhu},
   booktitle={International Conference on Learning Representations (ICLR)},
   year={2022}
 }
 
-@inproceedings{jacobs1991moe,
+@article{jacobs1991moe,
   title={Adaptive Mixtures of Local Experts},
-  author={Jacobs, Robert and Jordan, Michael and Nowlan, Steven and Hinton, Geoffrey},
-  journal={Neural Computation},
-  year={1991}
+  author={Jacobs, Robert A. and Jordan, Michael I. and Nowlan, Steven J. and Hinton, Geoffrey E.},
+  journal={Neural Computation}, volume={3}, number={1}, pages={79--87}, year={1991}
+}
+
+@inproceedings{zheng2023judge,
+  title={Judging {LLM}-as-a-Judge with {MT}-Bench and Chatbot Arena},
+  author={Zheng, Lianmin and Chiang, Wei-Lin and Sheng, Ying and Zhuang, Siyuan and Wu, Zhanghao and Zhuang, Yonghao and Lin, Zi and Li, Zhuohan and Li, Dacheng and Xing, Eric P. and Zhang, Hao and Gonzalez, Joseph E. and Stoica, Ion},
+  booktitle={Advances in Neural Information Processing Systems (NeurIPS), Datasets and Benchmarks Track},
+  year={2023}
+}
+
+@inproceedings{wang2023selfconsistency,
+  title={Self-Consistency Improves Chain of Thought Reasoning in Language Models},
+  author={Wang, Xuezhi and Wei, Jason and Schuurmans, Dale and Le, Quoc V. and Chi, Ed H. and Narang, Sharan and Chowdhery, Aakanksha and Zhou, Denny},
+  booktitle={International Conference on Learning Representations (ICLR)},
+  year={2023}
+}
+
+@inproceedings{min2023factscore,
+  title={{FActScore}: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation},
+  author={Min, Sewon and Krishna, Kalpesh and Lyu, Xinxi and Lewis, Mike and Yih, Wen-tau and Koh, Pang Wei and Iyyer, Mohit and Zettlemoyer, Luke and Hajishirzi, Hannaneh},
+  booktitle={Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year={2023}
+}
+
+@inproceedings{guo2017calibration,
+  title={On Calibration of Modern Neural Networks},
+  author={Guo, Chuan and Pleiss, Geoff and Sun, Yu and Weinberger, Kilian Q.},
+  booktitle={International Conference on Machine Learning (ICML)},
+  year={2017}
+}
+
+@article{lin2024generating,
+  title={Generating with Confidence: Uncertainty Quantification for Black-box Large Language Models},
+  author={Lin, Zhen and Trivedi, Shubhendu and Sun, Jimeng},
+  journal={Transactions on Machine Learning Research (TMLR)},
+  year={2024}
 }

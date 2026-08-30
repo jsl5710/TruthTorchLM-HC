@@ -69,7 +69,8 @@ deployable core of a mixture-of-experts proxy)---that \emph{any} scheme that fit
 combination across domains fails to transfer, so the widely reported per-dataset
 ``oracle ceiling'' is unreachable. What survives is a clear recommendation:
 one proxy, one fixed read-out, no routing, at $\sim$25--45\,ms versus seconds-to-19\,s
-for direct methods---a 400--700$\times$ latency reduction for a $\sim$0.1 AUROC price.
+for direct methods---a $250$--$790\times$ latency reduction for a $0.02$--$0.09$ AUROC price,
+depending on the teacher.
 All code and configurations are released.
 \end{abstract}
 
@@ -85,7 +86,7 @@ This is the pure black-box UQ setting: estimate the probability that a target's 
 is incorrect \emph{using its text output only}.
 
 The dominant black-box UQ methods---sampling-based semantic consistency
-\citep{kuhn2023semantic,farquhar2024detecting,lin2023generating} and verbalized
+\citep{kuhn2023semantic,farquhar2024detecting,lin2024generating} and verbalized
 self-confidence \citep{lin2022teaching}---share a structural cost: they pay for
 \emph{additional target generations} (several samples, or a self-report call). On a
 70B model or a frontier API this is seconds to tens of seconds per item, which is
@@ -149,7 +150,7 @@ typically read from \emph{sampled text}. Semantic entropy clusters multiple samp
 bidirectional entailment and measures dispersion
 \citep{kuhn2023semantic,farquhar2024detecting}; graph-spectral variants
 (eccentricity, degree, eigenvalue scores) summarize the same similarity graph
-\citep{lin2023generating}. These are strong but pay for $N$ target generations.
+\citep{lin2024generating}. These are strong but pay for $N$ target generations.
 \emph{Verbalized confidence} elicits a self-reported score in one extra call
 \citep{lin2022teaching}, and \emph{P(True)} reads the target's probability of the token
 ``true'' \citep{kadavath2022language}---the latter requires target log-probabilities and
@@ -402,13 +403,13 @@ argument \emph{for} distillation, not merely a fallback.
 % the frontier the paper argues for
 \draw[dashed, gray!70] (axis cs:44,0.634) -- (axis cs:11000,0.664);
 \node[font=\scriptsize, anchor=south, align=center] at (axis cs:700,0.640)
-  {$\approx$0.03 AUROC\\for $250\times$ latency};
+  {$0.02$--$0.09$ AUROC\\for $250$--$790\times$ latency};
 \end{axis}
 \end{tikzpicture}
 \caption{\textbf{The accuracy--latency plane.} Each family is plotted at its measured
 per-item cost (log $x$); the two points per family are the two teachers. Distilled proxies sit
 at $24$--$44$\,ms because they never call the target, whereas verbalized confidence pays one
-target generation and $N{=}10$ consistency pays ten. The proxy gives up $\approx$0.03 AUROC
+target generation and $N{=}10$ consistency pays ten. The proxy gives up $0.02$ (Qwen) to $0.09$ (Llama) AUROC
 against the best direct method for two-to-three orders of magnitude less latency, and the gap
 \emph{widens} with target cost---which is the deployment argument of this paper, independent of
 which method wins on AUROC alone. Direct-method latencies are the closed-API measurements
@@ -425,7 +426,9 @@ well inside noise) and worse on Llama, at ten target generations. Verbalized con
 domains (Llama TruthfulQA 0.797, mean 0.778) but requires a full target call. Against
 this, every proxy read-out is $\sim$25--45\,ms; direct methods pay the target's
 per-sample cost---seconds on a 70B, $\approx$11\,s (GPT-4o) / $\approx$19\,s
-(Haiku)---a \textbf{400--700$\times$} latency reduction for a $\sim$0.1 AUROC price. This
+(Haiku)---a \textbf{$250$--$790\times$} latency reduction (the range spans the fastest proxy
+against the slowest target and vice versa) for an AUROC price of $0.09$ on Llama and $0.02$ on
+Qwen. This
 Pareto statement (Fig.~\ref{fig:pareto}) is independent of the AUROC ranking and widens with target cost.
 
 \subsection{Where the uncertainty-aware objective does and does not help}
@@ -437,8 +440,11 @@ and consistently. The uncertainty-aware term earns its keep precisely where cons
 is blind. However, this edge is teacher-dependent (clear on Llama, absent on Qwen where
 even \dald\ edges \ours\ on adversarial once given its best logit read-out), and
 ``owns Medical'' does not survive read-out control---MedQA/MedLFQA go to \dald\ when it
-is read fairly. The one read-out-invariant, cross-teacher \ours\ advantage over both
-baselines is Factual, at $+0.03$/$+0.06$; the margins are small throughout.
+is read fairly. We previously reported a read-out-invariant \ours\ advantage on Factual; the
+deployable table does not support it---on \texttt{wiki} \disaad\ leads on Qwen ($0.598$ vs.\
+$0.585$) and \dald\ on Llama ($0.507$ vs.\ $0.506$). We therefore claim no domain in which
+\ours\ beats both baselines once the read-out is held fixed; the margins are inside noise
+throughout.
 
 \paragraph{Beyond AUROC.} We recomputed the full read-out comparison on ranking
 \emph{and} calibration metrics (Appendix~\ref{app:multimetric}); two conclusions follow.
@@ -516,8 +522,11 @@ the same unreachable ceiling and regress to the best single expert.
 
 \paragraph{(d) A good direct detector is a poor distillation target.} Separately,
 distilling \ours\ toward \emph{verbalized confidence}---the strongest \emph{direct}
-method---produces a \emph{worse} proxy than the Eccentricity oracle, even on the strong-
-VC Llama teacher (0.583 vs.\ base 0.607, and $-0.124$ below the direct signal). Verbalized
+method---produces a proxy that does not beat the Eccentricity oracle, and the effect is
+read-out-dependent: under the best logit read-out the VC-oracle variant trails the base
+($0.638$ vs.\ $0.665$, Table~\ref{tab:app-variants}), while under Perplexity the two are
+indistinguishable ($0.611$ vs.\ $0.609$). Either way it never recovers the discrimination of the
+direct verbalized signal it was distilled from ($0.664$ on this teacher). Verbalized
 confidence is an introspective scalar whose discrimination lives in the target knowing
 itself; it does not survive distillation into a small proxy's logits, whereas
 dispersion oracles (Eccentricity/DSE), grounded in sample spread, do.
@@ -850,6 +859,45 @@ two-best-student main results.}
 \label{tab:app-students}
 \end{table}
 
+\section{Validating the correctness labels}\label{sec:judge}
+Every AUROC in this paper is computed against labels produced by one LLM
+judge~\citep{zheng2023judge}, so we report what we know about their reliability and, where they
+are unreliable, what that does to our conclusions.
+
+\paragraph{Construct-from-gold validation of the primary judge.} We first score the judge
+(Qwen3-4B-Instruct) on cases whose label is known \emph{by construction}: an exact gold answer
+(must be accepted), a paraphrase/variant of the gold (must be accepted), a sampled wrong answer
+(must be rejected), and a ``hard negative'' that is topically close but wrong (must be
+rejected). Over three runs of $224$--$236$ such cases the judge attains
+$0.982$/$0.975$/$0.996$ accuracy (overall $0.984$), with no abstentions or unparsed replies. It
+is near-perfect on exact matches and hard negatives; its residual error is on gold
+\emph{variants} (recall $0.946$--$0.977$), i.e.\ it occasionally rejects a correct paraphrase.
+
+\paragraph{A three-judge ensemble does not corroborate the labels.} We then relabelled the same
+items with three judges from different families (Qwen3-4B, Llama-3.1-8B, Mistral-7B) and took
+the majority vote. The ensemble is \emph{not} a cleaner signal. Pairwise agreement is
+$0.62$--$0.81$ on short-form QA ($\kappa=0.21$--$0.47$, fair to moderate), and on long-form the
+raw agreement is high ($0.77$--$0.93$) while $\kappa$ collapses to $\approx0$---the classic
+prevalence artefact: the added judges accept almost everything, pushing the MedLFQA positive
+rate from $0.77$ to $0.97$. A majority label that calls $97\%$ of an 8B model's long-form
+medical answers correct is not credible, and it would make both MedLFQA cells degenerate
+(minority class $4$ and $7$). We therefore \emph{keep} the construct-validated single judge
+rather than adopting the more lenient majority.
+
+\paragraph{Sensitivity: conclusions do move with the labels.} The ensemble is still
+informative, because it bounds how much label noise matters. Re-scoring every rung against
+majority-vote labels shifts AUROC by up to $0.23$ and, on short-form QA, reorders the
+rungs---on Llama/TriviaQA the best rung changes from $n_6$ ($0.709$) to $n_1$ ($0.862$). We
+draw two conclusions. First, absolute AUROCs in this literature should be read as
+judge-conditional, ours included. Second, our \emph{negative} results are the robust part:
+under either labelling, decomposed verification does not uniformly beat verbalized confidence.
+We flag label sensitivity as a limitation rather than a solved problem.
+
+\paragraph{Author spot-check (to be completed).} We release a random sample of $100$ labelled
+items with all three judges' votes (\texttt{judge\_spotcheck\_sample.jsonl}) for manual
+verification by the authors. \textbf{[Placeholder: report human--judge agreement on the
+$100$-item sample here once the manual pass is complete.]}
+
 \section{Experimental Details}\label{app:details}
 \paragraph{Models.} Targets: Qwen3-32B, Llama-3.3-70B (bf16; 4-bit for grey-box read-out
 and label generation). Students: Qwen3 $\{0.6,1.7,4\}$B, Llama-3.2/3.1 $\{1,3,8\}$B.
@@ -858,13 +906,29 @@ Proxies: LoRA rank 32, $\alpha{=}64$, dropout 0.05, on
 \paragraph{Objectives.} \ours\ uses $\mathcal{L}_{\text{unc}}$ with weight $\lambda$ swept
 over $\{1,2,5,10,15,20\}$, oracle $\in$ \{Eccentricity, Discrete Semantic Entropy\},
 read-out mode $\in$ \{\texttt{edl}, \texttt{head}\}; \texttt{base} $=$ edl$\cdot$ecc$\cdot
-\lambda5$. Distillation set: a fixed 400-prompt mixture; the uncertainty oracle
-$u^\star(x)$ is min-max normalized to $[0,1]$ from the teacher's $N{=}10$ samples.
+\lambda5$. The adversarial term of \disaad/\ours\ uses $\lambda_{\text{adv}}{=}1$ (i.e.\
+$\mathcal{L}=\mathcal{L}_{\text{task}}+\mathcal{L}_{\text{reg}}$, the reference setting), with a
+text discriminator trained by AdamW at lr $10^{-5}$, weight decay $0.01$, alternating with the
+proxy each step. The uncertainty oracle $u^\star(x)$ is min-max normalized to $[0,1]$ from the
+teacher's $N{=}10$ samples.
+\paragraph{Distillation set and eval disjointness.} The fixed 400-prompt mixture is half
+in-domain (30 prompts from each of the seven evaluation datasets) and half open-domain
+conversational (190 WildChat prompts). In-domain prompts are drawn from each dataset's
+\emph{train} split where one exists, and otherwise from a tail slice taken past the first
+$150$ test items reserved for evaluation. We verified the result directly: \textbf{zero} of
+the $393$ unique distillation prompts appears in any evaluation cell across all cached
+$(G,D)$ shards, so the proxies are never trained on a prompt they are later scored on. Note
+also that the distillation set is identical for all three objectives, so any residual leakage
+would be method-neutral.
 \paragraph{Read-outs.} All nine read-outs are the mean over answer-span tokens; the
 evidential estimators use top-$k{=}10$ Dirichlet evidence. Calibrated ECE/Brier use
 out-of-fold isotonic (5-fold) on confidence$\to$P(correct).
-\paragraph{Evaluation.} 7 datasets, 150 items each, one seed for the deep cells; AUROC of
-uncertainty vs.\ answer incorrectness, judged by an LLM judge (exact-match for MCQ).
+\paragraph{Evaluation.} 7 datasets, $127$--$150$ items each, one seed for the deep cells; AUROC
+of uncertainty vs.\ answer incorrectness. Correctness labels come from a local
+instruction-tuned LLM judge (Qwen3-4B-Instruct-2507, greedy decoding, exact-letter match for
+MCQ) given the question, the reference answer(s), and the candidate. Because every AUROC in the
+paper is computed against these labels, we validate them with a three-judge ensemble in
+\S\ref{sec:judge}. Cells whose minority class is $<15$ are excluded (\S\ref{sec:setup}).
 Latency: p50 over items, batch 1, GPU warm-up, exclusive allocation.
 
 \end{document}

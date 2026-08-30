@@ -111,6 +111,75 @@ recovers one (Claude/TruthfulQA, $0.48\rightarrow0.60$) and fails the other
 We report this as an open question, not a mechanism (\S\ref{sec:inversion}).
 \end{enumerate}
 
+\section{Related Work}\label{sec:related}
+\paragraph{Verbalized confidence.} The cheapest black-box signal asks the model to state its own
+confidence~\citep{lin2022teaching,tian2023just,kadavath2022language}. It requires one extra call
+and no training, but is systematically overconfident, and calibration methods for it operate on
+the scalar it emits rather than on the answer's structure~\citep{guo2017calibration}. Our $n_1$
+rung is exactly this baseline; the question we ask is when anything more elaborate beats it.
+
+\paragraph{Sampling-consistency uncertainty.} A second family resamples the target and measures
+dispersion: semantic entropy over entailment-clustered
+samples~\citep{kuhn2023semantic,farquhar2024detecting}, and graph-spectral scores over a sample
+similarity graph~\citep{lin2024generating}. These are strong when resampling is cheap, but they
+require $N$ additional target generations and---critically for us---become impractical on
+long-form answers, where each resample is hundreds of tokens. That is precisely the regime where
+we find decomposed verification pays.
+
+\paragraph{Decompose-and-verify factuality.} Long-form factuality is commonly scored by
+decomposing a response into atomic claims and checking each one, as in
+\textsc{FActScore}~\citep{min2023factscore} and the SAFE evaluator released with
+LongFact~\citep{wei2024longfact}. That line of work uses decomposition to \emph{measure}
+factuality, typically with retrieval or a stronger judge. We reuse the decomposition step but
+target a different problem---producing a \emph{confidence score} for a fixed answer with no
+retrieval and no external model---and we ask which part of the pipeline carries the signal.
+Our $n_7$ rung applies self-consistency~\citep{wang2023selfconsistency}, previously used to
+improve reasoning accuracy, as an uncertainty signal instead: the vote spread, not the modal
+answer, is what we read.
+
+\paragraph{Judging correctness with LLMs.} Our labels come from an LLM judge, a now-standard
+protocol shown to correlate strongly with human preference judgments~\citep{zheng2023judge}.
+We report a multi-judge agreement study for our own labels in \S\ref{sec:judge}.
+
+\section{Validating the correctness labels}\label{sec:judge}
+Every AUROC in this paper is computed against labels produced by one LLM
+judge~\citep{zheng2023judge}, so we report what we know about their reliability and, where they
+are unreliable, what that does to our conclusions.
+
+\paragraph{Construct-from-gold validation of the primary judge.} We first score the judge
+(Qwen3-4B-Instruct) on cases whose label is known \emph{by construction}: an exact gold answer
+(must be accepted), a paraphrase/variant of the gold (must be accepted), a sampled wrong answer
+(must be rejected), and a ``hard negative'' that is topically close but wrong (must be
+rejected). Over three runs of $224$--$236$ such cases the judge attains
+$0.982$/$0.975$/$0.996$ accuracy (overall $0.984$), with no abstentions or unparsed replies. It
+is near-perfect on exact matches and hard negatives; its residual error is on gold
+\emph{variants} (recall $0.946$--$0.977$), i.e.\ it occasionally rejects a correct paraphrase.
+
+\paragraph{A three-judge ensemble does not corroborate the labels.} We then relabelled the same
+items with three judges from different families (Qwen3-4B, Llama-3.1-8B, Mistral-7B) and took
+the majority vote. The ensemble is \emph{not} a cleaner signal. Pairwise agreement is
+$0.62$--$0.81$ on short-form QA ($\kappa=0.21$--$0.47$, fair to moderate), and on long-form the
+raw agreement is high ($0.77$--$0.93$) while $\kappa$ collapses to $\approx0$---the classic
+prevalence artefact: the added judges accept almost everything, pushing the MedLFQA positive
+rate from $0.77$ to $0.97$. A majority label that calls $97\%$ of an 8B model's long-form
+medical answers correct is not credible, and it would make both MedLFQA cells degenerate
+(minority class $4$ and $7$). We therefore \emph{keep} the construct-validated single judge
+rather than adopting the more lenient majority.
+
+\paragraph{Sensitivity: conclusions do move with the labels.} The ensemble is still
+informative, because it bounds how much label noise matters. Re-scoring every rung against
+majority-vote labels shifts AUROC by up to $0.23$ and, on short-form QA, reorders the
+rungs---on Llama/TriviaQA the best rung changes from $n_6$ ($0.709$) to $n_1$ ($0.862$). We
+draw two conclusions. First, absolute AUROCs in this literature should be read as
+judge-conditional, ours included. Second, our \emph{negative} results are the robust part:
+under either labelling, decomposed verification does not uniformly beat verbalized confidence.
+We flag label sensitivity as a limitation rather than a solved problem.
+
+\paragraph{Author spot-check (to be completed).} We release a random sample of $100$ labelled
+items with all three judges' votes (\texttt{judge\_spotcheck\_sample.jsonl}) for manual
+verification by the authors. \textbf{[Placeholder: report human--judge agreement on the
+$100$-item sample here once the manual pass is complete.]}
+
 \section{Method: CoI-Verbalized}\label{sec:method}
 All estimators take a query $x$ and a \emph{fixed} candidate answer $y$ (never rewriting
 $y$) and return a confidence in $[0,1]$; higher means more likely correct. They are
@@ -177,15 +246,17 @@ structured self-rating; $n_3{\to}n_6$ swaps self-rated \emph{risk} for a discrim
 \section{Experimental Setup}\label{sec:setup}
 \paragraph{Targets.} Six models spanning the capability and access spectrum, each used as
 both generator and its own chain-judge (pure black-box): two \textbf{8B open}
-(Llama-3.1-8B-Instruct, Qwen3-8B), two \textbf{large open} (Qwen3-32B, Llama-3.3-70B,
+(Llama-3.1-8B-Instruct \citep{dubey2024llama3}, Qwen3-8B \citep{yang2024qwen3}), two
+\textbf{large open} (Qwen3-32B, Llama-3.3-70B,
 4-bit), and two \textbf{frontier closed} accessed via a gateway (GPT-4o, Claude-Haiku-4.5).
 The spread lets us separate judge \emph{capability} from judge \emph{calibration}.
 
 \paragraph{Datasets.} Up to twelve, spanning format (short-factual, long-form, MCQ,
 multi-hop, adversarial) and domain (general, health, math): TriviaQA, NaturalQA, PopQA
 (general short), \textbf{LongFact}~\citep{wei2024longfact} (general long-form, 300 prompts),
-TruthfulQA (adversarial), MedQA/MMLU-Med (MCQ), BioASQ/K-QA (health free), MedLFQA (health
-long-form), GSM8K (math), HotpotQA (multi-hop). Each is 150 items unless noted; closed and
+TruthfulQA \citep{lin2021truthfulqa} (adversarial), MedQA \citep{jin2021medqa} and MMLU-Med
+(MCQ), BioASQ \citep{tsatsaronis2015bioasq} and K-QA (health free-form), MedLFQA (health
+long-form), GSM8K \citep{cobbe2021gsm8k} (math), and HotpotQA (multi-hop). Each is 150 items unless noted; closed and
 large-open targets are evaluated on the subset with cached generations (six datasets each).
 Correctness is a gold-grounded LLM judge (Qwen3-4B; letter-match for MCQ); LongFact has no
 gold, so we label factuality with an offline decompose-and-verify judge (Llama-3.3-70B,

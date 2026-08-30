@@ -112,7 +112,7 @@ Prior UQ evaluations fall into three groups. \emph{White-box} suites assume acce
 the target's logits or hidden states and evaluate perplexity, energy, or evidential
 scores; these do not apply to hosted APIs. \emph{Black-box, single-target} studies
 introduce sampling-consistency \citep{kuhn2023semantic,farquhar2024detecting} and
-graph-spectral \citep{lin2023generating} methods, or verbalized confidence
+graph-spectral \citep{lin2024generating} methods, or verbalized confidence
 \citep{lin2022teaching}, but usually on one model and a few datasets, and---critically---%
 report accuracy without the number of target calls the method consumes. \emph{Library}
 efforts such as \textsc{TruthTorchLM} \citep{bakman2024truthtorchlm} unify method
@@ -496,7 +496,7 @@ uncertainty score $u$ (higher $=$ less reliable); we report AUROC of $u$ vs.\ $1
 
 \subsection{Sampling-consistency (semantic-set) methods}
 Samples are clustered into semantic-equivalence sets by a bidirectional-entailment NLI
-relation $E(\cdot,\cdot)$~\citep{kuhn2023semantic,farquhar2024semantic}; let $\mathcal{C}=
+relation $E(\cdot,\cdot)$~\citep{kuhn2023semantic,farquhar2024detecting}; let $\mathcal{C}=
 \{C_1,\dots,C_m\}$ be the clusters with empirical masses $p_i=|C_i|/N$.
 \emph{Discrete semantic entropy} (DSE) is the entropy over clusters,
 \begin{equation}
@@ -659,6 +659,45 @@ $N{=}10$ on strong targets. The one exception is non-monotonicity on weak target
 Claude-Haiku, Eccentricity peaks at $N{=}5$ (0.546) and \emph{falls} by $N{=}10$
 (0.467), i.e.\ more samples of a poorly-separating target add noise. Verbalized confidence
 and the distilled proxy are budget-invariant by construction ($N{=}1$ and $N{=}0$).
+
+\section{Validating the correctness labels}\label{sec:judge}
+Every AUROC in this paper is computed against labels produced by one LLM
+judge~\citep{zheng2023judge}, so we report what we know about their reliability and, where they
+are unreliable, what that does to our conclusions.
+
+\paragraph{Construct-from-gold validation of the primary judge.} We first score the judge
+(Qwen3-4B-Instruct) on cases whose label is known \emph{by construction}: an exact gold answer
+(must be accepted), a paraphrase/variant of the gold (must be accepted), a sampled wrong answer
+(must be rejected), and a ``hard negative'' that is topically close but wrong (must be
+rejected). Over three runs of $224$--$236$ such cases the judge attains
+$0.982$/$0.975$/$0.996$ accuracy (overall $0.984$), with no abstentions or unparsed replies. It
+is near-perfect on exact matches and hard negatives; its residual error is on gold
+\emph{variants} (recall $0.946$--$0.977$), i.e.\ it occasionally rejects a correct paraphrase.
+
+\paragraph{A three-judge ensemble does not corroborate the labels.} We then relabelled the same
+items with three judges from different families (Qwen3-4B, Llama-3.1-8B, Mistral-7B) and took
+the majority vote. The ensemble is \emph{not} a cleaner signal. Pairwise agreement is
+$0.62$--$0.81$ on short-form QA ($\kappa=0.21$--$0.47$, fair to moderate), and on long-form the
+raw agreement is high ($0.77$--$0.93$) while $\kappa$ collapses to $\approx0$---the classic
+prevalence artefact: the added judges accept almost everything, pushing the MedLFQA positive
+rate from $0.77$ to $0.97$. A majority label that calls $97\%$ of an 8B model's long-form
+medical answers correct is not credible, and it would make both MedLFQA cells degenerate
+(minority class $4$ and $7$). We therefore \emph{keep} the construct-validated single judge
+rather than adopting the more lenient majority.
+
+\paragraph{Sensitivity: conclusions do move with the labels.} The ensemble is still
+informative, because it bounds how much label noise matters. Re-scoring every rung against
+majority-vote labels shifts AUROC by up to $0.23$ and, on short-form QA, reorders the
+rungs---on Llama/TriviaQA the best rung changes from $n_6$ ($0.709$) to $n_1$ ($0.862$). We
+draw two conclusions. First, absolute AUROCs in this literature should be read as
+judge-conditional, ours included. Second, our \emph{negative} results are the robust part:
+under either labelling, decomposed verification does not uniformly beat verbalized confidence.
+We flag label sensitivity as a limitation rather than a solved problem.
+
+\paragraph{Author spot-check (to be completed).} We release a random sample of $100$ labelled
+items with all three judges' votes (\texttt{judge\_spotcheck\_sample.jsonl}) for manual
+verification by the authors. \textbf{[Placeholder: report human--judge agreement on the
+$100$-item sample here once the manual pass is complete.]}
 
 \section{Datasets, Judge, Metrics, and Compute}\label{app:details}
 \paragraph{Datasets.} Seven categories, 150 items each: TriviaQA (General), BioASQ

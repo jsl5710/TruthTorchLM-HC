@@ -37,3 +37,8 @@ Local: `pdflatex main ; bibtex main ; pdflatex main ; pdflatex main`
 - Verify the semantic-entropy / spectral citation details in `references.bib`.
 
 Code + data: https://github.com/jsl5710/TruthTorchLM-HC
+
+## Figures
+Figures are drawn inline with `pgfplots` (no external image files), so the
+source is self-contained. Overleaf includes pgfplots by default; a local build needs
+TeX Live's `pgf`/`pgfplots`. `\pgfplotsset{compat=1.17}` is set in the preamble.

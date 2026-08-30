@@ -20,6 +20,9 @@
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage{enumitem}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{groupplots}
 
 \newcommand{\best}[1]{\textbf{#1}}
 \newcommand{\grey}[1]{\textcolor{gray}{#1}}
@@ -90,11 +93,11 @@ improves AUROC by $+0.105$ over verbalized confidence on Llama ($p{=}0.041$, pai
 and by $+0.092$ on Qwen in the same direction but short of significance ($p{=}0.107$): the
 direction replicates, the significance does not. It is also the one regime where multi-sample
 baselines are inapplicable, since they would resample a 180-word answer.
-\item \textbf{We report our statistical power honestly.} A paired bootstrap over the cells with
+\item \textbf{We report our statistical power.} A paired bootstrap over the cells with
 per-item scores gives $95\%$ CI widths of $0.11$--$0.30$ AUROC, so this design resolves only
 differences of roughly $0.15$ and above. Exactly one positive effect is significant (above) and
 one negative one is (verification is \emph{worse} on Qwen/MedLFQA, $-0.156$, $p{=}0.009$);
-every other comparison in the paper is inconclusive rather than null, and we label it as such.
+every other comparison in the paper is inconclusive rather than null, and we label it as such (Fig.~\ref{fig:forest}).
 \item \textbf{Self-rated risk is the weak link, but ``collapse'' is overstated.} The
 deterministic-$\phi$ CoI is competitive on some short QA and is \emph{no better than the
 verbalized floor} on LongFact ($0.525$/$0.613$ vs.\ $0.540$/$0.623$, within noise). What
@@ -281,6 +284,53 @@ claims. We therefore treat the hypothesis as open (\S\ref{sec:inversion}).}
 \label{tab:inversion}
 \end{table}
 
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=\columnwidth, height=5.2cm,
+  xlabel={$\Delta$ AUROC \;(verification $-$ best baseline)},
+  xmin=-0.36, xmax=0.26,
+  ytick={1,2,3,4,5,6},
+  yticklabels={Qwen/MedLFQA, Llama/MedLFQA, Qwen/TriviaQA, Llama/TriviaQA,
+               Qwen/LongFact, Llama/LongFact},
+  y tick label style={font=\scriptsize},
+  x tick label style={font=\scriptsize},
+  xlabel style={font=\small},
+  ymin=0.4, ymax=6.6,
+  grid=major, grid style={gray!22},
+  axis line style={gray!60},
+]
+% zero line: no difference between verification and the baseline
+\addplot[black, dashed, thick, forget plot] coordinates {(0,0.4) (0,6.6)};
+% significant cells (95% CI excludes zero): filled markers
+\addplot[only marks, mark=*, mark size=2pt, black,
+         error bars/.cd, x dir=both, x explicit]
+  coordinates {
+    (-0.156,1) += (0.107,0) -= (0.150,0)
+    ( 0.105,6) += (0.076,0) -= (0.100,0)
+  };
+% inconclusive cells (CI straddles zero): open markers
+\addplot[only marks, mark=o, mark size=2pt, gray!60!black,
+         error bars/.cd, x dir=both, x explicit]
+  coordinates {
+    (-0.080,2) += (0.142,0) -= (0.107,0)
+    (-0.077,3) += (0.082,0) -= (0.089,0)
+    ( 0.023,4) += (0.076,0) -= (0.116,0)
+    ( 0.092,5) += (0.078,0) -= (0.111,0)
+  };
+\node[anchor=west, font=\scriptsize] at (axis cs:0.185,6) {$p{=}.041$};
+\node[anchor=west, font=\scriptsize] at (axis cs:-0.048,1) {$p{=}.009$};
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{Paired bootstrap ($B{=}10^4$) on $\Delta=$ best-verify $-$ best-baseline},
+one row per cell with per-item scores. Bars are $95\%$ percentile CIs; filled markers are the
+two cells whose CI excludes zero. Only Llama/LongFact is a significant \emph{win}, and
+Qwen/MedLFQA is a significant \emph{loss}; the other four straddle zero and are inconclusive
+rather than null. CI widths of $0.11$--$0.30$ set the resolution of this design.}
+\label{fig:forest}
+\end{figure}
+
 \subsection{The verification advantage is a minority, and conditional}
 Table~\ref{tab:winrate} summarizes the full six-target grid. Discriminative verification
 (\nyn/\nsc) beats the best baseline (\nverb/\nphi) on only $2$--$3$ of $11$ datasets on the
@@ -306,7 +356,7 @@ would need several times $300$ items. The gain is
 attributable to the \emph{discriminative read} rather than to decomposition, because the
 deterministic-$\phi$ rung shares the identical decomposition and does not benefit: $\phi$
 scores $0.525$/$0.613$, statistically indistinguishable from the verbalized floor. We
-therefore avoid the word ``collapse'' for $\phi$ on long-form; the honest statement is that
+therefore avoid the word ``collapse'' for $\phi$ on long-form; the accurate statement is that
 structured self-rated risk buys nothing here, while a fresh yes/no verification buys $\sim0.10$.
 Self-consistency ($n_7$) edges decision-framing ($n_6$) by $+0.017$/$+0.014$, which is inside
 noise; we do not claim a difference between them, and note that $n_7$ is also the less stable

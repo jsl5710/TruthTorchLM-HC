@@ -28,6 +28,9 @@
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage{enumitem}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{groupplots}
 
 \newcommand{\ours}{\textsc{Ours}}
 \newcommand{\dald}{\textsc{DALD}}
@@ -64,7 +67,7 @@ via three independent leave-one-dataset-out (LODO) refutations---a score-level
 stacker, per-dataset config selection, and a domain$\rightarrow$read-out router (the
 deployable core of a mixture-of-experts proxy)---that \emph{any} scheme that fits a
 combination across domains fails to transfer, so the widely reported per-dataset
-``oracle ceiling'' is unreachable. What survives is a clean, honest recommendation:
+``oracle ceiling'' is unreachable. What survives is a clear recommendation:
 one proxy, one fixed read-out, no routing, at $\sim$25--45\,ms versus seconds-to-19\,s
 for direct methods---a 400--700$\times$ latency reduction for a $\sim$0.1 AUROC price.
 All code and configurations are released.
@@ -129,9 +132,9 @@ per-dataset oracle ceiling is therefore a mirage, not a target.
 loses essentially nothing to reading the target's own logits---except the specific
 \emph{P(True)} probe---and a mechanistic account of \emph{why} (cross-perplexity beats
 contaminated self-perplexity).
-\item \textbf{An honest deployable recommendation} (\S\ref{sec:discussion}): one proxy,
+\item \textbf{A deployable recommendation} (\S\ref{sec:discussion}): one proxy,
 one fixed read-out, no routing, at $\sim$25--45\,ms; reserve target-coupled verbalized
-confidence for safety-critical queries where it genuinely dominates.
+confidence for safety-critical queries where it clearly dominates.
 \end{enumerate}
 
 We regard the negative results as the paper's most useful output. They are cheap to
@@ -246,7 +249,7 @@ ceiling, direct methods, and the domain analysis. All AUROC; the two best-studen
 
 \subsection{Objectives tie at every deployable operating point}
 
-Table~\ref{tab:triptych} reports each proxy under three levels of honesty. The
+Table~\ref{tab:triptych} reports each proxy under three disclosure tiers. The
 \emph{ceiling} selects the best variant \emph{and} read-out per dataset using the test
 labels---an oracle. \emph{Best-var} fixes one \ours\ configuration
 (\texttt{head\_ecc}$\cdot$\ppl) chosen by overall mean. \emph{Deploy} fixes
@@ -265,7 +268,7 @@ labels---an oracle. \emph{Best-var} fixes one \ours\ configuration
 \disaad & 0.675 & \best{0.613} & \best{0.613} & 0.683 & 0.611 & 0.611\\
 \bottomrule
 \end{tabular}
-\caption{Proxy comparison, mean AUROC, three tiers of honesty (\S\ref{sec:results}).
+\caption{Proxy comparison, mean AUROC, three disclosure tiers (\S\ref{sec:results}).
 At the (label-cheating) ceiling \ours\ leads by $\sim$0.02; the moment a single fixed
 configuration is committed, the lead vanishes---Qwen ties to \disaad, Llama inverts to
 \dald. \ours\ falls the most from ceiling to deploy ($-$0.08/$-$0.11) because its ceiling
@@ -369,6 +372,50 @@ perplexity is contaminated---it generated the answer---whereas the proxy's
 \emph{cross}-perplexity is a clean surprise signal. Cross-perplexity from a proxy is an
 argument \emph{for} distillation, not merely a fallback.
 
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=\columnwidth, height=5.4cm,
+  xmode=log, log basis x=10,
+  xlabel={latency per item (ms, log scale)},
+  ylabel={mean AUROC},
+  xmin=15, xmax=40000, ymin=0.50, ymax=0.72,
+  xlabel style={font=\small}, ylabel style={font=\small},
+  tick label style={font=\scriptsize},
+  grid=major, grid style={gray!22}, axis line style={gray!60},
+  legend style={font=\scriptsize, at={(0.02,0.03)}, anchor=south west,
+                draw=gray!50, fill=white, fill opacity=0.9, text opacity=1},
+  legend cell align=left,
+]
+% distilled proxies: target-decoupled, one small forward pass
+\addplot[only marks, mark=square*, mark size=2.4pt, black] coordinates {(24,0.572) (44,0.634)};
+\addlegendentry{distilled proxy ($N{=}0$)}
+% verbalized confidence: one target call
+\addplot[only marks, mark=triangle*, mark size=3pt, gray!55!black]
+  coordinates {(11000,0.664) (11000,0.653)};
+\addlegendentry{verbalized ($1$ target call)}
+% spectral consistency at N=10: ten target generations
+\addplot[only marks, mark=*, mark size=2.4pt, gray!75!black]
+  coordinates {(19000,0.627) (19000,0.655)};
+\addlegendentry{spectral consistency ($N{=}10$)}
+% the frontier the paper argues for
+\draw[dashed, gray!70] (axis cs:44,0.634) -- (axis cs:11000,0.664);
+\node[font=\scriptsize, anchor=south, align=center] at (axis cs:700,0.640)
+  {$\approx$0.03 AUROC\\for $250\times$ latency};
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{The accuracy--latency plane.} Each family is plotted at its measured
+per-item cost (log $x$); the two points per family are the two teachers. Distilled proxies sit
+at $24$--$44$\,ms because they never call the target, whereas verbalized confidence pays one
+target generation and $N{=}10$ consistency pays ten. The proxy gives up $\approx$0.03 AUROC
+against the best direct method for two-to-three orders of magnitude less latency, and the gap
+\emph{widens} with target cost---which is the deployment argument of this paper, independent of
+which method wins on AUROC alone. Direct-method latencies are the closed-API measurements
+($\approx$11\,s GPT-4o, $\approx$19\,s Haiku); on the open teachers they are seconds.}
+\label{fig:pareto}
+\end{figure}
+
 \subsection{Direct methods and the latency trade}
 
 Among pure-BB \emph{direct} methods, the ranking depends on the budget one is willing to pay:
@@ -379,7 +426,7 @@ domains (Llama TruthfulQA 0.797, mean 0.778) but requires a full target call. Ag
 this, every proxy read-out is $\sim$25--45\,ms; direct methods pay the target's
 per-sample cost---seconds on a 70B, $\approx$11\,s (GPT-4o) / $\approx$19\,s
 (Haiku)---a \textbf{400--700$\times$} latency reduction for a $\sim$0.1 AUROC price. This
-Pareto statement is independent of the AUROC ranking and widens with target cost.
+Pareto statement (Fig.~\ref{fig:pareto}) is independent of the AUROC ranking and widens with target cost.
 
 \subsection{Where the uncertainty-aware objective does and does not help}
 
@@ -435,7 +482,7 @@ fixed read-out (always-\ppl)& 0.603/0.612 & 0.632/0.609\\
 \quad per-dataset oracle     & 0.668/0.679 & 0.697/0.688\\
 \bottomrule
 \end{tabular}
-\caption{Three combiners, each vs.\ its honest baseline and its oracle. The learned
+\caption{Three combiners, each vs.\ its unselected baseline and its oracle. The learned
 stacker loses to the hard router; LODO config selection recovers only the best
 \emph{fixed} config, never the per-dataset premium; the domain$\to$read-out router loses
 to a single fixed read-out in all four cells. (\dald/\ours\ pairs shown where two
@@ -493,9 +540,9 @@ cheaper than any direct method, widening with target cost. Where a target call i
 affordable and the domain is safety-critical, verbalized confidence remains the strongest
 signal and should be used directly rather than distilled.
 
-\paragraph{On novelty, honestly.} Our \dald\ and \disaad\ arms are faithful
+\paragraph{On novelty.} Our \dald\ and \disaad\ arms are faithful
 reproductions by design---novelty in a baseline would confound the comparison. The
-uncertainty-aware objective (\ours) is a genuine variant, but its empirical advantage
+uncertainty-aware objective (\ours) is a distinct variant, but its empirical advantage
 over the baselines is $\approx 0$ at every deployable operating point. The paper's
 contribution is therefore not a new winning method; it is (i) the read-out finding and
 its transferable practical consequence, (ii) the LODO refutations that bound what proxy
@@ -518,7 +565,7 @@ target-decoupled. Within a controlled benchmark we find that, for this proxy fam
 read-out is best across proxies and teachers, and once it is fixed the three published
 objectives are indistinguishable. Every attempt to do better by \emph{combining}
 methods, configurations, signals, or experts fails to transfer out-of-sample, so the
-oracle ceiling is a mirage. The honest, deployable system is a single proxy with a
+oracle ceiling is a mirage. The deployable system is a single proxy with a
 single fixed read-out---negligible AUROC cost relative to direct methods, and hundreds
 of times lower latency. We release the benchmark and all configurations to make these
 negative results easy to reuse.
@@ -668,7 +715,7 @@ ecc\_$\lambda$20          & 0.623 & 0.607\\
 
 \section{Combiner Details (LODO)}\label{app:combiners}
 Table~\ref{tab:app-lodo} gives the full leave-one-dataset-out numbers behind
-\S\ref{sec:combiners}: each combiner vs.\ its honest baseline and its per-dataset oracle.
+\S\ref{sec:combiners}: each combiner vs.\ its unselected baseline and its per-dataset oracle.
 The score-level stacker loses to the hard router; LODO configuration selection recovers
 only the best \emph{fixed} configuration (never the per-dataset premium); the
 domain$\to$read-out router loses to a single fixed read-out and even cross-validated

@@ -21,6 +21,9 @@
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage{enumitem}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{groupplots}
 
 \newcommand{\best}[1]{\textbf{#1}}
 \newcommand{\grey}[1]{\textcolor{gray}{#1}}
@@ -284,7 +287,53 @@ proxy (not shown; $N{=}0$) reaches 0.61--0.63 with no target samples at all.}
 \label{tab:nsweep}
 \end{table}
 
-\paragraph{Sample budget is a hidden cost.} Table~\ref{tab:nsweep} makes the
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=\columnwidth, height=5.4cm,
+  xlabel={sample budget $N$ (target generations per item)},
+  ylabel={mean AUROC},
+  xtick={1,3,5,10}, xmin=0.4, xmax=10.8, ymin=0.48, ymax=0.70,
+  xlabel style={font=\small}, ylabel style={font=\small},
+  tick label style={font=\scriptsize},
+  grid=major, grid style={gray!22}, axis line style={gray!60},
+  legend style={font=\scriptsize, at={(0.98,0.03)}, anchor=south east,
+                draw=gray!50, fill=white, fill opacity=0.9, text opacity=1},
+  legend cell align=left,
+]
+% chance line
+\addplot[gray!55, dashed, forget plot] coordinates {(0.4,0.5) (10.8,0.5)};
+% Qwen3-32B
+\addplot[mark=*, mark size=1.8pt, black] coordinates {(1,0.500)(3,0.628)(5,0.645)(10,0.655)};
+\addlegendentry{Eccentricity (Qwen)}
+\addplot[mark=square*, mark size=1.8pt, gray!60!black]
+  coordinates {(1,0.500)(3,0.578)(5,0.599)(10,0.624)};
+\addlegendentry{Semantic entropy (Qwen)}
+% Llama-3.3-70B
+\addplot[mark=triangle*, mark size=2.4pt, black, dashed]
+  coordinates {(1,0.500)(3,0.584)(5,0.617)(10,0.627)};
+\addlegendentry{Eccentricity (Llama)}
+\addplot[mark=diamond*, mark size=2.2pt, gray!60!black, dashed]
+  coordinates {(1,0.500)(3,0.515)(5,0.520)(10,0.529)};
+\addlegendentry{Semantic entropy (Llama)}
+% verbalized confidence: budget-invariant, one call
+\addplot[densely dotted, thick, gray!75!black, no marks]
+  coordinates {(0.4,0.653)(10.8,0.653)};
+\addlegendentry{Verbalized (Qwen, $N$-invariant)}
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{Sample budget is a hidden cost.} Every dispersion-based method is pinned at
+AUROC $0.500$ at $N{=}1$---a single sample has no dispersion, so this is definitional, not
+empirical---and climbs only as the system pays more target generations, peaking at $N{=}10$.
+Verbalized confidence (dotted) is budget-invariant at one call, and distilled proxies (not
+shown) sit at $N{=}0$. Semantic entropy also illustrates the generator effect: it is
+competitive on Qwen and near chance on Llama at every budget. Means are over non-degenerate
+cells (Table~\ref{tab:leaderboard}).}
+\label{fig:nsweep}
+\end{figure}
+
+\paragraph{Sample budget is a hidden cost.} Table~\ref{tab:nsweep} and Fig.~\ref{fig:nsweep} make the
 accuracy--budget dependence explicit. Every consistency/graph method scores exactly
 $0.500$ at $N{=}1$---a single sample has no dispersion to measure---and climbs to its
 peak only at $N{=}10$, i.e.\ ten target generations per item. Verbalized confidence is
@@ -568,7 +617,7 @@ $\sim$0.63, and on \textbf{Claude-Haiku every consistency method is at or below 
 (best 0.546 at $N{=}5$; Eccentricity $N{=}10$ falls to 0.467)---while \textbf{verbalized
 confidence is by far the strongest and, on Haiku, the \emph{only} method that works}
 (GPT-4o 0.737, Haiku 0.672). Asking a frontier model directly beats measuring the
-dispersion of its (tightly-decoded, self-consistent) samples. Two honest caveats: on
+dispersion of its (tightly-decoded, self-consistent) samples. Two caveats: on
 Haiku the mean spans extremes (medqa 1.000, trivially separable; wikipedia 0.000,
 \emph{confidently wrong on factual recall}), and GSM8K/BioASQ are unscored where frontier
 accuracy is near-100\% (no errors to rank). We also distilled the full proxy family from

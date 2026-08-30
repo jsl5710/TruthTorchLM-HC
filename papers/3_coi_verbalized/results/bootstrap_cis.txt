@@ -1,0 +1,44 @@
+Paired bootstrap, B=10000, percentile CIs
+
+=== llama-3.1-8b/longfact  n=300 pos=239 neg=61 ===
+  n1: AUROC=0.540  95% CI [0.489, 0.595]  width=0.106
+  n3: AUROC=0.525  95% CI [0.439, 0.608]  width=0.170
+  n6: AUROC=0.627  95% CI [0.555, 0.695]  width=0.140
+  n7: AUROC=0.644  95% CI [0.566, 0.720]  width=0.155
+  DELTA(verify - baseline) = +0.105  95% CI [+0.005, +0.181]  p=0.041  -> SIGNIFICANT
+
+=== qwen3-8b/longfact  n=300 pos=259 neg=41 ===
+  n1: AUROC=0.623  95% CI [0.546, 0.703]  width=0.158
+  n3: AUROC=0.613  95% CI [0.506, 0.715]  width=0.209
+  n6: AUROC=0.702  95% CI [0.622, 0.782]  width=0.160
+  n7: AUROC=0.716  95% CI [0.633, 0.799]  width=0.165
+  DELTA(verify - baseline) = +0.092  95% CI [-0.019, +0.170]  p=0.107  -> not significant
+
+=== llama-3.1-8b/trivia_qa  n=149 pos=106 neg=43 ===
+  n1: AUROC=0.659  95% CI [0.551, 0.761]  width=0.210
+  n3: AUROC=0.686  95% CI [0.596, 0.771]  width=0.175
+  n6: AUROC=0.709  95% CI [0.626, 0.787]  width=0.161
+  n7: AUROC=0.661  95% CI [0.562, 0.757]  width=0.194
+  DELTA(verify - baseline) = +0.023  95% CI [-0.093, +0.099]  p=0.787  -> not significant
+
+=== qwen3-8b/trivia_qa  n=149 pos=65 neg=84 ===
+  n1: AUROC=0.727  95% CI [0.651, 0.798]  width=0.147
+  n3: AUROC=0.790  95% CI [0.715, 0.858]  width=0.143
+  n6: AUROC=0.692  95% CI [0.617, 0.766]  width=0.148
+  n7: AUROC=0.713  95% CI [0.636, 0.786]  width=0.150
+  DELTA(verify - baseline) = -0.077  95% CI [-0.166, +0.005]  p=0.068  -> not significant
+
+=== llama-3.1-8b/medlfqa  n=150 pos=115 neg=35 ===
+  n1: AUROC=0.647  95% CI [0.558, 0.728]  width=0.170
+  n3: AUROC=0.500  95% CI [0.400, 0.597]  width=0.197
+  n6: AUROC=0.561  95% CI [0.458, 0.661]  width=0.204
+  n7: AUROC=0.567  95% CI [0.454, 0.676]  width=0.223
+  DELTA(verify - baseline) = -0.080  95% CI [-0.187, +0.062]  p=0.334  -> not significant
+
+=== qwen3-8b/medlfqa  n=150 pos=133 neg=17 ===
+  n1: AUROC=0.678  95% CI [0.557, 0.790]  width=0.233
+  n3: AUROC=0.657  95% CI [0.502, 0.800]  width=0.297
+  n6: AUROC=0.492  95% CI [0.481, 0.500]  width=0.019
+  n7: AUROC=0.521  95% CI [0.485, 0.589]  width=0.105
+  DELTA(verify - baseline) = -0.156  95% CI [-0.306, -0.049]  p=0.009  -> significant (negative)
+

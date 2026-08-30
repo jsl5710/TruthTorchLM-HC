@@ -43,19 +43,20 @@ long-form answers. A natural fix is to decompose the answer into atomic claims a
 one; we ask when that actually pays. An ablation ladder separates a deterministic aggregation
 ($\phi$) of self-rated per-claim \emph{risk} from a \emph{discriminative} verification
 step---a fresh yes/no ``Is this claim correct?'' asked once or $K$ times (self-consistency).
-Across six targets (two 8B open, two 32B/70B open, and closed GPT-4o and Claude-Haiku) and up
-to twelve datasets, excluding cells too class-imbalanced to support an AUROC, the result is
-mostly \emph{negative}: verification wins a minority of cells---$2$--$3$ of $11$ on 8B targets
-and \textbf{none of the $9$} on the strong open 32B/70B targets---and only three wins in the
-grid exceed a $\pm0.04$ noise band. The exception is robust and replicated: on \textbf{long-form
-general-knowledge factuality} (LongFact, $n{=}300$), self-consistency verification gains
-$+0.104$ and $+0.093$ AUROC over verbalized confidence on both 8B targets, in the regime where
-multi-sample baselines cannot be applied at all; there $\phi$ is no better than the verbalized
-floor. We also test whether verification rescues \emph{overconfident} targets whose verbalized
-AUROC falls below chance: of the two inverted cells with adequate class balance, it recovers
-one and fails the other, so we report this as an open question, not a mechanism. The
-recommendation is conditional---verify long-form answers, otherwise keep the single verbalized
-call, which is $40$--$70\times$ cheaper.
+Across six targets (8B to 70B open, plus closed GPT-4o and Claude-Haiku) and up to twelve
+datasets, excluding cells too class-imbalanced to support an AUROC, the result is mostly
+\emph{negative}: verification wins a minority of cells---$2$--$3$ of $11$ on 8B targets and
+\textbf{none of the $9$} on the strong open 32B/70B targets. Under a paired bootstrap exactly
+one positive effect reaches significance: on \textbf{long-form general-knowledge factuality}
+(LongFact, $n{=}300$), self-consistency verification gains $+0.105$ AUROC over verbalized
+confidence on Llama ($p{=}0.041$) and $+0.092$ on Qwen in the same direction but without
+significance ($p{=}0.107$)---and this is the one regime where multi-sample baselines cannot be
+applied at all. We also test whether verification rescues \emph{overconfident} targets whose
+verbalized AUROC falls below chance: of the two inverted cells with adequate class balance, it
+recovers one and fails the other, so we leave this open. Reporting confidence intervals
+throughout, we find this design resolves only differences above $\sim$$0.15$ AUROC, and we
+label the remaining comparisons inconclusive rather than null. The recommendation is
+conditional: verify long-form answers, otherwise keep the single verbalized call.
 \end{abstract}
 
 \section{Introduction}
@@ -76,19 +77,24 @@ aggregation $\phi$) rather than self-rated, which removes the same-pass overconf
 plain verbalized confidence. This is attractive in principle, but raises an empirical
 question we answer here: \emph{which part of the chain actually carries the signal?}
 
-We study an ablation ladder (\S\ref{sec:method}) over a six-target grid and report four
-findings (\S\ref{sec:results}).
+We study an ablation ladder (\S\ref{sec:method}) over a six-target grid and report five findings (\S\ref{sec:results}).
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
 \item \textbf{The verification advantage is a minority, not a majority.} Across the full
 suite it beats the best baseline on only $2$--$3$ of $11$ datasets on 8B targets and
 \textbf{$0$ of $9$ on the strong open 32B/70B targets}, where $\phi$ or verbalized
 confidence is already strong. The blanket claim ``decomposition beats verbalized
 confidence'' is false, and we report this negative result as our primary finding.
-\item \textbf{The one robust gain is long-form general knowledge.} On LongFact
-($n{=}300$ per target, the largest cells in the study) self-consistency verification
-improves AUROC by $+0.104$ and $+0.093$ over verbalized confidence, replicated on two
-independent 8B targets and $2.5\times$ the $\pm0.04$ noise band. It is also the one regime
-where multi-sample baselines are inapplicable, since they would resample a 180-word answer.
+\item \textbf{The one gain that reaches significance is long-form general knowledge.} On
+LongFact ($n{=}300$ per target, the largest cells in the study) self-consistency verification
+improves AUROC by $+0.105$ over verbalized confidence on Llama ($p{=}0.041$, paired bootstrap)
+and by $+0.092$ on Qwen in the same direction but short of significance ($p{=}0.107$): the
+direction replicates, the significance does not. It is also the one regime where multi-sample
+baselines are inapplicable, since they would resample a 180-word answer.
+\item \textbf{We report our statistical power honestly.} A paired bootstrap over the cells with
+per-item scores gives $95\%$ CI widths of $0.11$--$0.30$ AUROC, so this design resolves only
+differences of roughly $0.15$ and above. Exactly one positive effect is significant (above) and
+one negative one is (verification is \emph{worse} on Qwen/MedLFQA, $-0.156$, $p{=}0.009$);
+every other comparison in the paper is inconclusive rather than null, and we label it as such.
 \item \textbf{Self-rated risk is the weak link, but ``collapse'' is overstated.} The
 deterministic-$\phi$ CoI is competitive on some short QA and is \emph{no better than the
 verbalized floor} on LongFact ($0.525$/$0.613$ vs.\ $0.540$/$0.623$, within noise). What
@@ -111,24 +117,54 @@ organize them as a ladder of ``interaction chains'' $n$.
 \paragraph{$n_1$: Verbalized confidence (floor).} One call: ``Judge how likely $y$ is
 correct; return \{confidence: 0--100\}.'' The standard baseline.
 
-\paragraph{$n_3$: Deterministic $\phi$ (CoI default).} Decompose $y$ into claims; per
-claim, the model returns a \emph{grounding} label (contextual/parametric/inferred), an
-evidence sentence, a counter-argument, and a self-rated \emph{risk} $r\in[0,1]$; a
-consistency chain lists contradictions. Confidence is computed in code:
-each claim scores $s = \mathrm{base}[\text{grounding}]\cdot(1-r)\cdot\text{penalty}$,
-with a fixed prior $\mathrm{base}=\{1.0,0.85,0.65\}$ and a contradiction penalty; claims
-are pooled by a min/mean rule ($\phi$). No training data is used.
+\paragraph{Common structure.} Rungs $n_3$--$n_7$ first decompose $y$ into atomic claims
+$c_1,\dots,c_m$ (one claim, the whole answer, for a short factual $y$), assign each a score
+$s_i\in[0,1]$, and pool the scores with the same operator $\phi$. They differ only in how
+$s_i$ is obtained. The pooling rule is a conditional min/mean: a single weak claim should veto
+the answer, but once every claim is credible the mean is the less brittle summary. Writing
+$s_{\min}=\min_i s_i$,
+\begin{equation}
+\phi(s_1,\dots,s_m)=
+\begin{cases}
+s_{\min}, & s_{\min} < \tau,\\[2pt]
+\frac{1}{m}\sum_{i=1}^{m} s_i, & \text{otherwise,}
+\end{cases}
+\label{eq:phi}
+\end{equation}
+with $\tau=0.5$ throughout; $\phi$ returns $0.5$ if decomposition yields no claims.
 
-\paragraph{$n_6$: Decision-framed verification.} Decompose $y$ into claims; then, instead
-of a self-rated risk, issue a \emph{fresh} discriminative call per claim: ``Is the
-statement factually correct and a correct answer to the question? Answer YES or NO.''
-The per-claim confidence is $1$ for YES and $0$ for NO; claims are pooled by the same
-min/mean rule. One verification call per claim (greedy).
+\paragraph{$n_3$: Deterministic $\phi$ over self-rated risk (CoI default).} Per claim the
+model returns a \emph{grounding} label $g_i\in\{\textsc{ctx},\textsc{par},\textsc{inf}\}$
+(supported by the input / by parametric knowledge / an inferential leap), an evidence
+sentence, a counter-argument, and a self-rated \emph{risk} $r_i\in[0,1]$; a consistency chain
+returns a set $\mathcal{K}$ of contradicting claim pairs. The score is
+\begin{equation}
+s_i \;=\; \beta(g_i)\,\bigl(1-r_i\bigr)\,\pi_i,
+\qquad
+\pi_i=\begin{cases}\rho, & \exists\,(i,j)\in\mathcal{K},\\ 1,&\text{otherwise,}\end{cases}
+\label{eq:sclaim}
+\end{equation}
+clipped to $[0,1]$, with the fixed prior $\beta(\textsc{ctx}){=}1.0$,
+$\beta(\textsc{par}){=}0.85$, $\beta(\textsc{inf}){=}0.65$ and contradiction penalty
+$\rho{=}0.5$. Missing or unparseable fields default to $g_i{=}\textsc{par}$, $r_i{=}0.5$.
+Confidence is $\phi(s_1,\dots,s_m)$ by Eq.~\ref{eq:phi}. The priors are fixed a priori; no
+training data is used, and Appendix~\ref{app:agg} shows no fitted aggregator improves on them.
 
-\paragraph{$n_7$: Self-consistency verification.} As $n_6$, but each claim is verified
-$K{=}5$ times at temperature $0.7$; the per-claim confidence is the \emph{YES-vote
-fraction}. The intuition is that hallucinated facts are unstable across samples while
-known facts are stable, so vote entropy discriminates where a single self-rating cannot.
+\paragraph{$n_6$: Decision-framed verification.} Same decomposition, but instead of a
+self-rated risk we issue a \emph{fresh} discriminative call per claim---``Is the statement
+factually correct and a correct answer to the question? Answer YES or NO''---decoded greedily,
+and set $s_i=\mathbb{1}[\text{YES}]$ (a reply matching neither token scores $0.5$). Confidence
+is again $\phi(s_1,\dots,s_m)$. One verification call per claim.
+
+\paragraph{$n_7$: Self-consistency verification.} As $n_6$, but each claim is verified $K{=}5$
+times at temperature $0.7$, giving votes $v_{i1},\dots,v_{iK}\in\{0,1\}$, and the score is the
+YES-vote fraction
+\begin{equation}
+s_i \;=\; \frac{1}{K}\sum_{k=1}^{K} v_{ik}.
+\label{eq:vote}
+\end{equation}
+The intuition is that hallucinated facts are unstable across samples while known facts are
+stable, so $s_i$ interpolates where a single decision saturates at $0$ or $1$.
 
 The ladder isolates two design choices: $n_1{\to}n_3$ swaps a global self-rating for a
 structured self-rating; $n_3{\to}n_6$ swaps self-rated \emph{risk} for a discriminative
@@ -179,7 +215,7 @@ $N{-}1$ extra target generations they require upstream.
 \centering\small
 \begin{tabular}{lcc}
 \toprule
-Target & wins / valid & wins $>\!0.04$ \\
+Target & wins / valid & signif. \\
 \midrule
 Llama-3.1-8B (8B open)     & 3/11 & 1 \\
 Qwen3-8B (8B open)         & 2/11 & 1 \\
@@ -191,29 +227,32 @@ Claude-Haiku-4.5 (closed)  & 2/3  & 1 \\
 \end{tabular}
 \caption{\textbf{Where verification (\nyn/\nsc) beats the best baseline (\nverb/\nphi),}
 per target. ``Valid'' excludes cells whose minority class is $<15$ (\S\ref{sec:setup}); the
-second column counts only wins exceeding the $\pm0.04$ noise band at $n{\approx}150$.
+second column counts wins whose paired-bootstrap $95\%$ CI excludes zero
+(Appendix~\ref{app:boot}); we could only run the bootstrap on the six cells with per-item logs,
+so it is a lower bound elsewhere.
 Verification wins a minority of cells overall and \emph{none} on the strong open 32B/70B
-targets. Only three wins across the whole grid are larger than noise, two of them the
-LongFact cells (Table~\ref{tab:longfact}).}
+targets. Of the six cells we could bootstrap, only Llama/LongFact is a significant win
+(Table~\ref{tab:longfact}); Qwen/MedLFQA is a significant \emph{loss}.}
 \label{tab:winrate}
 \end{table}
 
 \begin{table}[t]
 \centering\small
-\begin{tabular}{lccccc}
+\begin{tabular}{lcccc}
 \toprule
-Target & neg. & \nverb\ Verb. & \nphi\ $\phi$ & \nyn\ Decis. & \nsc\ SelfC. \\
+Target & \nverb\ Verb. & \nsc\ SelfC. & $\Delta$ (95\% CI) & $p$ \\
 \midrule
-Llama-3.1-8B & 61 & 0.540 & 0.525 & 0.627 & \textbf{0.644} \\
-Qwen3-8B     & 41 & 0.623 & 0.613 & 0.702 & \textbf{0.716} \\
+Llama-3.1-8B & 0.540 & \textbf{0.644} & $+0.105\;[+0.005,+0.181]$ & $0.041$ \\
+Qwen3-8B     & 0.623 & \textbf{0.716} & $+0.092\;[-0.019,+0.170]$ & $0.107$ \\
 \bottomrule
 \end{tabular}
-\caption{\textbf{The one robust gain: LongFact (long-form general knowledge).} $n{=}300$ per
-target---double every other cell---with 61 and 41 negatives. Self-consistency verification
-(\nsc) improves on verbalized confidence by $+0.104$ and $+0.093$, replicated across two
-independent targets and $2.5\times$ the $\pm0.04$ noise band. $\phi$ (\nphi) is \emph{not}
-better than the verbalized floor here. Multi-sample baselines are inapplicable in this
-regime (they would resample a 180-word answer $N$ times).}
+\caption{\textbf{The one gain that reaches significance: LongFact (long-form general
+knowledge).} $n{=}300$ per target (61 and 41 negatives)---double every other cell. $\Delta$ is
+best-verify minus best-baseline under a \emph{paired} bootstrap ($B{=}10^4$, shared resamples,
+Appendix~\ref{app:boot}). The effect is significant on Llama and of the same size but
+\emph{not} significant on Qwen: the direction replicates, the significance does not. $\phi$
+(\nphi) is not better than the verbalized floor here ($0.525$/$0.613$). Multi-sample baselines
+are inapplicable in this regime (they would resample a 180-word answer $N$ times).}
 \label{tab:longfact}
 \end{table}
 
@@ -249,16 +288,21 @@ Table~\ref{tab:winrate} summarizes the full six-target grid. Discriminative veri
 32B/70B targets (full grid, Appendix~\ref{app:bigopen}), where $\phi$-CoI or verbalized
 confidence are already strong ($0.62$--$0.82$).
 The blanket claim ``decomposed verification beats verbalized confidence'' is false. Moreover,
-only three wins in the entire grid exceed the $\pm0.04$ noise band at $n{\approx}150$: the two
-LongFact cells and Claude/TruthfulQA. The intermediate ablation rungs ($n_2,n_4,n_5$) are
+a paired bootstrap on the cells for which we retain per-item scores finds exactly \emph{one}
+significant positive effect in the grid---Llama/LongFact---and one significant \emph{negative}
+one (Qwen/MedLFQA, $-0.156$, $p{=}0.009$), with every other comparison inconclusive. The intermediate ablation rungs ($n_2,n_4,n_5$) are
 dominated by $\{n_1,n_3,n_6,n_7\}$ throughout (Appendix~\ref{app:ladder}), so we report only
 the latter here.
 
-\subsection{The robust exception: long-form general knowledge}
-Table~\ref{tab:longfact} is the paper's one replicated, above-noise result. On LongFact,
+\subsection{The exception: long-form general knowledge}
+Table~\ref{tab:longfact} is the paper's one significant positive result. On LongFact,
 self-consistency verification (\nsc) reaches $0.644$/$0.716$ against a verbalized floor of
-$0.540$/$0.623$---\textbf{$+0.104$ and $+0.093$}---on two independent 8B targets, at $n{=}300$
-with 61 and 41 negatives (the largest and best-balanced cells in the study). The gain is
+$0.540$/$0.623$---\textbf{$+0.105$ and $+0.092$}---on two independent 8B targets, at $n{=}300$
+with 61 and 41 negatives (the largest and best-balanced cells in the study). Under a paired
+bootstrap the Llama effect is significant ($95\%$ CI $[+0.005,+0.181]$, $p{=}0.041$) while the
+Qwen effect, though nearly the same size, is not ($p{=}0.107$); we report both rather than
+pooling them, and note that a design powered to resolve a $0.09$ effect at this class balance
+would need several times $300$ items. The gain is
 attributable to the \emph{discriminative read} rather than to decomposition, because the
 deterministic-$\phi$ rung shares the identical decomposition and does not benefit: $\phi$
 scores $0.525$/$0.613$, statistically indistinguishable from the verbalized floor. We
@@ -347,7 +391,7 @@ Target & Dataset & neg. & \nverb & \nphi & \nyn & \nsc \\
 each rule are \textbf{degenerate} (minority $<15$): they are shown in grey for transparency and
 excluded from every claim and from the win-rates in Table~\ref{tab:winrate}. Among valid cells
 verification wins $2/4$ (GPT-4o) and $2/3$ (Claude), and only Claude/TruthfulQA exceeds the
-$\pm0.04$ noise band. Note GPT-4o/BioASQ: verbalized confidence is strongly inverted ($0.346$)
+standard error. Note GPT-4o/BioASQ: verbalized confidence is strongly inverted ($0.346$)
 yet verification does \emph{not} recover it---$\phi$ does (\S\ref{sec:inversion}).}
 \label{tab:closed}
 \end{table}
@@ -393,7 +437,7 @@ whether a better aggregator recovers signal. Offline, over the cached CoI featur
 compared the fixed-prior $\phi$ against closed-form pools (mean/max/product of
 $1{-}r$; grounding-weighted min/mean) and a cross-validated logistic regression fit on
 $13$ CoI features (Appendix~\ref{app:agg}). \textbf{No aggregator improves on the fixed prior
-by more than the $\pm0.04$ noise band.} Differences run in both directions and are all small:
+by more than sampling error.} Differences run in both directions and are all small:
 a min-pool of $\mathrm{base}\cdot(1{-}r)$ is nominally ahead on Llama/TriviaQA ($0.711$ vs.\
 $\phi$'s $0.686$) while the cross-validated logistic regression is nominally behind on
 Qwen/MedLFQA ($0.631$ vs.\ $0.657$); none of these gaps is resolvable at $n{\approx}150$.
@@ -427,12 +471,13 @@ class balance.
 Verbalized confidence is a weak but very cheap black-box signal, and making its structure
 explicit helps only conditionally. Across six targets and up to twelve datasets, replacing
 self-rated risk with a discriminative verification wins a \emph{minority} of cells---$2$--$3$ of
-$11$ on 8B targets and none of the $9$ valid cells on strong open 32B/70B models---and only
-three wins in the entire grid exceed the noise band. The exception is robust and replicated:
-on long-form general-knowledge factuality, self-consistency verification gains $+0.104$ and
-$+0.093$ AUROC over verbalized confidence on two independent targets, in the largest and
-best-balanced cells we measure, and it is the regime where multi-sample baselines cannot be
-applied at all. The tempting further story---that verification rescues overconfident targets
+$11$ on 8B targets and none of the $9$ valid cells on strong open 32B/70B models---and under a
+paired bootstrap exactly one positive effect in the grid reaches significance. That exception is
+long-form general-knowledge factuality: self-consistency verification gains $+0.105$ AUROC over
+verbalized confidence on Llama ($p{=}0.041$) and $+0.092$ on Qwen in the same direction but
+without significance ($p{=}0.107$), in the largest and best-balanced cells we measure and the
+one regime where multi-sample baselines cannot be applied at all. The direction replicates
+across targets; the significance does not, and we say so rather than aggregating the two. The tempting further story---that verification rescues overconfident targets
 whose verbalized signal has inverted---is not established by our data: of the two inverted cells
 with adequate class balance, verification recovers one and fails the other, and inversion is
 confounded with closed-weights throughout our grid. We therefore offer a conditional
@@ -444,10 +489,15 @@ the harness, and the per-cell class balances needed to check these claims.
 baselines we quote are 3-seed means---so Table~\ref{tab:baselines} is not a symmetric
 comparison. The 8B cells use seed 1 and the large-open and closed cells seed 0, so the two
 halves of the grid do not even share a seed. We have no seed variance, and at $n{\approx}150$
-the AUROC standard error is roughly $\pm0.045$; we therefore treat $\pm0.04$ as a noise band,
-decline to rank differences inside it, and rest the paper's positive claim on the LongFact cells
-($n{=}300$), which are the only ones with a comfortable margin. Per-cell bootstrap intervals
-would sharpen every comparison here and are the obvious next step.
+we therefore ran a paired bootstrap ($B{=}10^4$, resamples shared across rungs) on the six
+cells for which we retain per-item scores (Appendix~\ref{app:boot}). It is sobering: $95\%$ CI
+widths are $0.11$--$0.30$ AUROC, so this design can only resolve differences of roughly $0.15$
+and above. Exactly one positive effect is significant (Llama/LongFact, $p{=}0.041$) and one
+negative effect is (Qwen/MedLFQA, $p{=}0.009$); every other comparison we report, including the
+Qwen LongFact gain of $+0.092$ ($p{=}0.107$), is inconclusive at this sample size. Readers
+should treat the per-cell orderings in Tables~\ref{tab:suite}--\ref{tab:closed} as descriptive.
+We could not bootstrap the large-open or closed cells, whose per-item scores were not retained;
+their CIs would be no narrower.
 
 \paragraph{Class balance and excluded cells.} We exclude cells whose minority class is $<15$.
 This removes BioASQ on all open targets (as few as one negative) and both closed MedLFQA and
@@ -694,6 +744,38 @@ LLM-judge (or letter-match, MCQ) correct labels; LongFact uses the 70B factualit
 \label{tab:stats}
 \end{table}
 
+\section{Paired bootstrap confidence intervals}\label{app:boot}
+For the six cells where we retain per-item scores (the rung raw logs), we resample items with
+replacement $B{=}10^4$ times, \emph{sharing the resampled index set across rungs} so that the
+rung-to-rung difference is paired and the CI on $\Delta$ is not inflated by between-rung
+independence. AUROC is computed by the Mann--Whitney rank identity with tie-averaged ranks,
+which matters because the $n_7$ score takes only $K{+}1$ distinct values. $\Delta$ is
+best-verify ($\max(n_6,n_7)$) minus best-baseline ($\max(n_1,n_3)$) on each resample; $p$ is the
+two-sided bootstrap $p$-value against $\Delta{=}0$.
+
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llcc}
+\toprule
+Target / dataset & neg. & $\Delta$ (95\% CI) & $p$ \\
+\midrule
+Llama / LongFact  & 61 & $+0.105\;[+0.005,+0.181]$ & \textbf{0.041} \\
+Qwen / LongFact   & 41 & $+0.092\;[-0.019,+0.170]$ & 0.107 \\
+Llama / TriviaQA  & 43 & $+0.023\;[-0.093,+0.099]$ & 0.787 \\
+Qwen / TriviaQA   & 84 & $-0.077\;[-0.166,+0.005]$ & 0.068 \\
+Llama / MedLFQA   & 35 & $-0.080\;[-0.187,+0.062]$ & 0.334 \\
+Qwen / MedLFQA    & 17 & $-0.156\;[-0.306,-0.049]$ & \textbf{0.009} \\
+\bottomrule
+\end{tabular}
+\caption{Paired bootstrap on $\Delta = $ best-verify $-$ best-baseline. Only two comparisons are
+resolved: Llama/LongFact (verification better) and Qwen/MedLFQA (verification \emph{worse}).
+Per-rung CI widths run $0.11$--$0.30$ AUROC, so this design resolves differences of roughly
+$0.15$ and above; every other row is inconclusive rather than null. Raw output is released as
+\texttt{results/bootstrap\_cis.txt}.}
+\label{tab:boot}
+\end{table}
+
 \section{Aggregation search}\label{app:agg}
 Because $\phi$'s weakness is an aggregation of per-claim scores, we asked offline whether a
 better aggregator over the same cached CoI features recovers signal (\S\ref{sec:results}).
@@ -716,7 +798,7 @@ Qwen/MedLFQA   & \textbf{0.657} & \textbf{0.657} & \textbf{0.657} & \textbf{0.65
 \caption{AUROC of alternative aggregators over the same CoI features ($1{-}$mn/mx: $1{-}$mean/max
 risk; $\prod$: $\prod(1{-}r)$; nOR: noisy-OR; min$_b$: min-pool of $\mathrm{base}\cdot(1{-}r)$;
 logit: $13$-feature CV logistic regression). No aggregator differs from the fixed prior $\phi$
-by more than noise ($\pm0.04$ at $n{\approx}150$) in either direction; in particular the
+by more than sampling error at $n{\approx}150$ in either direction; in particular the
 $13$-feature logistic regression never pulls clear of a training-free fixed prior. On MedLFQA
 all aggregators sit near chance. The inputs (self-rated risk), not the aggregator, are the
 bottleneck---which is what the verification rungs replace. The noisy-OR column (nOR) is

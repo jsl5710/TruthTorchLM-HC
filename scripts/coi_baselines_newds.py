@@ -89,8 +89,18 @@ def main():
         # ---- phase 1: draw N samples per prompt (the cost the paper claimed was prohibitive)
         sysmsg = GEN_SYS.get(ds, GEN_SYS["default"])
         need = args.n_samples
-        print(f"[bl] {ds}: sampling {need} generations x {len(items)} items ...", flush=True)
-        for it in tqdm(items, desc=f"[bl/{ds}] sample", leave=False):
+        aug_root0 = f"{W}/cache_coi_baselines"; os.makedirs(aug_root0, exist_ok=True)
+        acfg0 = _make_config(ds, args.generator, n_max=need, size=1.0, seed=args.seed)
+        acache0 = GenerationCache(aug_root0, acfg0, args.seed)
+        if acache0.exists():
+            got = acache0.read()
+            if got and len(got[0].get("samples", [])) >= need:
+                print(f"[bl] {ds}: reusing cached {need}-sample generations ({len(got)} items)", flush=True)
+                items = got
+        _need_sample = not (acache0.exists() and items and len(items[0].get("samples", [])) >= need)
+        if _need_sample:
+            print(f"[bl] {ds}: sampling {need} generations x {len(items)} items ...", flush=True)
+        for it in (tqdm(items, desc=f"[bl/{ds}] sample", leave=False) if _need_sample else []):
             p = apply([{"role": "system", "content": sysmsg},
                        {"role": "user", "content": it["question"]}])
             enc = tok(p, return_tensors="pt").to(mdl.device)
@@ -118,7 +128,7 @@ def main():
             for N in (5, need):
                 if N not in scores[nm]: continue
                 fc, fs = _filter_valid(correctness, {nm: {N: scores[nm][N]}})
-                ev = evaluate_method(fs[nm][N], fc, truth_method=m, require_calibrated=False)
+                ev = evaluate_method(fs[nm], fc, truth_method=m, require_calibrated=False)
                 a = (ev.get(N) or ev.get(1) or {}).get("auroc")
                 if a is not None: rows[f"{nm}_N{N}"] = {"auroc": round(float(a), 4)}
         npos = sum(1 for c in correctness if c == 1); nit = sum(1 for c in correctness if c in (0, 1))

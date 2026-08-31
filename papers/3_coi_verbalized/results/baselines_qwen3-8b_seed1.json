@@ -1,0 +1,72 @@
+{
+  "generator": "qwen3-8b",
+  "cells": [
+    {
+      "dataset": "longfact",
+      "n_items": 300,
+      "n_positive": 259,
+      "rows": {
+        "LexicalSimilarity_N5": {
+          "auroc": 0.5916
+        },
+        "LexicalSimilarity_N10": {
+          "auroc": 0.5916
+        },
+        "DiscreteSemanticEntropy_N5": {
+          "auroc": 0.5918
+        },
+        "DiscreteSemanticEntropy_N10": {
+          "auroc": 0.6132
+        },
+        "EigV_N5": {
+          "auroc": 0.7076
+        },
+        "EigV_N10": {
+          "auroc": 0.7118
+        },
+        "NumSemanticSetUncertainty_N5": {
+          "auroc": 0.5916
+        },
+        "NumSemanticSetUncertainty_N10": {
+          "auroc": 0.614
+        },
+        "EccentricityConfidence_N5": {
+          "auroc": 0.6992
+        },
+        "EccentricityConfidence_N10": {
+          "auroc": 0.7096
+        },
+        "EccentricityUncertainty_N5": {
+          "auroc": 0.7021
+        },
+        "EccentricityUncertainty_N10": {
+          "auroc": 0.7035
+        },
+        "MatrixDegreeConfidence_N5": {
+          "auroc": 0.7323
+        },
+        "MatrixDegreeConfidence_N10": {
+          "auroc": 0.7474
+        },
+        "MatrixDegreeUncertainty_N5": {
+          "auroc": 0.7074
+        },
+        "MatrixDegreeUncertainty_N10": {
+          "auroc": 0.7134
+        },
+        "KernelLanguageEntropy_N5": {
+          "auroc": 0.6376
+        },
+        "KernelLanguageEntropy_N10": {
+          "auroc": 0.6566
+        },
+        "SumEigenUncertainty_N5": {
+          "auroc": 0.7076
+        },
+        "SumEigenUncertainty_N10": {
+          "auroc": 0.7118
+        }
+      }
+    }
+  ]
+}

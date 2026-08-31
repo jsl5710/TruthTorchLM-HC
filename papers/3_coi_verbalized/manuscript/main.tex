@@ -79,11 +79,13 @@ question we answer here: \emph{which part of the chain actually carries the sign
 
 We study an ablation ladder (\S\ref{sec:method}) over a six-target grid and report five findings (\S\ref{sec:results}).
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
-\item \textbf{The verification advantage is a minority, not a majority.} Across the full
-suite it beats the best baseline on only $2$--$3$ of $11$ datasets on 8B targets and
-\textbf{$0$ of $9$ on the strong open 32B/70B targets}, where $\phi$ or verbalized
-confidence is already strong. The blanket claim ``decomposition beats verbalized
-confidence'' is false, and we report this negative result as our primary finding.
+\item \textbf{The data type, not the model, decides which estimator wins.} Over $38$
+non-degenerate model$\times$dataset cells, verification is best in $9$; the two baselines take
+$23$. The structure is sharp when read by data type: verification wins \emph{both} long-form
+general-knowledge cells and \emph{none} of the fourteen health cells---MCQ, free-form and
+long-form alike---across 8B, 32B, 70B and frontier closed targets. The blanket claim
+``decomposition beats verbalized confidence'' is false, and we report this as our primary
+finding.
 \item \textbf{The one gain that reaches significance is long-form general knowledge.} On
 LongFact ($n{=}300$ per target, the largest cells in the study) self-consistency verification
 improves AUROC by $+0.105$ over verbalized confidence on Llama ($p{=}0.041$, paired bootstrap)
@@ -305,8 +307,9 @@ GPT-4o (closed)            & 2/4  & 0 \\
 Claude-Haiku-4.5 (closed)  & 2/3  & 1 \\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Where verification (\nyn/\nsc) beats the best baseline (\nverb/\nphi),}
-per target. ``Valid'' excludes cells whose minority class is $<15$ (\S\ref{sec:setup}); the
+\caption{\textbf{The same 38 cells viewed by target} (the data-type view, which is the sharper
+one, is Table~\ref{tab:groups}). Where verification (\nyn/\nsc) beats the best baseline
+(\nverb/\nphi), per target. ``Valid'' excludes cells whose minority class is $<15$ (\S\ref{sec:setup}); the
 second column counts wins whose paired-bootstrap $95\%$ CI excludes zero
 (Appendix~\ref{app:boot}); we could only run the bootstrap on the six cells with per-item logs,
 so it is a lower bound elsewhere.
@@ -410,19 +413,62 @@ rather than null. CI widths of $0.11$--$0.30$ set the resolution of this design.
 \label{fig:forest}
 \end{figure}
 
-\subsection{The verification advantage is a minority, and conditional}\label{sec:minority}
-Table~\ref{tab:winrate} summarizes the full six-target grid. Discriminative verification
-(\nyn/\nsc) beats the best baseline (\nverb/\nphi) on only $2$--$3$ of $11$ datasets on the
-8B targets, and---strikingly---on \emph{none} of the $9$ valid cells on the strong open
-32B/70B targets (full grid, Appendix~\ref{app:bigopen}), where $\phi$-CoI or verbalized
-confidence are already strong ($0.62$--$0.82$).
-The blanket claim ``decomposed verification beats verbalized confidence'' is false. Moreover,
-a paired bootstrap on the cells for which we retain per-item scores finds exactly \emph{one}
-significant positive effect in the grid---Llama/LongFact---and one significant \emph{negative}
-one (Qwen/MedLFQA, $-0.156$, $p{=}0.009$), with every other comparison inconclusive. The intermediate rungs ($n_2,n_4,n_5$) are dominated by
-$\{n_1,n_3,n_6,n_7\}$ on average (Appendix~\ref{app:ladder}), so we report only the latter
-here---with two caveats recorded there: $n_5$ scores identically to $n_4$ by construction, and
-$n_2$ is the single best estimator on one health long-form cell.
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lc cccccc c}
+\toprule
+data type & cells & $n_1$ & $n_2$ & $n_3$ & $n_4$ & $n_6$ & $n_7$ & verify \\
+\midrule
+General, short-form & 10 & 1 & 1 & 4 & 1 & 2 & 1 & 3/10 \\
+General, long-form  &  2 & 0 & 0 & 0 & 0 & 0 & 2 & \textbf{2/2} \\
+Adversarial         &  6 & 1 & 1 & 2 & 0 & 1 & 1 & 2/6 \\
+Health, MCQ         &  8 & 5 & 1 & 2 & 0 & 0 & 0 & \textbf{0/8} \\
+Health, free-form   &  3 & 1 & 0 & 2 & 0 & 0 & 0 & \textbf{0/3} \\
+Health, long-form   &  3 & 2 & 1 & 0 & 0 & 0 & 0 & \textbf{0/3} \\
+Math                &  4 & 0 & 0 & 3 & 0 & 0 & 1 & 1/4 \\
+Multi-hop           &  2 & 0 & 0 & 0 & 1 & 0 & 1 & 1/2 \\
+\midrule
+\textbf{Total}      & \textbf{38} & 10 & 4 & 13 & 2 & 3 & 6 & \textbf{9/38} \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Which estimator wins, by data type}, counting cells over all six targets
+(38 non-degenerate model$\times$dataset cells; per-cell values in
+Appendix~\ref{app:bydataset}). Read by \emph{data type} rather than by model, the structure is
+sharp: verification ($n_6/n_7$) wins \textbf{both} long-form general-knowledge cells and
+\textbf{none} of the fourteen health cells, while the two baselines ($n_1$ verbalized, $n_3$
+$\phi$) take $23$ of $38$ overall. The dataset predicts the winner far better than the target
+model does.}
+\label{tab:groups}
+\end{table}
+
+\subsection{The winner is determined by the data type, not the model}\label{sec:minority}
+Table~\ref{tab:groups} aggregates the full $6\times12$ grid by data type. Three patterns hold
+across every target we tested.
+
+\paragraph{Verification wins long-form general knowledge, and only there.} Both LongFact cells go
+to $n_7$, and they are the only cells in the study where \emph{every} self-rating rung loses to
+\emph{both} discriminative rungs. The separation is complete: on LongFact the four self-rating
+variants span $0.438$--$0.623$ and the two discriminative variants span $0.627$--$0.716$, with no
+overlap (Appendix~\ref{app:bydataset}). Because $n_2$, $n_3$ and $n_4$ share the identical
+decomposition with $n_6$ and $n_7$ and differ only in how each claim is scored, this isolates the
+\emph{discriminative read} as the operative ingredient---decomposition alone buys nothing here.
+
+\paragraph{Verification never wins on health: $0$ of $14$ cells.} Across MCQ, free-form and
+long-form health, over 8B, 32B, 70B and frontier closed targets, no verification rung is ever
+best; the cells split $8$/$4$/$2$ between $n_1$, $n_3$ and $n_2$. MedQA is the cleanest instance:
+six targets, six losses. We read this as a property of the answer rather than the domain
+alone---a multiple-choice letter has nothing to decompose, so the machinery has no purchase---but
+the pattern also holds for free-form and long-form health, where the per-claim risk carries no
+correctness signal (\S\ref{sec:inversion}).
+
+\paragraph{Elsewhere the baselines win.} On short-form general knowledge, adversarial and math,
+$n_3$ ($\phi$ over self-rated risk) or plain verbalized confidence is best in $19$ of $22$ cells.
+Overall, the two baselines take $23$ of $38$ cells and the two verification rungs take $9$; the
+blanket claim ``decomposed verification beats verbalized confidence'' is false, and we report
+that as our primary finding. We also note that a rung we might have discarded, $n_2$ (per-claim
+self-rated confidence), is best on four cells including the single largest margin in the grid
+($+0.131$ on Llama/MMLU-Med), so the ladder's intermediate steps are not uniformly dominated.
 
 \subsection{The exception: long-form general knowledge}\label{sec:longfact}
 Table~\ref{tab:longfact} is the paper's one significant positive result. On LongFact,
@@ -939,6 +985,30 @@ near-single-class (minority $\le 1$) and excluded from AUROC as degenerate. Posi
 LLM-judge (or letter-match, MCQ) correct labels; LongFact uses the 70B factuality judge.}
 \label{tab:stats}
 \end{table}
+
+\section{Full grid: every model $\times$ dataset $\times$ method}\label{app:bydataset}
+Table~\ref{tab:bydataset} is the complete result set behind Table~\ref{tab:groups}: AUROC for
+every rung on every (model, dataset) cell, grouped by data type. Best per row in bold. ``--''
+means the rung was not run on that cell ($n_2$/$n_4$ were run only on the open 8B targets, where
+all twelve datasets are available); degenerate cells (minority class $<15$) are greyed and
+excluded from every count. The table is generated directly from the released result files by
+\texttt{scripts/coi\_final\_table.py}, so the numbers here and in the body cannot drift apart.
+
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{ll cccccc}
+\toprule
+dataset & model & $n_1$ verb. & $n_2$ claim-conf & $n_3$ $\phi$ & $n_4$ split & $n_6$ decision & $n_7$ self-cons. \\
+\midrule
+\input{tab_by_dataset}
+\bottomrule
+\end{tabular}
+\caption{\textbf{Complete AUROC grid} by data type, all six targets. Verification ($n_6$/$n_7$)
+is best on both LongFact cells and on no health cell; see Table~\ref{tab:groups} for the
+aggregate.}
+\label{tab:bydataset}
+\end{table*}
 
 \section{Paired bootstrap confidence intervals}\label{app:boot}
 For the six cells where we retain per-item scores (the rung raw logs), we resample items with

@@ -1,0 +1,67 @@
+% ===== General, short-form =====
+TriviaQA & Llama-8B & 0.659 & 0.662 & 0.686 & 0.688 & \textbf{0.709} & 0.661 \\
+ & Qwen-8B & 0.727 & 0.719 & \textbf{0.790} & 0.732 & 0.692 & 0.713 \\
+ & Qwen-32B & 0.685 & -- & \textbf{0.777} & -- & 0.545 & 0.628 \\
+ & Llama-70B & 0.656 & -- & \textbf{0.684} & -- & 0.660 & 0.675 \\
+ & GPT-4o & 0.512 & -- & 0.500 & -- & 0.525 & \textbf{0.535} \\
+ & Claude-H & 0.514 & -- & 0.571 & -- & \textbf{0.588} & 0.569 \\
+\addlinespace
+NaturalQA & Llama-8B & \textbf{0.726} & 0.618 & 0.671 & 0.634 & 0.613 & 0.615 \\
+ & Qwen-8B & 0.687 & \textbf{0.696} & 0.621 & 0.619 & 0.591 & 0.612 \\
+\addlinespace
+PopQA & Llama-8B & 0.500 & 0.504 & \textbf{0.780} & 0.640 & 0.479 & 0.479 \\
+ & Qwen-8B & 0.643 & 0.627 & 0.685 & \textbf{0.712} & 0.617 & 0.648 \\
+\addlinespace
+% ===== General, long-form =====
+LongFact & Llama-8B & 0.540 & 0.469 & 0.525 & 0.438 & 0.627 & \textbf{0.644} \\
+ & Qwen-8B & 0.623 & 0.601 & 0.613 & 0.555 & 0.702 & \textbf{0.716} \\
+\addlinespace
+% ===== Adversarial =====
+TruthfulQA & Llama-8B & 0.671 & \textbf{0.738} & 0.677 & 0.662 & 0.621 & 0.560 \\
+ & Qwen-8B & 0.755 & 0.715 & \textbf{0.769} & 0.732 & 0.663 & 0.678 \\
+ & Qwen-32B & 0.748 & -- & \textbf{0.759} & -- & 0.662 & 0.701 \\
+ & Llama-70B & \textbf{0.782} & -- & 0.771 & -- & 0.582 & 0.590 \\
+ & GPT-4o & 0.508 & -- & 0.511 & -- & \textbf{0.530} & 0.513 \\
+ & Claude-H & 0.484 & -- & 0.510 & -- & 0.498 & \textbf{0.596} \\
+\addlinespace
+% ===== Health, multiple-choice =====
+MedQA & Llama-8B & \textbf{0.568} & 0.538 & 0.551 & 0.556 & 0.567 & 0.563 \\
+ & Qwen-8B & \textbf{0.739} & 0.504 & 0.732 & 0.618 & 0.641 & 0.658 \\
+ & Qwen-32B & 0.705 & -- & \textbf{0.772} & -- & 0.533 & 0.609 \\
+ & Llama-70B & \textbf{0.673} & -- & 0.574 & -- & 0.568 & 0.603 \\
+ & GPT-4o & \textbf{0.591} & -- & 0.545 & -- & 0.471 & 0.521 \\
+ & Claude-H & 0.527 & -- & \textbf{0.658} & -- & 0.510 & 0.504 \\
+\addlinespace
+MMLU-Med & Llama-8B & 0.555 & \textbf{0.701} & 0.570 & 0.653 & 0.467 & 0.390 \\
+ & Qwen-8B & \textbf{0.710} & 0.689 & 0.708 & 0.691 & 0.634 & 0.654 \\
+\addlinespace
+% ===== Health, free-form =====
+BioASQ & \grey{Llama-8B} & \multicolumn{6}{c}{\grey{degenerate (minority 0)}} \\
+ & \grey{Qwen-8B} & \multicolumn{6}{c}{\grey{degenerate (minority 1)}} \\
+ & \grey{Qwen-32B} & \multicolumn{6}{c}{\grey{degenerate (minority 0)}} \\
+ & \grey{Llama-70B} & \multicolumn{6}{c}{\grey{degenerate (minority 1)}} \\
+ & GPT-4o & 0.346 & -- & \textbf{0.622} & -- & 0.457 & 0.466 \\
+\addlinespace
+K-QA & Llama-8B & \textbf{0.632} & 0.527 & 0.592 & 0.529 & 0.544 & 0.618 \\
+ & Qwen-8B & 0.642 & 0.616 & \textbf{0.645} & 0.599 & 0.537 & 0.532 \\
+\addlinespace
+% ===== Health, long-form =====
+MedLFQA & Llama-8B & \textbf{0.647} & 0.563 & 0.500 & 0.618 & 0.561 & 0.567 \\
+ & Qwen-8B & 0.678 & \textbf{0.709} & 0.657 & 0.686 & 0.492 & 0.521 \\
+ & \grey{Qwen-32B} & \multicolumn{6}{c}{\grey{degenerate (minority 11)}} \\
+ & Llama-70B & \textbf{0.635} & -- & 0.477 & -- & 0.553 & 0.547 \\
+ & \grey{GPT-4o} & \multicolumn{6}{c}{\grey{degenerate (minority 7)}} \\
+ & \grey{Claude-H} & \multicolumn{6}{c}{\grey{degenerate (minority 8)}} \\
+\addlinespace
+% ===== Math =====
+GSM8K & Llama-8B & 0.639 & 0.581 & 0.554 & 0.643 & 0.619 & \textbf{0.654} \\
+ & Qwen-8B & 0.674 & 0.521 & \textbf{0.726} & 0.668 & 0.544 & 0.530 \\
+ & Qwen-32B & 0.769 & -- & \textbf{0.815} & -- & 0.563 & 0.631 \\
+ & Llama-70B & 0.610 & -- & \textbf{0.623} & -- & 0.557 & 0.540 \\
+ & \grey{GPT-4o} & \multicolumn{6}{c}{\grey{degenerate (minority 6)}} \\
+ & \grey{Claude-H} & \multicolumn{6}{c}{\grey{degenerate (minority 4)}} \\
+\addlinespace
+% ===== Multi-hop =====
+HotpotQA & Llama-8B & 0.752 & 0.610 & 0.642 & \textbf{0.770} & 0.489 & 0.558 \\
+ & Qwen-8B & 0.756 & 0.732 & 0.703 & 0.740 & 0.746 & \textbf{0.766} \\
+\addlinespace

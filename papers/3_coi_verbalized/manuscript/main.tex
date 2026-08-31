@@ -993,6 +993,11 @@ means the rung was not run on that cell ($n_2$/$n_4$ were run only on the open 8
 all twelve datasets are available); degenerate cells (minority class $<15$) are greyed and
 excluded from every count. The table is generated directly from the released result files by
 \texttt{scripts/coi\_final\_table.py}, so the numbers here and in the body cannot drift apart.
+As an independent check we also recomputed every AUROC \emph{from the raw per-item data}---the
+per-item estimator outputs in the rung logs against the per-item correctness labels---rather than
+re-using the values written at scoring time: all $188$ recomputable (model, dataset, rung) cells
+agree to within $5\times10^{-4}$, with no mismatches
+(\texttt{scripts/coi\_verify\_from\_raw.py}).
 
 \begin{table*}[t]
 \centering\small

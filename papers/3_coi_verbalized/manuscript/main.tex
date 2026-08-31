@@ -85,7 +85,7 @@ verification, to see which part of the machinery carries the signal.
 We compare the two families across a $6\times12$ grid and report four findings
 (\S\ref{sec:results}).
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
-\item \textbf{Which family wins is determined by the data, not the model.} Over $27$
+\item \textbf{Which family wins is determined by the data, not the model.} Over $29$
 non-degenerate cells where both families were run, single-answer estimators win $12$. But the
 split is not random: they take $4/4$ adversarial cells and $5/6$ multiple-choice health cells,
 and lose $1/8$ general short-form and $0/2$ general long-form.
@@ -456,13 +456,13 @@ data type & cells & single-answer wins & median $\Delta$ \\
 \midrule
 Adversarial      & 4 & \textbf{4/4} & $+0.169$ \\
 Health MCQ       & 6 & \textbf{5/6} & $+0.088$ \\
-Math             & 2 & 1/2 & $+0.023$ \\
 Health long-form & 3 & 1/3 & $-0.018$ \\
 General long-form& 2 & 0/2 & $-0.014$ \\
 Health free-form & 2 & 0/2 & $-0.026$ \\
+Math             & 4 & 1/4 & $-0.072$ \\
 General short-form& 8 & 1/8 & $-0.048$ \\
 \midrule
-\textbf{Total}   & 27 & \textbf{12/27} & \\
+\textbf{Total}   & 29 & \textbf{12/29} & \\
 \bottomrule
 \end{tabular}
 \caption{\textbf{Single-answer vs.\ multi-sample estimators, by data type.} Each cell is one
@@ -477,11 +477,12 @@ Appendix~\ref{app:bydataset}.}
 \end{table}
 
 \subsection{Which family wins is decided by the data}\label{sec:family}
-Table~\ref{tab:family} is the paper's central result. Aggregated over $27$ non-degenerate cells
+Table~\ref{tab:family} is the paper's central result. Aggregated over $29$ non-degenerate cells
 in which both families ran, single-answer estimators win $12$---a near-even split that, taken
 alone, would say little. Disaggregated by data type it is not close to even: they take
 \textbf{all four} adversarial cells and \textbf{five of six} multiple-choice health cells, and
-lose seven of eight general short-form cells and both general long-form cells.
+lose seven of eight general short-form cells, three of four math cells, and both general
+long-form cells.
 
 \paragraph{Adversarial content: the mechanism in its clearest form.} TruthfulQA is built from
 questions whose plausible answer is a common human misconception, so a model that has absorbed
@@ -496,9 +497,12 @@ A confidently wrong model emits the same letter every time, and the multi-sample
 discrete semantic entropy is exactly $0.500$ on four of the six cells. Single-answer estimators
 win five of six, median $+0.088$.
 
-\paragraph{Where sampling works, it earns its keep.} On general-knowledge short form the ordering
-reverses---multi-sample methods win seven of eight cells, by a median $0.048$---and on LongFact
-both. This is the regime the multi-sample literature was developed on, and our results reproduce
+\paragraph{Where errors are unstable, sampling works.} The ordering reverses wherever a model's
+mistakes vary between attempts. On general-knowledge short form multi-sample methods win seven of
+eight cells (median $0.048$), on LongFact both, and on GSM8K three of four---arithmetic is the
+clearest case of the complementary mechanism, since a model that cannot do the computation makes
+a \emph{different} slip each time, and lexical similarity alone reaches $0.842$ on Llama-8B
+against $0.654$ for our best rung. This is the regime the multi-sample literature was developed on, and our results reproduce
 it. The cost is not free, however: on LongFact the two families are level at $N{=}5$
 ($0.645$/$0.699$ for the best baseline against $0.644$/$0.716$ for $n_7$) and the baselines only
 pull ahead at $N{=}10$, i.e.\ ten additional generations of a $180$-word answer against the one

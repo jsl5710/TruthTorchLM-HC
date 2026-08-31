@@ -67,8 +67,8 @@
   "model_label": "GPT-4o",
   "n": 149,
   "neg": 24,
-  "single_best": 0.5353,
-  "single_best_rung": "n7",
+  "single_best": 0.78,
+  "single_best_rung": "n3",
   "multi_best": null,
   "multi_best_method": null,
   "single_wins": null,
@@ -82,8 +82,8 @@
   "model_label": "Claude-H",
   "n": 142,
   "neg": 32,
-  "single_best": 0.5875,
-  "single_best_rung": "n6",
+  "single_best": 0.755,
+  "single_best_rung": "n3",
   "multi_best": null,
   "multi_best_method": null,
   "single_wins": null,
@@ -240,36 +240,6 @@
   "delta": 0.2317
  },
  {
-  "dataset": "truthful_qa",
-  "dataset_label": "TruthfulQA",
-  "group": "adversarial",
-  "model": "jhu-gpt-4o",
-  "model_label": "GPT-4o",
-  "n": 148,
-  "neg": 40,
-  "single_best": 0.5304,
-  "single_best_rung": "n6",
-  "multi_best": null,
-  "multi_best_method": null,
-  "single_wins": null,
-  "delta": null
- },
- {
-  "dataset": "truthful_qa",
-  "dataset_label": "TruthfulQA",
-  "group": "adversarial",
-  "model": "jhu-claude-haiku-4.5",
-  "model_label": "Claude-H",
-  "n": 148,
-  "neg": 27,
-  "single_best": 0.5963,
-  "single_best_rung": "n7",
-  "multi_best": null,
-  "multi_best_method": null,
-  "single_wins": null,
-  "delta": null
- },
- {
   "dataset": "medqa",
   "dataset_label": "MedQA",
   "group": "health MCQ",
@@ -330,36 +300,6 @@
   "delta": 0.0061
  },
  {
-  "dataset": "medqa",
-  "dataset_label": "MedQA",
-  "group": "health MCQ",
-  "model": "jhu-gpt-4o",
-  "model_label": "GPT-4o",
-  "n": 150,
-  "neg": 16,
-  "single_best": 0.591,
-  "single_best_rung": "n1",
-  "multi_best": null,
-  "multi_best_method": null,
-  "single_wins": null,
-  "delta": null
- },
- {
-  "dataset": "medqa",
-  "dataset_label": "MedQA",
-  "group": "health MCQ",
-  "model": "jhu-claude-haiku-4.5",
-  "model_label": "Claude-H",
-  "n": 150,
-  "neg": 19,
-  "single_best": 0.6583,
-  "single_best_rung": "n3",
-  "multi_best": null,
-  "multi_best_method": null,
-  "single_wins": null,
-  "delta": null
- },
- {
   "dataset": "mmlu_med",
   "dataset_label": "MMLU-Med",
   "group": "health MCQ",
@@ -388,21 +328,6 @@
   "multi_best_method": "EccentricityConfidence_N10",
   "single_wins": true,
   "delta": 0.0202
- },
- {
-  "dataset": "bioasq",
-  "dataset_label": "BioASQ",
-  "group": "health free",
-  "model": "jhu-gpt-4o",
-  "model_label": "GPT-4o",
-  "n": 149,
-  "neg": 38,
-  "single_best": 0.6222,
-  "single_best_rung": "n3",
-  "multi_best": null,
-  "multi_best_method": null,
-  "single_wins": null,
-  "delta": null
  },
  {
   "dataset": "kqa",
@@ -489,10 +414,10 @@
   "neg": 32,
   "single_best": 0.6538665254237289,
   "single_best_rung": "n7",
-  "multi_best": null,
-  "multi_best_method": null,
-  "single_wins": null,
-  "delta": null
+  "multi_best": 0.8422,
+  "multi_best_method": "LexicalSimilarity_N10",
+  "single_wins": false,
+  "delta": -0.1883
  },
  {
   "dataset": "gsm8k",
@@ -504,10 +429,10 @@
   "neg": 15,
   "single_best": 0.725679012345679,
   "single_best_rung": "n3",
-  "multi_best": null,
-  "multi_best_method": null,
-  "single_wins": null,
-  "delta": null
+  "multi_best": 0.798,
+  "multi_best_method": "EccentricityUncertainty_N10",
+  "single_wins": false,
+  "delta": -0.0723
  },
  {
   "dataset": "gsm8k",

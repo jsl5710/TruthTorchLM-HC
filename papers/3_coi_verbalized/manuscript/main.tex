@@ -720,11 +720,19 @@ gives all seven, on the two cells where every rung was run. Two clarifications. 
 prompt as $n_4$ and adds a final self-rating that is \emph{logged but never scored}, so its
 reported score is $\phi$ and is identical to $n_4$ by construction---exactly so in all four
 cells ($0.688$, $0.618$, $0.732$, $0.686$). We keep the column for completeness but it measures
-nothing beyond $n_4$, and the $n_4{\to}n_5$ comparison should not be read as an ablation.
+nothing beyond $n_4$ while costing $2.2\times$ the latency ($12.6$\,s vs.\ $5.8$\,s on TriviaQA,
+$14.8$\,s vs.\ $6.8$\,s on MedLFQA), so it is strictly dominated; the $n_4{\to}n_5$ comparison
+should not be read as an ablation.
 Second, the intermediate rungs are dominated \emph{on average} but not everywhere: $n_2$
 (per-claim self-rated confidence) is the outright best estimator on Qwen/MedLFQA at $0.709$,
 ahead of $n_1$, $n_3$ and both verification rungs---a health long-form cell we otherwise report
-as a loss for decomposition. $n_4$ never beats $n_3$ by more than $0.002$. Splitting or re-rating the chain does not help; only the discriminative read
+as a loss for decomposition. Nor is $n_4$ (separate evidence and critique chains) uniformly
+close to $n_3$: it is $+0.002$ on Llama/TriviaQA but $+0.117$ on Llama/MedLFQA, $+0.030$ on
+Qwen/MedLFQA and $-0.057$ on Qwen/TriviaQA. Splitting the critique into its own pass therefore
+helps precisely on the health long-form cells where the single-pass $\phi$ collapses, which is
+the one place we might have wanted it to. We do not build on this---the differences are inside
+the confidence intervals of \S\ref{sec:results} and rest on two cells---but it is the most
+promising unexplored direction in the ladder, and we flag it rather than bury it. Splitting or re-rating the chain does not help; only the discriminative read
 ($n_6/n_7$) or, on short QA, $n_3$ moves the needle. This is why we carry $\{n_1,n_3,n_6,n_7\}$
 forward as the representative ladder.
 \begin{table}[t]

@@ -1,5 +1,5 @@
 % ==============================================================================
-%  CoI-Verbalized: Chain-of-Interaction Verbalized Confidence
+%  Consistency Is Not Correctness: single-answer vs multi-sample black-box UQ
 %  ACL-format paper. Requires the official ACL style files in this directory:
 %    acl.sty, acl_natbib.bst   (from https://github.com/acl-org/acl-style-files)
 %  Compile:  pdflatex main ; bibtex main ; pdflatex main ; pdflatex main
@@ -30,8 +30,8 @@
 \newcommand{\nyn}{$n_6$}       % decision-framed verify
 \newcommand{\nsc}{$n_7$}       % self-consistency verify
 
-\title{When Does Decomposed Verification Beat Verbalized Confidence? \\
-A Six-Target Ablation of Black-Box Confidence Estimators}
+\title{Consistency Is Not Correctness: When Single-Answer Uncertainty \\
+Beats Multi-Sample Estimation in Black-Box LLMs}
 
 % author block omitted: [review] mode emits "Anonymous ACL submission".
 % CAMERA-READY: restore \author{...} here.
@@ -39,76 +39,72 @@ A Six-Target Ablation of Black-Box Confidence Estimators}
 \maketitle
 
 \begin{abstract}
-Verbalized confidence---asking a model to rate how likely its own answer is correct---is the
-default black-box uncertainty signal, but it is overconfident and poorly calibrated on long-form
-answers. A natural fix is to decompose the answer into atomic claims and verify each one; we ask
-when that actually pays. An ablation ladder separates a deterministic aggregation ($\phi$) of
-self-rated per-claim \emph{risk} from a \emph{discriminative} verification step---a fresh yes/no
-``Is this claim correct?'' asked once or $K$ times (self-consistency). Across six targets (8B to
-70B open, plus closed GPT-4o and Claude-Haiku) and up to twelve datasets, excluding cells too
-class-imbalanced to support an AUROC, the result is mostly \emph{negative}: verification wins a
-minority of cells---$2$--$3$ of $11$ on 8B targets and \textbf{none of the $9$} on the strong
-open 32B/70B targets. Under a paired bootstrap exactly one positive effect reaches significance:
-on \textbf{long-form general-knowledge factuality} (LongFact, $n{=}300$), self-consistency
-verification gains $+0.105$ AUROC over verbalized confidence on Llama ($p{=}0.041$) and $+0.092$
-on Qwen without significance ($p{=}0.107$). We also run the multi-sample baselines there rather
-than assuming them impractical: they match $n_7$ at $N{=}5$ and overtake it only at $N{=}10$,
-i.e.\ ten full resamples of a $180$-word answer against our one. Reporting confidence intervals
-throughout, we find this design resolves only differences above ${\sim}0.15$ AUROC and label the
-rest inconclusive. The recommendation is
-conditional: verify long-form answers, otherwise keep the single verbalized call.
+The dominant black-box uncertainty estimators resample a language model and measure how much
+its answers disagree. This works only if the model's errors are \emph{inconsistent}. We ask where
+that assumption holds, comparing \emph{single-answer} estimators---which score one fixed answer,
+paying no extra generations---against \emph{multi-sample} consistency and graph-spectral methods
+across six targets (8B to 70B open, plus GPT-4o and Claude-Haiku) and twelve datasets. The answer
+is sharply structured by data type. On \textbf{adversarial} content the single-answer family wins
+\textbf{4 of 4} cells by a median $+0.169$ AUROC, and on \textbf{multiple-choice health} \textbf{5
+of 6} by $+0.088$: TruthfulQA is the extreme case, where every multi-sample baseline sits at or
+below chance on Llama-3.3-70B ($0.49$--$0.54$) while a single verbalized call reaches $0.782$.
+The reason is that imitative falsehoods and confident wrong options are produced \emph{
+consistently}, so dispersion carries no signal. Where errors are inconsistent---general-knowledge
+short-form ($1/8$) and long-form ($0/2$)---multi-sample methods win, though they need up to ten
+extra generations of the full answer to do it. Within the single-answer family we ablate seven
+scoring rules and find no universal winner; the useful contribution is the \emph{selection rule},
+not a new estimator. We report per-cell bootstrap intervals, exclude cells too class-imbalanced
+to support an AUROC, and release the harness and all per-item scores.
 \end{abstract}
 
 \section{Introduction}
-Deployed systems increasingly consume answers from language models they cannot inspect:
-no logits, no hidden states, no weights, only text. The cheapest confidence signal in
-this setting is \emph{verbalized confidence}~\citep{tian2023just,kadavath2022language}:
-prompt the model to rate, on a $0$--$100$ scale, how likely its answer is correct. It is
-one extra call and needs no training, but it is systematically overconfident, and on
-long-form answers---where correctness is a property of many interacting facts---a single
-global self-rating is a coarse summary of a structured object.
+Deployed systems increasingly consume answers from language models they cannot inspect: no
+logits, no hidden states, no weights, only text. The dominant uncertainty estimators for this
+setting are \emph{multi-sample}: resample the model several times and measure how much the
+answers disagree, via semantic-entropy clustering~\citep{kuhn2023semantic,farquhar2024detecting}
+or graph-spectral scores over the sample set~\citep{lin2024generating}. They are strong, widely
+used, and rest on an assumption that is rarely stated: that when a model is wrong, it is
+\emph{unsure}---that its errors show up as disagreement among resamples.
 
-A natural fix is to make the structure explicit. \textbf{Chain-of-Interaction (CoI)}
-verbalized confidence judges a fixed candidate answer $y$ for a query $x$ by (i)
-decomposing $y$ into atomic, independently checkable claims, (ii) gathering evidence and
-an adversarial critique per claim, and (iii) scanning for cross-claim contradictions;
-the confidence \emph{score} is then computed deterministically in code (a fixed-prior
-aggregation $\phi$) rather than self-rated, which removes the same-pass overconfidence of
-plain verbalized confidence. This is attractive in principle, but raises an empirical
-question we answer here: \emph{which part of the chain actually carries the signal?}
+That assumption fails in an important class of cases. A model reproducing a common human
+misconception, or confidently selecting the wrong multiple-choice option, will produce the
+\emph{same} wrong answer every time. Dispersion is then zero and the estimator is blind, however
+many samples it draws. Where this happens, the alternative is a \emph{single-answer} estimator:
+one that scores the one answer already produced---by asking the model to rate it
+\citep{tian2023just,kadavath2022language}, by decomposing it into claims and scoring each, or by
+re-verifying each claim discriminatively---and therefore pays no additional generations at all.
 
-We study an ablation ladder (\S\ref{sec:method}) over a six-target grid and report five findings (\S\ref{sec:results}).
+This paper maps where each family works. We evaluate both across six targets (8B to 70B open,
+plus GPT-4o and Claude-Haiku) and twelve datasets spanning short- and long-form, multiple-choice,
+adversarial, math and multi-hop content, with every method scoring the same cached
+generations.\footnote{Harness, per-item scores and analysis scripts:
+\url{[repository URL withheld for anonymous review]}} Within the single-answer family we also
+ablate seven scoring rules, from a single global self-rating to $K$-vote discriminative
+verification, to see which part of the machinery carries the signal.
+
+We compare the two families across a $6\times12$ grid and report four findings
+(\S\ref{sec:results}).
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
-\item \textbf{The data type, not the model, decides which estimator wins.} Over $38$
-non-degenerate model$\times$dataset cells, verification is best in $9$; the two baselines take
-$23$. The structure is sharp when read by data type: verification wins \emph{both} long-form
-general-knowledge cells and \emph{none} of the fourteen health cells---MCQ, free-form and
-long-form alike---across 8B, 32B, 70B and frontier closed targets. The blanket claim
-``decomposition beats verbalized confidence'' is false, and we report this as our primary
-finding.
-\item \textbf{The one gain that reaches significance is long-form general knowledge.} On
-LongFact ($n{=}300$ per target, the largest cells in the study) self-consistency verification
-improves AUROC by $+0.105$ over verbalized confidence on Llama ($p{=}0.041$, paired bootstrap)
-and by $+0.092$ on Qwen in the same direction but short of significance ($p{=}0.107$): the
-direction replicates, the significance does not. It is also the one regime where multi-sample
-baselines require resampling a $180$-word answer $N$ times; we pay that cost and show they need
-$N{=}10$ to edge past our single-answer estimator, by margins inside our confidence intervals.
-\item \textbf{We report our statistical power.} A paired bootstrap over the cells with
-per-item scores gives $95\%$ CI widths of $0.11$--$0.30$ AUROC, so this design resolves only
-differences of roughly $0.15$ and above. Exactly one positive effect is significant (above) and
-one negative one is (verification is \emph{worse} on Qwen/MedLFQA, $-0.156$, $p{=}0.009$);
-every other comparison in the paper is inconclusive rather than null, and we label it as such (Fig.~\ref{fig:forest}).
-\item \textbf{Self-rated risk is the weak link, but ``collapse'' is overstated.} The
-deterministic-$\phi$ CoI is competitive on some short QA and is \emph{no better than the
-verbalized floor} on LongFact ($0.525$/$0.613$ vs.\ $0.540$/$0.623$, within noise). What
-recovers signal there is replacing self-rated risk with a discriminative yes/no verification,
-holding decomposition fixed.
-\item \textbf{Whether verification rescues overconfident targets is unresolved.} We test the
-natural hypothesis that it helps where verbalized AUROC is \emph{inverted} (below chance).
-Only two inverted cells survive our class-balance criterion, and they disagree: verification
-recovers one (Claude/TruthfulQA, $0.48\rightarrow0.60$) and fails the other
-(GPT-4o/BioASQ, $0.35$, where $\phi$ recovers to $0.62$ but verification reaches only $0.47$).
-We report this as an open question, not a mechanism (\S\ref{sec:inversion}).
+\item \textbf{Which family wins is determined by the data, not the model.} Over $27$
+non-degenerate cells where both families were run, single-answer estimators win $12$. But the
+split is not random: they take $4/4$ adversarial cells and $5/6$ multiple-choice health cells,
+and lose $1/8$ general short-form and $0/2$ general long-form.
+\item \textbf{Sampling fails exactly when errors are consistent.} Multi-sample methods estimate
+uncertainty from disagreement among resamples, so they are blind to errors a model makes
+\emph{reliably}. TruthfulQA is the clean case: its imitative falsehoods are generated
+consistently, and on Llama-3.3-70B every multi-sample baseline lands at $0.49$--$0.54$ while
+plain verbalized confidence reaches $0.782$. Multiple-choice health behaves the same way---a
+model that confidently picks the wrong option picks it every time.
+\item \textbf{Where sampling works, it is worth its cost---but the cost is real.} On
+general-knowledge short-form the multi-sample methods win $7$ of $8$ cells, and on long-form both,
+but only at $N{=}10$: ten additional generations of a $180$-word answer against the single
+generation the answer already cost. At $N{=}5$ the two families are level on long-form.
+\item \textbf{Within the single-answer family, no scoring rule dominates.} We ablate seven
+(\S\ref{sec:method}): a global self-rating, per-claim self-ratings, a deterministic aggregation
+over self-rated risk, and discriminative yes/no verification asked once or $K$ times. Each is
+best somewhere and none is best generally, so we report a selection rule rather than proposing an
+estimator---and we report bootstrap intervals showing that many of the differences \emph{within}
+the family are not resolvable at these sample sizes.
 \end{enumerate}
 
 \section{Related Work}\label{sec:related}
@@ -184,11 +180,21 @@ leniency rather than in the labels the papers actually use. We note the sample i
 relative to the full label set and was reviewed by the authors rather than by independent
 annotators.
 
-\section{Method: CoI-Verbalized}\label{sec:method}
-All estimators take a query $x$ and a \emph{fixed} candidate answer $y$ (never rewriting
-$y$) and return a confidence in $[0,1]$; higher means more likely correct. They are
-\emph{pure black-box}: they read only text, and the judge model is the target itself. We
-organize them as a ladder of ``interaction chains'' $n$.
+\section{The two families}\label{sec:method}
+\paragraph{Multi-sample estimators.} Given a query $x$, draw $N$ samples
+$\{y^{(1)},\dots,y^{(N)}\}$ from the target and score their dispersion: the entropy of
+entailment-clustered samples (discrete semantic entropy), the spectrum of a similarity graph over
+them (EigV, Eccentricity, MatrixDegree, SumEigen), or mean pairwise ROUGE-L (lexical similarity).
+Every such score is a function of \emph{disagreement}, so it is identically uninformative when
+the samples agree---at $N{=}1$ by construction, and in practice whenever the model errs
+consistently. Cost: $N$ target generations.
+
+\paragraph{Single-answer estimators.} Given $x$ and the \emph{one} answer $y$ already produced,
+return a confidence in $[0,1]$ without resampling the target. All of ours are pure black-box
+(text only, judge $=$ the target itself) and differ only in how $y$ is scored. We organise them
+as a ladder of ``interaction chains'' $n$, from a single global self-rating to $K$-vote
+discriminative verification; $n_1$ is the standard verbalized-confidence baseline. Cost: no
+additional target generation, plus a small number of short scoring calls.
 
 \paragraph{$n_1$: Verbalized confidence (floor).} One call: ``Judge how likely $y$ is
 correct; return \{confidence: 0--100\}.'' The standard baseline.
@@ -275,7 +281,7 @@ entropy} (DSE)~\citep{kuhn2023semantic}, \textbf{lexical similarity} across
 samples, and \textbf{EigV}, a graph-Laplacian spectral score over the sample
 graph~\citep{lin2024generating}. These are \emph{multi-sample}: they resample the target
 answer $N$ times and score the dispersion of the resulting set. They therefore operate in
-a different, more expensive regime than CoI-Verbalized, which scores a single fixed answer
+a different, more expensive regime than the single-answer family, which scores one fixed answer
 and never resamples the target. We report them throughout, including on LongFact, where we
 generated the $N{=}10$ samples specifically so the comparison could be made.
 
@@ -442,9 +448,70 @@ model does.}
 \label{tab:groups}
 \end{table}
 
-\subsection{The winner is determined by the data type, not the model}\label{sec:minority}
-Table~\ref{tab:groups} aggregates the full $6\times12$ grid by data type. Three patterns hold
-across every target we tested.
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lccr}
+\toprule
+data type & cells & single-answer wins & median $\Delta$ \\
+\midrule
+Adversarial      & 4 & \textbf{4/4} & $+0.169$ \\
+Health MCQ       & 6 & \textbf{5/6} & $+0.088$ \\
+Math             & 2 & 1/2 & $+0.023$ \\
+Health long-form & 3 & 1/3 & $-0.018$ \\
+General long-form& 2 & 0/2 & $-0.014$ \\
+Health free-form & 2 & 0/2 & $-0.026$ \\
+General short-form& 8 & 1/8 & $-0.048$ \\
+\midrule
+\textbf{Total}   & 27 & \textbf{12/27} & \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Single-answer vs.\ multi-sample estimators, by data type.} Each cell is one
+(model, dataset) pair in which both families were run and the class balance supports an AUROC
+(minority $\ge15$); ``wins'' counts cells where the best single-answer rung exceeds the best
+multi-sample baseline, and $\Delta$ is their difference. Single-answer estimators dominate where
+a model's errors are \emph{consistent}---adversarial content and multiple-choice---and lose where
+errors are inconsistent, which is exactly where resampling has dispersion to measure. Grey-box
+P(True) is excluded from the multi-sample side throughout. Per-cell values in
+Appendix~\ref{app:bydataset}.}
+\label{tab:family}
+\end{table}
+
+\subsection{Which family wins is decided by the data}\label{sec:family}
+Table~\ref{tab:family} is the paper's central result. Aggregated over $27$ non-degenerate cells
+in which both families ran, single-answer estimators win $12$---a near-even split that, taken
+alone, would say little. Disaggregated by data type it is not close to even: they take
+\textbf{all four} adversarial cells and \textbf{five of six} multiple-choice health cells, and
+lose seven of eight general short-form cells and both general long-form cells.
+
+\paragraph{Adversarial content: the mechanism in its clearest form.} TruthfulQA is built from
+questions whose plausible answer is a common human misconception, so a model that has absorbed
+the misconception reproduces it \emph{stably}. Resampling therefore measures agreement about a
+falsehood. On Llama-3.3-70B every multi-sample baseline lands between $0.492$ and $0.538$---three
+of them at exactly $0.500$---while a single verbalized call reaches $0.782$, a gap of $0.28$. The
+same ordering holds on all four targets where both families ran, with a median advantage of
+$+0.169$ to the single-answer side. Sampling is not weak here; it is measuring the wrong quantity.
+
+\paragraph{Multiple-choice: nothing to disperse.} On MedQA and MMLU-Med the answer is one letter.
+A confidently wrong model emits the same letter every time, and the multi-sample scores collapse:
+discrete semantic entropy is exactly $0.500$ on four of the six cells. Single-answer estimators
+win five of six, median $+0.088$.
+
+\paragraph{Where sampling works, it earns its keep.} On general-knowledge short form the ordering
+reverses---multi-sample methods win seven of eight cells, by a median $0.048$---and on LongFact
+both. This is the regime the multi-sample literature was developed on, and our results reproduce
+it. The cost is not free, however: on LongFact the two families are level at $N{=}5$
+($0.645$/$0.699$ for the best baseline against $0.644$/$0.716$ for $n_7$) and the baselines only
+pull ahead at $N{=}10$, i.e.\ ten additional generations of a $180$-word answer against the one
+generation the answer already cost.
+
+\subsection{Inside the single-answer family: no scoring rule dominates}\label{sec:minority}
+Having established \emph{which family} to use, we ask which scoring rule within the
+single-answer family. Table~\ref{tab:groups} aggregates the seven rungs over the full
+$6\times12$ grid. No rule dominates: the two simplest---a global self-rating ($n_1$) and a
+deterministic aggregation over self-rated risk ($n_3$)---take $23$ of $38$ cells between them,
+and each of the remaining rungs is best somewhere; the full seven-rung ladder is in
+Appendix~\ref{app:ladder} and the large-open grid in Appendix~\ref{app:bigopen}. Three patterns
+are stable.
 
 \paragraph{Verification wins long-form general knowledge, and only there.} Both LongFact cells go
 to $n_7$, and they are the only cells in the study where \emph{every} self-rating rung loses to
@@ -465,8 +532,7 @@ correctness signal (\S\ref{sec:inversion}).
 \paragraph{Elsewhere the baselines win.} On short-form general knowledge, adversarial and math,
 $n_3$ ($\phi$ over self-rated risk) or plain verbalized confidence is best in $19$ of $22$ cells.
 Overall, the two baselines take $23$ of $38$ cells and the two verification rungs take $9$; the
-blanket claim ``decomposed verification beats verbalized confidence'' is false, and we report
-that as our primary finding. We also note that a rung we might have discarded, $n_2$ (per-claim
+blanket claim ``decomposed verification beats verbalized confidence'' is false. We also note that a rung we might have discarded, $n_2$ (per-claim
 self-rated confidence), is best on four cells including the single largest margin in the grid
 ($+0.131$ on Llama/MMLU-Med), so the ladder's intermediate steps are not uniformly dominated.
 
@@ -673,13 +739,20 @@ the aggregator is not the bottleneck; the \emph{inputs} (self-rated risk) are, w
 precisely what the verification rungs replace.
 
 \section{Discussion}\label{sec:discussion}
-The grid yields a narrow recommendation rather than a universal winner. Decomposed
-verification earns its cost in one demonstrated setting: \textbf{long-form answers}, where it
-gains $\sim0.10$ AUROC over verbalized confidence on both targets we could measure, and where
-multi-sample methods cost ten full resamples of the answer to pull marginally ahead. Everywhere
-else in our grid---short factual QA, MCQ, math, and \emph{every} dataset on a strong open
-32B/70B target---plain verbalized confidence or $\phi$ is as good or better and $40$--$70\times$
-cheaper, so decomposition should not be paid for by default.
+The practical rule that follows is about \emph{families} first and scoring rules second.
+Multi-sample estimation is the right default on general-knowledge content, short or long, where a
+model's errors are unstable enough for dispersion to detect them---and where the extra
+generations buy roughly $0.05$ AUROC. It should \emph{not} be the default on adversarial or
+multiple-choice content, where a wrong answer is reproduced reliably and dispersion measures
+agreement about the error: there a single-answer estimator is both better (median $+0.169$ and
+$+0.088$) and free, since the answer has already been generated. The diagnostic is available
+before deployment---if resampling a held-out set produces near-identical answers on the errors,
+sampling-based uncertainty cannot work on that content.
+
+Within the single-answer family we do not recommend a specific rung. Decomposed verification
+earns its cost only on long-form answers, and even there it is level with a $5$-sample ensemble;
+elsewhere a single verbalized call or the deterministic $\phi$ is as good or better and far
+cheaper.
 
 We had expected a second regime, \textbf{overconfident targets}, where a below-chance verbalized
 AUROC signals that the self-rating is anti-correlated with correctness. Our data cannot support
@@ -694,21 +767,23 @@ not establish; testing it needs inverted open targets and long-form closed cells
 class balance.
 
 \section{Conclusion}
-Verbalized confidence is a weak but very cheap black-box signal, and making its structure
-explicit helps only conditionally. Across six targets and up to twelve datasets, replacing
-self-rated risk with a discriminative verification wins a \emph{minority} of cells---$2$--$3$ of
-$11$ on 8B targets and none of the $9$ valid cells on strong open 32B/70B models---and under a
-paired bootstrap exactly one positive effect in the grid reaches significance. That exception is
-long-form general-knowledge factuality: self-consistency verification gains $+0.105$ AUROC over
-verbalized confidence on Llama ($p{=}0.041$) and $+0.092$ on Qwen in the same direction but
-without significance ($p{=}0.107$), in the largest and best-balanced cells we measure and the
-one regime where multi-sample baselines must resample the entire answer to compete. The direction replicates
-across targets; the significance does not, and we say so rather than aggregating the two. The tempting further story---that verification rescues overconfident targets
-whose verbalized signal has inverted---is not established by our data: of the two inverted cells
-with adequate class balance, verification recovers one and fails the other, and inversion is
-confounded with closed-weights throughout our grid. We therefore offer a conditional
-recommendation (verify long-form, otherwise keep the single call) and release the estimators,
-the harness, and the per-cell class balances needed to check these claims.
+Multi-sample uncertainty estimation assumes a model's errors are unstable enough to show up as
+disagreement among resamples. We show that assumption is a property of the \emph{data}, not of
+the method, and that it fails predictably. Across six targets and twelve datasets, single-answer
+estimators---which score the one answer already generated and pay nothing extra---beat
+multi-sample consistency and spectral baselines on \textbf{all four} adversarial cells (median
+$+0.169$) and \textbf{five of six} multiple-choice health cells (median $+0.088$), because
+imitative falsehoods and confidently wrong options are reproduced identically on every resample.
+On general-knowledge content, where errors are unstable, the ordering reverses and multi-sample
+methods win $7$ of $8$ short-form cells and both long-form cells---though on long-form only at
+$N{=}10$, ten extra generations of the answer against the single one it already cost.
+
+Within the single-answer family we ablate seven scoring rules and find no universal winner: a
+global self-rating and a deterministic aggregation over self-rated risk take $23$ of $38$ cells
+between them, and discriminative verification earns its cost only on long-form. Paired bootstrap
+intervals show that many differences \emph{within} the family are not resolvable at these sample
+sizes, so we offer a selection rule between families rather than a new estimator. We release the
+harness, every per-item score, and the per-cell class balances needed to check these claims.
 
 \section*{Limitations}
 \paragraph{Statistical power.} Every CoI number is \emph{single-seed}, while the multi-sample

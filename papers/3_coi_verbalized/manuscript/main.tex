@@ -414,9 +414,10 @@ confidence are already strong ($0.62$--$0.82$).
 The blanket claim ``decomposed verification beats verbalized confidence'' is false. Moreover,
 a paired bootstrap on the cells for which we retain per-item scores finds exactly \emph{one}
 significant positive effect in the grid---Llama/LongFact---and one significant \emph{negative}
-one (Qwen/MedLFQA, $-0.156$, $p{=}0.009$), with every other comparison inconclusive. The intermediate ablation rungs ($n_2,n_4,n_5$) are
-dominated by $\{n_1,n_3,n_6,n_7\}$ throughout (Appendix~\ref{app:ladder}), so we report only
-the latter here.
+one (Qwen/MedLFQA, $-0.156$, $p{=}0.009$), with every other comparison inconclusive. The intermediate rungs ($n_2,n_4,n_5$) are dominated by
+$\{n_1,n_3,n_6,n_7\}$ on average (Appendix~\ref{app:ladder}), so we report only the latter
+here---with two caveats recorded there: $n_5$ scores identically to $n_4$ by construction, and
+$n_2$ is the single best estimator on one health long-form cell.
 
 \subsection{The exception: long-form general knowledge}\label{sec:longfact}
 Table~\ref{tab:longfact} is the paper's one significant positive result. On LongFact,
@@ -715,11 +716,15 @@ no human-subjects data was collected and no annotation was crowdsourced for this
 \appendix
 \section{Full ablation ladder ($n{=}1$--$7$)}\label{app:ladder}
 The main text reports the four informative rungs ($n_1,n_3,n_6,n_7$). Table~\ref{tab:ladder}
-gives all seven, on the two cells where every rung was run. The intermediate self-rating rungs
-are dominated: $n_2$ (per-claim self-rated \emph{confidence}) is noisy---best on Qwen/MedLFQA
-($0.709$) but weak elsewhere; $n_4$ (separate evidence/critique chains) and $n_5$ ($n_4$ plus a
-final self-rating, whose reported $\phi$ score is identical to $n_4$) never beat $n_3$ by more
-than $0.002$. Splitting or re-rating the chain does not help; only the discriminative read
+gives all seven, on the two cells where every rung was run. Two clarifications. First, \textbf{$n_5$ is not an independent rung}: it issues the same chain
+prompt as $n_4$ and adds a final self-rating that is \emph{logged but never scored}, so its
+reported score is $\phi$ and is identical to $n_4$ by construction---exactly so in all four
+cells ($0.688$, $0.618$, $0.732$, $0.686$). We keep the column for completeness but it measures
+nothing beyond $n_4$, and the $n_4{\to}n_5$ comparison should not be read as an ablation.
+Second, the intermediate rungs are dominated \emph{on average} but not everywhere: $n_2$
+(per-claim self-rated confidence) is the outright best estimator on Qwen/MedLFQA at $0.709$,
+ahead of $n_1$, $n_3$ and both verification rungs---a health long-form cell we otherwise report
+as a loss for decomposition. $n_4$ never beats $n_3$ by more than $0.002$. Splitting or re-rating the chain does not help; only the discriminative read
 ($n_6/n_7$) or, on short QA, $n_3$ moves the needle. This is why we carry $\{n_1,n_3,n_6,n_7\}$
 forward as the representative ladder.
 \begin{table}[t]
@@ -737,7 +742,7 @@ Qwen-8B  & MedLFQA  & 0.678 & \textbf{0.709} & 0.657 & 0.686 & 0.686 & 0.492 & 0
 \end{tabular}
 \caption{\textbf{Full ablation ladder}, AUROC. $n_1$ verbalized; $n_2$ per-claim self-rated
 confidence; $n_3$ deterministic $\phi$ over self-rated risk; $n_4$ separate evidence/critique
-chains; $n_5$ adds a final self-rating (reported $\phi$ $\equiv n_4$); $n_6$ decision-framed
+chains; $n_5$ adds a final self-rating that is logged but not scored, so its reported value is $\phi$ and coincides with $n_4$ exactly; $n_6$ decision-framed
 verify; $n_7$ self-consistency verify.}
 \label{tab:ladder}
 \end{table}

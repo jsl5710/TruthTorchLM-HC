@@ -1,0 +1,65 @@
+[
+ {
+  "method": "verbalized (global self-rating)",
+  "cells": 35,
+  "mean_auroc": 0.6713,
+  "p50_scoring_ms": 294,
+  "forced_generations": 0
+ },
+ {
+  "method": "per-claim self-rated confidence",
+  "cells": 22,
+  "mean_auroc": 0.6201,
+  "p50_scoring_ms": 4141,
+  "forced_generations": 0
+ },
+ {
+  "method": "$\\phi$ over self-rated risk",
+  "cells": 31,
+  "mean_auroc": 0.6661,
+  "p50_scoring_ms": 7872,
+  "forced_generations": 0
+ },
+ {
+  "method": "split evidence/critique chains",
+  "cells": 22,
+  "mean_auroc": 0.6447,
+  "p50_scoring_ms": 8280,
+  "forced_generations": 0
+ },
+ {
+  "method": "$n_4$ + logged self-rating",
+  "cells": 4,
+  "mean_auroc": 0.6811,
+  "p50_scoring_ms": 16162,
+  "forced_generations": 0
+ },
+ {
+  "method": "decision-framed verify",
+  "cells": 31,
+  "mean_auroc": 0.5928,
+  "p50_scoring_ms": 3026,
+  "forced_generations": 0
+ },
+ {
+  "method": "self-consistency verify ($K{=}5$)",
+  "cells": 31,
+  "mean_auroc": 0.6084,
+  "p50_scoring_ms": 4284,
+  "forced_generations": 0
+ },
+ {
+  "method": "best multi-sample @ $N{=}5$ (EccentricityUncertainty)",
+  "cells": 33,
+  "mean_auroc": 0.6024,
+  "p50_scoring_ms": 718,
+  "forced_generations": 5
+ },
+ {
+  "method": "best multi-sample @ $N{=}10$ (EccentricityUncertainty)",
+  "cells": 33,
+  "mean_auroc": 0.6167,
+  "p50_scoring_ms": 3231,
+  "forced_generations": 10
+ }
+]

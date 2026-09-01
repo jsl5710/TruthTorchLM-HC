@@ -603,7 +603,43 @@ $\phi$ ($n_3$) is the best estimator on six of the seven valid closed cells ($0.
 and verification wins \emph{none} of them. Together with $0/4$ on Qwen3-32B and $0/5$ on
 Llama-3.3-70B, all five of verification's wins in the grid occur on the two 8B targets.
 
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+estimator & AUROC & scoring & forced \\
+          &       & p50 (ms) & gens \\
+\midrule
+\nverb\ (global self-rating)      & \textbf{0.662} & \textbf{294} & \textbf{0} \\
+\nphi\ ($\phi$ over self-rated risk) & 0.649 & 7872 & 0 \\
+\nyn\ (decision-framed verify)    & 0.579 & 3026 & 0 \\
+\nsc\ (self-consistency, $K{=}5$) & 0.599 & 4284 & 0 \\
+\midrule
+best multi-sample, $N{=}5$        & 0.657 & 714  & 5 \\
+best multi-sample, $N{=}10$       & \textbf{0.673} & 3185 & 10 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Accuracy against measured cost}, on the $21$ cells where every estimator here
+was run and the class balance supports an AUROC. ``Scoring'' is the method's own p50 compute per
+item (batch 1, GPU warm, exclusive node); ``forced gens'' counts \emph{additional full
+generations of the answer} the method requires---the cost that dominates on a large target or a
+priced API, and which the scoring column excludes. The ordering is unflattering to
+decomposition: a single verbalized call is within $0.011$ of the best $N{=}10$ ensemble while
+costing one-tenth the generations and $11\times$ less scoring compute, and it beats every
+decomposed rung we built. $\phi$ costs $27\times$ verbalized's compute to score $0.013$ lower;
+the two verification rungs cost $10$--$15\times$ and land $0.06$--$0.08$ lower.}
+\label{tab:latauc}
+\end{table}
+
 \subsection{The latency trade}
+Table~\ref{tab:latauc} puts accuracy and measured cost side by side on a common set of cells.
+Two things follow. First, within the single-answer family cost buys nothing: every decomposed
+rung is both slower and less accurate than the single verbalized call it was meant to improve
+on, and the gap widens with the amount of machinery. Second, the comparison \emph{across}
+families is closer than the raw AUROC suggests once cost is counted---verbalized confidence
+trails the best $10$-sample ensemble by $0.011$ while forcing no extra generations at all, which
+on a priced API is the difference between one call and eleven.
 \begin{table}[t]
 \centering\small
 \begin{tabular}{llcccc}

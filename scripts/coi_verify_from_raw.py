@@ -12,7 +12,7 @@ from sklearn.metrics import roc_auc_score
 
 W = os.path.expanduser("~/JasonLucas/outputs")
 HEALTH = {"medqa","mmlu_med","kqa","medlfqa","bioasq"}
-LBL_DIRS = ["cache_full","cache_full_health","cache_mt"]
+LBL_DIRS = ["cache_full","cache_full_health","cache_mt","cache_closed","cache_closed_full"]
 
 def labels_for(gen, ds, seed):
     # 1) Stage-B sidecar next to the Stage-A cache
@@ -33,7 +33,7 @@ def labels_for(gen, ds, seed):
     return None
 
 def reported(gen, ds, n, seed):
-    for d in ["results_coi_rungs2/lf","results_coi_rungs2/gen","results_coi_rungs","results_coi_extend",
+    for d in ["results_coi_closed","results_coi_rungs2/lf","results_coi_rungs2/gen","results_coi_rungs","results_coi_extend",
               "results_coi_verify","results_coi_longfact","results_coi_gen","results_coi_bigtargets_health",
               "results_coi_bigtargets","results_coi"]:
         p = f"{W}/{d}/coi_{gen}_seed{seed}.json"

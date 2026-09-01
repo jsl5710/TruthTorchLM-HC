@@ -50,6 +50,8 @@ def main():
     ap.add_argument("--results-root", default=os.path.expanduser("~/JasonLucas/outputs/results_coi_closed"))
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--max-items", type=int, default=0)
+    ap.add_argument("--overwrite-logs", action="store_true",
+                    help="ignore existing per-item logs instead of resuming from them")
     args = ap.parse_args()
     if "GATEWAY_KEY" not in os.environ:
         sys.exit("GATEWAY_KEY not set (source ~/JasonLucas/.gateway_key)")
@@ -98,14 +100,36 @@ def main():
             method = CoIVerbalized(chain_count=n)
             tv, yy = [], []
             from tqdm import tqdm
+            # per-item log, same schema as the open-model rung logs so that
+            # scripts/coi_verify_from_raw.py can recompute these AUROCs from raw data too.
+            raw_log = os.path.join(args.results_root,
+                                   f"rawlog_{args.key}_{ds}_n{n}_seed{args.seed}.jsonl")
+            done = {}
+            if os.path.exists(raw_log) and not args.overwrite_logs:
+                for line in open(raw_log):
+                    if line.strip():
+                        r = json.loads(line)
+                        if r.get("item_id") is not None:
+                            done[str(r["item_id"])] = r["tv"]
+                if done:
+                    print(f"[{args.key}/{ds} n={n}] resuming: {len(done)} items already scored",
+                          flush=True)
+            logf = open(raw_log, "a")
             for it in tqdm(items, desc=f"[{args.key}/{ds} n{n}]", leave=False):
                 c = labels.get(str(it["item_id"]), {}).get("correct_llm_judge")
                 if c not in (0, 1):
                     continue
+                iid = str(it["item_id"])
+                if iid in done:
+                    tv.append(done[iid]); yy.append(c); continue
                 v = score_item(method, it["question"], it.get("primary_answer", ""))
                 if v is None:
                     continue
+                logf.write(json.dumps({"item_id": iid, "q": str(it["question"])[:160],
+                                       "n": n, "tv": v, "label": int(c)}) + "\n")
+                logf.flush()
                 tv.append(v); yy.append(c)
+            logf.close()
             if len(set(yy)) < 2:
                 rows[f"CoIVerbalized_n{n}"] = {"auroc": None, "n": len(yy)}; continue
             au = roc_auc_score(yy, tv)  # higher confidence -> correct

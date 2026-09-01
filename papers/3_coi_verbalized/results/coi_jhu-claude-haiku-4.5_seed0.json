@@ -123,6 +123,31 @@
           "n_positive": 142
         }
       }
+    },
+    {
+      "dataset": "gsm8k",
+      "rows": {
+        "CoIVerbalized_n1": {
+          "auroc": 0.8031,
+          "n": 150,
+          "n_positive": 146
+        },
+        "CoIVerbalized_n3": {
+          "auroc": 0.8039,
+          "n": 150,
+          "n_positive": 146
+        },
+        "CoIVerbalized_n6": {
+          "auroc": 0.5959,
+          "n": 150,
+          "n_positive": 146
+        },
+        "CoIVerbalized_n7": {
+          "auroc": 0.5505,
+          "n": 150,
+          "n_positive": 146
+        }
+      }
     }
   ]
 }

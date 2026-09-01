@@ -1618,6 +1618,31 @@
     "n6": "results_coi_closed",
     "n7": "results_coi_closed"
    }
+  },
+  {
+   "model": "jhu-claude-haiku-4.5",
+   "model_label": "Claude-Haiku",
+   "model_class": "closed",
+   "dataset": "gsm8k",
+   "dataset_label": "GSM8K",
+   "group": "math",
+   "n_items": 150,
+   "n_positive": 146,
+   "minority": 4,
+   "valid": false,
+   "auroc": {
+    "n1": 0.8031,
+    "n3": 0.8039,
+    "n6": 0.5959,
+    "n7": 0.5505
+   },
+   "baselines": {},
+   "source": {
+    "n1": "results_coi_closed",
+    "n3": "results_coi_closed",
+    "n6": "results_coi_closed",
+    "n7": "results_coi_closed"
+   }
   }
  ]
 }

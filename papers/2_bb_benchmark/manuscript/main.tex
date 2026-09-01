@@ -513,6 +513,12 @@ ten target generations, and that distilled proxies define a fast, target-decoupl
 frontier. We release everything needed to place a new method on all four axes.
 
 \section*{Limitations}
+The closed-target arm is not reproducible in the way the open arm is. Our gateway exposes GPT-4o
+and Claude-Haiku-4.5 as version aliases rather than pinned snapshots, and companion measurements
+show that re-scoring the same cached generations two days apart can move greedy comparisons by
+more than $0.10$ AUROC (Appendix~\ref{app:closed}). Closed-target conclusions here should be
+read as holding for the snapshot that answered on the run date, not for ``GPT-4o'' as a stable
+object.
 % ==============================================================================
 The reported cells use 150 items per dataset; per-cell variance is real and we avoid
 claims that hinge on sub-0.02 AUROC gaps. The deep comparison centers on two open targets;
@@ -673,7 +679,20 @@ only where a gap exceeds the standard error.}
 
 \section{Closed-Target Results}\label{app:closed}
 The benchmark includes a closed frontier arm (GPT-4o, Claude-Haiku-4.5) accessed through a
-text-only gateway. One protocol constraint is permanent: closed APIs do not expose
+text-only gateway.
+
+\paragraph{A reproducibility caveat on this arm.} The gateway exposes these targets as version
+\emph{aliases}, not pinned snapshots. In companion work using the same gateway and the same
+cached generations, re-scoring the two closed targets two days apart moved $12$ of $32$
+\emph{greedy} ($T{=}0$) comparisons by more than $0.10$ AUROC, with identical items, labels and
+class balances and no failed calls---consistent with the alias being re-pointed to a newer
+snapshot between runs. The closed numbers below are therefore a measurement of
+\emph{whatever the alias resolved to on the run date}, and should be read with wider
+uncertainty than the open-target numbers, which are fully reproducible locally. We recommend
+that black-box benchmarks record the resolved snapshot id with every closed-target cell; ours
+did not, and that is a limitation of this release.
+
+One protocol constraint is permanent: closed APIs do not expose
 log-probabilities, so \emph{P(True) is impossible} and grey-box logit read-outs do not
 exist for these targets. All other pure-BB methods run; verbalized confidence, which the
 cached-only closed pipeline had skipped (``no live target''), we obtain with a dedicated

@@ -98,6 +98,31 @@
           "n": 147
         }
       }
+    },
+    {
+      "dataset": "medlfqa",
+      "rows": {
+        "CoIVerbalized_n1": {
+          "auroc": 0.6312,
+          "n": 150,
+          "n_positive": 142
+        },
+        "CoIVerbalized_n3": {
+          "auroc": 0.6611,
+          "n": 150,
+          "n_positive": 142
+        },
+        "CoIVerbalized_n6": {
+          "auroc": 0.5308,
+          "n": 150,
+          "n_positive": 142
+        },
+        "CoIVerbalized_n7": {
+          "auroc": 0.6505,
+          "n": 150,
+          "n_positive": 142
+        }
+      }
     }
   ]
 }

@@ -1593,6 +1593,31 @@
     "n6": "results_coi_closed",
     "n7": "results_coi_closed"
    }
+  },
+  {
+   "model": "jhu-claude-haiku-4.5",
+   "model_label": "Claude-Haiku",
+   "model_class": "closed",
+   "dataset": "medlfqa",
+   "dataset_label": "MedLFQA",
+   "group": "health/long",
+   "n_items": 150,
+   "n_positive": 142,
+   "minority": 8,
+   "valid": false,
+   "auroc": {
+    "n1": 0.6312,
+    "n3": 0.6611,
+    "n6": 0.5308,
+    "n7": 0.6505
+   },
+   "baselines": {},
+   "source": {
+    "n1": "results_coi_closed",
+    "n3": "results_coi_closed",
+    "n6": "results_coi_closed",
+    "n7": "results_coi_closed"
+   }
   }
  ]
 }

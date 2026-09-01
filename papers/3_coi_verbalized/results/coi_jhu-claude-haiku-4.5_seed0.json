@@ -1,0 +1,103 @@
+{
+  "target": "anthropic/claude-haiku-4.5",
+  "key": "jhu-claude-haiku-4.5",
+  "seed": 0,
+  "cells": [
+    {
+      "dataset": "trivia_qa",
+      "rows": {
+        "CoIVerbalized_n1": {
+          "auroc": 0.6175,
+          "n": 142,
+          "n_positive": 110
+        },
+        "CoIVerbalized_n3": {
+          "auroc": 0.755,
+          "n": 142,
+          "n_positive": 110
+        },
+        "CoIVerbalized_n6": {
+          "auroc": 0.5538,
+          "n": 142,
+          "n_positive": 110
+        },
+        "CoIVerbalized_n7": {
+          "auroc": 0.6821,
+          "n": 142,
+          "n_positive": 110
+        }
+      }
+    },
+    {
+      "dataset": "truthful_qa",
+      "rows": {
+        "CoIVerbalized_n1": {
+          "auroc": 0.7276,
+          "n": 148,
+          "n_positive": 121
+        },
+        "CoIVerbalized_n3": {
+          "auroc": 0.775,
+          "n": 148,
+          "n_positive": 121
+        },
+        "CoIVerbalized_n6": {
+          "auroc": 0.5018,
+          "n": 148,
+          "n_positive": 121
+        },
+        "CoIVerbalized_n7": {
+          "auroc": 0.6685,
+          "n": 148,
+          "n_positive": 121
+        }
+      }
+    },
+    {
+      "dataset": "medqa",
+      "rows": {
+        "CoIVerbalized_n1": {
+          "auroc": 0.5763,
+          "n": 150,
+          "n_positive": 131
+        },
+        "CoIVerbalized_n3": {
+          "auroc": 0.6894,
+          "n": 150,
+          "n_positive": 131
+        },
+        "CoIVerbalized_n6": {
+          "auroc": 0.5488,
+          "n": 150,
+          "n_positive": 131
+        },
+        "CoIVerbalized_n7": {
+          "auroc": 0.548,
+          "n": 150,
+          "n_positive": 131
+        }
+      }
+    },
+    {
+      "dataset": "bioasq",
+      "rows": {
+        "CoIVerbalized_n1": {
+          "auroc": null,
+          "n": 147
+        },
+        "CoIVerbalized_n3": {
+          "auroc": null,
+          "n": 147
+        },
+        "CoIVerbalized_n6": {
+          "auroc": null,
+          "n": 147
+        },
+        "CoIVerbalized_n7": {
+          "auroc": null,
+          "n": 147
+        }
+      }
+    }
+  ]
+}

@@ -48,13 +48,15 @@ is sharply structured by data type. On \textbf{adversarial} content the single-a
 \textbf{4 of 4} cells by a median $+0.169$ AUROC, and on \textbf{multiple-choice health} \textbf{5
 of 6} by $+0.088$: TruthfulQA is the extreme case, where every multi-sample baseline sits at or
 below chance on Llama-3.3-70B ($0.49$--$0.54$) while a single verbalized call reaches $0.782$.
-The reason is that imitative falsehoods and confident wrong options are produced \emph{
-consistently}, so dispersion carries no signal. Where errors are inconsistent---general-knowledge
+Imitative falsehoods and confident wrong options are produced \emph{consistently}, so dispersion
+carries no signal. Where errors are inconsistent---general-knowledge
 short-form ($1/8$) and long-form ($0/2$)---multi-sample methods win, though they need up to ten
 extra generations of the full answer to do it. Within the single-answer family we ablate seven
 scoring rules and find no universal winner; the useful contribution is the \emph{selection rule},
-not a new estimator. We report per-cell bootstrap intervals, exclude cells too class-imbalanced
-to support an AUROC, and release the harness and all per-item scores.
+not a new estimator. We report bootstrap intervals and exclude class-imbalanced cells. Finally, scoring the closed
+targets twice two days apart---identical items, labels and greedy decoding---moved $12$ of $32$
+comparisons by over $0.10$ AUROC, so closed-model numbers are not reproducible without a pinned
+provider snapshot. Harness and per-item scores released.
 \end{abstract}
 
 \section{Introduction}
@@ -76,8 +78,7 @@ re-verifying each claim discriminatively---and therefore pays no additional gene
 
 This paper maps where each family works. We evaluate both across six targets (8B to 70B open,
 plus GPT-4o and Claude-Haiku) and twelve datasets spanning short- and long-form, multiple-choice,
-adversarial, math and multi-hop content, with every method scoring the same cached
-generations.\footnote{Harness, per-item scores and analysis scripts:
+adversarial, math and multi-hop content, every method scoring the same cached generations.\footnote{Harness, per-item scores and analysis scripts:
 \url{[repository URL withheld for anonymous review]}} Within the single-answer family we also
 ablate seven scoring rules, from a single global self-rating to $K$-vote discriminative
 verification, to see which part of the machinery carries the signal.
@@ -99,6 +100,12 @@ model that confidently picks the wrong option picks it every time.
 general-knowledge short-form the multi-sample methods win $7$ of $8$ cells, and on long-form both,
 but only at $N{=}10$: ten additional generations of a $180$-word answer against the single
 generation the answer already cost. At $N{=}5$ the two families are level on long-form.
+\item \textbf{Closed-target results are not reproducible across provider snapshots.} Scoring
+GPT-4o and Claude-Haiku twice through the same gateway two days apart---same cached answers,
+labels and items, greedy decoding, zero failed calls---moved $12$ of $32$ comparisons by more
+than $0.10$ AUROC and removed both cells behind an inversion finding we had previously drawn.
+We report the second run, release both, and recommend that black-box evaluations record the
+resolved snapshot id per cell (\S\ref{sec:inversion}).
 \item \textbf{Within the single-answer family, no scoring rule dominates.} We ablate seven
 (\S\ref{sec:method}): a global self-rating, per-claim self-ratings, a deterministic aggregation
 over self-rated risk, and discriminative yes/no verification asked once or $K$ times. Each is
@@ -258,7 +265,9 @@ structured self-rating; $n_3{\to}n_6$ swaps self-rated \emph{risk} for a discrim
 both generator and its own chain-judge (pure black-box): two \textbf{8B open}
 (Llama-3.1-8B-Instruct \citep{dubey2024llama3}, Qwen3-8B \citep{yang2024qwen3}), two
 \textbf{large open} (Qwen3-32B, Llama-3.3-70B,
-4-bit), and two \textbf{frontier closed} accessed via a gateway (GPT-4o, Claude-Haiku-4.5).
+4-bit), and two \textbf{frontier closed} accessed via a gateway (GPT-4o, Claude-Haiku-4.5). The gateway
+exposes these as version aliases rather than pinned snapshots, which turns out to matter
+(\S\ref{sec:inversion}); we report the run of 31 Aug 2026 and release both runs.
 The spread lets us separate judge \emph{capability} from judge \emph{calibration}.
 
 \paragraph{Datasets.} Up to twelve, spanning format (short-factual, long-form, MCQ,
@@ -309,8 +318,8 @@ Llama-3.1-8B (8B open)     & 3/11 & 1 \\
 Qwen3-8B (8B open)         & 2/11 & 1 \\
 Qwen3-32B (large open)     & 0/4  & 0 \\
 Llama-3.3-70B (large open) & 0/5  & 0 \\
-GPT-4o (closed)            & 2/4  & 0 \\
-Claude-Haiku-4.5 (closed)  & 2/3  & 1 \\
+GPT-4o (closed)            & 0/4  & 0 \\
+Claude-Haiku-4.5 (closed)  & 0/3  & 0 \\
 \bottomrule
 \end{tabular}
 \caption{\textbf{The same 38 cells viewed by target} (the data-type view, which is the sharper
@@ -319,9 +328,10 @@ one, is Table~\ref{tab:groups}). Where verification (\nyn/\nsc) beats the best b
 second column counts wins whose paired-bootstrap $95\%$ CI excludes zero
 (Appendix~\ref{app:boot}); we could only run the bootstrap on the six cells with per-item logs,
 so it is a lower bound elsewhere.
-Verification wins a minority of cells overall and \emph{none} on the strong open 32B/70B
-targets. Of the six cells we could bootstrap, only Llama/LongFact is a significant win
-(Table~\ref{tab:longfact}); Qwen/MedLFQA is a significant \emph{loss}.}
+Verification wins $5$ of $38$ cells overall and \emph{none} on the strong open 32B/70B targets
+or on either closed target---its five wins all occur on the two 8B models. Of the six cells we
+could bootstrap, only Llama/LongFact is a significant win (Table~\ref{tab:longfact});
+Qwen/MedLFQA is a significant \emph{loss}.}
 \label{tab:winrate}
 \end{table}
 
@@ -352,23 +362,22 @@ generations per item (\S\ref{sec:longfact}).}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{llccc}
 \toprule
-Target / dataset & neg. & \nverb & best base & best verify \\
+Target / dataset & neg. & \nverb & run~1 & run~2 \\
 \midrule
-\multicolumn{5}{l}{\emph{valid cells (minority $\ge 15$)}}\\
-Claude / TruthfulQA & 27 & 0.484 & 0.510 & \textbf{0.596} \\
-GPT-4o / BioASQ     & 38 & 0.346 & \textbf{0.622} & 0.466 \\
-\midrule
-\multicolumn{5}{l}{\emph{degenerate---excluded, shown for transparency}}\\
-GPT-4o / MedLFQA    & 7  & 0.337 & 0.487 & 0.675 \\
-Claude / MedLFQA    & 8  & 0.469 & 0.400 & 0.593 \\
+GPT-4o / BioASQ     & 38 & --- & 0.346 & \textbf{0.513} \\
+Claude / TruthfulQA & 27 & --- & 0.484 & \textbf{0.728} \\
+GPT-4o / TriviaQA ($\phi$) & 24 & --- & 0.500 & \textbf{0.780} \\
+Claude / TruthfulQA ($\phi$) & 27 & --- & 0.510 & \textbf{0.775} \\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Does verification rescue an \emph{inverted} baseline?} All cells in the grid
-where verbalized confidence falls below chance. Only two survive the class-balance criterion
-and \emph{they disagree}: verification recovers Claude/TruthfulQA but fails GPT-4o/BioASQ,
-where the deterministic $\phi$ recovers instead. The two cells that would support a clean
-``overconfidence'' story are both degenerate (7 and 8 negatives) and are excluded from all
-claims. We therefore treat the hypothesis as open (\S\ref{sec:inversion}).}
+\caption{\textbf{Closed-target scores are not reproducible across snapshots.} The same greedy
+($T{=}0$) estimator, the same cached answers, labels and items, scored twice through the same
+gateway two days apart. $12$ of $32$ paired comparisons moved by more than $0.10$ AUROC. Both
+cells that supported the ``inverted baseline'' story in an earlier version of this work
+(rows 1--2) moved above chance in the second run, leaving no valid inverted cell; two large
+$\phi$ movements are shown for scale. No API call failed in either run. We report run~2
+throughout and treat this as a methodological finding about closed-model benchmarking
+(\S\ref{sec:inversion}).}
 \label{tab:inversion}
 \end{table}
 
@@ -426,24 +435,24 @@ rather than null. CI widths of $0.11$--$0.30$ set the resolution of this design.
 \toprule
 data type & cells & $n_1$ & $n_2$ & $n_3$ & $n_4$ & $n_6$ & $n_7$ & verify \\
 \midrule
-General, short-form & 10 & 1 & 1 & 4 & 1 & 2 & 1 & 3/10 \\
+General, short-form & 10 & 1 & 1 & 6 & 1 & 1 & 0 & 1/10 \\
 General, long-form  &  2 & 0 & 0 & 0 & 0 & 0 & 2 & \textbf{2/2} \\
-Adversarial         &  6 & 1 & 1 & 2 & 0 & 1 & 1 & 2/6 \\
-Health, MCQ         &  8 & 5 & 1 & 2 & 0 & 0 & 0 & \textbf{0/8} \\
-Health, free-form   &  3 & 1 & 0 & 2 & 0 & 0 & 0 & \textbf{0/3} \\
+Adversarial         &  6 & 1 & 1 & 4 & 0 & 0 & 0 & \textbf{0/6} \\
+Health, MCQ         &  8 & 4 & 1 & 3 & 0 & 0 & 0 & \textbf{0/8} \\
+Health, free-form   &  3 & 2 & 0 & 1 & 0 & 0 & 0 & \textbf{0/3} \\
 Health, long-form   &  3 & 2 & 1 & 0 & 0 & 0 & 0 & \textbf{0/3} \\
 Math                &  4 & 0 & 0 & 3 & 0 & 0 & 1 & 1/4 \\
 Multi-hop           &  2 & 0 & 0 & 0 & 1 & 0 & 1 & 1/2 \\
 \midrule
-\textbf{Total}      & \textbf{38} & 10 & 4 & 13 & 2 & 3 & 6 & \textbf{9/38} \\
+\textbf{Total}      & \textbf{38} & 10 & 4 & 17 & 2 & 1 & 4 & \textbf{5/38} \\
 \bottomrule
 \end{tabular}
 \caption{\textbf{Which estimator wins, by data type}, counting cells over all six targets
 (38 non-degenerate model$\times$dataset cells; per-cell values in
 Appendix~\ref{app:bydataset}). Read by \emph{data type} rather than by model, the structure is
 sharp: verification ($n_6/n_7$) wins \textbf{both} long-form general-knowledge cells and
-\textbf{none} of the fourteen health cells, while the two baselines ($n_1$ verbalized, $n_3$
-$\phi$) take $23$ of $38$ overall. The dataset predicts the winner far better than the target
+\textbf{none} of the fourteen health cells---indeed only $5$ of $38$ overall---while the two
+baselines ($n_1$ verbalized, $n_3$ $\phi$) take $27$ of $38$. The dataset predicts the winner far better than the target
 model does.}
 \label{tab:groups}
 \end{table}
@@ -512,7 +521,7 @@ generation the answer already cost.
 Having established \emph{which family} to use, we ask which scoring rule within the
 single-answer family. Table~\ref{tab:groups} aggregates the seven rungs over the full
 $6\times12$ grid. No rule dominates: the two simplest---a global self-rating ($n_1$) and a
-deterministic aggregation over self-rated risk ($n_3$)---take $23$ of $38$ cells between them,
+deterministic aggregation over self-rated risk ($n_3$)---take $27$ of $38$ cells between them,
 and each of the remaining rungs is best somewhere; the full seven-rung ladder is in
 Appendix~\ref{app:ladder} and the large-open grid in Appendix~\ref{app:bigopen}. Three patterns
 are stable.
@@ -565,61 +574,34 @@ only option on long-form, but that it matches a $5$-sample ensemble and trails a
 while consuming a single target generation; on short QA, where resampling is cheap,
 the spectral baseline EigV ($0.798$ on Llama/TriviaQA) still leads (Table~\ref{tab:baselines}).
 
-\subsection{Does verification rescue an inverted baseline?}\label{sec:inversion}
-A natural hypothesis for \emph{when} verification helps is that it rescues targets whose own
-verbalized confidence is \emph{inverted}---AUROC below chance, i.e.\ the model is more
-confident on its wrong answers. Table~\ref{tab:inversion} collects every inverted cell in the
-grid. The evidence does not settle it. Two inverted cells survive our class-balance criterion
-and they point in opposite directions: on Claude/TruthfulQA verification recovers the signal
-($0.484\rightarrow0.596$), but on GPT-4o/BioASQ---the most strongly inverted valid cell
-($0.346$)---verification reaches only $0.466$ while the deterministic $\phi$ recovers to
-$0.622$. The two cells that would have supported a clean story, GPT-4o and Claude on MedLFQA,
-have 7 and 8 negatives respectively and are excluded under the criterion in
-\S\ref{sec:setup}; we show them in Table~\ref{tab:inversion} only for transparency and base no
-claim on them. There is also a much cheaper competitor that this framing invites and that we must report.
-If a baseline is reliably \emph{inverted}, the obvious remedy is to negate it: since negation
-maps AUROC $a\mapsto 1-a$ exactly, an inverted verbalized score of $0.35$ is worth $0.65$ to
-anyone willing to flip the sign, at one target call rather than $K$. Table~\ref{tab:negated}
-makes that comparison. It is unfavourable to verification: on GPT-4o/BioASQ the negated
-baseline reaches $0.654$ against verification's $0.466$, and on the (degenerate) GPT-4o/MedLFQA
-cell verification leads the negated baseline by only $+0.012$---not the $+0.34$ that the
-comparison against the \emph{uncorrected} score suggests. Verification is clearly ahead on just
-one cell (Claude/TruthfulQA, $+0.081$). The natural objection is that negating requires knowing
-the sign, which requires held-out labels; but so does the reliability router we sketch in
-\S\ref{sec:discussion}, so wherever that router is feasible the sign-flip is feasible and
-cheaper. We therefore do not claim verification as the remedy for overconfident targets.
-We also note a design confound that this grid cannot break: every inverted
-target here is closed and every calibrated target is open, so ``inversion'' and
-``closed-weights'' are perfectly collinear. Establishing the hypothesis would require inverted
-\emph{open} targets (or calibrated closed ones) and long-form cells with adequate negatives on
-the closed arm---neither of which our cached generations provide.
+\subsection{On inversion, and on the reproducibility of closed targets}\label{sec:inversion}
+An earlier version of this work reported that verbalized confidence is \emph{inverted} on closed
+targets---AUROC below chance, the model more confident on its wrong answers---and asked whether
+verification rescues it. We withdraw that finding, and the reason is worth reporting.
 
-\begin{table}[t]
-\centering\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{llccc}
-\toprule
-Target / dataset & neg. & $1-\nverb$ & best verify & diff. \\
-\midrule
-\multicolumn{5}{l}{\emph{valid cells (minority $\ge 15$)}}\\
-GPT-4o / BioASQ     & 38 & \textbf{0.654} & 0.466 & $-0.188$ \\
-Claude / TruthfulQA & 27 & 0.516 & \textbf{0.596} & $+0.081$ \\
-\midrule
-\multicolumn{5}{l}{\emph{degenerate---excluded, shown for transparency}}\\
-GPT-4o / MedLFQA    & 7  & 0.663 & 0.675 & $+0.012$ \\
-Claude / MedLFQA    & 8  & 0.531 & 0.593 & $+0.062$ \\
-\bottomrule
-\end{tabular}
-\caption{\textbf{The cheap control: simply negating verbalized confidence.} Because negating a
-score maps AUROC $a \mapsto 1-a$ exactly, an inverted baseline is worth $1-\nverb$ to anyone
-willing to flip its sign---at one target call rather than $K$. On the two valid inverted cells
-the comparison splits, and the loss is larger than the win. On the degenerate GPT-4o/MedLFQA
-cell---which an earlier version of this work reported as a $+0.34$ gain over verbalized
-confidence---verification's margin over the negated baseline is $+0.012$, i.e.\ essentially
-nothing. We report this because the correct comparison for ``verification rescues an
-overconfident target'' is against the sign-flip, not against the uncorrected score.}
-\label{tab:negated}
-\end{table}
+We scored the closed targets twice, two days apart, through the same gateway with the same cached
+answers, the same labels and the same items. The rungs $n_1$, $n_3$ and $n_6$ are greedy
+($T{=}0$) and should be reproducible exactly. They were not: $12$ of $32$ paired comparisons
+moved by more than $0.10$ AUROC. Both cells that carried the inversion story moved out of it---
+GPT-4o/BioASQ from $0.346$ to $0.513$ and Claude/TruthfulQA from $0.484$ to $0.728$---leaving
+\emph{no} valid inverted cell in the grid. No API call failed in either run (the client logs zero
+give-ups), the item sets and class balances are identical, and a live probe parses cleanly, so
+this is not a harness fault. The most likely explanation is that \texttt{openai/gpt-4o} and
+\texttt{anthropic/claude-haiku-4.5} are \emph{aliases} that were re-pointed to newer snapshots
+between the two runs.
+
+We therefore report the second run throughout, and we draw a methodological conclusion rather
+than a scientific one: \textbf{closed-target uncertainty results are not reproducible unless the
+provider's snapshot identifier is pinned and recorded}. Benchmarks that report a single
+closed-model number---ours included, before this check---are reporting a measurement whose
+referent can change without notice. We recommend that pure-black-box evaluations record the
+resolved model version with every cell, and we release both runs so the discrepancy can be
+inspected.
+
+What survives is a cleaner negative result about the closed targets. In the second run
+$\phi$ ($n_3$) is the best estimator on six of the seven valid closed cells ($0.612$--$0.780$),
+and verification wins \emph{none} of them. Together with $0/4$ on Qwen3-32B and $0/5$ on
+Llama-3.3-70B, all five of verification's wins in the grid occur on the two 8B targets.
 
 \subsection{The latency trade}
 \begin{table}[t]
@@ -679,10 +661,10 @@ Target & Dataset & neg. & \nverb & \nphi & \nyn & \nsc \\
 \end{tabular}
 \caption{\textbf{Closed-target grid} (AUROC; ``neg.'' is the minority-class count). Rows below
 each rule are \textbf{degenerate} (minority $<15$): they are shown in grey for transparency and
-excluded from every claim and from the win-rates in Table~\ref{tab:winrate}. Among valid cells
-verification wins $2/4$ (GPT-4o) and $2/3$ (Claude), and only Claude/TruthfulQA exceeds the
-standard error. Note GPT-4o/BioASQ: verbalized confidence is strongly inverted ($0.346$)
-yet verification does \emph{not} recover it---$\phi$ does (\S\ref{sec:inversion}).}
+excluded from every claim and from the win-rates in Table~\ref{tab:winrate}. Among valid cells verification wins
+$0/4$ (GPT-4o) and $0/3$ (Claude): $\phi$ is best on six of the seven, at $0.612$--$0.780$.
+These are the second-run values; the first run gave systematically different numbers on the same
+greedy estimators, which we report as a reproducibility finding in \S\ref{sec:inversion}.}
 \label{tab:closed}
 \end{table}
 
@@ -695,10 +677,8 @@ beats even the multi-sample baselines (Table~\ref{tab:baselines}: best baseline 
 $0.62$/$0.53$). Chain inspection explains the open-model behavior: on MedLFQA the 8B per-claim
 self-rated risk is uninformative (mean risk $0.385$ for both correct and incorrect answers) and
 grounding is a near-constant---so $\phi$ collapses, while a \emph{holistic} verbalized judgment
-still separates. What changes on the closed targets is not the chain but the \emph{baseline}:
-the closed model's holistic self-rating inverts (overconfident on errors), and the discriminative
-per-claim vote, which asks a different question than ``how sure are you,'' is no longer dragged
-down with it. The multi-sample baselines (Table~\ref{tab:baselines}) confirm the regime split:
+still separates. On the closed targets the same ordering holds and is if anything sharper: $\phi$ is best on six
+of seven valid cells, and neither discriminative rung wins any. The multi-sample baselines (Table~\ref{tab:baselines}) confirm the regime split:
 strong on short QA (they resample the target $N{=}5\times$), and competitive on long-form
 only once $N{=}10$ full resamples are paid.
 
@@ -762,9 +742,9 @@ We had expected a second regime, \textbf{overconfident targets}, where a below-c
 AUROC signals that the self-rating is anti-correlated with correctness. Our data cannot support
 that claim (\S\ref{sec:inversion}), and we flag two reasons it remains attractive but unproven.
 First, the obvious control is unfavourable: if verbalized confidence is \emph{reliably}
-inverted, negating it is a one-call fix, and against that control (Table~\ref{tab:negated})
-verification leads on only one of the four inverted cells---losing the one valid strongly-inverted
-cell by $0.188$. Second, ``inverted'' and ``closed-weights'' are perfectly
+inverted, negating it is a one-call fix. In the run we now report there is no valid inverted
+cell at all, so the question does not arise; the earlier finding rested on scores we can no
+longer reproduce (\S\ref{sec:inversion}). Second, ``inverted'' and ``closed-weights'' are perfectly
 confounded in this grid. A deployable router of the form ``measure verbalized reliability on
 held-out data, escalate where it is poor'' is therefore a hypothesis our results motivate but do
 not establish; testing it needs inverted open targets and long-form closed cells with adequate
@@ -790,6 +770,11 @@ sizes, so we offer a selection rule between families rather than a new estimator
 harness, every per-item score, and the per-cell class balances needed to check these claims.
 
 \section*{Limitations}
+Our closed-target numbers are a snapshot, not a stable measurement. We scored GPT-4o and
+Claude-Haiku twice through the same gateway two days apart and $12$ of $32$ greedy comparisons
+moved by more than $0.10$ AUROC, which removed an inversion finding we had drawn from the first
+run. We report the second run and release both, but a third run could differ again, and no
+closed-target claim here should be treated as more precise than that.
 \paragraph{Statistical power.} Every CoI number is \emph{single-seed}, while the multi-sample
 baselines we quote are 3-seed means---so Table~\ref{tab:baselines} is not a symmetric
 comparison. The 8B cells use seed 1 and the large-open and closed cells seed 0, so the two
@@ -816,9 +801,9 @@ datasets with cached generations, not the full twelve, so LongFact and multi-hop
 only on 8B. The long-form and overconfidence conditions therefore never co-occur in a single
 non-degenerate cell. Moreover every inverted target in our grid is closed and every calibrated
 one is open, so inversion and closed-weights are collinear and we cannot attribute the effect to
-either. We do compare against the obvious cheap control for an inverted baseline---\emph{negated}
-verbalized confidence (Table~\ref{tab:negated})---and it is unfavourable to verification, which
-is why we make no recommendation on inversion grounds.
+either. We make no claim about inverted baselines: the two cells that were inverted in our first run are
+not inverted in the run we report, and we could not reproduce closed-target scores across
+provider snapshots (\S\ref{sec:inversion}).
 
 \paragraph{Labels.} Correctness comes from an LLM judge (Qwen3-4B; letter-match for MCQ) that we
 did not validate against human annotation, and LongFact factuality from a 70B judge without
@@ -896,7 +881,7 @@ Table~\ref{tab:bigopen} gives the AUROC grid for the strong open targets (4-bit)
 datasets with cached generations. Verification ($n_6/n_7$) wins none of these cells: $\phi$
 ($n_3$) leads on general/adversarial/math, and verbalized ($n_1$) on the health cells. MedLFQA
 stays above chance for Llama-70B ($0.635$, $n_1$) and is degenerate for Qwen-32B---the contrast
-with the \emph{inverted} closed cells (Table~\ref{tab:inversion}) is examined in
+with the closed-target reproducibility check (Table~\ref{tab:inversion}) is examined in
 \S\ref{sec:results}.
 \begin{table}[t]
 \centering\small

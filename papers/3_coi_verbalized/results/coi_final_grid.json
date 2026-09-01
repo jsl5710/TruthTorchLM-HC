@@ -475,7 +475,28 @@
     "n6": 0.6189088983050848,
     "n7": 0.6538665254237289
    },
-   "baselines": {},
+   "baselines": {
+    "LexicalSimilarity_N5": 0.8175,
+    "LexicalSimilarity_N10": 0.8422,
+    "DiscreteSemanticEntropy_N5": 0.5073,
+    "DiscreteSemanticEntropy_N10": 0.5383,
+    "EigV_N5": 0.7391,
+    "EigV_N10": 0.7701,
+    "NumSemanticSetUncertainty_N5": 0.5072,
+    "NumSemanticSetUncertainty_N10": 0.5384,
+    "EccentricityConfidence_N5": 0.7262,
+    "EccentricityConfidence_N10": 0.7421,
+    "EccentricityUncertainty_N5": 0.639,
+    "EccentricityUncertainty_N10": 0.6901,
+    "MatrixDegreeConfidence_N5": 0.8088,
+    "MatrixDegreeConfidence_N10": 0.8101,
+    "MatrixDegreeUncertainty_N5": 0.7386,
+    "MatrixDegreeUncertainty_N10": 0.7736,
+    "KernelLanguageEntropy_N5": 0.5138,
+    "KernelLanguageEntropy_N10": 0.5874,
+    "SumEigenUncertainty_N5": 0.7391,
+    "SumEigenUncertainty_N10": 0.7701
+   },
    "source": {
     "n1": "results_coi_gen",
     "n2": "results_coi_rungs2/gen",
@@ -988,7 +1009,28 @@
     "n6": 0.5444444444444445,
     "n7": 0.5301234567901235
    },
-   "baselines": {},
+   "baselines": {
+    "LexicalSimilarity_N5": 0.7072,
+    "LexicalSimilarity_N10": 0.764,
+    "DiscreteSemanticEntropy_N5": 0.4926,
+    "DiscreteSemanticEntropy_N10": 0.4926,
+    "EigV_N5": 0.6899,
+    "EigV_N10": 0.7294,
+    "NumSemanticSetUncertainty_N5": 0.4926,
+    "NumSemanticSetUncertainty_N10": 0.4926,
+    "EccentricityConfidence_N5": 0.6459,
+    "EccentricityConfidence_N10": 0.7284,
+    "EccentricityUncertainty_N5": 0.7185,
+    "EccentricityUncertainty_N10": 0.798,
+    "MatrixDegreeConfidence_N5": 0.6943,
+    "MatrixDegreeConfidence_N10": 0.7136,
+    "MatrixDegreeUncertainty_N5": 0.6879,
+    "MatrixDegreeUncertainty_N10": 0.7284,
+    "KernelLanguageEntropy_N5": 0.5178,
+    "KernelLanguageEntropy_N10": 0.5477,
+    "SumEigenUncertainty_N5": 0.6899,
+    "SumEigenUncertainty_N10": 0.7294
+   },
    "source": {
     "n1": "results_coi_gen",
     "n2": "results_coi_rungs2/gen",
@@ -1339,10 +1381,10 @@
    "minority": 24,
    "valid": true,
    "auroc": {
-    "n1": 0.512,
-    "n3": 0.5,
-    "n6": 0.5253,
-    "n7": 0.5353
+    "n1": 0.6045,
+    "n3": 0.78,
+    "n6": 0.6688,
+    "n7": 0.6247
    },
    "baselines": {},
    "source": {
@@ -1364,10 +1406,10 @@
    "minority": 40,
    "valid": true,
    "auroc": {
-    "n1": 0.5079,
-    "n3": 0.5112,
-    "n6": 0.5304,
-    "n7": 0.5135
+    "n1": 0.5572,
+    "n3": 0.6119,
+    "n6": 0.5323,
+    "n7": 0.4661
    },
    "baselines": {},
    "source": {
@@ -1389,10 +1431,10 @@
    "minority": 16,
    "valid": true,
    "auroc": {
-    "n1": 0.591,
-    "n3": 0.5452,
-    "n6": 0.4711,
-    "n7": 0.521
+    "n1": 0.6187,
+    "n3": 0.7034,
+    "n6": 0.4965,
+    "n7": 0.6672
    },
    "baselines": {},
    "source": {
@@ -1414,10 +1456,10 @@
    "minority": 38,
    "valid": true,
    "auroc": {
-    "n1": 0.346,
-    "n3": 0.6222,
-    "n6": 0.4571,
-    "n7": 0.4659
+    "n1": 0.5132,
+    "n3": 0.4851,
+    "n6": 0.4129,
+    "n7": 0.4481
    },
    "baselines": {},
    "source": {
@@ -1439,10 +1481,10 @@
    "minority": 7,
    "valid": false,
    "auroc": {
-    "n1": 0.3372,
-    "n3": 0.487,
-    "n6": 0.5245,
-    "n7": 0.6748
+    "n1": 0.4386,
+    "n3": 0.6284,
+    "n6": 0.5699,
+    "n7": 0.508
    },
    "baselines": {},
    "source": {
@@ -1464,10 +1506,10 @@
    "minority": 6,
    "valid": false,
    "auroc": {
-    "n1": 0.6007,
-    "n3": 0.4948,
-    "n6": 0.6435,
-    "n7": 0.3779
+    "n1": 0.4907,
+    "n3": 0.6562,
+    "n6": 0.5052,
+    "n7": 0.5307
    },
    "baselines": {},
    "source": {
@@ -1489,10 +1531,10 @@
    "minority": 32,
    "valid": true,
    "auroc": {
-    "n1": 0.5136,
-    "n3": 0.5709,
-    "n6": 0.5875,
-    "n7": 0.5688
+    "n1": 0.6175,
+    "n3": 0.755,
+    "n6": 0.5538,
+    "n7": 0.6821
    },
    "baselines": {},
    "source": {
@@ -1514,10 +1556,10 @@
    "minority": 27,
    "valid": true,
    "auroc": {
-    "n1": 0.4844,
-    "n3": 0.5096,
-    "n6": 0.4985,
-    "n7": 0.5963
+    "n1": 0.7276,
+    "n3": 0.775,
+    "n6": 0.5018,
+    "n7": 0.6685
    },
    "baselines": {},
    "source": {
@@ -1539,60 +1581,10 @@
    "minority": 19,
    "valid": true,
    "auroc": {
-    "n1": 0.5267,
-    "n3": 0.6583,
-    "n6": 0.5104,
-    "n7": 0.5038
-   },
-   "baselines": {},
-   "source": {
-    "n1": "results_coi_closed",
-    "n3": "results_coi_closed",
-    "n6": "results_coi_closed",
-    "n7": "results_coi_closed"
-   }
-  },
-  {
-   "model": "jhu-claude-haiku-4.5",
-   "model_label": "Claude-Haiku",
-   "model_class": "closed",
-   "dataset": "medlfqa",
-   "dataset_label": "MedLFQA",
-   "group": "health/long",
-   "n_items": 150,
-   "n_positive": 142,
-   "minority": 8,
-   "valid": false,
-   "auroc": {
-    "n1": 0.4692,
-    "n3": 0.3996,
-    "n6": 0.3873,
-    "n7": 0.5929
-   },
-   "baselines": {},
-   "source": {
-    "n1": "results_coi_closed",
-    "n3": "results_coi_closed",
-    "n6": "results_coi_closed",
-    "n7": "results_coi_closed"
-   }
-  },
-  {
-   "model": "jhu-claude-haiku-4.5",
-   "model_label": "Claude-Haiku",
-   "model_class": "closed",
-   "dataset": "gsm8k",
-   "dataset_label": "GSM8K",
-   "group": "math",
-   "n_items": 150,
-   "n_positive": 146,
-   "minority": 4,
-   "valid": false,
-   "auroc": {
-    "n1": 0.8365,
-    "n3": 0.7277,
-    "n6": 0.4221,
-    "n7": 0.5274
+    "n1": 0.5763,
+    "n3": 0.6894,
+    "n6": 0.5488,
+    "n7": 0.548
    },
    "baselines": {},
    "source": {
